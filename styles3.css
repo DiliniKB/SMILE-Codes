@@ -146,9 +146,10 @@
 	text-align: left;
 	font-size: 20px;
 	font-family: Actor;
-	top:11%;
+	top:6.75%;
 	float:left;
 	position: absolute;
+	padding: 2% 2%;
 }
 
 #About{
@@ -156,7 +157,7 @@
 	width:16%;
 }
 #Event{
-	left:46.5%;
+	left:47%;
 	width:17%;
 }
 #Donation{
@@ -234,6 +235,44 @@
 }
 
 #tpnum{
-	left:25.5%;
-	top:91.5%;
+	left:23.5%;
+	top:86.5%;
 }
+
+/*dropdown menus*/
+.dropdown-content {
+	display: none;
+	position: absolute;
+	font-family: Actor;
+	background-color: #f1f1f1;
+	min-width: 100px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+	text-align: center;
+	font-size: 15px;
+	width: 13ch;
+}
+  
+.dropdown-content a {
+	color: black;
+	padding: 8px;
+	text-decoration: none;
+	display: block;
+}
+  
+.dropdown-content a:hover {color: #04AA6D;}
+  
+.dropdown:hover .dropdown-content {display: block;}
+
+#menu1{
+	left:63%;
+	top:16%;
+	float:left;
+}
+
+#menu2{
+	left:46.5%;
+	top:16%;
+	float: left;
+}
+
