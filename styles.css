@@ -68,7 +68,6 @@
 	width:5vw;
 	height:5vw;
 	position:absolute;
-	filter:blur(10px);
     left: 35%;
     top: 65%;
 
@@ -79,9 +78,9 @@
 	width:6vw;
 	height:6vw;
 	position:absolute;
-	left:17%;
+	left:15%;
 	top:40%;
-	filter:blur(10px);
+	
 }
 .Oval3{ 
 	border-radius:500px;
@@ -146,9 +145,9 @@
 	text-align: left;
 	font-size: 20px;
 	font-family: Actor;
-	top:6.75%;
+	top:5%;
 	float:left;
-	position: absolute;
+	position: fixed;
 	padding: 2% 2%;
 }
 
@@ -180,31 +179,40 @@
 /*glassbox*/
 
 .BlurRectRect { 
-	box-shadow:0px 70px 40px rgba(74, 85, 188, 0.1);
-	background-image:linear-gradient(0deg, rgba(255, 255, 255, 0) 0%,rgba(255, 255, 255, 0.5) 100%) ;
-	border-top-left-radius:20px;
-	border-top-right-radius:20px;
-	border-bottom-left-radius:20px;
-	border-bottom-right-radius:20px;
-	width:30vw;
-	height:22vw;
-	position:absolute;
-	left:12%;
-	top:35%;
-	font-family: Actor;
-	font-size: 20px;
-	padding: 5%;
-	color: black;
+	position: absolute;
+    width: 437px;
+    height: 582px;
+    left: 367px;
+    top: 276px;
+
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.0001) 4.13%, rgba(255, 255, 255, 0.5) 80.29%);
+    backdrop-filter: blur(19.028px);
+    /* Note: backdrop-filter has minimal browser support */
+
+    border-radius: 20px;
+
 }
 .BlurRectOval { 
-	box-shadow:0px 70px 40px rgba(74, 85, 188, 0.1);
-	background-image:linear-gradient(0deg, rgba(255, 255, 255, 0.1) 0%,rgba(255, 255, 255, 0.6) 100%) ;
-	width:30vw;
-	height:22vw;
-	position:absolute;
-	left:12%;
-	top:35%;
-	border-radius:20px;
+	position: absolute;
+    left: 19.11%;
+    right: 58.35%;
+    top: 26%;
+    bottom: 20.56%;
+
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.14) 4.13%, rgba(255, 255, 255, 0.6) 80.29%);
+    mix-blend-mode: normal;
+    border: 1px solid #FFFFFF;
+    box-shadow: 0px 70px 40px rgba(74, 85, 188, 0.137074);
+    backdrop-filter: blur(19.028px);
+    /* Note: backdrop-filter has minimal browser support */
+	align-items: center;
+    border-radius: 20px;
+}
+#quote{
+	font-family: Delius, Actor;
+	font-size: 20px;
+	padding: 20px;
+	text-align: center;
 }
 /*image*/
 #image{
