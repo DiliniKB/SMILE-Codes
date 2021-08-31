@@ -12,8 +12,10 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="styles.css">
         <link rel="stylesheet" href="styleslog.css"> 
-        <link rel="stylesheet" href="stylessignup.css"           
+        <link rel="stylesheet" href="stylessignup.css">
+                   
     </head>
+
     <body>
         <div class="bg1" id="background">
             <div class="MainOval"></div>
@@ -22,59 +24,57 @@
             <div class="Oval3"></div>
         </div>
         
-        <img src="images/logo2.png" id="Logo2">
-        
-
-        <a class="btn " id="login" href="login.html">Login</a>
-        <a class="btn" id="signup" href="signup.html">Sign Up</a>
-        
-        <div class="txt" id="about">About</div>
-        
-        <div class=contain1></div>
+        <div class=header>
+            <img src="images/logo2.png" id="Logo">
+            <div class="txt" id="about">About</div>
+            
             <div class=dropdown>
-                <div class="txt" id="Donation">Donation</div>
-                <!--<img src="images/CaretDownCaretDown.png" class="menuicon" id="menuicon2">-->
-                <div class="dropdown-content" id="menu1">
-                    <a href="#">Medical</a>
-                    <a href="#">Emergency</a>
-                    <a href="#">Education</a>
-                    <a href="#">Animal Care</a>
-                    <a href="#">Children</a>
-                    <a href="#">Senior Care</a>
-                </div>
-            </div>
-        </div>
-        
-        
-        
-        <div class=contain2></div>
-            <div class=dropdown>
-                <div class="txt" id="Event">Event</div>
+                <div class="txt" id="Event">Event
                 <!--<img src="images/CaretDownCaretDown.png" class="menuicon" id="menuicon1">-->
-                <div class="dropdown-content" id="menu2">
-                    <a href="#">Environmental</a>
-                    <a href="#">Medical</a>
-                    <a href="#">Helping Hands</a>
-                    <a href="#">Other</a>
+                    <div class="dropdown-content" id="menu">
+                        <a href="#">Environmental</a>
+                        <a href="#">Medical</a>
+                        <a href="#">Helping Hands</a>
+                        <a href="#">Other</a>
+                    </div>
                 </div>
             </div>
+
+            <div class=dropdown>
+                <div class="txt" id="Donation">Donation
+                <!--<img src="images/CaretDownCaretDown.png" class="menuicon" id="menuicon2">-->
+                    <div class="dropdown-content" id="menu">
+                        <a href="#">Medical</a>
+                        <a href="#">Emergency</a>
+                        <a href="#">Education</a>
+                        <a href="#">Animal Care</a>
+                        <a href="#">Children</a>
+                        <a href="#">Senior Care</a>
+                    </div>
+                </div>
+            </div>  
+
+
+            <a class="btn " id="login" href="login.html">Login</a>
+            <a class="btn" id="signup" href="signup.html">Sign Up</a>
+            
         </div>
+
         
 
         <div class="BlurRectOval" id="form">
             <p class="FormTopic">Signup</p>
-            <form action="action_page.php" method="post">
-                <div id="name">
-                    <input  class="FormItems FormItemsFont" type="text" placeholder="FirstName" name="fname" required>
-                    <input class="FormItemsFont FormItems"  type="text" placeholder="LastName" name="lname" required>
+            <form action="action_page.php" method="post" style="margin:0;">
+                <div id="namebox">
+                    <input class="FormItems FormItemsFont" id="name" type="text" placeholder="FirstName" name="fname" required>
+                    <input class="FormItemsFont FormItems" id="name" type="text" placeholder="LastName" name="lname" required>
                 </div>
-                <input  class="FormItems FormItemsFont" type="email" placeholder="Email" name="email" required>
-                <input  class="FormItems FormItemsFont" type="text" placeholder="NIC" name="NIC" required>
-                <input  class="FormItems FormItemsFont" type="date" placeholder="Date of Birth" name="dob" required>
-                <input  class="FormItems FormItemsFont" type="text" placeholder="Contact Number" name="tpnum" required>
+                <input class="FormItems FormItemsFont" type="email" placeholder="Email" name="email" required>
+                <input class="FormItems FormItemsFont" type="text" placeholder="NIC" name="NIC" required>
+                <input class="FormItems FormItemsFont" type="date" placeholder="Date of Birth" name="dob" required>
+                <input class="FormItems FormItemsFont" type="text" placeholder="Contact Number" name="tpnum" required>
                 <input class="FormItemsFont FormItems" type="password" placeholder="Password" name="psw" required>
                 <input class="FormItemsFont FormItems" type="password" placeholder="Confirm Password" name="psw" required>
-
                 <button id="enter" type="submit">ENTER</button>
                      
             </form>         
