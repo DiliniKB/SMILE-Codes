@@ -21,55 +21,54 @@
             <div class="Oval3"></div>
         </div>
         
-        <img src="images/logo2.png" id="Logo2">
-        
-
-        <a class="btn " id="login" href="login.html">Login</a>
-        <a class="btn" id="signup" href="signup.html">Sign Up</a>
-        
-        <div class="txt" id="about">About</div>
-        
-        <div class=contain1></div>
+        <div class=header>
+            <img src="images/logo2.png" id="Logo">
+            <div class="txt" id="about">About</div>
+            
             <div class=dropdown>
-                <div class="txt" id="Donation">Donation</div>
-                <!--<img src="images/CaretDownCaretDown.png" class="menuicon" id="menuicon2">-->
-                <div class="dropdown-content" id="menu1">
-                    <a href="#">Medical</a>
-                    <a href="#">Emergency</a>
-                    <a href="#">Education</a>
-                    <a href="#">Animal Care</a>
-                    <a href="#">Children</a>
-                    <a href="#">Senior Care</a>
-                </div>
-            </div>
-        </div>
-        
-        
-        
-        <div class=contain2></div>
-            <div class=dropdown>
-                <div class="txt" id="Event">Event</div>
+                <div class="txt" id="Event">Event
                 <!--<img src="images/CaretDownCaretDown.png" class="menuicon" id="menuicon1">-->
-                <div class="dropdown-content" id="menu2">
-                    <a href="#">Environmental</a>
-                    <a href="#">Medical</a>
-                    <a href="#">Helping Hands</a>
-                    <a href="#">Other</a>
+                    <div class="dropdown-content" id="menu">
+                        <a href="#">Environmental</a>
+                        <a href="#">Medical</a>
+                        <a href="#">Helping Hands</a>
+                        <a href="#">Other</a>
+                    </div>
                 </div>
             </div>
+
+            <div class=dropdown>
+                <div class="txt" id="Donation">Donation
+                <!--<img src="images/CaretDownCaretDown.png" class="menuicon" id="menuicon2">-->
+                    <div class="dropdown-content" id="menu">
+                        <a href="#">Medical</a>
+                        <a href="#">Emergency</a>
+                        <a href="#">Education</a>
+                        <a href="#">Animal Care</a>
+                        <a href="#">Children</a>
+                        <a href="#">Senior Care</a>
+                    </div>
+                </div>
+            </div>  
+
+
+            <a class="btn " id="login" href="login.html">Login</a>
+            <a class="btn" id="signup" href="signup.html">Sign Up</a>
+            
         </div>
-        
 
         <div class="BlurRectOval" id="form">
             <p class="FormTopic">Login</p>
-            <form action="action_page.php" method="post">                             
+            <form action="action_page.php" method="post" style="margin: 0;">                             
                 <input class="FormItems FormItemsFont" id="fname" type="text" placeholder="Username or Email" name="uname" required>
                 <input class="FormItemsFont FormItems" id="fname" type="password" placeholder="Password" name="psw" required>
+                <a id="passwordReset" href ="#">Forgot Password</a>
                 <label id="rememberMe">
                     <input type="checkbox" checked="checked" name="remember"> Remember me
                 </label>
+
                 <button id="enter" type="submit">ENTER</button>
-                <a id="passwordReset" href ="#">Forgot Password</a>
+            
                 <p id="or">Or</p>
                 <a href="#" class="fa fa-facebook"></a>
                 <a href="#" class="fa fa-twitter"></a>
