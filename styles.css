@@ -29,20 +29,6 @@
     box-sizing: border-box;
     /* width: fit-content; */
 }
-.wrapper {
-    display: grid;
-    grid-template-columns: auto auto auto auto auto auto auto;
-    grid-gap: 10px;
-    background-color: #2196F3;
-    padding: 10px;
-    justify-content: center;
-}
-
-.WebContainer{
-    width:100%;
-    min-width:1000px;
-    height:auto;
-}
 .bg1{
     background-color:rgba(255, 255, 255, 1);
 	width:100%;
@@ -51,17 +37,15 @@
 	top: 0vw;
 	left: 0vw;
 }
-.MainOval { 
+.MainOval {
 	border-radius:500px;
 	width: 100vw;
 	height: 100vw;
-	left: -70vw;;
+	left: -60vw;
 	top:10%;
 	position: relative;
-
 	background: radial-gradient(77.13% 77.13% at 45% 25%, #FFD9D7 0%, #FFFFFF 100%);
 	filter: blur(50px);
-	
 }
 .Oval1{
     border-radius:500px;
@@ -92,14 +76,14 @@
 	left:55%;
 	top:20%;
 }
-#Logo { 
+#Logo {
 	position: absolute;
-	width:18%;
+	width: 15%;
 	height: auto;
 	Top: 3%;
-	left:8%;
+	left: 3%;
 	float: left;
-    grid-column: 1/3;
+	grid-column: 1/3;
 }
 .btn {
 	background: #000000;
@@ -111,7 +95,7 @@
 	display: inline-block;
 	transition: all 0.3s ease 0s;
     text-decoration: none;
-    font-family: Actor;
+    font-family: 'Sora', sans-serif;;
     position: absolute;
 	font-size: 15px;
 	overflow: hidden;
@@ -126,18 +110,18 @@
 	-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
 	transition: all 0.3s ease 0s;
     text-decoration: none;
-    font-family: Actor;
+    font-family: 'Sora', sans-serif;;
 	float: left;
 	top: 9%;
 }
 
 #login{
     left:78%;
-    top:8.5%;
+    top:7%;
 }
 #signup{
     left:88%;
-    top:8.5%;
+    top:7%;
 }
 
 /* Header menus*/
@@ -149,7 +133,7 @@
 .txt{
 	text-align: left;
 	font-size: 20px;
-	font-family: Actor;
+	font-family: 'Sora', sans-serif;
 	/* top:5%; */
 	float:left;
 	width: fit-content;
@@ -160,43 +144,39 @@
 
 #About{
 	position:absolute;
-	left:32%;
+	left: 20%;
 	width:auto;
 	top: 5%;
 }
 #Event{
 	position:absolute;
-	left:47%;
+	left: 30%;
 	width:auto;
 	top: 5%;
 }
 #Donation{
 	position:absolute;
-	left:62%;
+	left: 40%;
 	width:auto;
 	top: 5%;
 }
 .menuicon{
 	position: absolute;
-	width: 2%;
-	top:10.5%;
+	width: 20px;
 	height: auto;
 	float:left;
+	right:1%;
+	
 }
-#menuicon1{
-	left:51%;
-}
-#menuicon2{
-	left:69%;
-}
+
 /*glassbox*/
 
 .BlurRectRect { 
 	position: absolute;
-    width: 437px;
-    height: 582px;
-    left: 367px;
-    top: 276px;
+    width: fit-content;
+    height: auto;
+    left: 32%;
+    top: 25%;
 
     background: linear-gradient(90deg, rgba(255, 255, 255, 0.0001) 4.13%, rgba(255, 255, 255, 0.5) 80.29%);
     backdrop-filter: blur(19.028px);
@@ -207,15 +187,15 @@
 }
 .BlurRectOval {
 	position: absolute;
-	width:fit-content;
+	width: 20%;
 	left: 20%;
-	top: 26%;
+	top: 30%;
 	max-width:40vw;
-	background: linear-gradient(90deg, rgba(255, 255, 255, 0.14) 4.13%, rgba(255, 255, 255, 0.6) 80.29%);
+	background: linear-gradient(90deg, rgb(255 255 255 / 21%) 4.13%, rgba(255, 255, 255, 0.6) 80.29%);
 	mix-blend-mode: normal;
 	border: 1px solid #FFFFFF;
-	box-shadow: 0px 70px 40px rgba(74, 85, 188, 0.137074);
-	backdrop-filter: blur(19.028px);
+	/* box-shadow: 0px 70px 40px rgb(74 85 188 / 25%); */
+	backdrop-filter: blur(4px);
     /* Note: backdrop-filter has minimal browser support */
 	align-items: center;
 	border-radius: 20px;
@@ -251,7 +231,7 @@
 #DonateUs{
 	top:90%;
 	position:absolute;
-	left: 18%;
+	left: 10%;
 	bottom: auto;
 }
 
@@ -259,21 +239,21 @@
 	position:absolute;
 	max-width: 2%;
 	height: auto;
-	bottom: 5.5%;
-	left: 30%;	
+	top: 91%;
+	left: 25%;
 }
 
 #tpnum{
 	position:absolute;
-	bottom: 2%;
-	left: 30.5%;
+	top: 87%;
+	left: 25.5%;
 }
 
 /*dropdown menus*/
 .dropdown-content {
 	display: none;
 	position: absolute;
-	font-family: Actor;
+	font-family: 'Sora', sans-serif;
 	background-color: #ffffff;
 	min-width: 100px;
 	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
