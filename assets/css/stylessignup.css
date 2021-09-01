@@ -1,0 +1,16 @@
+.BlurRectOval { 
+    top:22.5%;
+    padding-right:3%;
+    padding-left: 3%;
+	
+}
+#name{
+    display:inline;
+    max-width: 47%;
+    /* margin: auto; */
+    /* position: absolute; */
+}
+#namebox{
+	text-align:center;
+	max-width:min-content;
+}

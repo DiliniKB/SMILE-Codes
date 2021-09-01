@@ -1,0 +1,146 @@
+#Logo2{
+    position: relative;
+	width:15%;
+	height: auto;
+	left:8%;
+	float: left;
+}
+#form{
+    font-family: Actor;
+    /* justify-content: center; */
+    /* width: fit-content; */
+    /* margin: 0 auto; */
+}
+
+.BlurRectOval {
+	position: absolute;
+	background: linear-gradient(90deg, rgba(255, 255, 255, 0.14) 4.13%, rgba(255, 255, 255, 0.6) 80.29%);
+	mix-blend-mode: normal;
+	border: 1px solid #FFFFFF;
+	box-shadow: 0px 70px 40px rgba(74, 85, 188, 0.137074);
+	backdrop-filter: blur(19.028px);
+	border-radius: 20px;
+	padding: 1.5%;
+	margin: 0 auto;
+	margin-bottom:0;
+}
+.form{
+    align-items: center;
+    margin: 0 auto;
+}
+.FormTopic{
+    max-width: fit-content;
+    font-family: delius;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 2%;
+    margin-bottom: 4%;
+}
+.FormItemsFont{
+    font-family: delius;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 29px;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.5);
+    max-width: 100%;
+    justify-content: center;
+}
+.FormItems{
+    background: rgba(196, 196, 196, 0.25);
+    border: 1px solid #00000061;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    margin:  0 auto;
+    margin-bottom: 4%;
+}
+#enter{
+    background-color: #000000a2;
+    font-family: actor;
+    font-size: 15px;
+    color: #FFFFFF;
+    text-align: center;
+    display: block;
+    padding: 6px;
+    border-style: none;
+    border-radius: 10%;
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+}
+#rememberMe{
+    font-family: delius;
+    font-size: 15px;
+    padding-bottom: 5px;
+    display: flex;
+    /* flex-direction: row; */
+    width: fit-content;
+    padding-left: 20%;
+}
+#passwordReset{
+    font-family: actor;
+    color: rgb(37, 79, 158);
+    font-size: 15px;
+    text-align: center;
+    padding-top: -1%;
+    padding-bottom: 3%;
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    margin: 0 auto;
+    align-content: center;
+}
+#or{
+    font-family: actor;
+    font-size: 15px;
+    text-align: center;
+    padding-top: 5%;
+    padding-bottom: 0px;
+    /* margin: 7px; */
+    font-weight: bold;
+    width: fit-content;
+    margin: 0 auto;
+    margin-top: 2%;
+}
+.fa {
+    padding: 10px;
+    font-size: 30px;
+    width: 50px;
+    height:50px;
+    text-align: center;
+    text-decoration: none;
+    margin: 0px 0px;
+    border-radius: 50%;
+
+  }
+  
+  .fa:hover {
+      opacity: 0.7;
+  }
+  
+  .fa-facebook {
+    background: #3B5998;
+    color: white;
+  }
+  
+  .fa-twitter {
+    background: #55ACEE;
+    color: white;
+  }
+  
+  .fa-google {
+    background: #dd4b39;
+    color: white;
+  }
+  
+  .fa-linkedin {
+    background: #007bb5;
+    color: white;
+  }
+
+
+  
