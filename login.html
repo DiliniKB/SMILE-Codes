@@ -1,79 +1,90 @@
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-          
-        <title>Login</title>
-        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <meta name="HandheldFriendly" content="true">
-        <link href="https://fonts.googleapis.com/css?family=Actor&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Delius&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=?????&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="assets/css/styles.css">
-        <link rel="stylesheet" href="assets/css/styleslog.css">            
-    </head>
-    <body>
-        <div class="bg1" id="background">
-            <div class="MainOval"></div>
-            <div class="Oval1"></div>
-            <div class="Oval2"></div>
-            <div class="Oval3"></div>
-        </div>
+<head>
+    <meta charset="utf-8">
+      
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Actor&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Delius&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=?????&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/stylessignup.css">
+    <link rel="stylesheet" href="assets/css/styleslog.css">
+    
+    
         
-        <div class=header>
+        
+</head>
+<body>
+    <div class="bg1" id="background">
+        <div class="MainOval"></div>
+       
+        <div class="Oval3"></div>
+    </div>
+                      
+    <div class=header>
+        <a href="index.html">
             <img src="assets/images/logo2.png" id="Logo">
-            <div class="txt" id="about">About</div>
-            
-            <div class=dropdown>
-                <div class="txt" id="Event">Event
-                <!--<img src="images/CaretDownCaretDown.png" class="menuicon" id="menuicon1">-->
-                    <div class="dropdown-content" id="menu">
-                        <a href="#">Environmental</a>
-                        <a href="#">Medical</a>
-                        <a href="#">Helping Hands</a>
-                        <a href="#">Other</a>
-                    </div>
+        </a>
+        <div class="txt" id="about">About</div>
+        
+        <div class=dropdown>
+            <div class="txt" id="Event">Event
+                <img src="assets/images/CaretDownCaretDown.png" class="menuicon" >
+                <div class="dropdown-content" id="menu">
+                    <a href="#">Environmental</a>
+                    <a href="#">Medical</a>
+                    <a href="#">Helping Hands</a>
+                    <a href="#">Other</a>
                 </div>
             </div>
-
-            <div class=dropdown>
-                <div class="txt" id="Donation">Donation
-                <!--<img src="images/CaretDownCaretDown.png" class="menuicon" id="menuicon2">-->
-                    <div class="dropdown-content" id="menu">
-                        <a href="#">Medical</a>
-                        <a href="#">Emergency</a>
-                        <a href="#">Education</a>
-                        <a href="#">Animal Care</a>
-                        <a href="#">Children</a>
-                        <a href="#">Senior Care</a>
-                    </div>
-                </div>
-            </div>  
-
-
-            <a class="btn " id="login" href="login.html">Login</a>
-            <a class="btn" id="signup" href="signup.html">Sign Up</a>
-            
         </div>
+
+        <div class=dropdown>
+            <div class="txt" id="Donation">Donation
+            <img src="assets/images/CaretDownCaretDown.png" class="menuicon" >
+                <div class="dropdown-content" id="menu">
+                    <a href="#">Medical</a>
+                    <a href="#">Emergency</a>
+                    <a href="#">Education</a>
+                    <a href="#">Animal Care</a>
+                    <a href="#">Children</a>
+                    <a href="#">Senior Care</a>
+                </div>
+            </div>
+        </div>  
+
+
+        <a class="btn " id="login" href="login.html">Login</a>
+        <a class="btn" id="signup" href="signup.html">Sign Up</a>
+        
+    </div>
 
         <div class="BlurRectOval" id="form">
             <p class="FormTopic">Login</p>
             <form action="action_page.php" method="post" style="margin: 0;">                             
-                <input class="FormItems FormItemsFont" id="fname" type="text" placeholder="Username or Email" name="uname" required>
-                <input class="FormItemsFont FormItems" id="fname" type="password" placeholder="Password" name="psw" required>
-                <a id="passwordReset" href ="#">Forgot Password</a>
+                <input class="input_form" id="fname" type="text" placeholder="Username or Email" name="uname" required>
+                <input class="input_form" id="fname" type="password" placeholder="Password" name="psw" required>
                 <label id="rememberMe">
                     <input type="checkbox" checked="checked" name="remember"> Remember me
                 </label>
-
+                <a id="passwordReset" href ="#">Forgot Password</a>
+                
                 <button id="enter" type="submit">ENTER</button>
             
-                <p id="or">Or</p>
-                <a href="#" class="fa fa-facebook"></a>
-                <a href="#" class="fa fa-twitter"></a>
-                <a href="#" class="fa fa-google"></a>
-                <a href="#" class="fa fa-linkedin"></a>       
+             
+                <div>
+                    <a href="#" class="fa fa-facebook"></a>
+                    <a href="#" class="fa fa-twitter"></a>
+                    <a href="#" class="fa fa-google"></a>
+                    <a href="#" class="fa fa-linkedin"></a>
+                </div>       
             </form>         
         </div>       
         
