@@ -16,12 +16,32 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/stylessignup.css">
     <link rel="stylesheet" href="assets/css/styleslog.css">
-    
-    
-        
-        
+    <link rel="stylesheet" href="assets/css/new/login.css">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>  
 </head>
 <body>
+    <!-- facebook signin -->
+    <script>
+        window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '1967181126775571',
+            cookie     : true,
+            xfbml      : true,
+            version    : 'v11.0'
+        });
+            
+        FB.AppEvents.logPageView();   
+            
+        };
+
+        (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));  
+    </script>
     <div class="bg1" id="background">
         <div class="MainOval"></div>
        
@@ -68,24 +88,38 @@
 
         <div class="BlurRectOval" id="form">
             <p class="FormTopic">Login</p>
-            <form action="action_page.php" method="post" style="margin: 0;">                             
-                <input class="input_form" id="fname" type="text" placeholder="Username or Email" name="uname" required>
-                <input class="input_form" id="fname" type="password" placeholder="Password" name="psw" required>
+                <input class="input_form" type="text" placeholder="Email" id="email" autocomplete="on" required>
+                <input class="input_form" type="password" placeholder="Password" id="password" autocomplete="on" required>
                 <label id="rememberMe">
                     <input type="checkbox" checked="checked" name="remember"> Remember me
                 </label>
                 <a id="passwordReset" href ="#">Forgot Password</a>
                 
-                <button id="enter" type="submit">ENTER</button>
+                <button id="enter" class="form-btn" type="submit">ENTER</button>
             
-             
-                <div>
-                    <a href="#" class="fa fa-facebook"></a>
-                    <a href="#" class="fa fa-twitter"></a>
-                    <a href="#" class="fa fa-google"></a>
-                    <a href="#" class="fa fa-linkedin"></a>
-                </div>       
-            </form>         
+                <p class="form-text">or</p>
+                <img class="loading" src="assets/images/loading.gif">
+                <div class="social-logins">
+                    <div>
+                        <div id="g_id_onload"
+                            data-client_id="127792500039-f01tpv231104f71n5sgh0n3jdkkqbgdu.apps.googleusercontent.com"
+                            data-callback="handleCredentialResponse"
+                            data-login_uri="http://localhost/smile-codes"
+                            data-auto_prompt="false">
+                        </div>
+                        <div class="g_id_signin"
+                            data-type="standard"
+                            data-size="large"
+                            data-theme="outline"
+                            data-text="sign_in_with"
+                            data-shape="rectangular"
+                            data-logo_alignment="left">
+                        </div>  
+                    </div>
+                    <div style="margin-top:5px;">
+                        <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false" data-scope="public_profile,email" data-onlogin="checkLoginState();"></div>
+                    </div>
+                </div>     
         </div>       
         
         <img src="assets/images/1asset_3_1.png" id="image">
@@ -95,5 +129,11 @@
 
         <img src="assets/images/Phonephone.png" id="phone">
         <div class="txt" id="tpnum">011-7826492</div>
+
+        <div id="message-box">
+            <span>text message</span>
+            <a id="message-box-close">x</a>
+        </div>
+        <script type="text/javascript" src="assets/js/login.js"></script>
     </body>
 </html>

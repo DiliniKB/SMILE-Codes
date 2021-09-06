@@ -1,0 +1,34 @@
+#message-box{
+    font-family: sans-serif;
+    position: fixed;
+    bottom: -100px;
+    left: 10px;
+    z-index: 100;
+    color:#ffffff;
+    padding: 5px;
+    font-size: 20px;
+    width: 50%;
+    transition: bottom 0.5s;
+}
+
+#message-box a{
+    float: right;
+    cursor: pointer;
+}
+
+.success{
+    background-color: #00b16a;  
+}
+
+.error{
+    background-color: #f03434;
+}
+
+.loading{
+    display: none;
+    float: right;
+}
+
+#logout-btn{
+    cursor: pointer;
+}
