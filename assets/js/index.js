@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             if(response.error == 0){
                 let user = response.message;
                 login_button.innerHTML = user.first_name;
-                login_button.setAttribute('href', full_url("home.html"));
+                login_button.setAttribute('href', full_url("account/dashboard.html"));
 
                 signup_button.innerHTML = "Logout";
                 signup_button.setAttribute('href', "");

@@ -74,7 +74,7 @@ function handle_check_login(response){
     if(response.status == 0){
         if(response.error == 0){
             showMessage("success", "Already logged in. redirecting...");
-            document.location = full_url("home.html");
+            document.location = full_url("account/dashboard.html");
         }
     }
 }
@@ -200,7 +200,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     function handle_signup(response){
         if(response.error == 0){
             showMessage("success", "Signing you up....");
-            document.location = full_url("home.html");
+            document.location = full_url("account/dashboard.html");
         }else{
             showMessage("error", response.message);
         }
