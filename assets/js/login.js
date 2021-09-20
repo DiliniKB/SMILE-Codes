@@ -61,11 +61,27 @@ function getData(url,data,handler){
     xhr.send(data);
 };
 
+function redirect_to(){
+    let redirect = full_url("account/dashboard.html");
+
+    let current_url = new URL(window.location.href);
+    let cont = current_url.searchParams.get("continue");
+    if(cont){
+        let cont_url = new URL(cont);
+        if(base_url == "http://"+cont_url.hostname+"/"+cont_url.pathname.split('/')[1]+"/"){
+            redirect = cont;
+        }
+    }
+
+    return redirect;
+}
+
 function handle_check_login(response){
     if(response.status == 0){
         if(response.error == 0){
             showMessage("success", "Already logged in. redirecting...");
-            document.location = full_url("account/dashboard.html");
+            
+            document.location = redirect_to();
         }
     }
 }
@@ -99,7 +115,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
     function handle_login(response){
         if(response.error == 0){
             showMessage("success", "Logging you in...");
-            document.location = full_url("account/dashboard.html");
+            
+            document.location = redirect_to();
         }else{
             showMessage("error", response.message);
         }
@@ -124,7 +141,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
 function handle_social_login(response){
     if(response.error == 0){
         showMessage("success", "Logging you in...");
-        document.location = full_url("account/dashboard.html");
+        
+        document.location = redirect_to();
     }else{
         showMessage("error", response.message);
     }

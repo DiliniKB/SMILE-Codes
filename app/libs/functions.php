@@ -23,4 +23,5 @@ function get_data_from_url($url, $paras){
     curl_close($ch);
     return $response;
 }
+
 ?>

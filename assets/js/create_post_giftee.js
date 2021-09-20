@@ -3,9 +3,12 @@ let base_url = "http://localhost/smile-codes/";
 let message_box = document.getElementById("message-box");
 let loading = document.querySelectorAll(".loading");
 
+let dash_name = document.getElementById("dash_name");
+
 function full_url(url){
     return base_url + url;
 }
+
 
 function showMessage(type, text){
     message_box.classList = type;
@@ -55,51 +58,68 @@ function getData(url,data,handler){
         }
     };
     xhr.send(data);
-};
+}
+
+function handle_check_login(response){
+    if(response.status == 0){
+        if(response.error == 0){
+            if(response.message.role.type != "Giftee"){
+                document.location = full_url(response.message.role.type+"/create_post.html");
+            }
+
+            dash_name.innerHTML = response.message.role.display_name.split(" ")[0];
+
+        }else if(response.error == 1){
+            showMessage("error", "Please log in first");
+            document.location = full_url("login.html?continue="+window.location.href);
+        }
+    }
+}
+
+getData(full_url("app/ends/auth/check_login.php"),new FormData(),handle_check_login);
 
 document.addEventListener("DOMContentLoaded", function(event) {
-    let first_name = document.querySelectorAll(".first-name");
-    let last_name = document.querySelectorAll(".last-name");
-    let nic = document.querySelectorAll(".nic");
-    let email = document.querySelectorAll(".email");
 
-    let logout_button = document.getElementById("logout-btn");
+    let keywords = document.getElementById("keywords");
+    let town = document.getElementById("town");
+    let district = document.getElementById("district");
+    let title = document.getElementById("title");
+    let post_image = document.getElementById("post_image");
+    let visibility = document.getElementById("visibility");
+    
+    let signout_btn = document.getElementById("signout_btn");
 
-    function handle_check_login(response){
-        if(response.status == 0){
-            if(response.error == 0){
-                let user = response.message;
-                first_name.forEach(el =>{el.innerHTML = user.first_name});
-                last_name.forEach(el =>{el.innerHTML = user.last_name});
-                email.forEach(el =>{el.innerHTML = user.email});
-                nic.forEach(el =>{el.innerHTML = user.nic});
-            }else{
-                showMessage("error", response.message);
-                document.location = full_url("login.html");
-            }
+    let enter = document.getElementById("enter");
+
+    function handle_create_post(response){
+        if(response.error == 0){
+            showMessage("success", "New post created");
+            document.location = full_url("giftee/dashboard.html");
         }else{
             showMessage("error", response.message);
         }
         hide_loading();
     }
 
-    function handle_check_login(response){
-        if(response.status == 0){
-            if(response.error == 0){
-                let user = response.message;
-                first_name.forEach(el =>{el.innerHTML = user.first_name});
-                last_name.forEach(el =>{el.innerHTML = user.last_name});
-                email.forEach(el =>{el.innerHTML = user.email});
-                nic.forEach(el =>{el.innerHTML = user.nic});
-            }else{
-                showMessage("error", response.message);
-                document.location = full_url("login.html");
-            }
+    
+
+    enter.addEventListener("click", function(e){
+        show_loading();
+        let data = new FormData();
+        data.append("keywords", keywords.value);
+        data.append("town", town.value);
+        data.append("district", district.value);
+        data.append("title", title.value);
+        data.append("visibility", visibility.value);
+
+        if(post_image.value != ""){
+            data.append("image", post_image.files[0]);
         }else{
-            showMessage("error", response.message);
+            data.append("image", "");
         }
-        hide_loading();
-    }
+
+        getData(full_url("app/ends/giftee/create_post.php"),data,handle_create_post);
+    });
 
     function handle_logout(response){
         if(response.error == 0){
@@ -108,15 +128,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
         }else{
             showMessage("error", response.message);
         }
-        hide_loading();
     }
 
-    getData(full_url("app/ends/auth/check_login.php"),new FormData(),handle_check_login);
-
-    logout_button.addEventListener("click", function(e){
-        show_loading();
-
+    signout_btn.addEventListener("click", function(e){
         getData(full_url("app/ends/auth/logout.php"),new FormData(),handle_logout);
-
     });
 });

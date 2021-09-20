@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Home page</title>
+        <title>Dashboard</title>
 
-        <link rel="stylesheet" href="../assets/css/new/home.css"> 
+        <link rel="stylesheet" href="../assets/css/new/dashboard.css"> 
     </head>
     <body>
         <div id="controles">
@@ -17,11 +17,35 @@
             <p>Email: <span class="email">wait...</span></p>
         </div>
 
+        <hr />
+        <div id="role-navigation">
+            <span class="role-type">wait...</span> : <span class="role-display">wait...</span> | <a href="dashboard.html" class="role-link"><span class="role-type"></span> dashboard</a>
+        </div>
+        <hr />
+
+        <div id="account-collection">
+            <h4>Donor accounts | <a href="create_donor.html">create</a></h4>
+            <ul id="donor-accounts">
+            </ul>
+
+            <h4>Giftee accounts | <a href="create_giftee.html">create</a></h4>
+            <ul id="giftee-accounts">
+            </ul>
+
+            <h4>Organization accounts | <a href="create_organization.html">create</a></h4>
+            <ul id="organization-accounts">
+            </ul>
+
+            <h4 id="admin-title">Admin accounts</h4>
+            <ul id="admin-accounts">
+            </ul>
+        </div>
+
         <div id="message-box">
             <span>text message</span>
             <a id="message-box-close">x</a>
         </div>
 
-        <script type="text/javascript" src="../assets/js/home.js"></script>
+        <script type="text/javascript" src="../assets/js/dashboard.js"></script>
     </body>
 </html>

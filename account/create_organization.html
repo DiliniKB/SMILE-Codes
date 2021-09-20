@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Create an organization account</title>
+
+        <link rel="stylesheet" href="../assets/css/new/dashboard.css"> 
+    </head>
+    <body>
+        <div id="controles">
+            <p>You logged in as: <span class="first-name">wait...</span> | <a href="dashboard.html">Dashboard</a> | <button id="logout-btn">log out</button></p>
+            <img class="loading" src="../assets/images/loading.gif">
+        </div>
+
+        <div id="role-navigation">
+            <span class="role-type">wait...</span> : <span class="role-display">wait...</span> | <a href="dashboard.html" class="role-link"><span class="role-type"></span> dashboard</a>
+        </div>
+
+        <hr />
+
+        <div id="create-form">
+            Display name: <input type="text" id="text_display_first" /> <input type="text" id="text_display_second" />
+            <br />
+            Registration details: <textarea cols="50" row="10" id="registration-data"></textarea>
+            <br /> <br />
+            <button id="donor-create-btn">Create organization account</button>
+        </div>
+
+        <div id="message-box">
+            <span>text message</span>
+            <a id="message-box-close">x</a>
+        </div>
+
+        <script type="text/javascript" src="../assets/js/create_organization.js"></script>
+    </body>
+</html>

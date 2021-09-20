@@ -86,7 +86,9 @@ if(check_isset($checks_base)){
         }
 
         if($flag){
+            include "../../models/Database.php";
             include "../../models/Auth.php";
+            include "../../models/Donor.php";
             $auth = new Auth();
 
             $result = $auth->check_exsisting_users($email, $data["nic"]);
@@ -96,8 +98,22 @@ if(check_isset($checks_base)){
                 if(count($new_user) == 1){
                     $_SESSION["user_id"] = $new_user[0]["user_id"];
 
-                    $response["error"] = 0;
-                    $response["message"] = "Signing you up....";
+                    $doner_model = new Donor();
+                    
+                    $donor["display_name"] = $data["first_name"]." ".$data["last_name"];
+                    $donor["user_id"] = $_SESSION["user_id"];
+
+                    $added_donor = $doner_model->insert_new_donor($donor);
+                    if(count($added_donor) > 0){
+                        $_SESSION["role"] = "donor";
+                        $_SESSION["role_id"] = $added_donor[0]["donor_id"];
+
+                        $response["error"] = 0;
+                        $response["message"] = "Signing you up....";
+                    }else{
+                        $response["error"] = 1;
+                        $response["message"] = "An unknown error occured. log in and create a donor account manually.";
+                    }
                 }else{
                     $response["error"] = 1;
                     $response["message"] = "Insertion error. Please try again";

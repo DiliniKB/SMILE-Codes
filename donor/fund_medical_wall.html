@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+      
+    <title>FMW</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Delius&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=?????&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/stylesFMW.css">      
+    <link rel="stylesheet" href="../assets/css/new/create_fund.css">
+</head>
+
+<body>
+        
+    <script>
+        function openForm() {
+            document.getElementById("SForm").style.display = "block";
+        }
+        
+        function closeForm() {
+            document.getElementById("SForm").style.display = "none";
+        }
+    </script>
+    
+    <div class="bg2" onclick="closeForm()">
+        <div class="MainOval"></div>
+    </div>
+                      
+    <div class=header>
+        <!--header-->
+        <a href="index.html">
+            <img src="../assets/images/logo2.png" id="Logo">
+        </a>
+        <div class="txt" id="About">About</div>
+        
+        <div class=dropdown>
+            <div class="txt" id="Event">Event
+                <img src="../assets/images/CaretDownCaretDown.png" class="menuicon" >
+                <div class="dropdown-content" id="menu1">
+                    <a href="#">Environmental</a>
+                    <a href="#">Medical</a>
+                    <a href="#">Helping Hands</a>
+                    <a href="#">Other</a>
+                </div>
+            </div>
+        </div>
+
+        <div class=dropdown>
+            <div class="txt" id="Donation">Donation
+            <img src="../assets/images/CaretDownCaretDown.png" class="menuicon" >
+                <div class="dropdown-content" id="menu2">
+                    <a href="FundMedicalWall.php">Medical</a>
+                    <a href="#">Emergency</a>
+                    <a href="#">Education</a>
+                    <a href="#">Animal Care</a>
+                    <a href="#">Children</a>
+                    <a href="#">Senior Care</a>
+                </div>
+            </div>
+        </div>  
+
+
+        <a class="btn " id="login" href="dashboard.html">wait</a>
+        <a class="btn" id="signup" href="#">Sign out</a>
+    </div>
+    
+    <!--selectors-->
+    <div class="Cat">Medical</div>
+    <a id="ButtonF" href="#" onClick="ChangeQ1()">Fundraising</a>
+    <a id="ButtonM" href="material_medical_wall.html" onClick="ChangeQ2()">Material</a>
+
+    <!--filter -->
+    
+    <img id="filterButton" src="../assets/images/Sliders.png" onclick="openForm()">
+
+    <div class="form-popup" id="SForm">
+        <form action="/action_page.php" class="form-container">
+            <label for="sortBy">Sort By</label>
+            <select class="Sort" data-filter-group="SortingOptions">
+                <option value=".trending" selected="selected">Trending</option>
+                <option value=".recent">Recent</li>
+                <option value=".oldest">Oldest</li>
+                <option value=".closeToGoal">Close to goal</li>
+                <option value=".farFromGoal">Far from goal</li>         
+            </select><br><br>
+
+            <label for="location">Location</label>
+            <input type="text" name="location" class="inputF"><br><br>
+
+            <label for="keyword">Keyword</label>
+            <input type="text" name="keyword" class="inputF"><br><br>
+
+            <button type="submit" class="enter" onclick="closeForm()">ENTER</button><br>
+        </form>
+    </div>
+   
+    
+    <!--items-->
+    <div class="container" id="post_container">       
+    </div>
+
+    <!--add new -->
+    <a href="create_post.html">
+        <img id="plus" src="../assets/images/Plus.png">
+    </a>
+    <div id="message-box">
+        <span>text message</span>
+        <a id="message-box-close">x</a>
+    </div>
+    <script type="text/javascript" src="../assets/js/get_funds.js"></script>
+</body>
+</html>

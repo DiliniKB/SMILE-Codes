@@ -35,7 +35,9 @@ if(isset($_GET["method"])){
     $response["status"] = 0;
 
     $method = $_GET["method"];
+    include "../../models/Database.php";
     include "../../models/Auth.php";
+    include "../../models/Donor.php";
 
     $auth = new Auth();
 
@@ -60,7 +62,7 @@ if(isset($_GET["method"])){
 
             if(password_verify($_POST["password"], $result[0]["password"])){
                 $response["error"] = 0;
-                $response["message"] = "Success";
+                $response["message"] = "Signing you up....";
 
                 $_SESSION["user_id"] = $result[0]["user_id"];
             }else{
@@ -69,9 +71,19 @@ if(isset($_GET["method"])){
             }
         }else{
             $response["error"] = 0;
-            $response["message"] = "Success";   
+            $response["message"] = "Signing you up....";  
             
             $_SESSION["user_id"] = $result[0]["user_id"];
+        }
+
+        $doner_model = new Donor();
+        $added_donor = $doner_model->get_donors_by_userid($_SESSION["user_id"]);
+        if(count($added_donor) > 0){
+            $_SESSION["role"] = "donor";
+            $_SESSION["role_id"] = $added_donor[0]["donor_id"];
+        }else{
+            $_SESSION["role"] = "guest";
+            $_SESSION["role_id"] = "-1";
         }
         
     }else{

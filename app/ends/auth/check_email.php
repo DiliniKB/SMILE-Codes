@@ -33,6 +33,7 @@ if(isset($_GET["method"])){
     $response["status"] = 0;
 
     $method = $_GET["method"];
+    include "../../models/Database.php";
     include "../../models/Auth.php";
 
     $auth = new Auth();

@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     function handle_check_login(response){
         if(response.status == 0){
             if(response.error == 0){
-                let user = response.message;
+                let user = response.message.user;
                 login_button.innerHTML = user.first_name;
                 login_button.setAttribute('href', full_url("account/dashboard.html"));
 

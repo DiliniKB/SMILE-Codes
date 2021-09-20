@@ -2,11 +2,32 @@
 
 include "../../config/config.php";
 
+class Types{
+    const SELECT = 1;
+    const INSERT = 2;
+    const SELECT_WHERE = 3;
+    const SELECT_ORDER = 4;
+
+    const AND = 10;
+    const OR = 11;
+}
+
 class Database {
 
     public $error = "";
     private $pdo = null;
     private $stmt = null;
+
+    private $table_name = null;
+    private $query_type = 1;
+
+    private $select_columns = null;
+    private $select_where = null;
+    private $select_where_type = null;
+
+    private $select_order_by = null;
+
+    private $insert_data = null;
 
     function __construct () {
         try {
@@ -42,7 +63,8 @@ class Database {
     function run_query_return($query, $values){
         try {
             $this->stmt = $this->pdo->prepare($query);
-            return $this->stmt->execute($values);
+            $this->stmt->execute($values);
+            return $this->pdo->lastInsertId();
         } catch (Exception $ex) {
             $this->error= $ex->getMessage();
             echo $this->error;
@@ -50,14 +72,63 @@ class Database {
         }
     }
 
-    function insert($table, $data){
+    function insert($table){
+        $this->query_type = Types::INSERT;
+        $this->table_name = $table;
+
+        return $this;
+    }
+
+    function values($values){
+        $this->insert_data = $values;
+
+        return $this;
+    }
+
+    function select($columns){
+        $this->query_type = Types::SELECT;
+        $this->select_columns = $columns;
+
+        return $this;
+    }
+
+    function from($table){
+        $this->table_name = $table;
+
+        return $this;
+    }
+
+    function where_and($where){
+        $this->query_type = Types::SELECT_WHERE;
+        $this->select_where = $where;
+        $this->select_where_type = Types::AND;
+
+        return $this;
+    }
+
+    function where_or($where){
+        $this->query_type = Types::SELECT_WHERE;
+        $this->select_where = $where;
+        $this->select_where_type = Types::OR;
+
+        return $this;
+    }
+
+    function order_by($order){
+        $this->query_type = Types::SELECT_ORDER;
+        $this->select_order_by = $order;
+
+        return $this;
+    }
+
+    function insertion(){
 
         
         $columns = array();
         $vals = array();
         $marks = array();
 
-        foreach ($data as $key => $value){
+        foreach ($this->insert_data as $key => $value){
             $columns[] = $key;
             $vals[] = $value;
             $marks[] = "?";
@@ -65,49 +136,92 @@ class Database {
 
         $query = "INSERT INTO `+table` (+values) VALUES(+qs)";
         $find = array("+table", "+values", "+qs");
-        $replace = array($table, implode(",", $columns), implode(",", $marks));
+        $replace = array($this->table_name, implode(",", $columns), implode(",", $marks));
         $query = str_replace($find, $replace, $query);
 
         return $this->run_query_return($query, $vals);
-    }
+    } 
 
-    function select_where_and($table, $columns, $where){
+    function selection_where(){
 
-        
+        $conjunction = " AND ";
+        if($this->select_where_type == Types::OR){
+            $conjunction = " OR ";
+        }
+
         $vals = array();
         $statements = array();
 
-        foreach ($where as $key => $value){
+        foreach ($this->select_where as $key => $value){
             $statements[] = $key."=?";
             $vals[] = $value;
         }
 
         $query = "SELECT +columns FROM `+table` WHERE +statements";
         $find = array("+table", "+columns", "+statements");
-        $replace = array($table, implode(",", $columns), implode(" AND ", $statements));
+        $replace = array($this->table_name, implode(",", $this->select_columns), implode($conjunction, $statements));
         $query = str_replace($find, $replace, $query);
 
         return $this->run_query($query, $vals);
     }
 
-    function select_where_or($table, $columns, $where){
+    function selection_where_order(){
 
-        
+        $conjunction = " AND ";
+        if($this->select_where_type == Types::OR){
+            $conjunction = " OR ";
+        }
+
         $vals = array();
         $statements = array();
 
-        foreach ($where as $key => $value){
+        foreach ($this->select_where as $key => $value){
             $statements[] = $key."=?";
             $vals[] = $value;
         }
 
-        $query = "SELECT +columns FROM `+table` WHERE +statements";
-        $find = array("+table", "+columns", "+statements");
-        $replace = array($table, implode(",", $columns), implode(" OR ", $statements));
+        $query = "SELECT +columns FROM `+table` WHERE +statements ORDER BY +orders";
+        $find = array("+table", "+columns", "+statements", "+orders");
+        $replace = array($this->table_name, implode(",", $this->select_columns), implode($conjunction, $statements), implode(",", $this->select_order_by));
         $query = str_replace($find, $replace, $query);
 
         return $this->run_query($query, $vals);
     }
+
+    function clear_values(){
+        $this->table_name = null;
+        $this->query_type = 1;
+
+        $this->select_columns = null;
+        $this->select_where = null;
+        $this->select_where_type = null;
+
+        $this->insert_data = null;
+
+        $this->select_order_by = null;
+    }
+
+    function go(){
+        $return_value = null;
+
+        switch($this->query_type){
+            case Types::INSERT:
+                $return_value = $this->insertion();
+                break;
+            case Types::SELECT:
+                break;
+            case Types::SELECT_WHERE:
+                $return_value = $this->selection_where();
+                break;
+            case Types::SELECT_ORDER:
+                $return_value = $this->selection_where_order();
+                break;
+        }
+
+        $this->clear_values();
+        return $return_value;
+    }
+
 }
 
 ?>
