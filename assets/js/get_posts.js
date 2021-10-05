@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     function handle_check_login(response){
         if(response.status == 0){
             if(response.error == 0){
-                login.innerHTML = response.message.role.display_name.split(" ")[0];
+                login.innerHTML = response.message.user.first_name;
             }else{
                 showMessage("error", "Please log in first");
                 document.location = full_url("login.html?continue="+window.location.href);
@@ -122,5 +122,5 @@ document.addEventListener("DOMContentLoaded", function(event) {
     });
 
     getData(full_url("app/ends/auth/check_login.php"),new FormData(),handle_check_login);
-    getData(full_url("app/ends/donor/get_posts.php"),new FormData(),handle_get_posts);
+    getData(full_url("app/ends/account/get_posts.php"),new FormData(),handle_get_posts);
 });

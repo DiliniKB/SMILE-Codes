@@ -18,28 +18,24 @@ if(check_isset($checks_base)){
         $user_id = null;
 
         include "../../models/Database.php";
-        include "../../models/Donor.php";
+        include "../../models/Account.php";
 
         $data["keywords"] = $_POST["keywords"];
         $data["town"] = $_POST["town"];
         $data["district"] = $_POST["district"];
         $data["title"] = $_POST["title"];
         $data["visibility"] = $_POST["visibility"];
-        $data["type"] = "donor";
         $data["created_at"] = time();
 
-        if(isset($_SESSION["user_id"]) && isset($_SESSION["role"])){
+        if(isset($_SESSION["user_id"])){
             $user_id = $_SESSION["user_id"];
-            if($_SESSION["role"] != 'donor'){
-                $flag = false;
-                $response["message"] = "You logged in as a ".$_SESSION["role"].". this form is for donors";
-            }
+            $data["user_id"] = $user_id;
         }else{
             $flag = false;
             $response["message"] = "Please log in first.";
         }
 
-        $donor_model = new Donor();
+        $account_model = new Account();
         
         if($flag){
 
@@ -58,7 +54,7 @@ if(check_isset($checks_base)){
                   
             }
 
-            $inserted = $donor_model->add_post($_SESSION["role_id"], $data);
+            $inserted = $account_model->add_post($data);
             $response["error"] = 0;
             $response["message"] = "New post created";
         }

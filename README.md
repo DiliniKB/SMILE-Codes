@@ -22,11 +22,9 @@
 
 ### Done ✓
 
-- [x] Create giftee, donor, organization accounts 
-- [x] Switch between giftee, donor, organization accounts
 - [x] Create funds and posts
 - [x] List funds and posts
 
 ## Notes
 
-- insert admin accounts to the database manually 
+- insert admin accounts to the database manually (privileges = 1)

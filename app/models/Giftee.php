@@ -17,8 +17,7 @@ class Giftee{
     }
 
     function add_post($giftee_id,$data){
-        $id = $this->database->insert("posts")->values($data)->go();
-        return $this->database->insert("giftee_post_owners")->values(array("giftee_id" => $giftee_id, "post_id"=>$id))->go();
+        return $this->database->insert("posts")->values($data)->go();
     }
 }
 

@@ -37,7 +37,6 @@ if(isset($_GET["method"])){
     $method = $_GET["method"];
     include "../../models/Database.php";
     include "../../models/Auth.php";
-    include "../../models/Donor.php";
 
     $auth = new Auth();
 
@@ -74,16 +73,6 @@ if(isset($_GET["method"])){
             $response["message"] = "Signing you up....";  
             
             $_SESSION["user_id"] = $result[0]["user_id"];
-        }
-
-        $doner_model = new Donor();
-        $added_donor = $doner_model->get_donors_by_userid($_SESSION["user_id"]);
-        if(count($added_donor) > 0){
-            $_SESSION["role"] = "donor";
-            $_SESSION["role_id"] = $added_donor[0]["donor_id"];
-        }else{
-            $_SESSION["role"] = "guest";
-            $_SESSION["role_id"] = "-1";
         }
         
     }else{

@@ -63,11 +63,8 @@ function getData(url,data,handler){
 function handle_check_login(response){
     if(response.status == 0){
         if(response.error == 0){
-            if(response.message.role.type != "Giftee"){
-                document.location = full_url(response.message.role.type+"/create_post.html");
-            }
 
-            dash_name.innerHTML = response.message.role.display_name.split(" ")[0];
+            dash_name.innerHTML = response.message.user.first_name;
 
         }else if(response.error == 1){
             showMessage("error", "Please log in first");
@@ -94,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     function handle_create_post(response){
         if(response.error == 0){
             showMessage("success", "New post created");
-            document.location = full_url("giftee/dashboard.html");
+            document.location = full_url("account/dashboard.html");
         }else{
             showMessage("error", response.message);
         }
@@ -118,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             data.append("image", "");
         }
 
-        getData(full_url("app/ends/giftee/create_post.php"),data,handle_create_post);
+        getData(full_url("app/ends/account/create_post.php"),data,handle_create_post);
     });
 
     function handle_logout(response){

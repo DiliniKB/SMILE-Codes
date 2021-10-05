@@ -7,7 +7,7 @@ class Account{
     function __construct () {
         $this->database = new Database();
     }
-
+    /*
     function get_donors_by_donorid($donor_id){
         return $this->database->select(array("donor_id", "user_id", "display_name"))->from("donor_accounts")->where_and(array("donor_id" => $donor_id))->go();
     }
@@ -71,6 +71,23 @@ class Account{
 
     function organizations_organizationid_userid($user_id, $organization_id){
         return $this->database->select(array("organization_id", "user_id"))->from("organization_owners")->where_and(array("organization_id" => $organization_id, "user_id" => $user_id))->go();
+    }
+    */
+
+    function add_fund($data){
+        return $this->database->insert("funds")->values($data)->go();
+    }
+
+    function add_post($data){
+        return $this->database->insert("posts")->values($data)->go();
+    }
+
+    function get_funds(){
+        return $this->database->select(array("*"))->from("funds")->where_and(array("1" => "1"))->go();
+    }
+
+    function get_posts(){
+        return $this->database->select(array("*"))->from("posts")->where_and(array("1" => "1"))->go();
     }
 }
 

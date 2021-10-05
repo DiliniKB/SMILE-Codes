@@ -57,26 +57,13 @@ function getData(url,data,handler){
     xhr.send(data);
 };
 
-let main_role = "Guest";
-let main_role_id = "-1";
-
 document.addEventListener("DOMContentLoaded", function(event) {
     let first_name = document.querySelectorAll(".first-name");
     let last_name = document.querySelectorAll(".last-name");
     let nic = document.querySelectorAll(".nic");
     let email = document.querySelectorAll(".email");
 
-    let role_type = document.querySelectorAll(".role-type");
-    let role_display = document.querySelectorAll(".role-display");
-    let role_link = document.querySelectorAll(".role-link");
-
     let logout_button = document.getElementById("logout-btn");
-
-    let donor_collection = document.getElementById("donor-accounts");
-    let giftee_collection = document.getElementById("giftee-accounts");
-    let admin_collection = document.getElementById("admin-accounts");
-    let organization_collection = document.getElementById("organization-accounts");
-    let admin_title = document.getElementById("admin-title");
 
     function handle_check_login(response){
         if(response.status == 0){
@@ -87,13 +74,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 email.forEach(el =>{el.innerHTML = user.email});
                 nic.forEach(el =>{el.innerHTML = user.nic});
 
-                let role = response.message.role;
-                role_type.forEach(el =>{el.innerHTML = role.type});
-                role_display.forEach(el =>{el.innerHTML = role.display_name});
-                role_link.forEach(el =>{el.setAttribute("href", role.link)});
-
-                main_role = role.type;
-                main_role_id = role.id;
             }else{
                 showMessage("error", response.message);
                 document.location = full_url("login.html");
@@ -114,84 +94,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         hide_loading();
     }
 
-    function handle_switch(response){
-        if(response.error == 0){
-            document.location = full_url("account/dashboard.html");
-            showMessage("success", "Account is changed");
-        }else{
-            showMessage("error", response.message);
-        }
-        hide_loading();
-    }
-
-    function generate_button(display, role_type, role_id){
-        let li = document.createElement("li");
-
-        let span = document.createElement("span");
-        let textnode = document.createTextNode(display+ " | ");
-        span.appendChild(textnode);
-        li.appendChild(span);
-
-        let button = null;
-
-        if(role_type == main_role.toLocaleLowerCase() && main_role_id == role_id){
-            button = document.createTextNode("(selected)");
-        }else{
-            button = document.createElement("button");
-            button.className = "normal-btn";
-            button.innerHTML = "use";
-
-            button.addEventListener("click", function(e){
-                let send_data = new FormData();
-                send_data.append("type", role_type);
-                send_data.append("id", role_id);
-                getData(full_url("app/ends/account/switch_account.php"), send_data,handle_switch);
-            });
-
-        }
-        
-        li.appendChild(button);
-
-        return li;
-    }
-
-    function build_collection(type, element, items){
-        if(items.length == 0){
-            element.innerHTML = "- no accounts -"
-        }
-
-        items.forEach(item => {
-            let li_element = generate_button(item.display_name, type, item[type+"_id"]);
-            element.appendChild(li_element);
-        });
-    }
-
-    function handle_get_accounts(response){
-        if(response.error == 0){
-
-            let donors = response.message.donors;
-            build_collection("donor", donor_collection, donors);
-
-            let giftees = response.message.giftees;
-            build_collection("giftee", giftee_collection, giftees);
-
-            let organizations = response.message.organizations;
-            build_collection("organization", organization_collection, organizations);
-
-            let admins = response.message.admins;
-            build_collection("admin", admin_collection, admins);
-            if(admins.length == 0){
-                admin_title.style.display = "none";
-                admin_collection.style.display = "none";
-            }
-        }else{
-            showMessage("error", response.message);
-        }
-        hide_loading();
-    }
-
     getData(full_url("app/ends/auth/check_login.php"),new FormData(),handle_check_login);
-    getData(full_url("app/ends/account/get_accounts.php"),new FormData(),handle_get_accounts);
 
     logout_button.addEventListener("click", function(e){
         show_loading();

@@ -13,17 +13,13 @@ if(isset($_SESSION["user_id"]) && !empty($_SESSION["user_id"]) ){
     $user_id = $_SESSION["user_id"];
 
     include "../../models/Database.php";
-    include "../../models/Donor.php";
+    include "../../models/Account.php";
 
-    $donor_model = new Donor();
+    $account_model = new Account();
 
-    if($_SESSION["role"] == "donor"){
-        $funds = $donor_model->get_funds();
-        $response["error"] = 0;
-        $response["message"] = $funds;
-    }else{
-        $response["message"] = "You have to be a donor to see funds";
-    }
+    $funds = $account_model->get_funds();
+    $response["error"] = 0;
+    $response["message"] = $funds;
 }
 
 echo json_encode($response);

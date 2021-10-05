@@ -2,7 +2,6 @@ let base_url = "http://localhost/smile-codes/";
 
 let message_box = document.getElementById("message-box");
 let loading = document.querySelectorAll(".loading");
-let banner = document.getElementById("banner");
 
 let dash_name = document.getElementById("dash_name");
 
@@ -20,10 +19,6 @@ function showMessage(type, text){
 message_box.querySelector("#message-box-close").addEventListener("click", function(e){
     message_box.style.bottom = "-100px";
 });
-
-function showBanner(){
-    banner.style.display = "block";
-}
 
 function show_loading(){
     loading.forEach(el =>{
@@ -68,11 +63,8 @@ function getData(url,data,handler){
 function handle_check_login(response){
     if(response.status == 0){
         if(response.error == 0){
-            if(response.message.role.type != "Giftee"){
-                showBanner();
-            }
 
-            dash_name.innerHTML = response.message.role.display_name.split(" ")[0];
+            dash_name.innerHTML = response.message.user.first_name;
 
         }else if(response.error == 1){
             showMessage("error", "Please log in first");
@@ -105,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     function handle_create_fund(response){
         if(response.error == 0){
             showMessage("success", "New fund created");
-            document.location = full_url("giftee/dashboard.html");
+            document.location = full_url("account/dashboard.html");
         }else{
             showMessage("error", response.message);
         }
@@ -133,7 +125,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             data.append("image", "");
         }
 
-        getData(full_url("app/ends/giftee/create_fund.php"),data,handle_create_fund);
+        getData(full_url("app/ends/account/create_fund.php"),data,handle_create_fund);
     });
 
     function handle_logout(response){
