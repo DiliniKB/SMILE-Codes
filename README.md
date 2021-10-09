@@ -2,7 +2,7 @@
  
 ## How to setup
 
-1. copy `smile-codes` folder into the root folder of your server
+1. copy `smile-codes` folder into the root folder of your server (important)
 
 2. setup a new database
 
