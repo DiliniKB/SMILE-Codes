@@ -1,6 +1,6 @@
 <?php
 
-include "../../config/config.php";
+include "config/config.php";
 
 class Types{
     const SELECT = 1;

@@ -16,19 +16,14 @@
 #message-box{
     font-family: sans-serif;
     position: fixed;
-    bottom: -100px;
-    left: 10px;
+    bottom: 0px;
+    left: 0px;
     z-index: 100;
     color:#ffffff;
     padding: 5px;
     font-size: 20px;
-    width: 50%;
+    width: 100%;
     transition: bottom 0.5s;
-}
-
-#message-box a{
-    float: right;
-    cursor: pointer;
 }
 
 .success{
@@ -41,9 +36,4 @@
 
 .text-normal{
     font-size: 15px;
-}
-
-.loading{
-    display: none;
-    float: right;
 }
