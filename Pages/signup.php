@@ -1,3 +1,9 @@
+<?php
+    session_start();
+
+    include "../assets/PHP/dbconfig.php";
+    include "../assets/PHP/signup.php";
+?>
 <head>
     <meta charset="utf-8">
       
@@ -35,17 +41,17 @@
 
     <div class="BlurRectOval" id="form">
         <p class="FormTopic">Signup</p>
-        <form action="action_page.php" method="post" style="margin:0;">
-            
-            <input class="input_form" type="text" placeholder="FirstName" name="fname" required>
-            <input class="input_form" id="name" type="text" placeholder="LastName" name="lname" required>
-            <input class="input_form" type="text" placeholder="NIC" name="NIC" required>
-            <input class="input_form" type="date" placeholder="Date of Birth" name="dob" required>
-            <input class="input_form" type="email" placeholder="Email" name="email" required>
-            <input class="input_form" type="text" placeholder="Contact Number" name="tpnum" required>
-            <input class="input_form" type="password" placeholder="Password" name="psw" required>
-            <input class="input_form" type="password" placeholder="Confirm Password" name="psw" required>
-            <button id="enter" type="submit">ENTER</button>
+        <form method="post" style="margin:0;">
+        
+            <input class="input_form" type="text" value="<?=$fname?>" placeholder="FirstName" name="fname" required>
+            <input class="input_form" id="name" value="<?=$lname?>" type="text" placeholder="LastName" name="lname" required>
+            <input class="input_form" type="text" value="<?=$nic?>" placeholder="NIC" name="NIC" required>
+            <input class="input_form" type="date" value="<?=$dob?>" placeholder="Date of Birth" name="dob" required>
+            <input class="input_form" type="email" value="<?=$email?>" placeholder="Email" name="email" required>
+            <input class="input_form" type="text" value="<?=$tpnum?>" placeholder="Contact Number" name="tpnum" required>
+            <input class="input_form" type="password" placeholder="Password" name="password" required>
+            <input class="input_form" type="password" placeholder="Confirm Password" name="password_confirm" required>
+            <input id="enter" type="submit" name="signup" value="ENTER"/>
                     
         </form>         
     </div>       
@@ -54,6 +60,12 @@
     <img src="<?php echo $IPATH?>images/mainPages/1asset_3_1.png" id="image">
     <img src="<?php echo $IPATH?>images/mainPages/random lines.png" id="randomLines">
     
+    <?php if($sys_error == 1){?>
+    <div id="message-box" class="<?php echo $sys_error_type;?>">
+        <span><?php echo $sys_error_msg;?></span>
+    </div>
+    <?php } ?>
+
     <div class=footer>
         <div class="btn" id="DonateUs">Donate Us</div>
         <img src="<?php echo $IPATH?>images/mainPages/Phonephone.png" id="phone">

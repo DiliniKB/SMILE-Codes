@@ -2,7 +2,7 @@
 <?php
     function display_itemsF($connection,$table){
         $table=str_replace(' ', '', $table);
-        $query = "select * from ".$table." order by id asc";
+        $query = "select * from ".$table;
         $result = mysqli_query($connection,$query);
         if(mysqli_num_rows($result)>0){
             while ($row=mysqli_fetch_array($result)){
@@ -23,7 +23,7 @@
 
     function display_itemsM($connection,$table){
         $table=str_replace(' ', '', $table);
-        $query = "select * from ".$table." order by id asc";
+        $query = "select * from ".$table;
         $result = mysqli_query($connection,$query);
         if(mysqli_num_rows($result)>0){
             while ($row=mysqli_fetch_array($result)){

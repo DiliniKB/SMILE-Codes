@@ -47,3 +47,28 @@
      margin-top:4%;
      margin-left:4%;
  }
+
+ #message-box{
+  font-family: sans-serif;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  z-index: 100;
+  color:#ffffff;
+  padding: 5px;
+  font-size: 20px;
+  width: 100%;
+}
+
+#message-box a{
+  float: right;
+  cursor: pointer;
+}
+
+.success{
+  background-color: #00b16a;
+}
+
+.error{
+  background-color: #f03434;
+}

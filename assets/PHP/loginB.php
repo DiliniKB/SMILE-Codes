@@ -3,10 +3,10 @@
     if (isset($_REQUEST['login'])) {
         $username= $_REQUEST['uname'];
         $password= $_REQUEST['psw'];
-    }
+    
 
     function login($conn, $username, $password){
-        $sql = "SELECT * FROM users WHERE email = '$username'";
+        $sql = "SELECT * FROM registered_user WHERE email_address = '$username'";
         $query = mysqli_query($conn, $sql);
         return $query;    
     }
@@ -17,12 +17,15 @@
         foreach ($result as $r) {
             //$pwd_check = password_verify($password, $r['password']);
 
-            if ($password == $r['Password']) {
+            if ($password == $r['password']) {
                 $_SESSION['username'] = $r['email'];
                 $_SESSION['fname'] = $r['Fname'];
                 header('Location:'."FundWall.php?cat='Medical'");
+            }else{
+                echo "wrong pass";
             }
         }
+    }
     }
 
     $welcome = "../";
