@@ -50,15 +50,18 @@ if(isset($_POST['submit_email'])){
     if(isset($_POST['email']) && isset($_POST['password']) && !empty($_POST['email']) && !empty($_POST['password'])){
         $email = $_POST['email'];
         
-        $query = "SELECT * FROM registered_user WHERE email_address=? AND password=?";
-        $values = [$_SESSION['username'], $_POST['password']];
+        $query = "SELECT * FROM registered_user WHERE email_address=?";
+        $values = [$_SESSION['username']];
 
         $stmt = $pdo->prepare($query);
         $stmt->execute($values);
         $rows = $stmt->fetchAll();
-        if(count($rows)>0){
-            $query = "UPDATE registered_user SET email_address=? WHERE email_address=? AND password=?";
-            $values = [$_POST['email'], $_SESSION['username'], $_POST['password']];
+
+        $r = $rows[0];
+
+        if(password_verify($_POST['password'], $r['password'])){
+            $query = "UPDATE registered_user SET email_address=? WHERE email_address=?";
+            $values = [$_POST['email'], $_SESSION['username']];
 
             $stmt = $pdo->prepare($query);
             $stmt->execute($values);
@@ -74,8 +77,14 @@ if(isset($_POST['submit_email'])){
 
 if(isset($_POST['submit_password'])){
     if(isset($_POST['password']) && isset($_POST['password_confirm']) && password_check()){
+        
+        $options = [
+            'cost' => 10,
+        ];
+        $password = password_hash($_POST["password"], PASSWORD_BCRYPT, $options);
+        
         $query = "UPDATE registered_user SET password=? WHERE email_address=?";
-        $values = [$_POST['password'], $_SESSION['username'], ];
+        $values = [$password, $_SESSION['username'], ];
 
         $stmt = $pdo->prepare($query);
         $stmt->execute($values);

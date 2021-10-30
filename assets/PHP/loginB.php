@@ -17,7 +17,7 @@
         foreach ($result as $r) {
             //$pwd_check = password_verify($password, $r['password']);
 
-            if ($password == $r['password']) {
+            if (password_verify($password, $r['password'])) {
                 $_SESSION['username'] = $r['email_address'];
                 $_SESSION['fname'] = $r['first_name'];
                 header('Location:'."FundWall.php?cat='Medical'");

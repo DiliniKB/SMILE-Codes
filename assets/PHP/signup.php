@@ -147,8 +147,13 @@ if(isset($_POST['signup'])){
 
         if($flag){
 
+            $options = [
+                'cost' => 10,
+            ];
+            $password = password_hash($_POST["password"], PASSWORD_BCRYPT, $options);
+
             $query = "INSERT INTO registered_user (first_name, last_name, password, email_address, DOB, NIC, fundCount, postCount, donateCount, removed_count, donateAmount, balance, account_number, branch_name, bank_name, picture, address, contact_no) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-            $values = [$_POST['fname'], $_POST['lname'], $_POST['password'], $_POST['email'], $_POST['dob'], $_POST['NIC'], 0, 0, 0, 0, 0,0, "", "", "", 0, "", $_POST['tpnum']];
+            $values = [$_POST['fname'], $_POST['lname'], $password, $_POST['email'], $_POST['dob'], $_POST['NIC'], 0, 0, 0, 0, 0,0, "", "", "", 0, "", $_POST['tpnum']];
 
             $stmt = $pdo->prepare($query);
             $stmt->execute($values);
