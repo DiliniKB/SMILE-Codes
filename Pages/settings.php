@@ -1,6 +1,7 @@
 <?php
     session_start();
     require ('../assets/PHP/dbconfig.php');
+    include "../assets/PHP/settings.php";
 ?>
 <head>
     <meta charset="utf-8">
@@ -46,12 +47,12 @@
 
             <div class="option" id="op2">Change email address</div>
             <div class="form-popup" id="SForm2">
-                <form class="form-container" id="f2">
+                <form class="form-container" id="f2" method="POST">
                     <label for="password">Enter password</label>
                     <input type="password" name="password" class="inputF">
                     <label for="location">New email</label>
-                    <input type="email" name="email" class="inputF">
-                    <div><button type="submit" class="enter">Done</button></div>
+                    <input type="email" name="email" class="inputF" value="<?=$email?>">
+                    <div><button type="submit" class="enter" name="submit_email">Done</button></div>
                 </form>
             </div>
             
@@ -69,29 +70,35 @@
 
             <div class="option" id="op4">Change password</div>
             <div class="form-popup" id="SForm4">
-                <form class="form-container" id="f4">
+                <form class="form-container" id="f4" method="POST">
                     <label for="location">Enter new password</label>
                     <input type="password" name="password" class="inputF">
                     <label for="keyword">Confirm password</label>
-                    <input type="password" name="password" class="inputF">
-                    <button type="submit" class="enter">Done</button>
+                    <input type="password" name="password_confirm" class="inputF">
+                    <button type="submit" class="enter" name="submit_password">Done</button>
                 </form>
             </div>
 
             <div class="option" id="op5">Link / Remove bank account</div>
             <div class="form-popup" id="SForm5">
-                <form class="form-container" id="f5">
+                <form class="form-container" id="f5" method="POST">
                     <label for="location">Name of the bank</label>
-                    <input type="text" name="bank name" class="inputF">
+                    <input type="text" name="bank_name" class="inputF" value="<?=$bank_name?>">
                     <label for="keyword">Name of the branch</label>
-                    <input type="text" name="branch" class="inputF">
+                    <input type="text" name="branch" class="inputF" value="<?=$bank_branch?>">
                     <label for="location">Account number</label>
-                    <input type="text" name="acc_number" class="inputF">
-                    <button type="submit" class="enter">Done</button>
-                    <button type="submit" class="enter">Remove Account</button>
+                    <input type="text" name="acc_number" class="inputF" value="<?=$bank_account?>">
+                    <button type="submit" class="enter" name="submit_bank">Done</button>
+                    <button type="submit" class="enter" name="submit_bank_remove">Remove Account</button>
                 </form>
         </div>
     </div>
+
+    <?php if($sys_error == 1){?>
+    <div id="message-box" class="<?php echo $sys_error_type;?>">
+        <span><?php echo $sys_error_msg;?></span>
+    </div>
+    <?php } ?>
 
     <script type="text/javascript" src="../assets/Scripts/settings.js"></script>
 
