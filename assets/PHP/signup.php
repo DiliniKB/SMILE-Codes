@@ -29,6 +29,14 @@ function check_isset($keys){
     return true;
 }
 
+$pdo = new PDO(
+    "mysql:host=".DB_SERVER.";dbname=".DB_NAME.";charset=".DB_CHARSET,
+    DB_USERNAME, DB_PASSWORD, [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+    ]
+);
+
 function password_check(){
     if(strlen($_POST['password']) < 8){
         merror(1, 'error', 'Password is short');
@@ -59,6 +67,29 @@ function dob_check(){
         merror(1, 'error', 'You should be older than 18');
         return false;
     }
+    return true;
+}
+
+function email_check(){
+    global $pdo;
+
+    if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
+        merror(1, 'error', 'Invalid email address');
+        return false;
+    }
+
+    $query = "SELECT * FROM registered_user WHERE email_address=?";
+    $values = [$_POST['email']];
+
+    $stmt = $pdo->prepare($query);
+    $stmt->execute($values);
+    $rows = $stmt->fetchAll();
+
+    if(count($rows) != 0){
+        merror(1, 'error', 'Email is already exists');
+        return false;
+    }
+
     return true;
 }
 
@@ -110,23 +141,11 @@ if(isset($_POST['signup'])){
         $email = $_POST['email'];
         $tpnum = $_POST['tpnum'];
 
-        if(!password_check() || !phone_check() || !dob_check() || !nic_check()){
+        if(!password_check() || !phone_check() || !dob_check() || !nic_check() || !email_check()){
             $flag = false;
-        }
-
-        if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
-            $flag = false;
-            merror(1, 'error', 'Invalid email address');
         }
 
         if($flag){
-            $pdo = new PDO(
-                "mysql:host=".DB_SERVER.";dbname=".DB_NAME.";charset=".DB_CHARSET,
-                DB_USERNAME, DB_PASSWORD, [
-                    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-                    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
-                ]
-            );
 
             $query = "INSERT INTO registered_user (first_name, last_name, password, email_address, DOB, NIC, fundCount, postCount, donateCount, removed_count, donateAmount, balance, account_number, branch_name, bank_name, picture, address, contact_no) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             $values = [$_POST['fname'], $_POST['lname'], $_POST['password'], $_POST['email'], $_POST['dob'], $_POST['NIC'], 0, 0, 0, 0, 0,0, "", "", "", 0, "", $_POST['tpnum']];
