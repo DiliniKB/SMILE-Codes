@@ -64,9 +64,9 @@
                 <div class="dropdown-content" id="menu3">
                     <a href="dashboard.php">Dashboard</a>
                     <a href="searchaccount.php">Search Accounts</a>
-                    <a href="settings.html">Settings</a>
+                    <a href="settings.php">Settings</a>
                     <form method="POST">
-                        <button name="logout">Logout</button>
+                        <button  id="logout" name="logout">Logout</button>
                     </form>
                 </div>
             </div>

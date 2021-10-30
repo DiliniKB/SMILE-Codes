@@ -18,8 +18,8 @@
             //$pwd_check = password_verify($password, $r['password']);
 
             if ($password == $r['password']) {
-                $_SESSION['username'] = $r['email'];
-                $_SESSION['fname'] = $r['Fname'];
+                $_SESSION['username'] = $r['email_address'];
+                $_SESSION['fname'] = $r['first_name'];
                 header('Location:'."FundWall.php?cat='Medical'");
             }else{
                 echo "wrong pass";
