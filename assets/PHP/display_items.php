@@ -8,7 +8,7 @@
             while ($row=mysqli_fetch_array($result)){
             echo '    
                 <a class=fpost href=viewfund.php>
-                    <img src= "../Images/mainPages/'.$table.'/image'.$row[1].'" class="photo">
+                    <img src= "../Images/mainPages/'.$table.'/'.$row[1].'" class="photo">
                     <div>
                         <div class="town">'.$row[2].',</div>
                         <div class="district">'.$row[3].'</div>

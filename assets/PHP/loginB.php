@@ -22,7 +22,7 @@
                 $_SESSION['fname'] = $r['first_name'];
                 header('Location:'."FundWall.php?cat='Medical'");
             }else{
-                echo "wrong pass";
+                echo "<script>alert('wrong username or password');</script>";
             }
         }
     }
