@@ -71,10 +71,10 @@
 
 #SmileMakers{
 	position: relative;
-	/* left: 15%; */
+	/* left: -1%; */
 	/* top: 2vh; */
 	font-size: 18px;
-	width: 44%;
+	/* width: 44%; */
 	/* top: 142%; */
 	/* text-decoration: none; */
 }
@@ -83,26 +83,28 @@
 	position: relative;
 	display: flex;
 	/* left: 30%; */
-	width: 123%;
+	width: fit-content;
 	/* top: 2vh; */
 	align-items: center;
 	font-size: 18px;
-	/* flex-wrap: wrap; */
+	flex-wrap: nowrap;
+	/* height: 2%; */
 }
 #Donation{
 	position: relative;
 	display: flex;
 	/* left: 40%; */
 	font-size: 18px;
-	/* width:auto; */
+	/* width: 58%; */
 	/* top: 2vh; */
-	/* flex-direction: row; */
+	align-items: center;
 }
 .menuicon{
 	/* position: absolute; */
-	width: 20px;
+	/* width: 24px; */
 	height: auto;
-	/* float:left; */
+	float: right;
+	margin: 0px;
 	/* right:1%; */
 }
 .profile{
@@ -116,7 +118,7 @@
 #Account{
 	position:absolute;
 	left: 80%;
-	/* width: 14%; */
+	/* width: 0; */
 	/* right: 1%; */
 	top: 2vh;
 	font-size: 19px;
@@ -129,11 +131,12 @@
     top: 4vh;
     position: relative;
     align-items: center;
-    width: max-content;
+    width: 37%;
     /* row-gap: 58px; */
     column-gap: 35px;
     /* column-width: 142px; */
     /* font-size: 10px; */
+    /* height: fit-content; */
 }
 .dropdown-content {
 	position: absolute;
@@ -171,7 +174,7 @@
 	opacity: 1;
 }
 #menu3{
-	right: 1%;
+	/* right: 1%; */
 }
 #logout{
     font-family: 'Sora';
