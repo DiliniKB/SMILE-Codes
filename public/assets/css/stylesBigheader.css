@@ -1,0 +1,190 @@
+#Logo {
+	position: absolute;
+    height: auto;
+    float: left;
+    grid-column: 1/3;
+    width: 16%;
+    top: -1%;
+    left: 0%;
+}
+.btn {
+	background: #000000;
+	color: #ffffff !important;
+	font-weight: 100;
+	padding: 1vw;
+	text-transform: uppercase;
+	border-radius: 6px;
+	display: inline-block;
+	transition: all 0.3s ease 0s;
+	text-decoration: none;
+	font-family: 'Sora', sans-serif;
+	position: absolute;
+	font-size: 17px;
+	overflow: hidden;
+}
+.btn:hover {
+	color: #404040 !important;
+	font-weight: 700 !important;
+	font-size: 20px;
+	letter-spacing: 2px;
+	background: none;
+	box-shadow: 0px 5px 40px -10px rgb(255 255 255);
+	-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	transition: all 0.3s ease 0s;
+	text-decoration: none;
+	font-family: 'Sora', sans-serif;
+	float: left;
+	top: 9%;
+}
+
+#login{
+    left: 77%;
+    top: 5vh;
+    /* bottom: 128%; */
+    /* position: sticky; */
+}
+#signup{
+    left:88%;
+    top: 5vh;
+}
+
+
+/* Header menus*/
+.header{
+	left: 0%;
+	width: 100%;
+	position: absolute;
+	height: fit-content;
+	top: 0%;
+}
+.txt{
+	text-align: left;
+	font-size: 21px;
+	font-family: 'Sora', sans-serif;
+	/* top:5%; */
+	float:left;
+	width: fit-content;
+	height: fit-content;
+	position: fixed;
+	padding: 2% 2%;
+}
+
+#SmileMakers{
+	position: relative;
+	/* left: 15%; */
+	/* top: 2vh; */
+	font-size: 18px;
+	width: 44%;
+	/* top: 142%; */
+	/* text-decoration: none; */
+}
+
+#Event{
+	position: relative;
+	display: flex;
+	/* left: 30%; */
+	width: 123%;
+	/* top: 2vh; */
+	align-items: center;
+	font-size: 18px;
+	/* flex-wrap: wrap; */
+}
+#Donation{
+	position: relative;
+	display: flex;
+	/* left: 40%; */
+	font-size: 18px;
+	/* width:auto; */
+	/* top: 2vh; */
+	/* flex-direction: row; */
+}
+.menuicon{
+	/* position: absolute; */
+	width: 20px;
+	height: auto;
+	/* float:left; */
+	/* right:1%; */
+}
+.profile{
+	/* FONT-WEIGHT: 200; */
+	position: absolute;
+	left: 77%;
+	width: 4%;
+	top: 4vh;
+}
+
+#Account{
+	position:absolute;
+	left: 80%;
+	/* width: 14%; */
+	/* right: 1%; */
+	top: 2vh;
+	font-size: 19px;
+}
+/*dropdown menus*/
+.dropdowns{
+    display: flex;
+    flex-direction: row;
+    left: 17vw;
+    top: 4vh;
+    position: relative;
+    align-items: center;
+    width: max-content;
+    /* row-gap: 58px; */
+    column-gap: 35px;
+    /* column-width: 142px; */
+    /* font-size: 10px; */
+}
+.dropdown-content {
+	position: absolute;
+	font-family: 'Sora', sans-serif;
+	background-color: #ffffff;
+	min-width: 100px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+	text-align: left;
+	font-size: 16px;
+	width: 14ch;
+	margin-top: 5%;
+	visibility: hidden;
+	z-index: 1;
+	opacity: 0;
+	-webkit-transition: all .25s ease;
+	-moz-transition: all .25s ease;
+	-ms-transition: all .25s ease;
+	-o-transition: all .25s ease;
+	transition: all 0.5s cubic-bezier(0.82, 1.32, 1, 1);
+}
+
+.dropdown-content a {
+	color: black;
+	padding: 8px;
+	text-decoration: none;
+	display: block;
+}
+  
+.dropdown-content a:hover {color: #04AA6D;}
+  
+.dropdown:hover .dropdown-content {
+	display: block;
+	visibility: visible;
+	opacity: 1;
+}
+#menu3{
+	right: 1%;
+}
+#logout{
+    font-family: 'Sora';
+    border-color: white;
+    box-shadow: none;
+    background: none;
+    border: none;
+    font-size: 16px;
+    /* padding-bottom: 0px; */
+    padding: 8px;
+    padding-bottom: 0px;
+}
+
+#logout:hover {
+    color: blue;
+}

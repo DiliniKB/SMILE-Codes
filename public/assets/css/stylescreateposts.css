@@ -1,0 +1,271 @@
+.none{
+	width:100%;
+	height:100%;
+}
+
+.MainOval {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 60%;
+	top: auto;
+	background: radial-gradient(77.13% 77.13% at 75.9% 10.03%, #ffffff 100%, #ecebeb 0%);
+	filter: blur(150px);
+	transform: matrix(-1, 0, 0, 1, 0, 0);
+}
+.bg2{
+	width:100%;
+	height:100%;
+	position:fixed;
+	/* background-color: #f5f5f587; */
+	top:0vh;
+	left: 0vw;
+}
+
+#menu3{
+	width: 77%;
+	left: 25%;
+}
+
+#menu4{
+	width:77%;
+	border: none;
+	}
+	
+#menu5{
+	width:77%;
+	}
+
+
+
+/*selectors*/
+.Cat{
+	position: absolute;
+	/* text-align: center; */
+	left: 18.2%;
+	font-family: 'Sora';
+	top: 47%;
+	background-color: #d0d0d0;
+	font-size: 28px;
+	padding: 3px 7px;
+}
+#ButtonF{
+	position: absolute;
+	left: 60%;
+	font-family: 'Sora';
+	top: 15%;
+	font-size: 20px;
+	color: black;
+	padding: 5px;
+	text-decoration: none;
+	border-bottom: black;
+	/*border-bottom: solid;*/
+	border-width: thin;
+	/* text-decoration: underline; */
+}
+#ButtonM{
+	position: absolute;
+	left: 73%;
+	font-family: 'Sora';
+	top: 15%;
+	font-size: 20px;
+	color: black;
+	text-decoration: none;
+	padding: 5px;
+	border-bottom: solid;
+	border-width: thin;
+}
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    width: 600px;
+    flex-direction: row;
+}
+.FormTopic{
+	font-family: 'Sora', sans-serif;
+	padding-left: 10%;
+	margin-top: 10%;
+	font-size: 40px;
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+}
+.input_form {
+	position: relative;
+	border: none;
+	border-bottom: 1px solid #B0BEC5;
+	background-color: #ffffff00;
+	font-size: 14px;
+	outline: none;
+	margin: 5px auto;
+	padding-top: 1px;
+	padding-left: 5px;
+	font-family: 'Sora', sans-serif;
+	margin-left: 10%;
+	margin-right: 10%;
+	margin-bottom:3%;
+}
+
+.input_form:focus {
+	border-bottom: 1px solid #04aa6d ;
+}
+
+.column{
+	display: flex;
+	/* flex-basis: 100%; */
+	flex: 1;
+	width: 59%;
+	padding: 2%;
+	flex-wrap: wrap;
+	position: absolute;
+	align-content: center;
+	flex-direction: column;
+}
+
+#form{
+    left: 35%;
+    position: absolute;
+    top: 33%;
+}
+
+#enter{
+	background-color: #000000a2;
+	font-family: 'Sora', sans-serif;
+	font-size: 16px;
+	color: #FFFFFF;
+	text-align: center;
+	display: block;
+	padding: 7px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-style: none;
+	border-radius: 10%;
+	display: flex;
+	flex-direction: row;
+	margin: 0;
+	align-self: center;
+	margin-top:4%;
+	margin-left:10%;
+	width: fit-content;
+}
+
+.input_radio{
+	/* position: relative; */
+	/* border: none; */
+	/* border-bottom: 1px solid #B0BEC5; */
+	/* background-color: #ffffff00; */
+	/* font-size: 14px; */
+	/* outline: none; */
+	margin: 12px auto;
+	/* padding-top: 1px; */
+	/* padding-left: 5px; */
+	padding-right: 10px;
+	/* font-family: 'Sora', sans-serif; */
+	margin-left: 13%;
+	/* margin-right: 5%; */
+	margin-bottom: 0%;
+}
+.RB{	
+font-family: 'Sora';	
+font-size: 14px;
+}
+/*upload image*/
+.uploadBox{
+	width: 250px;
+	height: 250px;
+	border: dashed;
+	border-width: medium;
+	border-color: #c7c7c7;
+	text-align: center;
+	padding: 2%;
+	overflow: hidden;
+	/* margin: 10px; */
+	position: absolute;
+	top: -180%;
+	left: 149%;
+	margin-top: 1em;
+	/* margin-bottom: 3em; */
+}
+
+#output_image{
+width: 100%;
+}
+		
+.custom-file-input {
+	color: transparent;
+	position: absolute;
+	bottom: -275px;
+	left: 186%;
+}
+.custom-file-input::-webkit-file-upload-button {
+	visibility: hidden;
+}
+.custom-file-input::before {
+	content: 'Choose files';
+	color: rgb(68, 68, 68);
+	display: inline-block;
+	background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
+	border: 1px solid #999;
+	border-radius: 3px;
+	padding: 5px 8px;
+	outline: none;
+	white-space: nowrap;
+	-webkit-user-select: none;
+	cursor: pointer;
+	text-shadow: 1px 1px #fff;
+	font-weight: 700;
+	font-size: 10pt;
+}
+.custom-file-input:hover::before {
+	border-color: rgba(0, 0, 0, 0.282);
+}
+.custom-file-input:active {
+	outline: 0;
+}
+.custom-file-input:active::before {
+	background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9); 
+}
+#anon{
+	
+border: none;
+	
+/* position: absolute; */
+	
+margin-left: 22px;
+	
+margin-top: -8px;
+}
+#members{
+	display: none;
+	position: absolute;
+	top: 56%;
+	left: 52%;
+}
+.field{
+	padding: 10px;
+	/* border: solid; */
+	display: flex;
+	/* position: absolute; */
+	flex-direction: column;
+	background: white;
+}
+#members>#enter{
+	font-size: 12px;
+	/* margin: 0 auto; */
+	position: absolute;
+	align-items: end;
+	margin: 10px;
+	/* display: flex; */
+}
+.add{
+	background: #969696;
+	position: absolute;
+	width: 10%;
+	left: 72%;
+}
+.member{	
+	width: 70%;	
+	margin: 2px;
+}
+
+
+
