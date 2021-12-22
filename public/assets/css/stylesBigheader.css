@@ -70,34 +70,58 @@
 }
 
 #SmileMakers{
-	position: relative;
-	/* left: -1%; */
-	/* top: 2vh; */
-	font-size: 18px;
-	/* width: 44%; */
-	/* top: 142%; */
-	/* text-decoration: none; */
+	
+position: relative;
+	
+/* left: -1%; */
+	
+display: flex;
+	
+top: -1vh;
+	
+row-gap: 3px;
+	
+font-size: 17px;
+	
+border-radius: 70px;
+	
+/* font-weight: bold; */
+	
+/* width: 44%; */
+	
+/* top: -1vh; */
+	
+/* text-decoration: none; */
+	
+flex-direction: column;
+	
+align-items: center;
+	
+justify-content: flex-start;
 }
 
 #Event{
 	position: relative;
 	display: flex;
 	/* left: 30%; */
-	width: fit-content;
+	width: 100%;
 	/* top: 2vh; */
 	align-items: center;
-	font-size: 18px;
+	font-size: 17px;
 	flex-wrap: nowrap;
+	letter-spacing: 1px;
+	/* padding: 6px; */
 	/* height: 2%; */
 }
 #Donation{
 	position: relative;
 	display: flex;
 	/* left: 40%; */
-	font-size: 18px;
+	font-size: 17px;
 	/* width: 58%; */
 	/* top: 2vh; */
 	align-items: center;
+	letter-spacing: 1px;
 }
 .menuicon{
 	/* position: absolute; */
@@ -105,33 +129,39 @@
 	height: auto;
 	float: right;
 	margin: 0px;
+	padding-left: 10px;
+	/* margin-right: -9px; */
 	/* right:1%; */
 }
 .profile{
 	/* FONT-WEIGHT: 200; */
 	position: absolute;
 	left: 77%;
-	width: 4%;
+	/* width: 4%; */
 	top: 4vh;
+	font-size: 36px;
+	margin: 0px;
 }
 
 #Account{
-	position:absolute;
+	position: absolute;
 	left: 80%;
 	/* width: 0; */
 	/* right: 1%; */
-	top: 2vh;
-	font-size: 19px;
+	top: 5vh;
+	font-size: 17px;
+	padding: 0px;
+	letter-spacing: 1px;
 }
 /*dropdown menus*/
 .dropdowns{
     display: flex;
     flex-direction: row;
     left: 17vw;
-    top: 4vh;
+    top: 2vh;
     position: relative;
     align-items: center;
-    width: 37%;
+    width: 42%;
     /* row-gap: 58px; */
     column-gap: 35px;
     /* column-width: 142px; */
@@ -190,4 +220,63 @@
 
 #logout:hover {
     color: blue;
+}
+
+.smileys{	
+letter-spacing: 1px;
+}
+
+.dropdown {
+    display: flex;
+    width: 32%;
+    /* height: 125%; */
+    /* padding: 3px; */
+}
+
+.gg-crown {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    transform: scale(var(--ggs,1));
+    width: 19px;
+    height: 10px;
+    border: 2px solid;
+    border-top-color: #ffffff00;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    padding-bottom: 11px;
+    /* padding-left: 10px; */
+    /* padding-right: 10px; */
+    /* padding: 17px; */
+}
+.gg-crown::after,
+.gg-crown::before {
+    content: "";
+    display: block;
+    position: absolute;
+    box-sizing: border-box;
+    width: 8px;
+    height: 8px;
+    border-bottom: 2px solid;
+    border-left: 2px solid;
+    transform: rotate(-45deg);
+    top: -4px
+}
+.gg-crown::before {
+    border-top-left-radius: 2px;
+    left: -1px
+}
+.gg-crown::after {
+    border-bottom-right-radius: 2px;
+    right: -1px
+}
+.user{
+	
+/* position: absolute; */
+	
+/* top: 0vh; */
+	
+/* left: 70%; */
+	
+/* width: 20%; */
 }
