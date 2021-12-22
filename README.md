@@ -10,7 +10,7 @@
 
 4. import `tables.sql`
 
-5. visit http://localhost/smile-codes/index.html
+5. visit http://localhost/smile-codes/public
 
 ## Progress
 
