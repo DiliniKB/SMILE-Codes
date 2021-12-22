@@ -16,15 +16,16 @@
 
 ### Todo
 
-- [ ] Complete section of Events
-- [ ] Search accounts
-- [ ] Validation of forms (signup, create fund, create post)
+- [ ] Account Verification
+- [ ] Filters
+- [ ] Report
 - [ ] Privilages (visitor, reg user, admin)
 
 
 ### Done ✓
 
-- [x] Login, Session variables and header variation
+- [x] search account (UI, BE)
+- [x] createfund, createpost
 
 ## Notes
 
