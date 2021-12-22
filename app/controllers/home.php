@@ -26,9 +26,9 @@
 
         function logout()
         {
+            session_destroy();
             $data['page_title'] = "Homepage";
             $this->view("index",$data);
-            session_destroy();
         }
 
         function signup()
