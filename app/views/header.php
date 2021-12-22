@@ -28,7 +28,8 @@
         
         <div class=dropdowns>
             <div class="txt" id="SmileMakers">
-                <a href="Pages/smilemakers.php">Smileys</a>
+                <i class="gg-crown"></i>
+                <a class="smileys" href="Pages/smilemakers.php">Smileys</a>
             </div>
             <div class=dropdown>
                 <div class="txt" id="Event">Sharing Materials
@@ -45,7 +46,7 @@
             </div>
 
             <div class=dropdown>
-                <div class="txt" id="Donation">Funds
+                <div class="txt" id="Donation">Fundraising
                     <p class="menuicon"><ion-icon name="chevron-down-outline"></ion-icon></p>
                     <div class="dropdown-content" id="menu2">
                         <a href="<?=ROOT?>funds/Medical">Medical</a>
@@ -59,36 +60,35 @@
             </div>
         </div>
 
-
+        <div class="user">
         <?php 
         if(!empty($_SESSION['user_id'])){
             if($_SESSION['user_status']){?>        
                 <div class=dropdown>
-                    <img class="profile" src="<?=ASSETS?>images/mainPages/User.png">
+                    <p class="profile"><ion-icon name="person-outline"></ion-icon></p>
                     <div class="txt" id="Account">Hello, <?= $_SESSION['user_fname']; ?>
                         <p class="menuicon"><ion-icon name="chevron-down-outline"></ion-icon></p>
                         <div class="dropdown-content" id="menu3">
                             <a href="<?=ROOT?>home/dashboard">Dashboard</a>
                             <a href="<?=ROOT?>account/search">Search Accounts</a>
                             <a href="<?=ROOT?>home/settings">Settings</a>
-                            <form method="POST">
-                                <button  id="logout" name="logout">Logout</button>
-                            </form>
+                            <a id="logout" href="<?=ROOT?>home/logout">Logout</a>
                         </div>
                     </div>
                 </div>
             <?php }
             else{?>
                 <div class=dropdown>
-                    <img class="profile" src="<?=ASSETS?>images/mainPages/User.png">
+                    <p class="profile"><ion-icon name="person-outline"></ion-icon></p>
                     <div class="txt" id="Account">Hello, <?= $_SESSION['user_fname']; ?>
                         <p class="menuicon"><ion-icon name="chevron-down-outline"></ion-icon></p>
                         <div class="dropdown-content" id="menu3">
                             <a href="<?=ROOT?>home/dashboard">Dashboard</a>
                             <a href="<?=ROOT?>home/settings">Settings</a>
-                            <form method="POST">
+                            <a id="logout" href="<?=ROOT?>home/logout">Logout</a>
+                            <!-- <form method="POST">
                                 <button  id="logout" name="logout" href="<?=ROOT?>/home/logout">Logout</button>
-                            </form>
+                            </form> -->
                         </div>
                     </div>
                 </div>
@@ -98,4 +98,7 @@
             <a class="btn " id="login" href="<?=ROOT?>home/login">Login</a>
             <a class="btn" id="signup" href="<?=ROOT?>home/signup">Sign Up</a>
         <?php }?>
+    </div>
+
+        <?php $this->view("footers/footerfiles");?>
     </div> 
