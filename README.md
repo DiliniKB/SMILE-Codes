@@ -20,6 +20,7 @@
 - [ ] Filters
 - [ ] Report
 - [ ] Privilages (visitor, reg user, admin)
+- [ ] payment gateway
 
 
 ### Done ✓
