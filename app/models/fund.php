@@ -105,6 +105,61 @@ Class fund{
     function payment_verification(){
         
     }
+
+    function report($data){
+
+        $DB = new Database();
+        $_SESSION['error'] = '';
+
+        $tablename = $data['table'];
+        $arr['fund'] = $data['fund_id'];
+        $arr['feedback'] = $data['feedback']['feedback'];
+        $arr['user'] = $data['user_id'];
+        $arr['date'] = date("Y-m-d H:i:s");
+        $allowed = array("image/jpeg","image/png");
+
+        for ($i=0; $i < count($data['photos']['photo']['name']); $i++) { 
+            if($data['photos']['photo']['name'][$i]!="" && $data['photos']['photo']['error'][$i]== 0 && in_array($data['photos']['photo']['type'][$i],$allowed))
+            {
+                $folder1 = "uploads/reports/".$tablename;
+                $folder2 = $folder1."/".$arr['fund'];
+                $folder3 = $folder2."/".$arr['user'];
+
+                if (!file_exists($folder1)) {
+                    mkdir($folder1, 0777, true);
+                }
+                if (!file_exists($folder2)) {
+                    mkdir($folder2, 0777, true);
+                }
+                if (!file_exists($folder3)) {
+                    mkdir($folder3, 0777, true);
+                    $desination = $folder3."/".$data['photos']['photo']['name'][$i];
+                }
+                else{ 
+                    $desination = $folder3."/".$data['photos']['photo']['name'][$i];
+                }
+                echo $desination;
+                move_uploaded_file($data['photos']['photo']['tmp_name'][$i],$desination);
+            }else{
+                $_SESSION['error'] = "This file could not be uploaded";
+
+            }
+        }
+
+        echo $_SESSION['error'];
+
+        if (!$_SESSION['error']) {
+            $query = "INSERT INTO $tablename (fund_ID,user_ID,date,feedback) VALUES (:fund,:user,:date,:feedback)";
+
+            $result = $DB->write($query,$arr);
+
+            if ($result) {
+                header("Location:".ROOT."funds/Medical");
+                die;
+            }
+        }
+
+    }
 }
 
 ?>
