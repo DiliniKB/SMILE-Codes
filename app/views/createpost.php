@@ -47,7 +47,8 @@
                 <input class="input_form" type="text" placeholder="Keywords" name="keywords" required>
                 <input class="input_form" type="text" placeholder="Town" name="town" required>
                 <input class="input_form" type="text" placeholder="District" name="District" required>
-                <input class="input_form" type="text" placeholder="Title" name="Title" required>
+                <input class="input_form" type="text" placeholder="Item" name="Item" required>
+                <input class="input_form" type="text" placeholder="Description" name="description" required>
 
                 <div>
                     <label for="type" name="type" required></label>
