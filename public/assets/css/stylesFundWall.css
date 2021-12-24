@@ -20,13 +20,14 @@
 .container{
 	/* left: 5%; */
 	top: 20%;
-	/* width: fit-content; */
+	width: 100%;
 	height: fit-content;
 	display: flex;
 	flex-direction: row;
 	position: absolute;
 	flex-wrap: wrap;
 	justify-content: center;
+	/* align-self: center; */
 	/* background: brown; */
 }
 .fpost {
@@ -168,19 +169,22 @@ progress::-webkit-progress-value {
 	left: 62%;
 }
 .form-popup {
-	display: none;
+	/* display: none; */
 	top: 12%;
-	position: fixed;
-	left: 20.5%;
+	position: absolute;
+	left: 66%;
 	border: 3px solid #f1f1f1;
 	z-index: 9;
 	background-color: whitesmoke;
+	box-shadow: 3px 4px 4px 0px rgb(74 85 188 / 42%);
 }
 .form-container{
 	/* width: 85%; */
 	font-family: 'Sora';
 	padding: 5%;
+	/* display: flex; */
 	padding-right: -16%;
+	flex-direction: column;
 }
 .Sort{
 	font-family: 'Sora';
@@ -203,6 +207,7 @@ progress::-webkit-progress-value {
 	padding: 2px;
 	padding-left: 8px;
 	font-size: 15px;
+	margin-left: 10px;
 }
 
 .inputF>:focus-visible{
@@ -217,6 +222,8 @@ progress::-webkit-progress-value {
 	font-size: 14px;
 	padding: 6px 10px;
 	text-align: center;
+	/* margin: 0px auto; */
+	/* align-self: center; */
 }
 
 #plus{
@@ -241,4 +248,13 @@ progress::-webkit-progress-value {
 	bottom: 448%;
 	z-index: 0;
 	/* box-shadow: 9px 13px 50px 15px rgb(0 0 0 / 7%); */
+}
+.noResult{
+	font-family: 'Work sans';
+	font-size: 23px;
+	position: absolute;
+	left: 45%;
+	/* justify-self: center; */
+	/* top: 117%; */
+	/* margin: 100px auto; */
 }

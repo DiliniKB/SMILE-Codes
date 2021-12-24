@@ -68,4 +68,4 @@ font-weight: bold;
     column-gap: 20px;
     /* column-width: 78px; */
 }
-.dropdown{/* display: flex; */}
+.dropdown{display: flex;width: 32%;/* padding: 3px; */}

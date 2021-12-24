@@ -4,7 +4,7 @@
 	position:absolute;
 	left: 80%;
 	/* width: 14%; */
-	top: 0%;
+	/* top: 0%; */
 }
 
 #menu3{
@@ -119,7 +119,7 @@
     flex-direction: row;
     column-gap: 10px;
     column-width: -4px;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     font-family: 'Work Sans';
     border: solid;
     border-width: thin;
@@ -135,19 +135,22 @@
 	margin-right: 15px;
 }
 .location{
-    width: 120px;
+    width: 14%;
 }
 .title{
-    width: 276px;
+    width: 25%;
     max-height: 4em;
     overflow: hidden;
 }
 .progress{}
-.RaisedOf{margin-left: 15px;width: 213px;}
+.RaisedOf{margin-left: 15px;width: 24%;}
 .description{
-    width: 35.5%;
-    max-height: 11ch;
-    overflow: hidden;
+    
+width: 50%;
+    
+max-height: 11ch;
+    
+overflow: hidden;
 }
 .done{
     color: #279069;
@@ -156,7 +159,7 @@
     width: fit-content;
     /* color: #d31a1a; */
     padding: 0px;
-    font-size: 40px;
+    font-size: 25px;
     margin: 0;
     margin: 0px 5px;
 }
@@ -164,7 +167,7 @@
     width: fit-content;
     color: #d31a1a;
     padding: 0px;
-    font-size: 40px;
+    font-size: 25px;
     margin: 0px 5px;
     /* margin: 0; */
     /* background: black; */
@@ -172,9 +175,13 @@
 }
 .move{
     width: fit-content;
-    color: hsl(217deg 100% 50%);
+    color: hsl(217deg 50% 36%);
     padding: 0px;
-    font-size: 40px;
+    font-size: 25px;
     margin: 0;
     margin: 0px 5px;
+}
+
+.item{
+    width: 10%;
 }

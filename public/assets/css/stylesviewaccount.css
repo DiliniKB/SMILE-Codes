@@ -27,7 +27,8 @@
     border-bottom: solid;
     border-width: thin;
     /* padding-bottom: 2%; */
-    width: 100%;
+    /* width: 100%; */
+    /* float: right; */
     font-weight: 300;
     /* text-align: center; */
     /* color: #bd2222; */
@@ -35,7 +36,7 @@
 .display{
     display: flex;
     flex-direction: column;
-    row-gap: 16px;
+    row-gap: 15px;
     align-items: flex-start;
 }
 .s0{
@@ -94,8 +95,10 @@
 .RaisedOf{/* margin-left: 15px; */width: 20%;}
 .delete{
     width: fit-content;
-    color: red;
+    color: #aa1515;
     margin: 1%;
+    font-size: 30px;
+    margin: 0px;
     /* text-decoration: underline; */
 }
 .chaticon{
@@ -108,12 +111,9 @@
 .viewf{}    
 .t{
     display: flex;
-    flex-direction: column;
-    align-content: stretch;
-    /* align-items: center; */
-    flex-wrap: wrap;
-    justify-content: flex-start;
+    /* align-content: stretch; */
     /* height: auto; */
+    justify-content: flex-end;
 }
 .line{
     border-top: solid;
@@ -140,8 +140,10 @@ tr:nth-child(even) {
   }
 
 .done {
-    color: green;
+    color: #346a34;
     text-decoration: underline;
+    font-size: 30px;
+    margin: 0px;
     /* position: absolute; */
     /* text-align: right; */
 }
@@ -150,4 +152,11 @@ tr:nth-child(even) {
     flex-direction: row;
 }
 .row2 {}
-
+.move{
+    font-size: 30px;
+    margin: 0px;
+    color: #257078;
+}
+.description{
+    width: 56%;
+}
