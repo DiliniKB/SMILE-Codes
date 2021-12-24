@@ -140,6 +140,18 @@
             return false;
         }
 
+        function search_user_by_email($email){
+            $DB = new Database();
+            $_SESSION['error']="";
+            $query = "SELECT * FROM registered_user WHERE email='$email' LIMIT 1";
+            $data = $DB->read($query);
+            
+            if ($data){
+                return $data[0];
+            }
+            return false;
+        }
+
         function search_users($str){
             $DB = new Database();
             $_SESSION['error']="";
