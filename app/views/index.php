@@ -11,6 +11,6 @@
                    
     <img src="<?=ASSETS?>images/mainPages/1asset_3_1.png" id="image">
     <img src="<?=ASSETS?>images/mainPages/random lines.png" id="randomLines">
-    <?php $this->view("footers/footerfiles");?>
+    
 </body>
 </html>

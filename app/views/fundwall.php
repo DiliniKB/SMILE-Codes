@@ -2,20 +2,14 @@
 <head>
     <link rel="stylesheet" href="<?=ASSETS?>css/styles.css">
     <link rel="stylesheet" href="<?=ASSETS?>css/stylesBigheader.css">
-    <link rel="stylesheet" href="<?=ASSETS?>css/stylesFundWall.css">            
+    <link rel="stylesheet" href="<?=ASSETS?>css/stylesFundWall.css">   
+    
+    <script type="text/javascript" src="<?=ASSETS?>js/fundwall.js"></script>
 </head>
 
 <body>
-    <script>
-        function openForm() {
-            document.getElementById("SForm").style.display = "block";
-        }
-        
-        function closeForm() {
-            document.getElementById("SForm").style.display = "none";
-        }
-    </script>
     
+
     <!-- <div class="bg2" onclick="closeForm()"> -->
     <!-- </div> -->
     
@@ -27,10 +21,10 @@
 
     <!--filter -->
     
-    <img id="filterButton" src="<?=ASSETS?>/Images/mainPages/Sliders.png" onclick="openForm()">
+    <img id="filterButton" src="<?=ASSETS?>/Images/mainPages/Sliders.png" onclick='displayFilter()'>
 
     <div class="form-popup" id="SForm">
-        <form action="/action_page.php" class="form-container">
+        <form method="POST" class="form-container">
             <label for="sortBy">Sort By</label>
             <select class="Sort" data-filter-group="SortingOptions">
                 <option value=".trending" selected="selected">Trending</option>
@@ -46,7 +40,7 @@
             <label for="keyword">Keyword</label>
             <input type="text" name="keyword" class="inputF"><br><br>
 
-            <button type="submit" class="enter" onclick="closeForm()">ENTER</button><br>
+            <button type="submit" class="enter">ENTER</button><br>
         </form>
     </div>
    
@@ -67,7 +61,10 @@
                     <div class="RaisedOf">Rs <?=$row->filled?> raised of Rs<?=$row->amount?></div>
                 </a>
             <?php endforeach; ?>  
+        <?php else: ?>
+            <p class=noResult>No results available.</p>  
         <?php endif; ?>  
+        
     </div>
 
     <!--add new -->
