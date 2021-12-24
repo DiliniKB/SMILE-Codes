@@ -30,9 +30,9 @@
                                         <div class="title"><?=$row->title?></div>
                                         <progress value="<?=$row->filled?>" max="<?=$row->amount?>"></progress>
                                         <div class="RaisedOf">Rs <?=$row->filled?> raised of Rs<?=$row->amount?></div>
-                                        <p class="delete">&#128465;</p>
+                                        <p class="delete"><ion-icon name="trash-bin"></ion-icon></p>
                                         <!-- <p class="done">&#x2714;</p> -->
-                                        <a class="move" href="<?=ROOT?>singlefund/<?=str_replace("funds","",$row->table); ?>/<?=$row->ID?>"> &#x279C;</a> 
+                                        <a class="move" href="<?=ROOT?>singlefund/<?=str_replace("funds","",$row->table); ?>/<?=$row->ID?>"><ion-icon name="arrow-forward-circle"></ion-icon></a> 
                                     </div>
                                 <?php endforeach; ?>  
                             <?php endif; ?>
@@ -43,10 +43,8 @@
             <div class="cat">
                 <div class="t">
                     <div class="topic">Active Posts</div>
-                    <div class="line"></div>
                 </div>
                 <div class="display">
-                <div class="posts">
                 <?php if(is_array($data['posts'])): ?>
                         <?php foreach($data['posts'] as $table): ?>
                             <?php if(is_array($table)):?>
@@ -59,15 +57,14 @@
                                         </div>
                                         <div class="description"><?=$row->content?></div>
                                         <div class="title"><?=$row->item?></div>
-                                        <p class="delete">&#128465;</p>
-                                        <p class="done">&#x2714;</p>
-                                        <a class="move" href="<?=ROOT?>singlepost/<?=str_replace("posts","",$row->table); ?>/<?=$row->ID?>"> &#x279C;</a> 
+                                        <p class="delete"><ion-icon name="trash-bin"></ion-icon></p>
+                                        <p class="done"><ion-icon name="checkmark-done-circle"></ion-icon></p>
+                                        <a class="move" href="<?=ROOT?>singlepost/<?=str_replace("posts","",$row->table); ?>/<?=$row->ID?>"> <ion-icon name="arrow-forward-circle"></ion-icon></a> 
                                     </div> 
                                 <?php endforeach; ?>  
                             <?php endif; ?>
                         <?php endforeach; ?>  
                     <?php endif; ?>
-                </div>
                 </div>
             </div>
             

@@ -5,25 +5,22 @@
     <link rel="stylesheet" href="<?=ASSETS?>css/stylesfooter.css">
     <link rel="stylesheet" href="<?=ASSETS?>css/stylesreport.css">
     <link rel="stylesheet" href="<?=ASSETS?>css/stylesBigheader.css">
-    
-    <script type="text/javascript" src="../assets/Scripts/report.js"></script>
-
         
 </head>
 <body>
             
     <div class="none" onclick="closeForm()"></div>
 
-    <form class="container" method="post" id="inputs" enctype="multipart/form-data"> 
+    <form class="container" method="POST" id="inputs" enctype="multipart/form-data"> 
         <div class="column">
             <textarea type="text" placeholder="Enter Your Feedback Here" name="feedback" id="feedback"></textarea>
         </div>
         <div class="column">
-            <input id="fileupload" type="file" name="photo" multiple="multiple" />
-            <div class="uploadBox" id="preview">
+            <input type="file" id="fileupload" name="photo[]" multiple/>
+            <!-- <div class="uploadBox" id="preview">
                 <div id="dvPreview"></div>
-            </div>
-            <button id="enter" type="submit" name="report">Report</button>
+            </div> -->
+            <button id="enter" type="submit">Report</button>
         </div>
         <!-- <input id="file-input" type="file" class="custom-file-input" multiple> -->
         <!-- <div id="preview"></div> -->
