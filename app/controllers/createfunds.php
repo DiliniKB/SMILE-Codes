@@ -21,7 +21,7 @@
 
             for ($i=1; $i <4 ; $i++) { 
                 $member = 'member'.$i;
-                if($_POST[$member]){
+                if(array_key_exists($member,$_POST)){
                     $result= $user->search_user_by_email($_POST[$member]);
                     $data[$member] = $result->user_ID;
                     if(!$data[$member]){
