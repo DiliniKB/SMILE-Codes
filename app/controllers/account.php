@@ -45,8 +45,5 @@ Class Account extends Controller
         $this->view("searchaccount",$data);
     }
 
-
-
-
 }
 ?>

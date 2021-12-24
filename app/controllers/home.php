@@ -7,7 +7,7 @@
             $data['page_title'] = "Homepage";
             $this->view("index",$data);
             // show($_SESSION);
-            //session_destroy();
+            // session_destroy();
         }
 
         function about()

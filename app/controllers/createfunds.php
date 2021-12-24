@@ -17,8 +17,21 @@
 
             $data['page_title'] = "Start a ".$data['type'];
 
+            $user = $this->loadModel("user");
+
+            for ($i=1; $i <4 ; $i++) { 
+                $member = 'member'.$i;
+                if($_POST[$member]){
+                    $result= $user->search_user_by_email($_POST[$member]);
+                    $data[$member] = $result->user_ID;
+                    if(!$data[$member]){
+                        $_SESSION['error'] = "Please enter a registered email for".$member;
+                    }
+                }
+            }
+
             $uploader = $this->loadModel("fund");
-            $results = $uploader->create_fund($_POST,$_FILES,$data);
+            $uploader->create_fund($_POST,$_FILES,$data);
 
             show($data);
             show($_POST);
