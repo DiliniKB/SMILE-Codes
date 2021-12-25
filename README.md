@@ -17,8 +17,6 @@
 ### Todo
 
 - [ ] Account Verification
-- [ ] Filters
-- [ ] Report
 - [ ] Privilages (visitor, reg user, admin)
 - [ ] payment gateway
 
@@ -27,6 +25,8 @@
 
 - [x] search account (UI, BE)
 - [x] createfund, createpost
+- [x] Filters
+- [x] report
 
 ## Notes
 
