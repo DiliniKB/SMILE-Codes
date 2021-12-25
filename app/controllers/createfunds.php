@@ -5,7 +5,7 @@
         function index($category){
             $data['category'] = $category;
             show($data);
-            if($_SESSION['user_ID']){
+            if($_SESSION['user_id']){
                 header("Location:".ROOT."createfunds/create/".$category."");
             }else{
                 header("Location:".ROOT."home/login");

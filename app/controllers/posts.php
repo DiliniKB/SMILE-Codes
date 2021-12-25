@@ -33,6 +33,17 @@
 
             $this->view($data['type']."wall",$data);
         }
+
+        function delete_post($table,$id)
+        {
+            $post = $this->loadModel('post'); 
+            $post->delete_post($table,$id);
+            // $this->view("blank");
+            if (isset($_SERVER["HTTP_REFERER"])) {
+                header("Location: " . $_SERVER["HTTP_REFERER"]);
+            }
+        
+        }
     }
 
 ?>
