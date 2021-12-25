@@ -18,7 +18,6 @@
         {
             $DB = $this->db_connect();
             $stm = $DB->prepare($query);
-            // echo $stm;
 
             if (count($data)<1) {
                 $stm = $DB->query($query);
@@ -36,7 +35,6 @@
 
             }else{
 
-                echo "error";
                 return false;
             }
         }
@@ -46,7 +44,7 @@
             $DB = $this->db_connect();
             $stm = $DB->prepare($query);
 
-            show($data);
+            // show($data);
 
             if (count($data)<1) {
                 $stm = $DB->query($query);
