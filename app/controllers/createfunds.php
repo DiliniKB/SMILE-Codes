@@ -5,7 +5,11 @@
         function index($category){
             $data['category'] = $category;
             show($data);
-            header("Location:".ROOT."createfunds/create/".$category."");
+            if($_SESSION['user_ID']){
+                header("Location:".ROOT."createfunds/create/".$category."");
+            }else{
+                header("Location:".ROOT."home/login");
+            }
 		    die;
         }
         
