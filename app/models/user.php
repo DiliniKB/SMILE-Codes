@@ -95,6 +95,11 @@
                 $result[$table] = $DB->read($query);
                 foreach ($result[$table] as $row):
                     $row->table = $table;
+                    if ($row->report_count>0){
+                        $report_table = $table."_report";
+                        $query2 = "SELECT * FROM $report_table WHERE fund_ID = $row->ID";
+                        $row->reports = $DB->read($query2);
+                    }
                 endforeach;
             endforeach;    
 
@@ -117,6 +122,11 @@
                 $result[$table] = $DB->read($query);
                 foreach ($result[$table] as $row):
                     $row->table = $table;
+                    if ($row->report_count>0){
+                        $report_table = $table."_report";
+                        $query2 = "SELECT * FROM $report_table WHERE post_ID = $row->ID";
+                        $row->reports = $DB->read($query2);
+                    }
                 endforeach;
             endforeach;    
 
