@@ -1,15 +1,5 @@
 <?php $this->view("header",$data);?>
 <script type='text/javascript'>
-    function preview_image(event) 
-    {
-        var reader = new FileReader();
-        reader.onload = function()
-        {
-            var output = document.getElementById('output_image');
-            output.src = reader.result;
-        }
-        reader.readAsDataURL(event.target.files[0]);
-    }
 
     function info(){
         document.getElementById("mem").style.display = "block";
@@ -33,10 +23,9 @@
     <link rel="stylesheet" href="<?=ASSETS?>css/stylescreatefunds.css">
     <link rel="stylesheet" href="<?=ASSETS?>css/stylespopup.css">
 
-    <script defer type="text/javascript" src="<?=ASSETS?>/js/popup.js"></script>
-    <script defer type="text/javascript" src="<?=ASSETS?>/js/fundValidation.js"></script>
-
-        
+    <script defer type="text/javascript" src="<?=ASSETS?>/js/createfund.js"></script>
+    <script defer type="text/javascript" src="<?=ASSETS?>/js/preview.js"></script>
+      
 </head>
 <body>
            
@@ -92,10 +81,10 @@
                 <input class="input_form" type="text" placeholder="Account Holder" name="accountHolder" maxlength="15" <?php if(!empty($_SESSION['fname'])){echo "value=". $_SESSION['fname']."";}?> required>
         
                 <div style="display: inline;">
-                    <input class="input_radio" type="radio" name="usertype" onclick="closeForm()">
+                    <input class="input_radio" type="radio" name="usertype">
                     <label class="RB">Individual</label>
-                    <input class="input_radio" type="radio" onclick="info()" name="usertype" >
-                    <label class="RB">Team</label>
+                    <input class="input_radio" type="radio" onclick="popup()" name="usertype">
+                    <label class="RB" onclick="popup()" >Team</label>
                 </div>
                 <button id="enter" type="submit" name="create">ENTER</button>
                 <div class="box">
