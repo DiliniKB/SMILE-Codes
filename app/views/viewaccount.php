@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="<?=ASSETS?>css/stylesviewaccount.css">  
 
     <script type="text/javascript" src="<?=ASSETS?>js/confir.js"></script>
+    <script type="text/javascript" src="<?=ASSETS?>js/viewreport.js"></script>
 </head>
 
 <body>
@@ -22,6 +23,7 @@
                         <?php foreach($data['funds'] as $table): ?>
                             <?php if(is_array($table)):?>
                                 <?php foreach($table as $row): ?>
+                                <div>
                                     <div class="fpost">
                                         <img src= "<?=ASSETS?>Images/mainPages/<?=$row->table;?>/<?=$row->picture?>" class="photo">
                                         <div class="location">
@@ -31,25 +33,53 @@
                                         <div class="title"><?=$row->title?></div>
                                         <progress value="<?=$row->filled?>" max="<?=$row->amount?>"></progress>
                                         <div class="RaisedOf">Rs <?=$row->filled?> raised of Rs<?=$row->amount?></div>
-                                        <a class="delete" href="<?=ROOT?>funds/delete_fund/<?=$row->table?>/<?=$row->ID?>" onclick="confirmation_delete()"><ion-icon name="trash-bin"></ion-icon></a>
-                                        <!-- <p class="done">&#x2714;</p> -->
-                                        <a class="move" href="<?=ROOT?>singlefund/<?=str_replace("fund","",$row->table); ?>/<?=$row->ID?>"><ion-icon name="arrow-forward-circle"></ion-icon></a> 
+                                        <div class="icons">
+                                            <div class="dmicon">
+                                                <a class="delete" href="<?=ROOT?>funds/delete_fund/<?=$row->table?>/<?=$row->ID?>" onclick="confirmation_delete()"><ion-icon name="trash-bin"></ion-icon></a>
+                                                <!-- <p class="done">&#x2714;</p> -->
+                                                <a class="move" href="<?=ROOT?>singlefund/<?=str_replace("fund","",$row->table); ?>/<?=$row->ID?>"><ion-icon name="arrow-forward-circle"></ion-icon></a>
+                                            </div>
+                                            <div class="report" onclick=viewreportlist(this)>
+                                                <p class="reportIcon"><ion-icon name="alert-circle-outline"></ion-icon></p>
+                                                <p><?=$row->report_count?> reports</p>
+                                            </div>    
+                                        </div>
                                     </div>
+                                    <div class="reportbox" id="reportbox">
+                                        <?php if(property_exists($row, 'reports')):?>
+                                            <?php foreach($row->reports as $report):?>
+                                                <tr>
+                                                    <td>
+                                                        <?=$report->date?>
+                                                    </td>
+                                                    <td>
+                                                        <?=$report->feedback?>
+                                                    </td>
+                                                    <td>
+                                                        <button>Detailed Report</button>                                            
+                                                    </td>
+                                                </tr>
+                                            <?php endforeach;?>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
                                 <?php endforeach; ?>  
                             <?php endif; ?>
                         <?php endforeach; ?>  
                     <?php endif; ?>
                 </div>
             </div>
+        
             <div class="cat">
                 <div class="t">
                     <div class="topic">Active Posts</div>
                 </div>
                 <div class="display">
-                <?php if(is_array($data['posts'])): ?>
+                    <?php if(is_array($data['posts'])): ?>
                         <?php foreach($data['posts'] as $table): ?>
                             <?php if(is_array($table)):?>
                                 <?php foreach($table as $row): ?>
+                                <div>
                                     <div class="fpost">
                                         <img src= "<?=ASSETS?>Images/mainPages/<?=$row->table;?>/<?=$row->picture?>" class="photo">
                                         <div class="location">
@@ -58,10 +88,36 @@
                                         </div>
                                         <div class="description"><?=$row->content?></div>
                                         <div class="title"><?=$row->item?></div>
-                                        <a class="delete" href="<?=ROOT?>posts/delete_post/<?=$row->table?>/<?=$row->ID?>" onclick="confirmation_delete()"><ion-icon name="trash-bin"><ion-icon name="trash-bin"></ion-icon></a>
-                                        <p class="done"><ion-icon name="checkmark-done-circle"></ion-icon></p>
-                                        <a class="move" href="<?=ROOT?>singlepost/<?=str_replace("post","",$row->table); ?>/<?=$row->ID?>"> <ion-icon name="arrow-forward-circle"></ion-icon></a> 
+                                        <div class="icons2">
+                                            <div class="dmicon">
+                                                <a class="delete" href="<?=ROOT?>posts/delete_post/<?=$row->table?>/<?=$row->ID?>" onclick="confirmation_delete()"><ion-icon name="trash-bin"><ion-icon name="trash-bin"></ion-icon></a>
+                                                <p class="done"><ion-icon name="checkmark-done-circle"></ion-icon></p>
+                                                <a class="move" href="<?=ROOT?>singlepost/<?=str_replace("post","",$row->table); ?>/<?=$row->ID?>"> <ion-icon name="arrow-forward-circle"></ion-icon></a> 
+                                            </div>
+                                            <div class="report" onclick=viewreportlist(this)>
+                                                <p class="reportIcon"><ion-icon name="alert-circle-outline"></ion-icon></p>
+                                                <p><?=$row->report_count?> reports</p>
+                                            </div>    
+                                        </div>
                                     </div> 
+                                    <div class="reportbox" id="reportbox">
+                                        <?php if(property_exists($row, 'reports')):?>
+                                            <?php foreach($row->reports as $report):?>
+                                                <tr>
+                                                    <td>
+                                                        <?=$report->date?>
+                                                    </td>
+                                                    <td>
+                                                        <?=$report->feedback?>
+                                                    </td>
+                                                    <td>
+                                                        <button>Detailed Report</button>                                            
+                                                    </td>
+                                                </tr>
+                                            <?php endforeach;?>
+                                        <?php endif; ?>
+                                    </div>
+                                </div> 
                                 <?php endforeach; ?>  
                             <?php endif; ?>
                         <?php endforeach; ?>  
@@ -130,6 +186,7 @@
                     <td><?=$data['info']->bank_name?></td>
                 </tr>
             </table>
+        </div>
     </div>
     
 </body>
