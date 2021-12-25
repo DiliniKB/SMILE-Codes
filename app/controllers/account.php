@@ -16,7 +16,7 @@ Class Account extends Controller
         $posts = $user->get_posts($id);
         $data['posts'] = $posts;
 
-        // show($data);
+        //show($data);
 
         // $this->view("blank",$data);
         $this->view("viewaccount",$data);
