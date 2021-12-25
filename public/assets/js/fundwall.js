@@ -7,14 +7,10 @@ window.onload = function() {
     if (filterIcon){
         console.log('yes In');
     }
-    console.log(i);
-    i++;
     filterIcon.addEventListener('click',displayFilter());
 }
 
 function displayFilter(){
-    console.log(i);
-    i++;
     if (filterForm.style.display == 'none') {
         filterForm.style.display = 'block';
     } else {
@@ -25,7 +21,6 @@ function displayFilter(){
         i++;
         console.log('Yes Out');
     }
-    
 }
 
 
