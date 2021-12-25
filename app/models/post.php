@@ -178,6 +178,14 @@ Class Post{
         }
         return false;
     }
+
+    function delete_post($table, $id)
+    {
+        $DB = new Database();
+        $_SESSION['error']="";
+        $query = "DELETE FROM $table WHERE ID=$id";
+        $DB->write($query); 
+    }
 }
 
 

@@ -83,7 +83,7 @@ Class fund{
         $limit = 12;
         $offset = ($page_number - 1) * $limit;
         $tablename = strtolower($cat."fund");
-        $query = "SELECT * FROM $tablename ORDER BY id DESC LIMIT $limit OFFSET $offset";
+        $query = "SELECT * FROM $tablename WHERE amount!=filled ORDER BY id DESC LIMIT $limit OFFSET $offset";
         // echo $query;
 
         $DB = new Database();
@@ -180,18 +180,43 @@ Class fund{
         
         $k = $data['keyword'];
         $l = $data['location'];
+        $s = $data['sort'];
         $sign = "%";
         $keywords = $sign.$k.$sign;
         $location = $sign.$l.$sign;
         
-        $query = "SELECT * FROM $table WHERE (town LIKE '$location' OR district LIKE '$location') AND keywords LIKE '$keywords'";
-        $data = $DB->read($query);
-        //  
+        switch ($s){
+            case 1:
+                $order = 'create_date DESC';
+                break;
+            case 2:
+                $order = 'create_date ASC';
+                break;
+            case 3:
+                $order = '(amount-filled) DESC';
+                break;
+            case 4:
+                $order = '(amount-filled) ASC';
+                break;
+            default:
+                $order = 'id ASC';   
+        }
+
+        $query = "SELECT * FROM $table WHERE (town LIKE '$location' OR district LIKE '$location') AND keywords LIKE '$keywords' AND amount!= filled ORDER BY $order";
+        $data = $DB->read($query); 
         
         if ($data){
             return $data;
         }
         return false;
+    }
+
+    function delete_fund($table, $id)
+    {
+        $DB = new Database();
+        $_SESSION['error']="";
+        $query = "DELETE FROM $table WHERE ID=$id";
+        $DB->write($query); 
     }
 }
 
