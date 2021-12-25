@@ -2,7 +2,9 @@
 
     <link rel="stylesheet" href="<?=ASSETS?>css/styles.css">
     <link rel="stylesheet" href="<?=ASSETS?>css/stylesBigheader.css">
-    <link rel="stylesheet" href="<?=ASSETS?>css/stylesdashboard.css">    
+    <link rel="stylesheet" href="<?=ASSETS?>css/stylesdashboard.css">
+    
+    <script type="text/javascript" src="<?=ASSETS?>js/confir.js"></script>
 
 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -76,7 +78,7 @@
                                         <div class="title"><?=$row->title?></div>
                                         <progress value="<?=$row->filled?>" max="<?=$row->amount?>"></progress>
                                         <div class="RaisedOf">Rs <?=$row->filled?> raised of Rs<?=$row->amount?></div>
-                                        <p class="delete"><ion-icon name="trash-bin"></ion-icon></p>
+                                        <a class="delete" href="<?=ROOT?>funds/delete_fund/<?=$row->table?>/<?=$row->ID?>"><ion-icon name="trash-bin" onclick="confirmation_delete()"></ion-icon></a>
                                         <!-- <p class="done">&#x2714;</p> -->
                                         <a class="move" href="<?=ROOT?>singlefund/<?=str_replace("funds","",$row->table); ?>/<?=$row->ID?>"><ion-icon name="arrow-forward-circle"></ion-icon></a> 
                                     </div>
@@ -103,7 +105,7 @@
                                         </div>
                                         <div class="description"><?=$row->content?></div>
                                         <div class="item"><?=$row->item?></div>
-                                        <p class="delete"><ion-icon name="trash-bin"></ion-icon></p>
+                                        <a class="delete" href="<?=ROOT?>posts/delete_post/<?=$row->table?>/<?=$row->ID?>"><ion-icon name="trash-bin" onclick="confirmation_delete()"><ion-icon name="trash-bin"></ion-icon></a>
                                         <p class="done"><ion-icon name="checkmark-done-circle"></ion-icon></p>
                                         <a class="move" href="<?=ROOT?>singlepost/<?=str_replace("posts","",$row->table); ?>/<?=$row->ID?>"> <ion-icon name="arrow-forward-circle"></ion-icon></a> 
                                     </div> 

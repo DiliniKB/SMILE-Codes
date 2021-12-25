@@ -26,12 +26,11 @@
     <div class="form-popup" id="SForm">
         <form method="POST" class="form-container">
             <label for="sortBy">Sort By</label>
-            <select class="Sort" data-filter-group="SortingOptions">
-                <option value=".trending" selected="selected">Trending</option>
-                <option value=".recent">Recent</li>
-                <option value=".oldest">Oldest</li>
-                <option value=".closeToGoal">Close to goal</li>
-                <option value=".farFromGoal">Far from goal</li>         
+            <select class="Sort" data-filter-group="SortingOptions" name="sort">
+                <option value="1">Recent</li>
+                <option value="2">Oldest</li>
+                <option value="3">Close to goal</li>
+                <option value="4">Far from goal</li>         
             </select><br><br>
 
             <label for="location">Location</label>

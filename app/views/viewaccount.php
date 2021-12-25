@@ -1,9 +1,10 @@
 <?php $this->view("header",$data);?>
-    
+<head>    
     <link rel="stylesheet" href="<?=ASSETS?>css/styles.css">
     <link rel="stylesheet" href="<?=ASSETS?>css/stylesBigheader.css">
     <link rel="stylesheet" href="<?=ASSETS?>css/stylesviewaccount.css">  
 
+    <script type="text/javascript" src="<?=ASSETS?>js/confir.js"></script>
 </head>
 
 <body>
@@ -30,9 +31,9 @@
                                         <div class="title"><?=$row->title?></div>
                                         <progress value="<?=$row->filled?>" max="<?=$row->amount?>"></progress>
                                         <div class="RaisedOf">Rs <?=$row->filled?> raised of Rs<?=$row->amount?></div>
-                                        <p class="delete"><ion-icon name="trash-bin"></ion-icon></p>
+                                        <a class="delete" href="<?=ROOT?>funds/delete_fund/<?=$row->table?>/<?=$row->ID?>" onclick="confirmation_delete()"><ion-icon name="trash-bin"></ion-icon></a>
                                         <!-- <p class="done">&#x2714;</p> -->
-                                        <a class="move" href="<?=ROOT?>singlefund/<?=str_replace("funds","",$row->table); ?>/<?=$row->ID?>"><ion-icon name="arrow-forward-circle"></ion-icon></a> 
+                                        <a class="move" href="<?=ROOT?>singlefund/<?=str_replace("fund","",$row->table); ?>/<?=$row->ID?>"><ion-icon name="arrow-forward-circle"></ion-icon></a> 
                                     </div>
                                 <?php endforeach; ?>  
                             <?php endif; ?>
@@ -57,9 +58,9 @@
                                         </div>
                                         <div class="description"><?=$row->content?></div>
                                         <div class="title"><?=$row->item?></div>
-                                        <p class="delete"><ion-icon name="trash-bin"></ion-icon></p>
+                                        <a class="delete" href="<?=ROOT?>posts/delete_post/<?=$row->table?>/<?=$row->ID?>" onclick="confirmation_delete()"><ion-icon name="trash-bin"><ion-icon name="trash-bin"></ion-icon></a>
                                         <p class="done"><ion-icon name="checkmark-done-circle"></ion-icon></p>
-                                        <a class="move" href="<?=ROOT?>singlepost/<?=str_replace("posts","",$row->table); ?>/<?=$row->ID?>"> <ion-icon name="arrow-forward-circle"></ion-icon></a> 
+                                        <a class="move" href="<?=ROOT?>singlepost/<?=str_replace("post","",$row->table); ?>/<?=$row->ID?>"> <ion-icon name="arrow-forward-circle"></ion-icon></a> 
                                     </div> 
                                 <?php endforeach; ?>  
                             <?php endif; ?>
