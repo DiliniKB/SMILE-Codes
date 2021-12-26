@@ -21,6 +21,7 @@
                 <div id="dvPreview"></div>
             </div> -->
             <button id="enter" type="submit">Report</button>
+            <p class="warning"><ion-icon class="warning-icon" name="warning-outline"></ion-icon><br>You can report a particular fund only once. Therefore make sure to enter the all details in the first attempt.</p>
         </div>
         <!-- <input id="file-input" type="file" class="custom-file-input" multiple> -->
         <!-- <div id="preview"></div> -->
