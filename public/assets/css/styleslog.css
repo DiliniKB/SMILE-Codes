@@ -1,0 +1,110 @@
+.head1{
+	position:absolute;
+}
+.BlurRectOval {
+    top: 25%;
+    padding-left: 2%;
+    padding-bottom: 1.5%;
+    width: 37%;
+    left:10%;
+    background: linear-gradient(90deg, rgb(255 255 255 / 29%) 4.13%, rgb(255 255 255 / 72%) 80.29%);
+ }
+ .FormTopic{
+   font-family: 'Sora', sans-serif;
+   padding-left: 4%;
+   font-size: xx-large;
+   margin-bottom: 3%;
+ }
+ .input_form {
+   position: relative;
+   border: none;
+   border-bottom: 1px solid #B0BEC5;
+   background-color: #ffffff00;
+   font-size: 14px;
+   outline: none;
+   margin: 0px auto;
+   padding-top: 18px;
+   padding-left: 10px;
+   font-family: 'Sora', sans-serif;
+   margin-left: 4%;
+ }
+ .input_form:focus {
+   border-bottom: 1px solid #04aa6d ;
+ }
+ #enter{
+     background-color: #000000a2;
+     font-family: 'Sora', sans-serif;
+     font-size: 16px;
+     color: #FFFFFF;
+     text-align: left;
+     display: block;
+     padding: 7px;
+     padding-left: 10px;
+     padding-right: 10px;
+     border-style: none;
+     border-radius: 10%;
+     display: flex;
+     flex-direction: row;
+     margin: 0;
+     margin-top:4%;
+     margin-left:4%;
+     margin-left: 2%;
+    margin-top:4%;
+    margin-bottom: 5%;
+ }
+#Logo2{
+    position: relative;
+	width:15%;
+	height: auto;
+	left:8%;
+	float: left;
+}
+#form{
+    /* font-family: Ac; */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#fname{
+	margin-left:2%;
+	padding-top: 2%;
+}
+
+.BlurRectOval {
+	position: absolute;
+	left: 18%;
+	width: 20%;
+	/* width: fit-content; */
+}
+.input_form{
+	margin-bottom:4%;
+}
+#rememberMe{
+    font-family: 'Sora', sans-serif;
+    font-size: 13.5px;
+    padding-bottom: 2%;
+    padding-left: 1%;
+    padding-top:2%;
+    display: flex;
+    width: fit-content;
+    margin-top:2%;
+    margin-bottom:1%;
+}
+#passwordReset{
+    font-family: 'Sora', sans-serif;
+    color: rgb(37, 79, 158);
+    font-size: 13.5px;
+    padding-left: 2%;
+    width: fit-content;
+    margin: 0 auto;   
+}
+#or{
+    font-family: 'Sora', sans-serif;
+    font-size: 15px;
+    padding-bottom: 10%;   
+    width: fit-content;
+    margin: 0;
+    margin-top: 2%;
+}
+
