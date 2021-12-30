@@ -5,9 +5,19 @@
         function index()
         {
             $data['page_title'] = "Homepage";
+
+            $fund = $this->loadModel('fund'); 
+            $data['MonthlyLeaderboard'] = $fund->get_monthlyleaderboard();
+            $data['Leaderboard'] = $fund->get_leaderboard();
+            
+            $arr1 = $data['MonthlyLeaderboard'];
+            $rank0 = $arr1[0]->user_ID;
+            $rank1 = $arr1[1]->user_ID;
+            $rank2 = $arr1[2]->user_ID;
+            $data['rank0'] = $fund->get_rankers($rank0);
+            $data['rank1'] = $fund->get_rankers($rank1);
+            $data['rank2'] = $fund->get_rankers($rank2);
             $this->view("index",$data);
-            // show($_SESSION);
-            // session_destroy();
         }
 
         function about()
