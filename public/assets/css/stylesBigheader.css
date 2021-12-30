@@ -110,12 +110,15 @@ align-items: center;
 	/* left: 30%; */
 	width: 100%;
 	/* top: 2vh; */
-	align-items: center;
 	font-size: 17px;
 	flex-wrap: nowrap;
-	letter-spacing: 1px;
+	letter-spacing: 0.5px;
 	/* padding: 6px; */
 	/* height: 2%; */
+	justify-content: flex-start;
+	align-content: center;
+	flex-direction: row;
+	align-items: center;
 }
 #Donation{
 	position: relative;
@@ -124,17 +127,16 @@ align-items: center;
 	font-size: 17px;
 	/* width: 58%; */
 	/* top: 2vh; */
+	letter-spacing: 0.5px;
 	align-items: center;
-	letter-spacing: 1px;
 }
 .menuicon{
 	/* position: absolute; */
 	/* width: 24px; */
-	height: auto;
-	float: right;
+	/* height: auto; */
 	margin: 0px;
-	padding-left: 10px;
-	/* margin-right: -9px; */
+	padding-left: 2px;
+	margin-bottom: -0.5em;
 	/* right:1%; */
 }
 .profile{
@@ -142,7 +144,7 @@ align-items: center;
 	position: absolute;
 	left: 77%;
 	/* width: 4%; */
-	top: 4vh;
+	/* top: 4vh; */
 	font-size: 36px;
 	margin: 0px;
 }
@@ -150,19 +152,21 @@ align-items: center;
 #Account{
 	position: absolute;
 	left: 80%;
+	display: flex;
 	/* width: 0; */
 	/* right: 1%; */
 	top: 5vh;
 	font-size: 17px;
 	padding: 0px;
 	letter-spacing: 1px;
+	align-items: center;
 }
 /*dropdown menus*/
 .dropdowns{
     display: flex;
     flex-direction: row;
     left: 17vw;
-    top: 2vh;
+    top: 5vh;
     position: relative;
     align-items: center;
     width: 42%;

@@ -189,9 +189,8 @@ progress::-webkit-progress-value {
 	/* width: 85%; */
 	font-family: 'Sora';
 	padding: 5%;
-	/* display: flex; */
 	padding-right: -16%;
-	flex-direction: column;
+	/* flex-direction: column; */
 }
 .Sort{
 	font-family: 'Sora';
@@ -234,11 +233,12 @@ progress::-webkit-progress-value {
 }
 
 #plus{
-	padding: 12px;
+	padding: 7px;
 	background-color: #76bda3;
-	/* color: #8e2626; */
+	font-size: 58px;
+	color: white;
 	border-radius: 100%;
-	width: 67px;
+	/* width: 67px; */
 	position: fixed;
 	top: 83%;
 	right: 3%;
