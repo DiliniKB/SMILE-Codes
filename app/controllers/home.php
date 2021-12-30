@@ -27,16 +27,85 @@
         function logout()
         {
             session_destroy();
-            $data['page_title'] = "Homepage";
-            $this->view("index",$data);
+            header("location: index");
+            //$data['page_title'] = "Homepage";
+            //$this->view("index",$data);
         }
 
         function signup()
         {
             $data['page_title'] = "SignUp ";
             $user = $this->loadModel("user");
-            $user->login($_POST);
+
+            $data['sys_error'] = 0;
+            $data['sys_error_type'] = 'error';
+            $data['sys_error_msg'] = 'None';
+
+            $data['fname'] = "";
+            $data['lname'] = "";
+            $data['nic'] = "";
+            $data['dob'] = "";
+            $data['email'] = "";
+            $data['tpnum'] = "";
+
+            $user->signup($_POST, $data);
+            $this->view("signup",$data);$data['page_title'] = "SignUp ";
+            $user = $this->loadModel("user");
+
+            $data['sys_error'] = 0;
+            $data['sys_error_type'] = 'error';
+            $data['sys_error_msg'] = 'None';
+
+            $data['fname'] = "";
+            $data['lname'] = "";
+            $data['nic'] = "";
+            $data['dob'] = "";
+            $data['email'] = "";
+            $data['tpnum'] = "";
+
+            $user->signup($_POST, $data);
             $this->view("signup",$data);
+        }
+
+        function success()
+        {
+            $data['page_title'] = "New account created";
+            $this->view("account-created",$data);
+        }
+
+        function resendemail(){
+            if(isset($_SESSION['user_email'])){
+                $user = $this->loadModel("user");
+                $user->email_send();
+                //header('location: success');
+            }else{
+                echo "Unknown error";
+            }
+
+        }
+
+        function verifyemail($number, $token){
+            $user = $this->loadModel("user");
+            $status = $user->verify_email($number, $token);
+            if($status){
+                header('location: ../../information');
+            }else{
+                $data['page_title'] = "Invalid link";
+                $this->view("invalid-link",$data);
+            }
+        }
+
+        function information(){
+            $data['page_title'] = "Identity verification ";
+            $user = $this->loadModel("user");
+            $user->information();
+            $this->view("information",$data);
+        }
+
+        function completed()
+        {
+            $data['page_title'] = "All done ";
+            $this->view("completed",$data);
         }
 
         function dashboard()
