@@ -4,20 +4,23 @@
     <link rel="stylesheet" href="<?=ASSETS?>css/styles.css">
     <link rel="stylesheet" href="<?=ASSETS?>css/stylesBigheader.css">
     <link rel="stylesheet" href="<?=ASSETS?>css/stylesviewfund.css">  
-    <link rel="stylesheet" href="<?=ASSETS?>css/stylesfooter.css">          
+    <link rel="stylesheet" href="<?=ASSETS?>css/stylesfooter.css">
+
+    <script src="<?=ASSETS?>/js/viewfund.js"></script>
+    
 </head>
 
-<body>
+<body onload="showProgress(<?=$data['fund']->filled?>,<?=$data['fund']->amount?>);">
 <div class="container">
-        <div class="c1" onclick="closeForm()">
+        <div class="c1">
             <img src="<?=ASSETS?>Images/mainPages/<?=$data['table']?>/<?=$data['fund']->picture?>" class="photo">
             <div class="detail">
                 <div class="r1">
                     <div class="duration">
-                        <?php echo "5days"?>
+                        <ion-icon class="cicon" name="calendar-outline"></ion-icon><?=$data['dategap']?>
                     </div>
                     <div class="keywords">
-                        <?=$data['fund']->keywords?>
+                        <ion-icon class="cicon" name="pricetags-outline"></ion-icon><?=$data['fund']->keywords?>
                     </div>
                 </div>
                 <div class="r2">
@@ -31,7 +34,7 @@
                 <div class="r3">
                     <div class="user" <?php if($_SESSION['user_status']){?>onclick="location.href='<?=ROOT?>account/<?=$data['creaters'][0]->user_ID ?>'"<?php } ?>>
                             <img src="<?=ASSETS?>/images/mainPages/User.png" class="userImg">
-                            <div class="userName" style=" font-weight: 500;"><?=$data['creaters'][0]->first_name." ".$data['creaters'][0]->last_name?></div>
+                            <div class="userName" style=" font-weight: 500;"><?=($data['creaters'][0])?($data['creaters'][0]->first_name." ".$data['creaters'][0]->last_name):'Invalid User'?></div>
                     </div>
                 <?php if($data['fund']->member_ID1){ ?> 
                     <div class="user" <?php if($_SESSION['user_status']){?>onclick="location.href='<?=ROOT?>account/<?=$data['creaters'][1]->user_ID ?>'"<?php } ?>>
@@ -60,7 +63,10 @@
         </div>
         <div class="c2">
             <div class="r4">
-                <progress value="<?=$data['fund']->filled?>" max="<?=$data['fund']->amount?>"></progress>               
+                <!-- <progress value="<?=$data['fund']->filled?>" max="<?=$data['fund']->amount?>"></progress>   -->
+                <div class="meter">
+                    <div class="progress-value" ></div>
+                </div>             
                 <div class="Raised">
                     Rs.<?=$data['fund']->filled?> raised of Rs.<?=$data['fund']->amount?>
                 </div>
@@ -83,7 +89,7 @@
             </div>
             <div class="r6">
                 <div class="today">
-                    <p>&#x2764;</p>
+                    <ion-icon class="ticon" name="trending-up-outline"></ion-icon>
                     <div class="tdonation">
                         92 people donated today
                     </div>
@@ -128,7 +134,8 @@
                     <p class="comment">- What a little age to have something like that.</p>
                 </div>
                 
-                <p class="seeMore" id="Seemore" onclick="hide()">See more<span>&#9660;</span></p>
+                <p class="seeMore" id="Seemore" >See more<span>&#9660;</span></p>
+                <!-- <p class="seeMore" id="Seemore" onclick="hide()">See more<span>&#9660;</span></p> -->
                 <div id="More">
                     <div>
                         <p class="owner">Ganguli De Silva</p>
@@ -139,7 +146,7 @@
         </div>
     </div>
     
-    <script src="../assets/Scripts/viewfund.js"></script>
+    
     <!-- <div class="form-popup" id="SForm">
         <form class="form-container">
             <div class="text1">
@@ -150,6 +157,5 @@
         </form>
     </div> -->
     
-
-    
 </body>
+</html>
