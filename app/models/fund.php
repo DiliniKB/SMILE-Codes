@@ -1,3 +1,4 @@
+
 <?php
 
 Class fund{
@@ -218,6 +219,45 @@ Class fund{
         $query = "DELETE FROM $table WHERE ID=$id";
         $DB->write($query); 
     }
+
+    function get_leaderboard(){
+        $DB = new Database();
+        $_SESSION['error']="";
+        $query = "SELECT * FROM registered_user ORDER BY donateAmount DESC LIMIT 5 ";
+        $data = $DB->read($query); 
+        
+        if ($data){
+            return $data;
+        }
+        return false;
+
+    }
+
+    function get_monthlyleaderboard(){
+        $DB = new Database();
+        $_SESSION['error']="";  
+        $query = "SELECT * FROM animalcarefund_donate UNION SELECT * FROM childrenfund_donate UNION SELECT * FROM educationfund_donate UNION SELECT * FROM medicalfund_donate UNION SELECT * FROM otherfund_donate UNION SELECT * FROM seniorcarefund_donate where date BETWEEN 2021-11-28 AND 2021-12-28 ORDER BY amount DESC LIMIT 3; ";
+        $data = $DB->read($query); 
+        
+
+            if(isset($data))
+            {
+                return $data;
+            }
+            return false;
+
+    }
+    function get_rankers($arr){
+        $DB = new Database();
+        $_SESSION['error']="";  
+        $query = "SELECT * FROM registered_user where user_ID = '$arr '";
+        $data = $DB->read($query); 
+
+            if(isset($data))
+            {
+                return $data;
+            }
+            return false;
+    }
 }
 
-?>
