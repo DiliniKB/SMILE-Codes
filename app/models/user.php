@@ -1,154 +1,156 @@
 <?php
 
-Class input_checks{
-    function check_isset($keys){
-        foreach($keys as $key){
-            if(!isset($_POST[$key]) || empty($_POST[$key])){
+    Class input_checks{
+        function check_isset($keys){
+            foreach($keys as $key){
+                if(!isset($_POST[$key]) || empty($_POST[$key])){
+                    return false;
+                }
+            }
+        
+            return true;
+        }
+
+        function merror(&$data,$error, $type, $msg){
+
+            $data['sys_error'] = $error;
+            $data['sys_error_type'] = $type;
+            $data['sys_error_msg'] = $msg;
+        }
+
+        function password_check(&$data){
+            if(strlen($_POST['password']) < 8){
+                $this->merror($data,1, 'error', 'Password is short');
                 return false;
             }
-        }
-    
-        return true;
-    }
-
-    function merror(&$data,$error, $type, $msg){
-
-        $data['sys_error'] = $error;
-        $data['sys_error_type'] = $type;
-        $data['sys_error_msg'] = $msg;
-    }
-
-    function password_check(&$data){
-        if(strlen($_POST['password']) < 8){
-            $this->merror($data,1, 'error', 'Password is short');
-            return false;
-        }
-    
-        if($_POST['password'] != $_POST['password_confirm']){
-            $this->merror($data,1, 'error', 'Passwords doesnt match');
-            return false;
-        }
-        return true;
-    }
-    
-    function phone_check(&$data){
-        $regexp = '/^0\d{9}$/';
-        if(!preg_match($regexp, $_POST['tpnum'])){
-            $this->merror($data,1, 'error', 'Invalid phone number');
-            return false;
-        }
-        return true;
-    }
-    
-    function dob_check(&$data){
-        $date = new DateTime($_POST['dob']);
-        $now = new DateTime();
-        $interval = $now->diff($date);
-        if($interval->y < 18){
-            $this->merror($data,1, 'error', 'You should be older than 18');
-            return false;
-        }
-        return true;
-    }
-    
-    function email_check(&$data, $DB){
-        if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
-            $this->merror($data,1, 'error', 'Invalid email address');
-            return false;
-        }
-    
-        $query = "SELECT * FROM registered_user WHERE email=?";
-        $values = [$_POST['email']];
-
-        $rows = $DB->read($query,$values);
-    
-        if(count($rows) != 0){
-            $this->merror($data,1, 'error', 'Email is already exists');
-            return false;
-        }
-    
-        return true;
-    }
-    
-    function nic_check(&$data){
-        $nic_string =  strtolower($_POST['NIC']);
-        $dob = new DateTime($_POST['dob']);
-        $flag = true;
-    
-        switch(strlen($nic_string)){
-            case 10:
-                if(substr($nic_string,0,2) != substr($dob->format("Y"),2,2)){
-                    $flag = false;
-                }
-                $re1 = '/^\d{9}[x|v]$/';
-                if(!preg_match($re1, $nic_string)){
-                    $flag = false;
-                }
-                break;
-            case 12:
-                if(substr($nic_string,0,4) != $dob->format("Y")){
-                    $flag = false;
-                }
-                $re2 = '/^\d{12}$/';
-                if(!preg_match($re2, $nic_string)){
-                    $flag = false;
-                }
-                break;
-            default:
-                $flag= false;
-                break;
-        }
-    
-        if(!$flag){
-            $this->merror($data,1, 'error', 'Please check you NIC and DOB again');
-        }
-    
-        return $flag;
-    }
-
-    public function email_temp($link){
-        $template = "
-            <h1>Verify your email address. </h1>
-            Please click the following link <br />
-            <a href='{link}'>Confirm email</a> <br />
-            Not working ? copy and paste following link in the address bar. <br />
-            {link} <br /><br /><br /><br />
-            - Smile team
-        ";
-
-        return str_replace('{link}',$link, $template);
-    }
-
-    public function send_mail($data){
-        $curl = curl_init();
-
-        curl_setopt_array($curl, [
-            CURLOPT_URL => "https://easymail.p.rapidapi.com/send",
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_FOLLOWLOCATION => true,
-            CURLOPT_ENCODING => "",
-            CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 30,
-            CURLOPT_SSL_VERIFYPEER=> false,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => "POST",
-            CURLOPT_POSTFIELDS => json_encode($data),
-            CURLOPT_HTTPHEADER => [
-                "content-type: application/json",
-                "x-rapidapi-host: easymail.p.rapidapi.com",
-                "x-rapidapi-key: fb3f121714mshdc80e69ec08cd17p18688cjsn13394dda0baf"
-            ],
-        ]);
-
-        $response = curl_exec($curl);
-        $err = curl_error($curl);
-        print_r(curl_error($curl));
-        echo $response;
-
-        curl_close($curl);
         
+            if($_POST['password'] != $_POST['password_confirm']){
+                $this->merror($data,1, 'error', 'Passwords doesnt match');
+                return false;
+            }
+            return true;
+        }
+        
+        function phone_check(&$data){
+            $regexp = '/^0\d{9}$/';
+            if(!preg_match($regexp, $_POST['tpnum'])){
+                $this->merror($data,1, 'error', 'Invalid phone number');
+                return false;
+            }
+            return true;
+        }
+        
+        function dob_check(&$data){
+            $date = new DateTime($_POST['dob']);
+            $now = new DateTime();
+            $interval = $now->diff($date);
+            if($interval->y < 18){
+                $this->merror($data,1, 'error', 'You should be older than 18');
+                return false;
+            }
+            return true;
+        }
+        
+        function email_check(&$data, $DB){
+            if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
+                $this->merror($data,1, 'error', 'Invalid email address');
+                return false;
+            }
+        
+            $query = "SELECT * FROM registered_user WHERE email=?";
+            $values = [$_POST['email']];
+
+            $rows = $DB->read($query,$values);
+        
+            if(count($rows) != 0){
+                $this->merror($data,1, 'error', 'Email is already exists');
+                return false;
+            }
+        
+            return true;
+        }
+        
+        function nic_check(&$data){
+            $nic_string =  strtolower($_POST['NIC']);
+            $dob = new DateTime($_POST['dob']);
+            $flag = true;
+        
+            switch(strlen($nic_string)){
+                case 10:
+                    if(substr($nic_string,0,2) != substr($dob->format("Y"),2,2)){
+                        $flag = false;
+                    }
+                    $re1 = '/^\d{9}[x|v]$/';
+                    if(!preg_match($re1, $nic_string)){
+                        $flag = false;
+                    }
+                    break;
+                case 12:
+                    if(substr($nic_string,0,4) != $dob->format("Y")){
+                        $flag = false;
+                    }
+                    $re2 = '/^\d{12}$/';
+                    if(!preg_match($re2, $nic_string)){
+                        $flag = false;
+                    }
+                    break;
+                default:
+                    $flag= false;
+                    break;
+            }
+        
+            if(!$flag){
+                $this->merror($data,1, 'error', 'Please check you NIC and DOB again');
+            }
+        
+            return $flag;
+        }
+
+        public function email_temp($link){
+            $template = "
+                <h1>Verify your email address. </h1>
+                Please click the following link <br />
+                <a href='{link}'>Confirm email</a> <br />
+                Not working ? copy and paste following link in the address bar. <br />
+                {link} <br /><br /><br /><br />
+
+                - Smile team
+
+            ";
+
+            return str_replace('{link}',$link, $template);
+        }
+
+        public function send_mail($data){
+            $curl = curl_init();
+
+            curl_setopt_array($curl, [
+                CURLOPT_URL => "https://easymail.p.rapidapi.com/send",
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_FOLLOWLOCATION => true,
+                CURLOPT_ENCODING => "",
+                CURLOPT_MAXREDIRS => 10,
+                CURLOPT_TIMEOUT => 30,
+                CURLOPT_SSL_VERIFYPEER=> false,
+                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                CURLOPT_CUSTOMREQUEST => "POST",
+                CURLOPT_POSTFIELDS => json_encode($data),
+                CURLOPT_HTTPHEADER => [
+                    "content-type: application/json",
+                    "x-rapidapi-host: easymail.p.rapidapi.com",
+                    "x-rapidapi-key: fb3f121714mshdc80e69ec08cd17p18688cjsn13394dda0baf"
+                ],
+            ]);
+
+            $response = curl_exec($curl);
+            $err = curl_error($curl);
+            print_r(curl_error($curl));
+            echo $response;
+
+            curl_close($curl);
+            
+        }
     }
-}
 
     Class User
     {
@@ -178,8 +180,9 @@ Class input_checks{
             }
         }
 
-        function signup($POST)//not set
+        function signup($POST, &$data)//not set
         {
+
             $DB = new Database();
             $_SESSION['error']="";
 
@@ -225,8 +228,6 @@ Class input_checks{
                     $input_scan->merror($data,1, 'error', 'Please fill all the fields');
                 }
             }
-
-
         }
 
         function email_send(){
@@ -297,7 +298,6 @@ Class input_checks{
                 }
             }
         }
-
 
         function logout() { //not set
             

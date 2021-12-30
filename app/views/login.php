@@ -30,10 +30,11 @@
     <img src="<?=ASSETS?>images/mainPages/1asset_3_1.png" id="image">
     <img src="<?=ASSETS?>images/mainPages/random lines.png" id="randomLines">
     
+    
 
     <!-- Visible only if logged in -->
-    <?php if(!empty($_SESSION['user_id'])){
+    <!-- <?php if(!empty($_SESSION['user_id'])){
         header("Location:".ROOT."");
-    }?>
+    }?> -->
 </body>
 </html>
