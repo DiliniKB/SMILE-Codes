@@ -120,4 +120,3 @@
     <!-- <img src="<?=ASSETS?>images/mainPages/random lines.png" id="randomLines">-->
     
 </body>
-</html>

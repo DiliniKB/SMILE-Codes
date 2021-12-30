@@ -32,35 +32,31 @@
 }
 .fpost {
     width: 250px;
-    height: 260px;
+    height: 250px;
     display: grid;
     margin: 30px;
     /* border-radius: 5%; */
     font-family: 'Merriweather', serif;
-    /* border: solid; */
-    background: black;
-    /* border-width: thin; */
-    /* border-color: #3566ad61; */
+    border: solid;
+    border-width: thin;
+    border-color: #1e447c61;
     font-size: 14px;
     background: #ffffff;
-    box-shadow: 0px 0px 7px 4px rgb(0 0 0 / 10%);
+    /* box-shadow: 0px 0px 50px 15px rgba(0, 0, 0, 0.1); */
     /* border-radius: 10px; */
     text-decoration: none;
-    transition: transform .2s;
-    /* -webkit-animation-timing-function: linear; */ /* Chrome, Safari, Opera */
-    /* animation-timing-function: linear; */
 }
 .fpost:hover{
-	/* transition-delay: 250ms; */
-	/* box-shadow: 9px 7px 50px 19px rgb(0 0 0 / 10%); */
+	transition-delay: 250ms;
+	box-shadow: 9px 7px 50px 19px rgb(0 0 0 / 10%);
 	/* width: 300px; */
-	/* height: 260px; */
-	/* border: none; */
+	height: 260px;
+	border: none;
 }
 .fpost:hover>.photo{
-	/* width: 300px; */
-	/* height: 145px; */
-	/* transition-delay: 250ms; */
+	width: 300px;
+	height: 145px;
+	transition-delay: 250ms;
 }
 .photo{
 	max-width: 248px;
@@ -174,11 +170,8 @@ progress::-webkit-progress-value {
 }
 .form-popup {
 	/* display: none; */
-	transition-timing-function: linear;
 	top: 12%;
-	width: 15%;
 	position: absolute;
-	float: left;
 	left: 66%;
 	border: 3px solid #f1f1f1;
 	z-index: 9;

@@ -1,4 +1,11 @@
 
+function openForm() {
+    document.getElementById("SForm").style.display = "block";
+}
+
+function closeForm() {
+    document.getElementById("SForm").style.display = "none";
+}
 
 function hide() {
     var x = document.getElementById("More");
@@ -30,13 +37,6 @@ function view_user_account(x){
     if (x){
         window.location.href = ROOT + "account/" + x;
     } 
-}
-
-function showProgress(filled,amount){
-    var width = (filled/amount)*100;
-    root = document.documentElement;
-    console.log(width);
-    root.style.setProperty('--end-width', width + "%"); 
 }
 
 

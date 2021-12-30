@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 24, 2021 at 05:04 PM
+-- Generation Time: Dec 16, 2021 at 05:34 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `smile`
+-- Database: `smile2`
 --
 
 -- --------------------------------------------------------
@@ -125,9 +125,16 @@ CREATE TABLE `animalcarefund_report` (
   `ID` int(5) NOT NULL,
   `fund_ID` int(5) NOT NULL,
   `user_ID` int(5) NOT NULL,
-  `date` datetime NOT NULL,
+  `date` date NOT NULL,
   `time` time NOT NULL,
-  `feedback` text NOT NULL
+  `feedback` text NOT NULL,
+  `image1` text NOT NULL,
+  `image2` text NOT NULL,
+  `image3` text NOT NULL,
+  `image4` text NOT NULL,
+  `image5` text NOT NULL,
+  `image6` text NOT NULL,
+  `image7` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -193,17 +200,24 @@ CREATE TABLE `animalcarepost_report` (
   `ID` int(5) NOT NULL,
   `post_ID` int(5) NOT NULL,
   `user_ID` int(5) NOT NULL,
-  `date` datetime NOT NULL,
+  `date` date NOT NULL,
   `time` time NOT NULL,
-  `feedback` text NOT NULL
+  `feedback` text NOT NULL,
+  `image1` text NOT NULL,
+  `image2` text NOT NULL,
+  `image3` text NOT NULL,
+  `image4` text NOT NULL,
+  `image5` text NOT NULL,
+  `image6` text NOT NULL,
+  `image7` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `animalcarepost_report`
 --
 
-INSERT INTO `animalcarepost_report` (`ID`, `post_ID`, `user_ID`, `date`, `time`, `feedback`) VALUES
-(1, 2, 12, '2021-11-25 00:00:00', '04:00:51', 'mnbdsc jsbc sdjchbsn dckjsdc nmsd c');
+INSERT INTO `animalcarepost_report` (`ID`, `post_ID`, `user_ID`, `date`, `time`, `feedback`, `image1`, `image2`, `image3`, `image4`, `image5`, `image6`, `image7`) VALUES
+(1, 2, 12, '2021-11-25', '04:00:51', 'mnbdsc jsbc sdjchbsn dckjsdc nmsd c', 'WhatsApp Image 2021-11-23 at 10.15.31.jpeg', 'WhatsApp Image 2021-11-23 at 10.29.05.jpeg', 'WhatsApp Image 2021-11-23 at 11.26.32.jpeg', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -290,9 +304,16 @@ CREATE TABLE `childrenfund_report` (
   `ID` int(5) NOT NULL,
   `fund_ID` int(5) NOT NULL,
   `user_ID` int(5) NOT NULL,
-  `date` datetime NOT NULL,
+  `date` date NOT NULL,
   `time` time NOT NULL,
-  `feedback` text NOT NULL
+  `feedback` text NOT NULL,
+  `image1` text NOT NULL,
+  `image2` text NOT NULL,
+  `image3` text NOT NULL,
+  `image4` text NOT NULL,
+  `image5` text NOT NULL,
+  `image6` text NOT NULL,
+  `image7` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -358,9 +379,16 @@ CREATE TABLE `childrenpost_report` (
   `ID` int(5) NOT NULL,
   `post_ID` int(5) NOT NULL,
   `user_ID` int(5) NOT NULL,
-  `date` datetime NOT NULL,
+  `date` date NOT NULL,
   `time` time NOT NULL,
-  `feedback` text NOT NULL
+  `feedback` text NOT NULL,
+  `image1` text NOT NULL,
+  `image2` text NOT NULL,
+  `image3` text NOT NULL,
+  `image4` text NOT NULL,
+  `image5` text NOT NULL,
+  `image6` text NOT NULL,
+  `image7` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -448,9 +476,16 @@ CREATE TABLE `educationfund_report` (
   `ID` int(5) NOT NULL,
   `fund_ID` int(5) NOT NULL,
   `user_ID` int(5) NOT NULL,
-  `date` datetime NOT NULL,
+  `date` date NOT NULL,
   `time` time NOT NULL,
-  `feedback` text NOT NULL
+  `feedback` text NOT NULL,
+  `image1` text NOT NULL,
+  `image2` text NOT NULL,
+  `image3` text NOT NULL,
+  `image4` text NOT NULL,
+  `image5` text NOT NULL,
+  `image6` text NOT NULL,
+  `image7` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -516,9 +551,16 @@ CREATE TABLE `educationpost_report` (
   `ID` int(5) NOT NULL,
   `post_ID` int(5) NOT NULL,
   `user_ID` int(5) NOT NULL,
-  `date` datetime NOT NULL,
+  `date` date NOT NULL,
   `time` time NOT NULL,
-  `feedback` text NOT NULL
+  `feedback` text NOT NULL,
+  `image1` text NOT NULL,
+  `image2` text NOT NULL,
+  `image3` text NOT NULL,
+  `image4` text NOT NULL,
+  `image5` text NOT NULL,
+  `image6` text NOT NULL,
+  `image7` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -583,7 +625,10 @@ INSERT INTO `medicalfund` (`ID`, `picture`, `town`, `district`, `title`, `conten
 (5, 'image5.png', 'Welimada', 'Bandarawela', 'Little Shenaya needs your help', 'Shenaya, an 8 year old girl from rural area who needs immediate treatments for Lucamia. So we are group of doctors at cancer hospital who are gladly welcome any of your kind help. ', 32000, 10000, 'Lucamia Cancer ', NULL, NULL, NULL, NULL, 0, '0000-00-00', 4, 0, 0, 0),
 (6, 'image6.png', 'Wadduwa', 'Kaluthara', 'Read for a while', 'Hasmi is a 7 years old lottle girl who suffers alot due to the weakness of her vision. It can be cured by lens transplant. Nagoda General Hospital operate her eyes free of charge. But we should buy the lenses. So we are looking for your help to give back her clear vision.', 50000, 0, 'vision Lense transplant', NULL, NULL, NULL, NULL, 0, '0000-00-00', 3, 0, 0, 0),
 (7, 'image7.jpg', 'Thalpe', 'Galle', 'Heart patient wants your help', 'I\'m Rashmika and I\'m a heart patient. I lost all the income due to my health situation. I should face my heart operation as soon as possible to save my life. But I need more money so I need your help.', 200000, 10000, 'Heart patient', NULL, NULL, NULL, NULL, 0, '0000-00-00', 6, 0, 0, 0),
-(8, 'image8.jpg', 'Godagama', 'Colombo', 'Ranjani needs your warm help', 'Ranjini is 54 years old woman who has a trouble in her hip bone. It can be cured by transplanting an artificial hip bone. But her family is unable to afford for it. We are the staff members of Homagama Base Hospital. We are looking for the helpful who would like to afford the costs for Mrs. Ranjani\'s operation.', 400000, 275000, 'hip bone transplanting', NULL, NULL, NULL, NULL, 0, '0000-00-00', 9, 0, 0, 0);
+(8, 'image8.jpg', 'Godagama', 'Colombo', 'Ranjani needs your warm help', 'Ranjini is 54 years old woman who has a trouble in her hip bone. It can be cured by transplanting an artificial hip bone. But her family is unable to afford for it. We are the staff members of Homagama Base Hospital. We are looking for the helpful who would like to afford the costs for Mrs. Ranjani\'s operation.', 400000, 275000, 'hip bone transplanting', NULL, NULL, NULL, NULL, 0, '0000-00-00', 9, 0, 0, 0),
+(26, 'Screenshot (318).jpg', 'Meegoda', 'Matara', 'lol', 'hello', 100, 0, 'hello', '02365871542866962', 'Kalani', 'Peoples', 'Kurunagala', 0, '2021-11-23', 12, 0, 0, 0),
+(27, 'WhatsApp Image 2021-11-23 at 10.15.31.jpeg', 'Meegoda', 'Anuradhapura', 'f', 'hello', 100, 0, 'hello', '02365871542866962', 'Kalani', 'Peoples', 'Kurunagala', 0, '2021-11-25', 12, 0, 0, 0),
+(28, 'WhatsApp Image 2021-11-23 at 11.26.32.jpeg', 'Meegoda', 'Matale', 'ki', 'hello', 100, 0, 'hello', '02365871542866962', 'Kalani', 'Peoples', 'Kurunagala', 0, '2021-11-25', 12, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -628,9 +673,16 @@ CREATE TABLE `medicalfund_report` (
   `ID` int(5) NOT NULL,
   `fund_ID` int(5) NOT NULL,
   `user_ID` int(5) NOT NULL,
-  `date` datetime NOT NULL,
+  `date` date NOT NULL,
   `time` time NOT NULL,
-  `feedback` text NOT NULL
+  `feedback` text NOT NULL,
+  `image1` text NOT NULL,
+  `image2` text NOT NULL,
+  `image3` text NOT NULL,
+  `image4` text NOT NULL,
+  `image5` text NOT NULL,
+  `image6` text NOT NULL,
+  `image7` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -669,7 +721,13 @@ INSERT INTO `medicalpost` (`ID`, `picture`, `town`, `district`, `item`, `content
 (5, 'image5.png', 'Welimada', 'Bandarawela', 'wheelchair', 'Shenaya, an 8 year old girl from rural area who is getting treatments for Lucamia. She needs a wheel chair because it is hard for her to walk herself. ', 'Giftee', 'Lucamia Cancer', 5, 0, 0, 0, '', 0, '0000-00-00'),
 (6, 'image6.jpg', 'Gallambarawa', 'Polonnaruwa', 'A+ Kidney', 'Sunil is a 45 years old farmer who needs a A+ kidney to save the life. He is looking for a generous donator who likes to help him.', 'Giftee', 'A+ Kidney', 2, 0, 0, 0, '', 0, '0000-00-00'),
 (7, 'image7.png', 'Mihinthale', 'Anuradhapura', 'artifitial leg', 'I am Lasantha. I am a disabled soldier and got injured by a bomb. I need a artificial leg to walk as earlier and looking for a generous person to donate me a artificial leg.\r\n', 'Giftee', 'Disabled Army Soldier Artificial leg', 1, 0, 0, 0, '', 0, '0000-00-00'),
-(8, 'image8.png', 'Narammala', 'Kurunagala', 'blood', 'My daughter Harini is a thalassemia patient. We have to transfuse blood once a month. So we request your help to find B+ blood.\r\n', 'Giftee', 'thalassemia patient transfuse blood B+ Blood', 6, 0, 0, 0, '', 0, '0000-00-00');
+(8, 'image8.png', 'Narammala', 'Kurunagala', 'blood', 'My daughter Harini is a thalassemia patient. We have to transfuse blood once a month. So we request your help to find B+ blood.\r\n', 'Giftee', 'thalassemia patient transfuse blood B+ Blood', 6, 0, 0, 0, '', 0, '0000-00-00'),
+(45, '', 'Meegoda', 'Moneragala', 'hi', 'hello', 'Giftee', 'hello', 12, 0, 0, 0, '', 0, '2021-11-23'),
+(46, '', 'Meegoda', 'Moneragala', 'hi', 'hello', 'Giftee', 'hello', 12, 0, 0, 0, '', 0, '2021-11-23'),
+(47, 'Screenshot (318).jpg', 'Meegoda', 'Moneragala', 'hi', 'hello', 'Giftee', 'hello', 12, 0, 0, 0, 'on', 0, '2021-11-23'),
+(48, 'Screenshot (318).jpg', 'Meegoda', 'Moneragala', 'hi', 'hello', 'Giftee', 'hello', 12, 0, 0, 0, 'on', 0, '2021-11-23'),
+(49, 'Screenshot (318).jpg', 'Meegoda', 'Moneragala', 'hi', 'hello', 'Giftee', 'hello', 12, 0, 0, 0, '', 0, '2021-11-23'),
+(50, 'WhatsApp Image 2021-11-23 at 11.26.32.jpeg', 'Meegoda', 'Matara', 'wheel chair', 'i need a wheel chair', 'Giftee', 'hello', 12, 0, 0, 0, '', 0, '2021-11-26');
 
 -- --------------------------------------------------------
 
@@ -696,9 +754,16 @@ CREATE TABLE `medicalpost_report` (
   `ID` int(5) NOT NULL,
   `post_ID` int(5) NOT NULL,
   `user_ID` int(5) NOT NULL,
-  `date` datetime NOT NULL,
+  `date` date NOT NULL,
   `time` time NOT NULL,
-  `feedback` text NOT NULL
+  `feedback` text NOT NULL,
+  `image1` text NOT NULL,
+  `image2` text NOT NULL,
+  `image3` text NOT NULL,
+  `image4` text NOT NULL,
+  `image5` text NOT NULL,
+  `image6` text NOT NULL,
+  `image7` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -786,9 +851,16 @@ CREATE TABLE `otherfund_report` (
   `ID` int(5) NOT NULL,
   `fund_ID` int(5) NOT NULL,
   `user_ID` int(5) NOT NULL,
-  `date` datetime NOT NULL,
+  `date` date NOT NULL,
   `time` time NOT NULL,
-  `feedback` text NOT NULL
+  `feedback` text NOT NULL,
+  `image1` text NOT NULL,
+  `image2` text NOT NULL,
+  `image3` text NOT NULL,
+  `image4` text NOT NULL,
+  `image5` text NOT NULL,
+  `image6` text NOT NULL,
+  `image7` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -854,9 +926,16 @@ CREATE TABLE `otherpost_report` (
   `ID` int(5) NOT NULL,
   `post_ID` int(5) NOT NULL,
   `user_ID` int(5) NOT NULL,
-  `date` datetime NOT NULL,
+  `date` date NOT NULL,
   `time` time NOT NULL,
-  `feedback` text NOT NULL
+  `feedback` text NOT NULL,
+  `image1` text NOT NULL,
+  `image2` text NOT NULL,
+  `image3` text NOT NULL,
+  `image4` text NOT NULL,
+  `image5` text NOT NULL,
+  `image6` text NOT NULL,
+  `image7` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -901,7 +980,12 @@ INSERT INTO `registered_user` (`user_ID`, `first_name`, `last_name`, `password`,
 (5, 'Vihas', 'Perera', 'artifacts125', 'Vihas24fer@gmail.com', '1990-10-06', '845251845', 7, 0, 0, 2, 0, 0, '1516426544351535', 'Meegoda', 'BOC', 'img.png', '25/c, meegoda', '0783423876', '', ''),
 (6, 'Bhawantha', 'Perera', 'BeautifulKite', 'Bhawa24fer@gmail.com', '1990-10-06', '845251845', 0, 0, 15, 2, 100000, 12000, '1516426544351535', 'Meegoda', 'BOC', 'img.png', '25/c, meegoda', '0783423876', '', ''),
 (7, 'Bhawantha', 'Perera', 'artificialKite123', 'bawa24fer@gmail.com', '1990-10-06', '845251845', 0, 0, 12, 2, 80000, 3000, '1516426544351535', 'Meegoda', 'BOC', 'img.png', '25/c, meegoda', '0783423876', '', ''),
-(8, 'Maheema', 'sewwandi', 'artificialniceKite', 'mahee24fer@gmail.com', '1990-10-06', '845251825', 0, 0, 36, 2, 300000, 42000, '1516426544351535', 'Meegoda', 'BOC', 'img.png', '25/c, meegoda', '0783423876', '', '');
+(8, 'Maheema', 'sewwandi', 'artificialniceKite', 'mahee24fer@gmail.com', '1990-10-06', '845251825', 0, 0, 36, 2, 300000, 42000, '1516426544351535', 'Meegoda', 'BOC', 'img.png', '25/c, meegoda', '0783423876', '', ''),
+(9, 'sewmini', 'Aravindi', 'blueKite', 'sew24fer@gmail.com', '1990-10-06', '845251845', 0, 0, 3, 2, 45000, 1200, '1516426544351535', 'Meegoda', 'BOC', 'img.png', '25/c, meegoda', '0783423876', '', ''),
+(10, 'vihangi', 'Perera', 'artcafe', 'vihangi24fer@gmail.com', '1990-10-06', '845251845', 0, 0, 0, 2, 0, 0, '1516426544351535', 'Meegoda', 'BOC', 'img.png', '25/c, meegoda', '0783423876', '', ''),
+(11, 'Wasundara', 'Silva', 'Wasundara@123', 'wasundara123@gmail.com', '1996-09-08', '967584253v', 0, 5, 0, 1, 0, 0, '2586421105', 'homagama', 'BOC', 'img.png', '102/25, samanala mawatha, Godagama.', '0715962563', '', ''),
+(12, 'Kalani', 'Bandara', 'jellybean', 'Kalani384bandara@gmail.com', '1990-01-06', '965685245v', 1, 0, 0, 2, 1000, 200, '02365871542866962', 'Kurunagala', 'Peoples Bank', 'img.png', '102/50/06, kalyani road, Kurunagala.', '0764543476', '', ''),
+(13, 'Kalani', 'Bandara', 'jellybean12', 'Kalani38bandara@gmail.com', '1990-01-06', '965685245v', 0, 0, 5, 2, 60000, 1500, '02365871542866962', 'Kurunagala', 'Peoples Bank', 'img.png', '102/50/06, kalyani road, Kurunagala.', '0764543476', '', '');
 
 -- --------------------------------------------------------
 
@@ -988,9 +1072,16 @@ CREATE TABLE `seniorcarefund_report` (
   `ID` int(5) NOT NULL,
   `fund_ID` int(5) NOT NULL,
   `user_ID` int(5) NOT NULL,
-  `date` datetime NOT NULL,
+  `date` date NOT NULL,
   `time` time NOT NULL,
-  `feedback` text NOT NULL
+  `feedback` text NOT NULL,
+  `image1` text NOT NULL,
+  `image2` text NOT NULL,
+  `image3` text NOT NULL,
+  `image4` text NOT NULL,
+  `image5` text NOT NULL,
+  `image6` text NOT NULL,
+  `image7` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -1056,9 +1147,16 @@ CREATE TABLE `seniorcarepost_report` (
   `ID` int(5) NOT NULL,
   `post_ID` int(5) NOT NULL,
   `user_ID` int(5) NOT NULL,
-  `date` datetime NOT NULL,
+  `date` date NOT NULL,
   `time` time NOT NULL,
-  `feedback` text NOT NULL
+  `feedback` text NOT NULL,
+  `image1` text NOT NULL,
+  `image2` text NOT NULL,
+  `image3` text NOT NULL,
+  `image4` text NOT NULL,
+  `image5` text NOT NULL,
+  `image6` text NOT NULL,
+  `image7` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -1266,7 +1364,7 @@ ALTER TABLE `medicalfund_report`
 --
 ALTER TABLE `medicalpost`
   ADD PRIMARY KEY (`ID`) USING BTREE,
-  ADD KEY `fk_medicalposts_registered_user1` (`user_ID`) USING BTREE;
+  ADD KEY `fk_medicalposts_registered_user1` (`user_ID`);
 
 --
 -- Indexes for table `medicalpost_comment`
@@ -1477,19 +1575,19 @@ ALTER TABLE `events`
 -- AUTO_INCREMENT for table `medicalfund`
 --
 ALTER TABLE `medicalfund`
-  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `medicalfund_report`
 --
 ALTER TABLE `medicalfund_report`
-  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `medicalpost`
 --
 ALTER TABLE `medicalpost`
-  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `medicalpost_report`
@@ -1550,6 +1648,203 @@ ALTER TABLE `seniorcarepost`
 --
 ALTER TABLE `seniorcarepost_report`
   MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `admin`
+--
+ALTER TABLE `admin`
+  ADD CONSTRAINT `fk_admin_registered_user1` FOREIGN KEY (`user_ID`) REFERENCES `registered_user` (`user_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `animalcarefund`
+--
+ALTER TABLE `animalcarefund`
+  ADD CONSTRAINT `fk_animalcarefunds_registered_user1` FOREIGN KEY (`user_ID`) REFERENCES `registered_user` (`user_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `animalcarefund_comment`
+--
+ALTER TABLE `animalcarefund_comment`
+  ADD CONSTRAINT `fk_animalcarefund` FOREIGN KEY (`fund_ID`) REFERENCES `animalcarefund` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_animalcarefund_registered_user` FOREIGN KEY (`user_ID`) REFERENCES `registered_user` (`user_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `animalcarefund_report`
+--
+ALTER TABLE `animalcarefund_report`
+  ADD CONSTRAINT `fk_animalcarefund_report_registered_user` FOREIGN KEY (`user_ID`) REFERENCES `registered_user` (`user_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_animalcarefunds_report` FOREIGN KEY (`fund_ID`) REFERENCES `animalcarefund` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `animalcarepost`
+--
+ALTER TABLE `animalcarepost`
+  ADD CONSTRAINT `fk_animalcareposts_registered_user1` FOREIGN KEY (`user_ID`) REFERENCES `registered_user` (`user_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `animalcarepost_comment`
+--
+ALTER TABLE `animalcarepost_comment`
+  ADD CONSTRAINT `fk_animalcarepost` FOREIGN KEY (`post_ID`) REFERENCES `animalcarepost` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_animalcarepost_registered_user` FOREIGN KEY (`user_ID`) REFERENCES `registered_user` (`user_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `animalcarepost_report`
+--
+ALTER TABLE `animalcarepost_report`
+  ADD CONSTRAINT `fk_animalcarepost_report_registered_user` FOREIGN KEY (`user_ID`) REFERENCES `registered_user` (`user_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_animalcareposts_report` FOREIGN KEY (`post_ID`) REFERENCES `animalcarepost` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `childrenfund_comment`
+--
+ALTER TABLE `childrenfund_comment`
+  ADD CONSTRAINT `fk_childrencarefund_registered_user` FOREIGN KEY (`user_ID`) REFERENCES `registered_user` (`user_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_childrenfund` FOREIGN KEY (`fund_ID`) REFERENCES `childrenfund` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_childrenfund_registered_user` FOREIGN KEY (`user_ID`) REFERENCES `registered_user` (`user_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `childrenfund_report`
+--
+ALTER TABLE `childrenfund_report`
+  ADD CONSTRAINT `fk_childrenfund_report_registered_user` FOREIGN KEY (`user_ID`) REFERENCES `registered_user` (`user_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_childrenfunds_report` FOREIGN KEY (`fund_ID`) REFERENCES `childrenfund` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `childrenpost`
+--
+ALTER TABLE `childrenpost`
+  ADD CONSTRAINT `fk_childrenposts_registered_user1` FOREIGN KEY (`user_ID`) REFERENCES `registered_user` (`user_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `childrenpost_comment`
+--
+ALTER TABLE `childrenpost_comment`
+  ADD CONSTRAINT `fk_childrenpost` FOREIGN KEY (`post_ID`) REFERENCES `childrenpost` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_childrenpost_registered_user` FOREIGN KEY (`user_ID`) REFERENCES `registered_user` (`user_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `childrenpost_report`
+--
+ALTER TABLE `childrenpost_report`
+  ADD CONSTRAINT `fk_childrenpost_report_registered_user` FOREIGN KEY (`user_ID`) REFERENCES `registered_user` (`user_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_childrenposts_report` FOREIGN KEY (`post_ID`) REFERENCES `childrenpost` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `educationfund_comment`
+--
+ALTER TABLE `educationfund_comment`
+  ADD CONSTRAINT `fk_educationfund` FOREIGN KEY (`fund_ID`) REFERENCES `educationfund` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_educationfund_registered_user` FOREIGN KEY (`user_ID`) REFERENCES `registered_user` (`user_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `educationfund_report`
+--
+ALTER TABLE `educationfund_report`
+  ADD CONSTRAINT `fk_educationfund_report_registered_user` FOREIGN KEY (`user_ID`) REFERENCES `registered_user` (`user_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_educationfunds_report` FOREIGN KEY (`fund_ID`) REFERENCES `educationfund` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `educationpost_comment`
+--
+ALTER TABLE `educationpost_comment`
+  ADD CONSTRAINT `fk_educationpost` FOREIGN KEY (`post_ID`) REFERENCES `educationpost` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_educationpost_registered_user` FOREIGN KEY (`user_ID`) REFERENCES `registered_user` (`user_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `educationpost_report`
+--
+ALTER TABLE `educationpost_report`
+  ADD CONSTRAINT `fk_educationpost_report_registered_user` FOREIGN KEY (`user_ID`) REFERENCES `registered_user` (`user_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_educationposts_report` FOREIGN KEY (`post_ID`) REFERENCES `educationpost` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `medicalfund_comment`
+--
+ALTER TABLE `medicalfund_comment`
+  ADD CONSTRAINT `fk_medicalfund` FOREIGN KEY (`fund_ID`) REFERENCES `medicalfund` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_medicalfund_registered_user` FOREIGN KEY (`user_ID`) REFERENCES `registered_user` (`user_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `medicalfund_report`
+--
+ALTER TABLE `medicalfund_report`
+  ADD CONSTRAINT `fk_medicalfund_report_registered_user` FOREIGN KEY (`user_ID`) REFERENCES `registered_user` (`user_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_medicalfunds_report` FOREIGN KEY (`fund_ID`) REFERENCES `medicalfund` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `medicalpost_comment`
+--
+ALTER TABLE `medicalpost_comment`
+  ADD CONSTRAINT `fk_medicalpost` FOREIGN KEY (`post_ID`) REFERENCES `medicalpost` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_medicalpost_registered_user` FOREIGN KEY (`user_ID`) REFERENCES `registered_user` (`user_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `medicalpost_report`
+--
+ALTER TABLE `medicalpost_report`
+  ADD CONSTRAINT `fk_medicalnposts_report` FOREIGN KEY (`post_ID`) REFERENCES `medicalpost` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_medicalpost_report_registered_user` FOREIGN KEY (`user_ID`) REFERENCES `registered_user` (`user_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `otherfund_comment`
+--
+ALTER TABLE `otherfund_comment`
+  ADD CONSTRAINT `fk_otherfund` FOREIGN KEY (`fund_ID`) REFERENCES `otherfund` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_otherfund_registered_user` FOREIGN KEY (`user_ID`) REFERENCES `registered_user` (`user_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `otherfund_report`
+--
+ALTER TABLE `otherfund_report`
+  ADD CONSTRAINT `fk_otherfund_report_registered_user` FOREIGN KEY (`user_ID`) REFERENCES `registered_user` (`user_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_otherfunds_report` FOREIGN KEY (`fund_ID`) REFERENCES `otherfund` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `otherpost_comment`
+--
+ALTER TABLE `otherpost_comment`
+  ADD CONSTRAINT `fk_otherpost` FOREIGN KEY (`post_ID`) REFERENCES `otherpost` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_otherpost_registered_user` FOREIGN KEY (`user_ID`) REFERENCES `registered_user` (`user_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `otherpost_report`
+--
+ALTER TABLE `otherpost_report`
+  ADD CONSTRAINT `fk_otherpost_report_registered_user` FOREIGN KEY (`user_ID`) REFERENCES `registered_user` (`user_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_otherposts_report` FOREIGN KEY (`post_ID`) REFERENCES `otherpost` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `seniorcarefund_comment`
+--
+ALTER TABLE `seniorcarefund_comment`
+  ADD CONSTRAINT `fk_seniorcarefund` FOREIGN KEY (`fund_ID`) REFERENCES `seniorcarefund` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_seniorfund_registered_user` FOREIGN KEY (`user_ID`) REFERENCES `registered_user` (`user_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `seniorcarefund_report`
+--
+ALTER TABLE `seniorcarefund_report`
+  ADD CONSTRAINT `fk_seniorcarefund_report_registered_user` FOREIGN KEY (`user_ID`) REFERENCES `registered_user` (`user_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_seniorcarefunds_report` FOREIGN KEY (`fund_ID`) REFERENCES `seniorcarefund` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `seniorcarepost_comment`
+--
+ALTER TABLE `seniorcarepost_comment`
+  ADD CONSTRAINT `fk_seniorcarepost` FOREIGN KEY (`post_ID`) REFERENCES `seniorcarepost` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_seniorcarepost_registered_user` FOREIGN KEY (`user_ID`) REFERENCES `registered_user` (`user_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `seniorcarepost_report`
+--
+ALTER TABLE `seniorcarepost_report`
+  ADD CONSTRAINT `fk_seniorcarepost_report_registered_user` FOREIGN KEY (`user_ID`) REFERENCES `registered_user` (`user_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_seniorcareposts_report` FOREIGN KEY (`post_ID`) REFERENCES `seniorcarepost` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
