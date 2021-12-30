@@ -71,6 +71,8 @@
 
 #SmileMakers{
 	
+/* font-weight: bold; */
+	
 position: relative;
 	
 /* left: -1%; */
@@ -95,9 +97,11 @@ border-radius: 70px;
 	
 flex-direction: column;
 	
-align-items: center;
+/* font-weight: bold; */
 	
 justify-content: flex-start;
+	
+align-items: center;
 }
 
 #Event{
@@ -177,8 +181,10 @@ justify-content: flex-start;
 	z-index: 1;
 	text-align: left;
 	font-size: 16px;
-	width: 14ch;
+	width: 15ch;
 	margin-top: 5%;
+	padding-bottom: 5%;
+	/* height: 86%; */
 	visibility: hidden;
 	z-index: 1;
 	opacity: 0;
@@ -271,8 +277,14 @@ letter-spacing: 1px;
     right: -1px
 }
 .user{
-	/* position: absolute; */
-	/* top: 0vh; */
-	/* left: 70%; */
-	/* width: 20%; */
+	
+/* position: absolute; */
+	
+/* top: 0vh; */
+	
+/* left: 70%; */
+	
+/* width: 20%; */
 }
+
+

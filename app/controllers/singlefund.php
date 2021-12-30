@@ -24,7 +24,26 @@ Class singlefund extends Controller
             }
         }
 
-        show($_SESSION);
+        $today = date_create(date('Y-m-d'));
+        $create = date_create($data['fund']->create_date);
+        $dategap = date_diff($create,$today);
+        $data['dategap'] = '';
+        if($dategap->y){
+            $data['dategap'] =+ $dategap->y." Years ";
+        }
+        if($dategap->m){
+            $data['dategap'] =+ $dategap->m." Months ";
+        }
+        if($dategap->d){
+            $data['dategap'] =+ $dategap->d." Days";
+        }
+        if($today == $create){
+            $data['dategap'] = 'Today';
+        }else{
+            $data['dategap'] = $data['dategap']." ago";
+        }
+
+        // show($_SESSION);
         show($data); 
 
         $this->view("viewfund",$data);
@@ -40,7 +59,7 @@ Class singlefund extends Controller
             $data['feedback'] = $_POST;
             $data['photos'] = $_FILES;
             $fund = $this->loadModel("fund");
-            $results = $fund->report($data);
+            $fund->report($data);
             // show($data);
         }
         $this->view("report",$data);

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 24, 2021 at 05:04 PM
+-- Generation Time: Dec 28, 2021 at 07:30 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -65,22 +65,23 @@ CREATE TABLE `animalcarefund` (
   `user_ID` int(5) NOT NULL,
   `member_ID1` int(5) NOT NULL,
   `member_ID2` int(5) NOT NULL,
-  `member_ID3` int(5) NOT NULL
+  `member_ID3` int(5) NOT NULL,
+  `status` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='AnimalCareFunds';
 
 --
 -- Dumping data for table `animalcarefund`
 --
 
-INSERT INTO `animalcarefund` (`ID`, `picture`, `town`, `district`, `title`, `content`, `amount`, `filled`, `keywords`, `accountnumber`, `accountholder`, `bankname`, `branchname`, `report_count`, `create_date`, `user_ID`, `member_ID1`, `member_ID2`, `member_ID3`) VALUES
-(1, 'image1.png', 'katunayaka', 'colombo', 'Animal Welfare in Sri Lanka: How and Where to help.', 'We are an Animal welfare organization and we are caring street dogs. So we need your help to afford their costs.', 5000000, 200000, 'Animal Welfare Street Dogs', '5145484564', 'wathsala', 'BOC', 'homagama', 0, '2021-02-06', 11, 0, 0, 0),
-(2, 'image2.png', 'Borella', 'Colombo', 'Animal SOS Sri Lanka', 'Our mission is to alleviate the suffering of stray animals in Sri Lanka by providing life-saving veterinary care, rehabilitation, homing and refuge. join us with a donation.', 800000, 150000, 'Animal Welfare Street Dogs stray animals ', NULL, NULL, NULL, NULL, 0, '0000-00-00', 3, 0, 0, 0),
-(3, 'image3.png', 'Kahathuduwa', 'Kaluthara', 'Animal Welfare and Protection Association', 'AWPA is a registered association in Sri Lanka, committed to the caring of stray, abandoned and abused dogs and cats on a non-for-profit basis. AWPA is governed by a committee of volunteers. We perform a vital service of conducting sterilization programs across the country, rescuing and sheltering these domestic animals. We hope your donations to our organization.', 1000000, 300000, 'AWPA Animal Welfare and Protection Association ', NULL, NULL, NULL, NULL, 0, '0000-00-00', 5, 0, 0, 0),
-(4, 'image4.png', 'Homagama', 'Colombo', 'Let\'s save stray pups in Sri Lanka.', 'Baw Baw is committed to build a compassionate world where every little life is valued. We focus on creating a better life for stray dogs and cats in Sri Lanka through various projects. Donate now :)', 900000, 125000, 'Baw Baw stray dogs', NULL, NULL, NULL, NULL, 0, '0000-00-00', 6, 0, 0, 0),
-(5, 'image5.png', 'Katunayake', 'Colombo', 'Animal Welfare in Sri Lanka: How and Where to help.', 'We are an Animal welfare organization and we are caring street dogs. So we need your help to afford their costs.', 500000, 20000, 'Animal Welfare Street Dogs', NULL, NULL, NULL, NULL, 0, '0000-00-00', 7, 0, 0, 0),
-(6, 'image6.png', 'Borella', 'Colombo', 'Animal SOS Sri Lanka', 'Our mission is to alleviate the suffering of stray animals in Sri Lanka by providing life-saving veterinary care, rehabilitation, homing and refuge', 800000, 150000, 'Animal Welfare Street Dogs stray animals ', NULL, NULL, NULL, NULL, 0, '0000-00-00', 3, 0, 0, 0),
-(7, 'image7.png', 'Kahathuduwa', 'Kaluthara', 'Animal Welfare and Protection Association', 'AWPA is a registered association in Sri Lanka, committed to the caring of stray, abandoned and abused dogs and cats on a non-for-profit basis. AWPA is governed by a committee of volunteers. We perform a vital service of conducting sterilization programs across the country, rescuing and sheltering these domestic animals. We hope your donations to our organization.', 1000000, 300000, 'AWPA Animal Welfare and Protection Association ', NULL, NULL, NULL, NULL, 0, '0000-00-00', 2, 0, 0, 0),
-(8, 'image8.png', 'Homagama', 'Colombo', 'Let\'s save stray pups in Sri Lanka.', 'Baw Baw is committed to build a compassionate world where every little life is valued. We focus on creating a better life for stray dogs and cats in Sri Lanka through various projects. Donate now :)', 900000, 125000, 'Baw Baw stray dogs', NULL, NULL, NULL, NULL, 0, '0000-00-00', 1, 0, 0, 0);
+INSERT INTO `animalcarefund` (`ID`, `picture`, `town`, `district`, `title`, `content`, `amount`, `filled`, `keywords`, `accountnumber`, `accountholder`, `bankname`, `branchname`, `report_count`, `create_date`, `user_ID`, `member_ID1`, `member_ID2`, `member_ID3`, `status`) VALUES
+(1, 'image1.png', 'katunayaka', 'colombo', 'Animal Welfare in Sri Lanka: How and Where to help.', 'We are an Animal welfare organization and we are caring street dogs. So we need your help to afford their costs.', 5000000, 200000, 'Animal Welfare Street Dogs', '5145484564', 'wathsala', 'BOC', 'homagama', 0, '2021-02-06', 11, 0, 0, 0, 0),
+(2, 'image2.png', 'Borella', 'Colombo', 'Animal SOS Sri Lanka', 'Our mission is to alleviate the suffering of stray animals in Sri Lanka by providing life-saving veterinary care, rehabilitation, homing and refuge. join us with a donation.', 800000, 150000, 'Animal Welfare Street Dogs stray animals ', NULL, NULL, NULL, NULL, 0, '0000-00-00', 3, 0, 0, 0, 0),
+(3, 'image3.png', 'Kahathuduwa', 'Kaluthara', 'Animal Welfare and Protection Association', 'AWPA is a registered association in Sri Lanka, committed to the caring of stray, abandoned and abused dogs and cats on a non-for-profit basis. AWPA is governed by a committee of volunteers. We perform a vital service of conducting sterilization programs across the country, rescuing and sheltering these domestic animals. We hope your donations to our organization.', 1000000, 300000, 'AWPA Animal Welfare and Protection Association ', NULL, NULL, NULL, NULL, 0, '0000-00-00', 5, 0, 0, 0, 0),
+(4, 'image4.png', 'Homagama', 'Colombo', 'Let\'s save stray pups in Sri Lanka.', 'Baw Baw is committed to build a compassionate world where every little life is valued. We focus on creating a better life for stray dogs and cats in Sri Lanka through various projects. Donate now :)', 900000, 125000, 'Baw Baw stray dogs', NULL, NULL, NULL, NULL, 0, '0000-00-00', 6, 0, 0, 0, 0),
+(5, 'image5.png', 'Katunayake', 'Colombo', 'Animal Welfare in Sri Lanka: How and Where to help.', 'We are an Animal welfare organization and we are caring street dogs. So we need your help to afford their costs.', 500000, 20000, 'Animal Welfare Street Dogs', NULL, NULL, NULL, NULL, 0, '0000-00-00', 7, 0, 0, 0, 0),
+(6, 'image6.png', 'Borella', 'Colombo', 'Animal SOS Sri Lanka', 'Our mission is to alleviate the suffering of stray animals in Sri Lanka by providing life-saving veterinary care, rehabilitation, homing and refuge', 800000, 150000, 'Animal Welfare Street Dogs stray animals ', NULL, NULL, NULL, NULL, 0, '0000-00-00', 3, 0, 0, 0, 0),
+(7, 'image7.png', 'Kahathuduwa', 'Kaluthara', 'Animal Welfare and Protection Association', 'AWPA is a registered association in Sri Lanka, committed to the caring of stray, abandoned and abused dogs and cats on a non-for-profit basis. AWPA is governed by a committee of volunteers. We perform a vital service of conducting sterilization programs across the country, rescuing and sheltering these domestic animals. We hope your donations to our organization.', 1000000, 300000, 'AWPA Animal Welfare and Protection Association ', NULL, NULL, NULL, NULL, 0, '0000-00-00', 2, 0, 0, 0, 0),
+(8, 'image8.png', 'Homagama', 'Colombo', 'Let\'s save stray pups in Sri Lanka.', 'Baw Baw is committed to build a compassionate world where every little life is valued. We focus on creating a better life for stray dogs and cats in Sri Lanka through various projects. Donate now :)', 900000, 125000, 'Baw Baw stray dogs', NULL, NULL, NULL, NULL, 0, '0000-00-00', 1, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -151,22 +152,23 @@ CREATE TABLE `animalcarepost` (
   `user_ID` int(5) NOT NULL,
   `member_ID1` int(5) NOT NULL,
   `member_ID2` int(5) NOT NULL,
-  `member_ID3` int(5) NOT NULL
+  `member_ID3` int(5) NOT NULL,
+  `status` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `animalcarepost`
 --
 
-INSERT INTO `animalcarepost` (`ID`, `picture`, `town`, `district`, `item`, `content`, `post_type`, `keywords`, `visibility`, `report_count`, `create_date`, `user_ID`, `member_ID1`, `member_ID2`, `member_ID3`) VALUES
-(1, 'image1.png', 'Katunayake', 'Colombo', 'dog', 'We are an Animal welfare organization and we are caring street dogs. You also can join with us by adopting a puppy from us.', 'Giftee', 'adopt stray dogs', '', 0, '0000-00-00', 6, 2, 5, 0),
-(2, 'image2.png', 'Borella', 'Colombo', 'food', 'Our mission is to alleviate the suffering of stray animals in Sri Lanka by providing life-saving veterinary care, rehabilitation, homing and refuge. join us with a food item.', 'Giftee', 'Animal Welfare Street Dogs stray animals ', '', 0, '0000-00-00', 11, 0, 0, 0),
-(3, 'image3.png', 'Pothuvil', 'Ampara', 'puppy', 'There is a little dog family near the Sri Bhodirajaramaya Temple in Pothuvil. I will bring them to your door step if you are an animal lover who would like to adopt a puppy.', 'Donor', 'Adopt Puupy Dog Stray Pothuvil', '', 0, '0000-00-00', 12, 0, 0, 0),
-(4, 'image4.png', 'Dambulla', 'Mathale', 'puppy', 'I have got 6 Doberman puppies from my Ruby\'s first liter. I would like to donate them to the Doberman lovers who are unable to by a puppy :) ', 'Donor', 'Doberman free puppy', '', 0, '0000-00-00', 13, 0, 0, 0),
-(5, 'image5.png', 'Katunayake', 'Colombo', 'dog', 'We are an Animal welfare organization and we are caring street dogs. You also can join with us by adopting a puppy from us.', 'Giftee', 'adopt stray dogs', '', 0, '0000-00-00', 5, 0, 0, 0),
-(6, 'image6.png', 'Borella', 'Colombo', 'food', 'Our mission is to alleviate the suffering of stray animals in Sri Lanka by providing life-saving veterinary care, rehabilitation, homing and refuge. join us with a food item.', 'Giftee', 'Animal Welfare Street Dogs stray animals ', '', 0, '0000-00-00', 8, 0, 0, 0),
-(7, 'image7.png', 'Pothuvil', 'Ampara', 'puppy', 'There is a little dog family near the Sri Bhodirajaramaya Temple in Pothuvil. I will bring them to your door step if you are an animal lover who would like to adopt a puppy.', 'Donor', 'Adopt Puupy Dog Stray Pothuvil', '', 0, '0000-00-00', 9, 0, 0, 0),
-(8, 'image8.png', 'Dambulla', 'Mathale', 'puppy', 'I have got 6 Doberman puppies from my Ruby\'s first liter. I would like to donate them to the Doberman lovers who are unable to by a puppy :) ', 'Donor', 'Doberman free puppy', '', 0, '0000-00-00', 10, 0, 0, 0);
+INSERT INTO `animalcarepost` (`ID`, `picture`, `town`, `district`, `item`, `content`, `post_type`, `keywords`, `visibility`, `report_count`, `create_date`, `user_ID`, `member_ID1`, `member_ID2`, `member_ID3`, `status`) VALUES
+(1, 'image1.png', 'Katunayake', 'Colombo', 'dog', 'We are an Animal welfare organization and we are caring street dogs. You also can join with us by adopting a puppy from us.', 'Giftee', 'adopt stray dogs', '', 0, '0000-00-00', 6, 2, 5, 0, 1),
+(2, 'image2.png', 'Borella', 'Colombo', 'food', 'Our mission is to alleviate the suffering of stray animals in Sri Lanka by providing life-saving veterinary care, rehabilitation, homing and refuge. join us with a food item.', 'Giftee', 'Animal Welfare Street Dogs stray animals ', '', 0, '0000-00-00', 11, 0, 0, 0, 0),
+(3, 'image3.png', 'Pothuvil', 'Ampara', 'puppy', 'There is a little dog family near the Sri Bhodirajaramaya Temple in Pothuvil. I will bring them to your door step if you are an animal lover who would like to adopt a puppy.', 'Donor', 'Adopt Puupy Dog Stray Pothuvil', '', 0, '0000-00-00', 12, 0, 0, 0, 1),
+(4, 'image4.png', 'Dambulla', 'Mathale', 'puppy', 'I have got 6 Doberman puppies from my Ruby\'s first liter. I would like to donate them to the Doberman lovers who are unable to by a puppy :) ', 'Donor', 'Doberman free puppy', '', 0, '0000-00-00', 13, 0, 0, 0, 1),
+(5, 'image5.png', 'Katunayake', 'Colombo', 'dog', 'We are an Animal welfare organization and we are caring street dogs. You also can join with us by adopting a puppy from us.', 'Giftee', 'adopt stray dogs', '', 0, '0000-00-00', 5, 0, 0, 0, 1),
+(6, 'image6.png', 'Borella', 'Colombo', 'food', 'Our mission is to alleviate the suffering of stray animals in Sri Lanka by providing life-saving veterinary care, rehabilitation, homing and refuge. join us with a food item.', 'Giftee', 'Animal Welfare Street Dogs stray animals ', '', 0, '0000-00-00', 8, 0, 0, 0, 0),
+(7, 'image7.png', 'Pothuvil', 'Ampara', 'puppy', 'There is a little dog family near the Sri Bhodirajaramaya Temple in Pothuvil. I will bring them to your door step if you are an animal lover who would like to adopt a puppy.', 'Donor', 'Adopt Puupy Dog Stray Pothuvil', '', 0, '0000-00-00', 9, 0, 0, 0, 1),
+(8, 'image8.png', 'Dambulla', 'Mathale', 'puppy', 'I have got 6 Doberman puppies from my Ruby\'s first liter. I would like to donate them to the Doberman lovers who are unable to by a puppy :) ', 'Donor', 'Doberman free puppy', '', 0, '0000-00-00', 10, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -230,22 +232,23 @@ CREATE TABLE `childrenfund` (
   `user_ID` int(5) NOT NULL,
   `member_ID1` int(5) NOT NULL,
   `member_ID2` int(5) NOT NULL,
-  `member_ID3` int(5) NOT NULL
+  `member_ID3` int(5) NOT NULL,
+  `status` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='ChildrenFunds';
 
 --
 -- Dumping data for table `childrenfund`
 --
 
-INSERT INTO `childrenfund` (`ID`, `picture`, `town`, `district`, `title`, `content`, `amount`, `filled`, `keywords`, `accountnumber`, `accountholder`, `bankname`, `branchname`, `report_count`, `create_date`, `user_ID`, `member_ID1`, `member_ID2`, `member_ID3`) VALUES
-(1, 'image1.png', 'Bandarawela', 'Badulla', 'Himaya needs your help.', 'Himaya is a 15 years old girl who spends a very hard life style. Her Father got injured and disabled after he fallen down from a tree. But Himaya is very talented in athletics and she hope to start a fund to afford her costs. ', 500000, 145000, 'Himaya athletics talented girl', NULL, NULL, NULL, NULL, 0, '0000-00-00', 5, 0, 0, 0),
-(2, 'image2.png', 'Maharagama', 'Colombo', 'Sucharithodaya Niwasaya', 'For the next year we need to buy new books, school bags, purse, stationeries for the children in our child care center. So we are going you can join with us by donating a small money to us. ', 100000, 25000, 'children child care center', NULL, NULL, NULL, NULL, 0, '0000-00-00', 10, 0, 0, 0),
-(3, 'image3.png', 'Embilipitiya', 'Hambantota', 'need a help', 'I am Saman I need a mobile phone to participate my online classes. So help me to buy a phone by donating to my fund.', 30000, 11000, 'mobile phone online lessons', NULL, NULL, NULL, NULL, 0, '0000-00-00', 11, 0, 0, 0),
-(4, 'image4.png', 'Sri Jayawadenepura Kotte', 'Colombo', 'Vajira Sri Children\'s Development Center', 'We need a financial help to look after the children in our child care center. So please help us.', 5000000, 200000, 'Child care center Vajira Sri Children\'s Development Center', NULL, NULL, NULL, NULL, 0, '0000-00-00', 12, 0, 0, 0),
-(5, 'image5.png', 'Bandarawela', 'Badulla', 'Himaya needs your help.', 'Himaya is a 15 years old girl who spends a very hard life style. Her Father got injured and disabled after he fallen down from a tree. But Himaya is very talented in athletics and she hope to start a fund to afford her costs. ', 500000, 145000, 'Himaya athletics talented girl', NULL, NULL, NULL, NULL, 0, '0000-00-00', 7, 0, 0, 0),
-(6, 'image6.png', 'Maharagama', 'Colombo', 'Sucharithodaya Niwasaya', 'For the next year we need to buy new books, school bags, purse, stationeries for the children in our child care center. So we are going you can join with us by donating a small money to us. ', 100000, 25000, 'children child care center', NULL, NULL, NULL, NULL, 0, '0000-00-00', 8, 0, 0, 0),
-(7, 'image7.png', 'Embilipitiya', 'Hambantota', 'need a help', 'I am Saman I need a mobile phone to participate my online classes. So help me to buy a phone by donating to my fund.', 30000, 11000, 'mobile phone online lessons', NULL, NULL, NULL, NULL, 0, '0000-00-00', 3, 0, 0, 0),
-(8, 'image8.png', 'Sri Jayawadenepura Kotte', 'Colombo', 'Vajira Sri Children\'s Development Center', 'We need a financial help to look after the children in our child care center. So please help us.', 5000000, 200000, 'Child care center Vajira Sri Children\'s Development Center', NULL, NULL, NULL, NULL, 0, '0000-00-00', 4, 0, 0, 0);
+INSERT INTO `childrenfund` (`ID`, `picture`, `town`, `district`, `title`, `content`, `amount`, `filled`, `keywords`, `accountnumber`, `accountholder`, `bankname`, `branchname`, `report_count`, `create_date`, `user_ID`, `member_ID1`, `member_ID2`, `member_ID3`, `status`) VALUES
+(1, 'image1.png', 'Bandarawela', 'Badulla', 'Himaya needs your help.', 'Himaya is a 15 years old girl who spends a very hard life style. Her Father got injured and disabled after he fallen down from a tree. But Himaya is very talented in athletics and she hope to start a fund to afford her costs. ', 500000, 145000, 'Himaya athletics talented girl', NULL, NULL, NULL, NULL, 0, '0000-00-00', 5, 0, 0, 0, 0),
+(2, 'image2.png', 'Maharagama', 'Colombo', 'Sucharithodaya Niwasaya', 'For the next year we need to buy new books, school bags, purse, stationeries for the children in our child care center. So we are going you can join with us by donating a small money to us. ', 100000, 25000, 'children child care center', NULL, NULL, NULL, NULL, 0, '0000-00-00', 10, 0, 0, 0, 0),
+(3, 'image3.png', 'Embilipitiya', 'Hambantota', 'need a help', 'I am Saman I need a mobile phone to participate my online classes. So help me to buy a phone by donating to my fund.', 30000, 11000, 'mobile phone online lessons', NULL, NULL, NULL, NULL, 0, '0000-00-00', 11, 0, 0, 0, 0),
+(4, 'image4.png', 'Sri Jayawadenepura Kotte', 'Colombo', 'Vajira Sri Children\'s Development Center', 'We need a financial help to look after the children in our child care center. So please help us.', 5000000, 200000, 'Child care center Vajira Sri Children\'s Development Center', NULL, NULL, NULL, NULL, 0, '0000-00-00', 12, 0, 0, 0, 0),
+(5, 'image5.png', 'Bandarawela', 'Badulla', 'Himaya needs your help.', 'Himaya is a 15 years old girl who spends a very hard life style. Her Father got injured and disabled after he fallen down from a tree. But Himaya is very talented in athletics and she hope to start a fund to afford her costs. ', 500000, 145000, 'Himaya athletics talented girl', NULL, NULL, NULL, NULL, 0, '0000-00-00', 7, 0, 0, 0, 0),
+(6, 'image6.png', 'Maharagama', 'Colombo', 'Sucharithodaya Niwasaya', 'For the next year we need to buy new books, school bags, purse, stationeries for the children in our child care center. So we are going you can join with us by donating a small money to us. ', 100000, 25000, 'children child care center', NULL, NULL, NULL, NULL, 0, '0000-00-00', 8, 0, 0, 0, 0),
+(7, 'image7.png', 'Embilipitiya', 'Hambantota', 'need a help', 'I am Saman I need a mobile phone to participate my online classes. So help me to buy a phone by donating to my fund.', 30000, 11000, 'mobile phone online lessons', NULL, NULL, NULL, NULL, 0, '0000-00-00', 3, 0, 0, 0, 0),
+(8, 'image8.png', 'Sri Jayawadenepura Kotte', 'Colombo', 'Vajira Sri Children\'s Development Center', 'We need a financial help to look after the children in our child care center. So please help us.', 5000000, 200000, 'Child care center Vajira Sri Children\'s Development Center', NULL, NULL, NULL, NULL, 0, '0000-00-00', 4, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -316,22 +319,23 @@ CREATE TABLE `childrenpost` (
   `member_ID3` int(5) NOT NULL,
   `visibility` text NOT NULL,
   `report_count` int(11) NOT NULL,
-  `create_date` date NOT NULL
+  `create_date` date NOT NULL,
+  `status` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `childrenpost`
 --
 
-INSERT INTO `childrenpost` (`ID`, `picture`, `town`, `district`, `item`, `content`, `post_type`, `keywords`, `user_ID`, `member_ID1`, `member_ID2`, `member_ID3`, `visibility`, `report_count`, `create_date`) VALUES
-(1, 'image1.png', 'Karadiyanaru', 'Batticoloa', 'swimming equipment', 'Shavini is a little girl who got the championship of Sri Lanka swimming contest. She needs swimming equipment to participate the Asian competitions. Please help her to bring a proud to Sri Lanka.', 'Giftee', 'Swimming Shavini equipment', 10, 1, 2, 0, '', 0, '0000-00-00'),
-(2, 'image2.png', 'Maharagama', 'Colombo', 'new books, school bags, purse, stationeries ', 'For the next year we need to buy new books, school bags, purse, stationeries for the children in our child care center. So we are going you can join with us by donating them.', 'Giftee', 'children child care center', 11, 0, 0, 0, '', 0, '0000-00-00'),
-(3, 'image3.png', 'Embilipitiya', 'Hambantota', 'mobile phone', 'I am Saman I need a mobile phone to participate my online classes. So help me witha phone to continue my studies.', 'Giftee', 'mobile phone online lessons', 12, 0, 0, 0, '', 0, '0000-00-00'),
-(4, 'image4.png', 'Poonakary', 'Kilinochchi', 'mobile phones', 'I would like to distribute 10 mobile phones who are the school children and need a mobile phone to participate the online lessons in Kilinochchi District. If you need a mobile phone contact me.', 'Donor', 'Mobile phone Kilinochchi district', 13, 0, 0, 0, '', 0, '0000-00-00'),
-(5, 'image5.png', 'Karadiyanaru', 'Batticoloa', 'swimming equipment', 'Shavini is a little girl who got the championship of Sri Lanka swimming contest. She needs swimming equipment to participate the Asian competitions. Please help her to bring a proud to Sri Lanka.', 'Giftee', 'Swimming Shavini equipment', 10, 0, 0, 0, '', 0, '0000-00-00'),
-(6, 'image6.png', 'Maharagama', 'Colombo', 'new books, school bags, purse, stationeries ', 'For the next year we need to buy new books, school bags, purse, stationeries for the children in our child care center. So we are going you can join with us by donating them.', 'Giftee', 'children child care center', 9, 0, 0, 0, '', 0, '0000-00-00'),
-(7, 'image7.png', 'Embilipitiya', 'Hambantota', 'mobile phone', 'I am Saman I need a mobile phone to participate my online classes. So help me witha phone to continue my studies.', 'Giftee', 'mobile phone online lessons', 5, 0, 0, 0, '', 0, '0000-00-00'),
-(8, 'image8.png', 'Poonakary', 'Kilinochchi', 'Mobile phones', 'I would like to distribute 10 mobile phones who are the school children and need a mobile phone to participate the online lessons in Kilinochchi District. If you need a mobile phone contact me.', 'Donor', 'Mobile phone Kilinochchi district', 4, 0, 0, 0, '', 0, '0000-00-00');
+INSERT INTO `childrenpost` (`ID`, `picture`, `town`, `district`, `item`, `content`, `post_type`, `keywords`, `user_ID`, `member_ID1`, `member_ID2`, `member_ID3`, `visibility`, `report_count`, `create_date`, `status`) VALUES
+(1, 'image1.png', 'Karadiyanaru', 'Batticoloa', 'swimming equipment', 'Shavini is a little girl who got the championship of Sri Lanka swimming contest. She needs swimming equipment to participate the Asian competitions. Please help her to bring a proud to Sri Lanka.', 'Giftee', 'Swimming Shavini equipment', 10, 1, 2, 0, '', 0, '0000-00-00', 1),
+(2, 'image2.png', 'Maharagama', 'Colombo', 'new books, school bags, purse, stationeries ', 'For the next year we need to buy new books, school bags, purse, stationeries for the children in our child care center. So we are going you can join with us by donating them.', 'Giftee', 'children child care center', 11, 0, 0, 0, '', 0, '0000-00-00', 1),
+(3, 'image3.png', 'Embilipitiya', 'Hambantota', 'mobile phone', 'I am Saman I need a mobile phone to participate my online classes. So help me witha phone to continue my studies.', 'Giftee', 'mobile phone online lessons', 12, 0, 0, 0, '', 0, '0000-00-00', 1),
+(4, 'image4.png', 'Poonakary', 'Kilinochchi', 'mobile phones', 'I would like to distribute 10 mobile phones who are the school children and need a mobile phone to participate the online lessons in Kilinochchi District. If you need a mobile phone contact me.', 'Donor', 'Mobile phone Kilinochchi district', 13, 0, 0, 0, '', 0, '0000-00-00', 1),
+(5, 'image5.png', 'Karadiyanaru', 'Batticoloa', 'swimming equipment', 'Shavini is a little girl who got the championship of Sri Lanka swimming contest. She needs swimming equipment to participate the Asian competitions. Please help her to bring a proud to Sri Lanka.', 'Giftee', 'Swimming Shavini equipment', 10, 0, 0, 0, '', 0, '0000-00-00', 0),
+(6, 'image6.png', 'Maharagama', 'Colombo', 'new books, school bags, purse, stationeries ', 'For the next year we need to buy new books, school bags, purse, stationeries for the children in our child care center. So we are going you can join with us by donating them.', 'Giftee', 'children child care center', 9, 0, 0, 0, '', 0, '0000-00-00', 0),
+(7, 'image7.png', 'Embilipitiya', 'Hambantota', 'mobile phone', 'I am Saman I need a mobile phone to participate my online classes. So help me witha phone to continue my studies.', 'Giftee', 'mobile phone online lessons', 5, 0, 0, 0, '', 0, '0000-00-00', 0),
+(8, 'image8.png', 'Poonakary', 'Kilinochchi', 'Mobile phones', 'I would like to distribute 10 mobile phones who are the school children and need a mobile phone to participate the online lessons in Kilinochchi District. If you need a mobile phone contact me.', 'Donor', 'Mobile phone Kilinochchi district', 4, 0, 0, 0, '', 0, '0000-00-00', 1);
 
 -- --------------------------------------------------------
 
@@ -388,22 +392,23 @@ CREATE TABLE `educationfund` (
   `user_ID` int(5) NOT NULL,
   `member_ID1` int(5) NOT NULL,
   `member_ID2` int(5) NOT NULL,
-  `member_ID3` int(5) NOT NULL
+  `member_ID3` int(5) NOT NULL,
+  `status` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='EducationFunds';
 
 --
 -- Dumping data for table `educationfund`
 --
 
-INSERT INTO `educationfund` (`ID`, `picture`, `town`, `district`, `title`, `content`, `amount`, `filled`, `keywords`, `account_number`, `account_holder`, `bank_name`, `branch_name`, `report_count`, `create_date`, `user_ID`, `member_ID1`, `member_ID2`, `member_ID3`) VALUES
-(1, 'image1.png', 'Bandarawela', 'Badulla', 'Himaya needs your help.', 'Himaya is a 15 years old girl who spends a very hard life style. Her Father got injured and disabled after he fallen down from a tree. But Himaya is very talented in athletics and she hope to start a fund to afford her costs. ', 500000, 145000, 'Himaya athletics talented girl', NULL, NULL, NULL, NULL, 0, '0000-00-00', 3, 0, 0, 0),
-(2, 'image2.png', 'Maharagama', 'Colombo', 'Sucharithodaya Niwasaya', 'For the next year we need to buy new books, school bags, purse, stationeries for the children in our child care center. So we are going you can join with us by donating a small money to us. ', 100000, 25000, 'children child care center', NULL, NULL, NULL, NULL, 0, '0000-00-00', 4, 0, 0, 0),
-(3, 'image3.png', 'Embilipitiya', 'Hambantota', 'Need a help', 'I am Saman I need a mobile phone to participate my online classes. So help me to buy a phone by donating to my fund.', 30000, 11000, 'mobile phone online lessons', NULL, NULL, NULL, NULL, 0, '0000-00-00', 9, 0, 0, 0),
-(4, 'image4.png', 'Nagoda', 'Galle', 'Need a help.', 'I am Sumeth and my parents are unable to afford the cost for my studies and I hope a help from you to continue my studies.', 60000, 15000, 'Sumeth studies', NULL, NULL, NULL, NULL, 0, '0000-00-00', 6, 0, 0, 0),
-(5, 'image5.png', 'Bandarawela', 'Badulla', 'Himaya needs your help.', 'Himaya is a 15 years old girl who spends a very hard life style. Her Father got injured and disabled after he fallen down from a tree. But Himaya is very talented in athletics and she hope to start a fund to afford her costs. ', 500000, 145000, 'Himaya athletics talented girl', NULL, NULL, NULL, NULL, 0, '0000-00-00', 2, 0, 0, 0),
-(6, 'image6.png', 'Maharagama', 'Colombo', 'Sucharithodaya Niwasaya', 'For the next year we need to buy new books, school bags, purse, stationeries for the children in our child care center. So we are going you can join with us by donating a small money to us. ', 100000, 25000, 'children child care center', NULL, NULL, NULL, NULL, 0, '0000-00-00', 5, 0, 0, 0),
-(7, 'image7.png', 'Embilipitiya', 'Hambantota', 'Need a help', 'I am Saman I need a mobile phone to participate my online classes. So help me to buy a phone by donating to my fund.', 30000, 11000, 'mobile phone online lessons', NULL, NULL, NULL, NULL, 0, '0000-00-00', 11, 0, 0, 0),
-(8, 'image8.png', 'Nagoda', 'Galle', 'Need a help.', 'I am Sumeth and my parents are unable to afford the cost for my studies and I hope a help from you to continue my studies.', 60000, 15000, 'Sumeth studies', NULL, NULL, NULL, NULL, 0, '0000-00-00', 11, 0, 0, 0);
+INSERT INTO `educationfund` (`ID`, `picture`, `town`, `district`, `title`, `content`, `amount`, `filled`, `keywords`, `account_number`, `account_holder`, `bank_name`, `branch_name`, `report_count`, `create_date`, `user_ID`, `member_ID1`, `member_ID2`, `member_ID3`, `status`) VALUES
+(1, 'image1.png', 'Bandarawela', 'Badulla', 'Himaya needs your help.', 'Himaya is a 15 years old girl who spends a very hard life style. Her Father got injured and disabled after he fallen down from a tree. But Himaya is very talented in athletics and she hope to start a fund to afford her costs. ', 500000, 145000, 'Himaya athletics talented girl', NULL, NULL, NULL, NULL, 0, '0000-00-00', 3, 0, 0, 0, 0),
+(2, 'image2.png', 'Maharagama', 'Colombo', 'Sucharithodaya Niwasaya', 'For the next year we need to buy new books, school bags, purse, stationeries for the children in our child care center. So we are going you can join with us by donating a small money to us. ', 100000, 25000, 'children child care center', NULL, NULL, NULL, NULL, 0, '0000-00-00', 4, 0, 0, 0, 0),
+(3, 'image3.png', 'Embilipitiya', 'Hambantota', 'Need a help', 'I am Saman I need a mobile phone to participate my online classes. So help me to buy a phone by donating to my fund.', 30000, 11000, 'mobile phone online lessons', NULL, NULL, NULL, NULL, 0, '0000-00-00', 9, 0, 0, 0, 0),
+(4, 'image4.png', 'Nagoda', 'Galle', 'Need a help.', 'I am Sumeth and my parents are unable to afford the cost for my studies and I hope a help from you to continue my studies.', 60000, 15000, 'Sumeth studies', NULL, NULL, NULL, NULL, 0, '0000-00-00', 6, 0, 0, 0, 0),
+(5, 'image5.png', 'Bandarawela', 'Badulla', 'Himaya needs your help.', 'Himaya is a 15 years old girl who spends a very hard life style. Her Father got injured and disabled after he fallen down from a tree. But Himaya is very talented in athletics and she hope to start a fund to afford her costs. ', 500000, 145000, 'Himaya athletics talented girl', NULL, NULL, NULL, NULL, 0, '0000-00-00', 2, 0, 0, 0, 0),
+(6, 'image6.png', 'Maharagama', 'Colombo', 'Sucharithodaya Niwasaya', 'For the next year we need to buy new books, school bags, purse, stationeries for the children in our child care center. So we are going you can join with us by donating a small money to us. ', 100000, 25000, 'children child care center', NULL, NULL, NULL, NULL, 0, '0000-00-00', 5, 0, 0, 0, 0),
+(7, 'image7.png', 'Embilipitiya', 'Hambantota', 'Need a help', 'I am Saman I need a mobile phone to participate my online classes. So help me to buy a phone by donating to my fund.', 30000, 11000, 'mobile phone online lessons', NULL, NULL, NULL, NULL, 0, '0000-00-00', 11, 0, 0, 0, 0),
+(8, 'image8.png', 'Nagoda', 'Galle', 'Need a help.', 'I am Sumeth and my parents are unable to afford the cost for my studies and I hope a help from you to continue my studies.', 60000, 15000, 'Sumeth studies', NULL, NULL, NULL, NULL, 0, '0000-00-00', 11, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -474,22 +479,23 @@ CREATE TABLE `educationpost` (
   `member_ID3` int(5) NOT NULL,
   `visibility` text NOT NULL,
   `report_count` int(11) NOT NULL,
-  `create_date` date NOT NULL
+  `create_date` date NOT NULL,
+  `status` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `educationpost`
 --
 
-INSERT INTO `educationpost` (`ID`, `picture`, `town`, `district`, `item`, `content`, `post_type`, `keywords`, `user_ID`, `member_ID1`, `member_ID2`, `member_ID3`, `visibility`, `report_count`, `create_date`) VALUES
-(1, 'image1.png', 'Karadiyanaru', 'Batticoloa', 'swimming equipment', 'Shavini is a little girl who got the championship of Sri Lanka swimming contest. She needs swimming equipment to participate the Asian competitions. Please help her to bring a proud to Sri Lanka.', 'Giftee', 'Swimming Shavini equipment', 5, 0, 0, 0, '', 0, '0000-00-00'),
-(2, 'image2.png', 'Maharagama', 'Colombo', 'new books, school bags, purse, stationeries ', 'For the next year we need to buy new books, school bags, purse, stationeries for the children in our child care center. So we are going you can join with us by donating them.', 'Giftee', 'children child care center', 4, 0, 0, 0, '', 0, '0000-00-00'),
-(3, 'image3.png', 'Embilipitiya', 'Hambantota', 'mobile phone', 'I am Saman I need a mobile phone to participate my online classes. So help me witha phone to continue my studies.', 'Giftee', 'mobile phone online lessons', 1, 0, 0, 0, '', 0, '0000-00-00'),
-(4, 'image4.png', 'Poonakary', 'Kilinochchi', 'mobile phone', 'I would like to distribute 10 mobile phones who are the school children and need a mobile phone to participate the online lessons in Kilinochchi District. If you need a mobile phone contact me.', 'Donor', 'Mobile phone Kilinochchi district', 6, 0, 0, 0, '', 0, '0000-00-00'),
-(5, 'image5.png', 'Karadiyanaru', 'Batticoloa', 'swimming equipment', 'Shavini is a little girl who got the championship of Sri Lanka swimming contest. She needs swimming equipment to participate the Asian competitions. Please help her to bring a proud to Sri Lanka.', 'Giftee', 'Swimming Shavini equipment', 2, 0, 0, 0, '', 0, '0000-00-00'),
-(6, 'image6.png', 'Maharagama', 'Colombo', 'new books, school bags, purse, stationeries ', 'For the next year we need to buy new books, school bags, purse, stationeries for the children in our child care center. So we are going you can join with us by donating them.', 'Giftee', 'children child care center', 7, 0, 0, 0, '', 0, '0000-00-00'),
-(7, 'image7.png', 'Embilipitiya', 'Hambantota', 'mobile phone', 'I am Saman I need a mobile phone to participate my online classes. So help me witha phone to continue my studies.', 'Giftee', 'mobile phone online lessons', 8, 0, 0, 0, '', 0, '0000-00-00'),
-(8, 'image8.png', 'Poonakary', 'Kilinochchi', 'mobile phone', 'I would like to distribute 10 mobile phones who are the school children and need a mobile phone to participate the online lessons in Kilinochchi District. If you need a mobile phone contact me.', 'Donor', 'Mobile phone Kilinochchi district', 2, 0, 0, 0, '', 0, '0000-00-00');
+INSERT INTO `educationpost` (`ID`, `picture`, `town`, `district`, `item`, `content`, `post_type`, `keywords`, `user_ID`, `member_ID1`, `member_ID2`, `member_ID3`, `visibility`, `report_count`, `create_date`, `status`) VALUES
+(1, 'image1.png', 'Karadiyanaru', 'Batticoloa', 'swimming equipment', 'Shavini is a little girl who got the championship of Sri Lanka swimming contest. She needs swimming equipment to participate the Asian competitions. Please help her to bring a proud to Sri Lanka.', 'Giftee', 'Swimming Shavini equipment', 5, 0, 0, 0, '', 0, '0000-00-00', 1),
+(2, 'image2.png', 'Maharagama', 'Colombo', 'new books, school bags, purse, stationeries ', 'For the next year we need to buy new books, school bags, purse, stationeries for the children in our child care center. So we are going you can join with us by donating them.', 'Giftee', 'children child care center', 4, 0, 0, 0, '', 0, '0000-00-00', 0),
+(3, 'image3.png', 'Embilipitiya', 'Hambantota', 'mobile phone', 'I am Saman I need a mobile phone to participate my online classes. So help me witha phone to continue my studies.', 'Giftee', 'mobile phone online lessons', 1, 0, 0, 0, '', 0, '0000-00-00', 1),
+(4, 'image4.png', 'Poonakary', 'Kilinochchi', 'mobile phone', 'I would like to distribute 10 mobile phones who are the school children and need a mobile phone to participate the online lessons in Kilinochchi District. If you need a mobile phone contact me.', 'Donor', 'Mobile phone Kilinochchi district', 6, 0, 0, 0, '', 0, '0000-00-00', 1),
+(5, 'image5.png', 'Karadiyanaru', 'Batticoloa', 'swimming equipment', 'Shavini is a little girl who got the championship of Sri Lanka swimming contest. She needs swimming equipment to participate the Asian competitions. Please help her to bring a proud to Sri Lanka.', 'Giftee', 'Swimming Shavini equipment', 2, 0, 0, 0, '', 0, '0000-00-00', 1),
+(6, 'image6.png', 'Maharagama', 'Colombo', 'new books, school bags, purse, stationeries ', 'For the next year we need to buy new books, school bags, purse, stationeries for the children in our child care center. So we are going you can join with us by donating them.', 'Giftee', 'children child care center', 7, 0, 0, 0, '', 0, '0000-00-00', 1),
+(7, 'image7.png', 'Embilipitiya', 'Hambantota', 'mobile phone', 'I am Saman I need a mobile phone to participate my online classes. So help me witha phone to continue my studies.', 'Giftee', 'mobile phone online lessons', 8, 0, 0, 0, '', 0, '0000-00-00', 1),
+(8, 'image8.png', 'Poonakary', 'Kilinochchi', 'mobile phone', 'I would like to distribute 10 mobile phones who are the school children and need a mobile phone to participate the online lessons in Kilinochchi District. If you need a mobile phone contact me.', 'Donor', 'Mobile phone Kilinochchi district', 2, 0, 0, 0, '', 0, '0000-00-00', 0);
 
 -- --------------------------------------------------------
 
@@ -568,22 +574,23 @@ CREATE TABLE `medicalfund` (
   `user_ID` int(5) NOT NULL,
   `member_ID1` int(5) NOT NULL,
   `member_ID2` int(5) NOT NULL,
-  `member_ID3` int(5) NOT NULL
+  `member_ID3` int(5) NOT NULL,
+  `status` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='MedicalFunds';
 
 --
 -- Dumping data for table `medicalfund`
 --
 
-INSERT INTO `medicalfund` (`ID`, `picture`, `town`, `district`, `title`, `content`, `amount`, `filled`, `keywords`, `accountnumber`, `accountholder`, `bankname`, `branchname`, `report_count`, `create_date`, `user_ID`, `member_ID1`, `member_ID2`, `member_ID3`) VALUES
-(1, 'image1.png', 'Welimada', 'Bandarawela', 'Little Shenaya needs your help', 'Shenaya, an 8 year old girl from rural area who needs immediate treatments for Lucamia. So we are group of doctors at cancer hospital who are gladly welcome any of your kind help. ', 32000, 10000, 'Lucamia Cancer ', NULL, NULL, NULL, NULL, 0, '0000-00-00', 2, 0, 0, 0),
-(2, 'image2.jpg', 'Thalpe', 'Galle', 'Heart patient wants your help', 'I\'m Rashmika and I\'m a heart patient. I lost all the income due to my health situation. I should face my heart operation as soon as possible to save my life. But I need more money so I need your help.', 200000, 10000, 'Heart patient', NULL, NULL, NULL, NULL, 0, '0000-00-00', 5, 0, 0, 0),
-(3, 'image3.png', 'Wadduwa', 'Kaluthara', 'Read for a while', 'Hasmi is a 7 years old lottle girl who suffers alot due to the weakness of her vision. It can be cured by lens transplant. Nagoda General Hospital operate her eyes free of charge. But we should buy the lenses. So we are looking for your help to give back her clear vision.', 50000, 0, 'vision Lense transplant', NULL, NULL, NULL, NULL, 0, '0000-00-00', 7, 0, 0, 0),
-(4, 'image4.jpg', 'Godagama', 'Colombo', 'Ranjani needs your warm help', 'Ranjini is 54 years old woman who has a trouble in her hip bone. It can be cured by transplanting an artificial hip bone. But her family is unable to afford for it. We are the staff members of Homagama Base Hospital. We are looking for the helpful who would like to afford the costs for Mrs. Ranjani\'s operation.', 400000, 275000, 'hip bone transplanting', NULL, NULL, NULL, NULL, 0, '0000-00-00', 8, 0, 0, 0),
-(5, 'image5.png', 'Welimada', 'Bandarawela', 'Little Shenaya needs your help', 'Shenaya, an 8 year old girl from rural area who needs immediate treatments for Lucamia. So we are group of doctors at cancer hospital who are gladly welcome any of your kind help. ', 32000, 10000, 'Lucamia Cancer ', NULL, NULL, NULL, NULL, 0, '0000-00-00', 4, 0, 0, 0),
-(6, 'image6.png', 'Wadduwa', 'Kaluthara', 'Read for a while', 'Hasmi is a 7 years old lottle girl who suffers alot due to the weakness of her vision. It can be cured by lens transplant. Nagoda General Hospital operate her eyes free of charge. But we should buy the lenses. So we are looking for your help to give back her clear vision.', 50000, 0, 'vision Lense transplant', NULL, NULL, NULL, NULL, 0, '0000-00-00', 3, 0, 0, 0),
-(7, 'image7.jpg', 'Thalpe', 'Galle', 'Heart patient wants your help', 'I\'m Rashmika and I\'m a heart patient. I lost all the income due to my health situation. I should face my heart operation as soon as possible to save my life. But I need more money so I need your help.', 200000, 10000, 'Heart patient', NULL, NULL, NULL, NULL, 0, '0000-00-00', 6, 0, 0, 0),
-(8, 'image8.jpg', 'Godagama', 'Colombo', 'Ranjani needs your warm help', 'Ranjini is 54 years old woman who has a trouble in her hip bone. It can be cured by transplanting an artificial hip bone. But her family is unable to afford for it. We are the staff members of Homagama Base Hospital. We are looking for the helpful who would like to afford the costs for Mrs. Ranjani\'s operation.', 400000, 275000, 'hip bone transplanting', NULL, NULL, NULL, NULL, 0, '0000-00-00', 9, 0, 0, 0);
+INSERT INTO `medicalfund` (`ID`, `picture`, `town`, `district`, `title`, `content`, `amount`, `filled`, `keywords`, `accountnumber`, `accountholder`, `bankname`, `branchname`, `report_count`, `create_date`, `user_ID`, `member_ID1`, `member_ID2`, `member_ID3`, `status`) VALUES
+(1, 'image1.png', 'Welimada', 'Bandarawela', 'Little Shenaya needs your help', 'Shenaya, an 8 year old girl from rural area who needs immediate treatments for Lucamia. So we are group of doctors at cancer hospital who are gladly welcome any of your kind help. ', 32000, 10000, 'Lucamia Cancer ', NULL, NULL, NULL, NULL, 0, '0000-00-00', 2, 0, 0, 0, 0),
+(2, 'image2.jpg', 'Thalpe', 'Galle', 'Heart patient wants your help', 'I\'m Rashmika and I\'m a heart patient. I lost all the income due to my health situation. I should face my heart operation as soon as possible to save my life. But I need more money so I need your help.', 200000, 10000, 'Heart patient', NULL, NULL, NULL, NULL, 0, '0000-00-00', 5, 0, 0, 0, 0),
+(3, 'image3.png', 'Wadduwa', 'Kaluthara', 'Read for a while', 'Hasmi is a 7 years old lottle girl who suffers alot due to the weakness of her vision. It can be cured by lens transplant. Nagoda General Hospital operate her eyes free of charge. But we should buy the lenses. So we are looking for your help to give back her clear vision.', 50000, 0, 'vision Lense transplant', NULL, NULL, NULL, NULL, 0, '0000-00-00', 7, 0, 0, 0, 0),
+(4, 'image4.jpg', 'Godagama', 'Colombo', 'Ranjani needs your warm help', 'Ranjini is 54 years old woman who has a trouble in her hip bone. It can be cured by transplanting an artificial hip bone. But her family is unable to afford for it. We are the staff members of Homagama Base Hospital. We are looking for the helpful who would like to afford the costs for Mrs. Ranjani\'s operation.', 400000, 275000, 'hip bone transplanting', NULL, NULL, NULL, NULL, 0, '0000-00-00', 8, 0, 0, 0, 0),
+(5, 'image5.png', 'Welimada', 'Bandarawela', 'Little Shenaya needs your help', 'Shenaya, an 8 year old girl from rural area who needs immediate treatments for Lucamia. So we are group of doctors at cancer hospital who are gladly welcome any of your kind help. ', 32000, 10000, 'Lucamia Cancer ', NULL, NULL, NULL, NULL, 0, '0000-00-00', 4, 0, 0, 0, 0),
+(6, 'image6.png', 'Wadduwa', 'Kaluthara', 'Read for a while', 'Hasmi is a 7 years old lottle girl who suffers alot due to the weakness of her vision. It can be cured by lens transplant. Nagoda General Hospital operate her eyes free of charge. But we should buy the lenses. So we are looking for your help to give back her clear vision.', 50000, 0, 'vision Lense transplant', NULL, NULL, NULL, NULL, 0, '0000-00-00', 3, 0, 0, 0, 0),
+(7, 'image7.jpg', 'Thalpe', 'Galle', 'Heart patient wants your help', 'I\'m Rashmika and I\'m a heart patient. I lost all the income due to my health situation. I should face my heart operation as soon as possible to save my life. But I need more money so I need your help.', 200000, 10000, 'Heart patient', NULL, NULL, NULL, NULL, 0, '0000-00-00', 6, 0, 0, 0, 0),
+(8, 'image8.jpg', 'Godagama', 'Colombo', 'Ranjani needs your warm help', 'Ranjini is 54 years old woman who has a trouble in her hip bone. It can be cured by transplanting an artificial hip bone. But her family is unable to afford for it. We are the staff members of Homagama Base Hospital. We are looking for the helpful who would like to afford the costs for Mrs. Ranjani\'s operation.', 400000, 275000, 'hip bone transplanting', NULL, NULL, NULL, NULL, 0, '0000-00-00', 9, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -654,22 +661,23 @@ CREATE TABLE `medicalpost` (
   `member_ID3` int(5) NOT NULL,
   `visibility` text NOT NULL,
   `report_count` int(11) NOT NULL,
-  `create_date` date NOT NULL
+  `create_date` date NOT NULL,
+  `status` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `medicalpost`
 --
 
-INSERT INTO `medicalpost` (`ID`, `picture`, `town`, `district`, `item`, `content`, `post_type`, `keywords`, `user_ID`, `member_ID1`, `member_ID2`, `member_ID3`, `visibility`, `report_count`, `create_date`) VALUES
-(1, 'image1.png', 'Welimada', 'Bandarawela', 'wheelchair', 'Shenaya, an 8 year old girl from rural area who is getting treatments for Lucamia. She needs a wheel chair because it is hard for her to walk herself. ', 'Giftee', 'Lucamia Cancer', 4, 0, 0, 0, '', 0, '0000-00-00'),
-(2, 'image2.jpg', 'Gallambarawa', 'Polonnaruwa', 'A+ Kidney', 'Sunil is a 45 years old farmer who needs a A+ kidney to save the life. He is looking for a generous donator who likes to help him.', 'Giftee', 'A+ Kidney', 3, 0, 0, 0, '', 0, '0000-00-00'),
-(3, 'image3.png', 'Mihinthale', 'Anuradhapura', 'artifitial leg', 'I am Lasantha. I am a disabled Army soldier and got injured by a bomb. I need a artificial leg to walk as earlier and looking for a generous person to donate me a artificial leg.\r\n', 'Giftee', 'Disabled Army Soldier Artificial leg', 7, 0, 0, 0, '', 0, '0000-00-00'),
-(4, 'image4.png', 'Narammala', 'Kurunagala', 'blood', 'My daughter Harini is a thalassemia patient. We have to transfuse blood once a month. So we request your help to find B+ blood.\r\n', 'Giftee', 'thalassemia patient transfuse blood B+ Blood', 8, 0, 0, 0, '', 0, '0000-00-00'),
-(5, 'image5.png', 'Welimada', 'Bandarawela', 'wheelchair', 'Shenaya, an 8 year old girl from rural area who is getting treatments for Lucamia. She needs a wheel chair because it is hard for her to walk herself. ', 'Giftee', 'Lucamia Cancer', 5, 0, 0, 0, '', 0, '0000-00-00'),
-(6, 'image6.jpg', 'Gallambarawa', 'Polonnaruwa', 'A+ Kidney', 'Sunil is a 45 years old farmer who needs a A+ kidney to save the life. He is looking for a generous donator who likes to help him.', 'Giftee', 'A+ Kidney', 2, 0, 0, 0, '', 0, '0000-00-00'),
-(7, 'image7.png', 'Mihinthale', 'Anuradhapura', 'artifitial leg', 'I am Lasantha. I am a disabled soldier and got injured by a bomb. I need a artificial leg to walk as earlier and looking for a generous person to donate me a artificial leg.\r\n', 'Giftee', 'Disabled Army Soldier Artificial leg', 1, 0, 0, 0, '', 0, '0000-00-00'),
-(8, 'image8.png', 'Narammala', 'Kurunagala', 'blood', 'My daughter Harini is a thalassemia patient. We have to transfuse blood once a month. So we request your help to find B+ blood.\r\n', 'Giftee', 'thalassemia patient transfuse blood B+ Blood', 6, 0, 0, 0, '', 0, '0000-00-00');
+INSERT INTO `medicalpost` (`ID`, `picture`, `town`, `district`, `item`, `content`, `post_type`, `keywords`, `user_ID`, `member_ID1`, `member_ID2`, `member_ID3`, `visibility`, `report_count`, `create_date`, `status`) VALUES
+(1, 'image1.png', 'Welimada', 'Bandarawela', 'wheelchair', 'Shenaya, an 8 year old girl from rural area who is getting treatments for Lucamia. She needs a wheel chair because it is hard for her to walk herself. ', 'Giftee', 'Lucamia Cancer', 4, 0, 0, 0, '', 0, '0000-00-00', 1),
+(2, 'image2.jpg', 'Gallambarawa', 'Polonnaruwa', 'A+ Kidney', 'Sunil is a 45 years old farmer who needs a A+ kidney to save the life. He is looking for a generous donator who likes to help him.', 'Giftee', 'A+ Kidney', 3, 0, 0, 0, '', 0, '0000-00-00', 1),
+(3, 'image3.png', 'Mihinthale', 'Anuradhapura', 'artifitial leg', 'I am Lasantha. I am a disabled Army soldier and got injured by a bomb. I need a artificial leg to walk as earlier and looking for a generous person to donate me a artificial leg.\r\n', 'Giftee', 'Disabled Army Soldier Artificial leg', 7, 0, 0, 0, '', 0, '0000-00-00', 1),
+(4, 'image4.png', 'Narammala', 'Kurunagala', 'blood', 'My daughter Harini is a thalassemia patient. We have to transfuse blood once a month. So we request your help to find B+ blood.\r\n', 'Giftee', 'thalassemia patient transfuse blood B+ Blood', 8, 0, 0, 0, '', 0, '0000-00-00', 0),
+(5, 'image5.png', 'Welimada', 'Bandarawela', 'wheelchair', 'Shenaya, an 8 year old girl from rural area who is getting treatments for Lucamia. She needs a wheel chair because it is hard for her to walk herself. ', 'Giftee', 'Lucamia Cancer', 5, 0, 0, 0, '', 0, '0000-00-00', 1),
+(6, 'image6.jpg', 'Gallambarawa', 'Polonnaruwa', 'A+ Kidney', 'Sunil is a 45 years old farmer who needs a A+ kidney to save the life. He is looking for a generous donator who likes to help him.', 'Giftee', 'A+ Kidney', 2, 0, 0, 0, '', 0, '0000-00-00', 0),
+(7, 'image7.png', 'Mihinthale', 'Anuradhapura', 'artifitial leg', 'I am Lasantha. I am a disabled soldier and got injured by a bomb. I need a artificial leg to walk as earlier and looking for a generous person to donate me a artificial leg.\r\n', 'Giftee', 'Disabled Army Soldier Artificial leg', 1, 0, 0, 0, '', 0, '0000-00-00', 0),
+(8, 'image8.png', 'Narammala', 'Kurunagala', 'blood', 'My daughter Harini is a thalassemia patient. We have to transfuse blood once a month. So we request your help to find B+ blood.\r\n', 'Giftee', 'thalassemia patient transfuse blood B+ Blood', 6, 0, 0, 0, '', 0, '0000-00-00', 0);
 
 -- --------------------------------------------------------
 
@@ -726,22 +734,23 @@ CREATE TABLE `otherfund` (
   `user_ID` int(5) NOT NULL,
   `member_ID1` int(5) NOT NULL,
   `member_ID2` int(5) NOT NULL,
-  `member_ID3` int(5) NOT NULL
+  `member_ID3` int(5) NOT NULL,
+  `status` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='OtherFunds';
 
 --
 -- Dumping data for table `otherfund`
 --
 
-INSERT INTO `otherfund` (`ID`, `picture`, `town`, `district`, `title`, `content`, `amount`, `filled`, `keywords`, `accountnumber`, `accountholder`, `bankname`, `branchname`, `report_count`, `create_date`, `user_ID`, `member_ID1`, `member_ID2`, `member_ID3`) VALUES
-(1, 'image1.png', 'Dehiwala', 'Colombo', 'cleaning lakes', 'We are the volunteer group and we decide to clean the lakes in anuradhapura and need your help to find the equipments.', 300000, 45000, 'Equipments lakes', NULL, NULL, NULL, NULL, 0, '0000-00-00', 2, 0, 0, 0),
-(2, 'image2.png', 'Horana', 'Kaluthara', 'need a help', 'we need your help to construct a building in our temple.', 500000, 136000, 'temple building', NULL, NULL, NULL, NULL, 0, '0000-00-00', 5, 0, 0, 0),
-(3, 'image3.png', 'Panadura', 'Colombo', 'need instruments', 'we need to your help to take the instruments to the church', 400000, 152000, 'church instruments', NULL, NULL, NULL, NULL, 0, '0000-00-00', 9, 0, 0, 0),
-(4, 'image4.png', 'Rathmalvita', 'Gampaha', 'lets plant a tree', 'we are going to arrange a tree planting and distributing campaign. any nature lover can help us with a little donation.', 350000, 45000, 'tree planting campaign', NULL, NULL, NULL, NULL, 0, '0000-00-00', 4, 0, 0, 0),
-(5, 'image5.png', 'Dehiwala', 'Colombo', 'cleaning lakes', 'We are the volunteer group and we decide to clean the lakes in anuradhapura and need your help to find the equipment.', 300000, 45000, 'Equipments lakes', NULL, NULL, NULL, NULL, 0, '0000-00-00', 5, 0, 0, 0),
-(6, 'image6.png', 'Horana', 'Kaluthara', 'need a help', 'we need your help to construct a building in our temple.', 500000, 136000, 'temple building', NULL, NULL, NULL, NULL, 0, '0000-00-00', 8, 0, 0, 0),
-(7, 'image7.png', 'Panadura', 'Colombo', 'need instruments', 'we need to your help to take the instruments to the church', 400000, 152000, 'church instruments', NULL, NULL, NULL, NULL, 0, '0000-00-00', 3, 0, 0, 0),
-(8, 'image8.png', 'Rathmalvita', 'Gampaha', 'lets plant a tree', 'we are going to arrange a tree planting and distributing campaign. any nature lover can help us with a little donation.', 350000, 45000, 'tree planting campaign', NULL, NULL, NULL, NULL, 0, '0000-00-00', 6, 0, 0, 0);
+INSERT INTO `otherfund` (`ID`, `picture`, `town`, `district`, `title`, `content`, `amount`, `filled`, `keywords`, `accountnumber`, `accountholder`, `bankname`, `branchname`, `report_count`, `create_date`, `user_ID`, `member_ID1`, `member_ID2`, `member_ID3`, `status`) VALUES
+(1, 'image1.png', 'Dehiwala', 'Colombo', 'cleaning lakes', 'We are the volunteer group and we decide to clean the lakes in anuradhapura and need your help to find the equipments.', 300000, 45000, 'Equipments lakes', NULL, NULL, NULL, NULL, 0, '0000-00-00', 2, 0, 0, 0, 0),
+(2, 'image2.png', 'Horana', 'Kaluthara', 'need a help', 'we need your help to construct a building in our temple.', 500000, 136000, 'temple building', NULL, NULL, NULL, NULL, 0, '0000-00-00', 5, 0, 0, 0, 0),
+(3, 'image3.png', 'Panadura', 'Colombo', 'need instruments', 'we need to your help to take the instruments to the church', 400000, 152000, 'church instruments', NULL, NULL, NULL, NULL, 0, '0000-00-00', 9, 0, 0, 0, 0),
+(4, 'image4.png', 'Rathmalvita', 'Gampaha', 'lets plant a tree', 'we are going to arrange a tree planting and distributing campaign. any nature lover can help us with a little donation.', 350000, 45000, 'tree planting campaign', NULL, NULL, NULL, NULL, 0, '0000-00-00', 4, 0, 0, 0, 0),
+(5, 'image5.png', 'Dehiwala', 'Colombo', 'cleaning lakes', 'We are the volunteer group and we decide to clean the lakes in anuradhapura and need your help to find the equipment.', 300000, 45000, 'Equipments lakes', NULL, NULL, NULL, NULL, 0, '0000-00-00', 5, 0, 0, 0, 0),
+(6, 'image6.png', 'Horana', 'Kaluthara', 'need a help', 'we need your help to construct a building in our temple.', 500000, 136000, 'temple building', NULL, NULL, NULL, NULL, 0, '0000-00-00', 8, 0, 0, 0, 0),
+(7, 'image7.png', 'Panadura', 'Colombo', 'need instruments', 'we need to your help to take the instruments to the church', 400000, 152000, 'church instruments', NULL, NULL, NULL, NULL, 0, '0000-00-00', 3, 0, 0, 0, 0),
+(8, 'image8.png', 'Rathmalvita', 'Gampaha', 'lets plant a tree', 'we are going to arrange a tree planting and distributing campaign. any nature lover can help us with a little donation.', 350000, 45000, 'tree planting campaign', NULL, NULL, NULL, NULL, 0, '0000-00-00', 6, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -812,22 +821,23 @@ CREATE TABLE `otherpost` (
   `member_ID3` int(5) NOT NULL,
   `visibility` text NOT NULL,
   `report_count` int(11) NOT NULL,
-  `create_date` date NOT NULL
+  `create_date` date NOT NULL,
+  `status` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `otherpost`
 --
 
-INSERT INTO `otherpost` (`ID`, `picture`, `town`, `district`, `item`, `content`, `post_type`, `keywords`, `user_ID`, `member_ID1`, `member_ID2`, `member_ID3`, `visibility`, `report_count`, `create_date`) VALUES
-(1, 'image1.png', 'Dehiwala', 'Colombo', 'equipments to clean the lakes', 'We are the volunteer group and we decide to clean the lakes in anuradhapura and need your help to find the equipments', 'Giftee', 'Equipments lakes', 2, 0, 0, 0, '', 0, '0000-00-00'),
-(2, 'image2.png', 'Horana', 'Kaluthara', 'materials for construct', 'we need your help to construct a building in our temple.', 'Giftee', 'temple building', 5, 0, 0, 0, '', 0, '0000-00-00'),
-(3, 'image3.png', 'Panadura', 'Colombo', 'church instruments', 'we need to your help to take the instruments to the church', 'Giftee', 'church instruments', 9, 0, 0, 0, '', 0, '0000-00-00'),
-(4, 'image4.png', 'Rathmalvita', 'Gampaha', 'plants', 'we are going to arrange a tree planting and distributing campaign. any nature lover can help us with providing plants.', 'Giftee', 'tree planting campaign', 4, 0, 0, 0, '', 0, '0000-00-00'),
-(5, 'image5.png', 'Dehiwala', 'Colombo', 'equipments to clean the lakes', 'We are the volunteer group and we decide to clean the lakes in anuradhapura and need your help to find the equipments', 'Giftee', 'Equipments lakes', 5, 0, 0, 0, '', 0, '0000-00-00'),
-(6, 'image6.png', 'Horana', 'Kaluthara', 'materials for construct', 'we need your help to construct a building in our temple.', 'Giftee', 'temple building', 8, 0, 0, 0, '', 0, '0000-00-00'),
-(7, 'image7.png', 'Panadura', 'Colombo', 'church instruments', 'we need to your help to take the instruments to the church', 'Giftee', 'church instruments', 3, 0, 0, 0, '', 0, '0000-00-00'),
-(8, 'image8.png', 'Rathmalvita', 'Gampaha', 'plants', 'we are going to arrange a tree planting and distributing campaign. any nature lover can help us with providing plants', 'Giftee', 'tree planting campaign', 6, 0, 0, 0, '', 0, '0000-00-00');
+INSERT INTO `otherpost` (`ID`, `picture`, `town`, `district`, `item`, `content`, `post_type`, `keywords`, `user_ID`, `member_ID1`, `member_ID2`, `member_ID3`, `visibility`, `report_count`, `create_date`, `status`) VALUES
+(1, 'image1.png', 'Dehiwala', 'Colombo', 'equipments to clean the lakes', 'We are the volunteer group and we decide to clean the lakes in anuradhapura and need your help to find the equipments', 'Giftee', 'Equipments lakes', 2, 0, 0, 0, '', 0, '0000-00-00', 1),
+(2, 'image2.png', 'Horana', 'Kaluthara', 'materials for construct', 'we need your help to construct a building in our temple.', 'Giftee', 'temple building', 5, 0, 0, 0, '', 0, '0000-00-00', 1),
+(3, 'image3.png', 'Panadura', 'Colombo', 'church instruments', 'we need to your help to take the instruments to the church', 'Giftee', 'church instruments', 9, 0, 0, 0, '', 0, '0000-00-00', 0),
+(4, 'image4.png', 'Rathmalvita', 'Gampaha', 'plants', 'we are going to arrange a tree planting and distributing campaign. any nature lover can help us with providing plants.', 'Giftee', 'tree planting campaign', 4, 0, 0, 0, '', 0, '0000-00-00', 0),
+(5, 'image5.png', 'Dehiwala', 'Colombo', 'equipments to clean the lakes', 'We are the volunteer group and we decide to clean the lakes in anuradhapura and need your help to find the equipments', 'Giftee', 'Equipments lakes', 5, 0, 0, 0, '', 0, '0000-00-00', 1),
+(6, 'image6.png', 'Horana', 'Kaluthara', 'materials for construct', 'we need your help to construct a building in our temple.', 'Giftee', 'temple building', 8, 0, 0, 0, '', 0, '0000-00-00', 1),
+(7, 'image7.png', 'Panadura', 'Colombo', 'church instruments', 'we need to your help to take the instruments to the church', 'Giftee', 'church instruments', 3, 0, 0, 0, '', 0, '0000-00-00', 1),
+(8, 'image8.png', 'Rathmalvita', 'Gampaha', 'plants', 'we are going to arrange a tree planting and distributing campaign. any nature lover can help us with providing plants', 'Giftee', 'tree planting campaign', 6, 0, 0, 0, '', 0, '0000-00-00', 0);
 
 -- --------------------------------------------------------
 
@@ -928,22 +938,23 @@ CREATE TABLE `seniorcarefund` (
   `user_ID` int(5) NOT NULL,
   `member_ID1` int(5) NOT NULL,
   `member_ID2` int(5) NOT NULL,
-  `member_ID3` int(5) NOT NULL
+  `member_ID3` int(5) NOT NULL,
+  `status` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='SeniorCareFunds';
 
 --
 -- Dumping data for table `seniorcarefund`
 --
 
-INSERT INTO `seniorcarefund` (`ID`, `picture`, `town`, `district`, `title`, `content`, `amount`, `filled`, `keywords`, `accountnumber`, `accountholder`, `bankname`, `branchname`, `report_count`, `create_date`, `user_ID`, `member_ID1`, `member_ID2`, `member_ID3`) VALUES
-(1, 'image1.png', 'Dehiwala', 'Colombo', 'Sahana Udaya Elders Retreat Home', 'We are the management panel of Sahana Udaya Elders Retreat Home. We hope to buy new clothes for the new year for our mothers and fathers. So donate us and join with us.', 300000, 45000, 'Sahana Udaya Elders Retreat Home new cloths\r\n', NULL, NULL, NULL, NULL, 0, '0000-00-00', 1, 0, 0, 0),
-(2, 'image2.png', 'Horana', 'Kaluthara', 'Mahameth Ma-Piya Sewana Elders Home', 'We need your help to look after our mothers and fathers in our elders home. So donate us to look after them.', 500000, 136000, 'Mahameth Ma-Piya Sewana Elders Home', NULL, NULL, NULL, NULL, 0, '0000-00-00', 3, 0, 0, 0),
-(3, 'image3.png', 'Panadura', 'Colombo', 'Davit Jayasundara Elders Home', 'We need to buy some beds, cloth racks and cupboards to our Elders home. If you are interesting with this join with us by a small donation.', 400000, 152000, 'Davit Jayasundara Elders Home', NULL, NULL, NULL, NULL, 0, '0000-00-00', 4, 0, 0, 0),
-(4, 'image4.png', 'Rathmalvita', 'Gampaha', 'Kosovita Suwa Sevana Elder Home', 'We should do some repairs in our buildings. So we need your help for that. So donate us as you can.', 350000, 45000, 'Kosovita Suwa Sevana Elder Home', NULL, NULL, NULL, NULL, 0, '0000-00-00', 8, 0, 0, 0),
-(5, 'image5.png', 'Dehiwala', 'Colombo', 'Sahana Udaya Elders Retreat Home', 'We are the management panel of Sahana Udaya Elders Retreat Home. We hope to buy new clothes for the new year for our mothers and fathers. So donate us and join with us.', 300000, 45000, 'Sahana Udaya Elders Retreat Home new cloths\r\n', NULL, NULL, NULL, NULL, 0, '0000-00-00', 5, 0, 0, 0),
-(6, 'image6.png', 'Horana', 'Kaluthara', 'Mahameth Ma-Piya Sewana Elders Home', 'We need your help to look after our mothers and fathers in our elders home. So donate us to look after them.', 500000, 136000, 'Mahameth Ma-Piya Sewana Elders Home', NULL, NULL, NULL, NULL, 0, '0000-00-00', 2, 0, 0, 0),
-(7, 'image7.png', 'Panadura', 'Colombo', 'Davit Jayasundara Elders Home', 'We need to buy some beds, cloth racks and cupboards to our Elders home. If you are interesting with this join with us by a small donation.', 400000, 152000, 'Davit Jayasundara Elders Home', NULL, NULL, NULL, NULL, 0, '0000-00-00', 9, 0, 0, 0),
-(8, 'image8.png', 'Rathmalvita', 'Gampaha', 'Kosovita Suwa Sevana Elder Home', 'We should do some repairs in our buildings. So we need your help for that. So donate us as you can.', 350000, 45000, 'Kosovita Suwa Sevana Elder Home', NULL, NULL, NULL, NULL, 0, '0000-00-00', 11, 0, 0, 0);
+INSERT INTO `seniorcarefund` (`ID`, `picture`, `town`, `district`, `title`, `content`, `amount`, `filled`, `keywords`, `accountnumber`, `accountholder`, `bankname`, `branchname`, `report_count`, `create_date`, `user_ID`, `member_ID1`, `member_ID2`, `member_ID3`, `status`) VALUES
+(1, 'image1.png', 'Dehiwala', 'Colombo', 'Sahana Udaya Elders Retreat Home', 'We are the management panel of Sahana Udaya Elders Retreat Home. We hope to buy new clothes for the new year for our mothers and fathers. So donate us and join with us.', 300000, 45000, 'Sahana Udaya Elders Retreat Home new cloths\r\n', NULL, NULL, NULL, NULL, 0, '0000-00-00', 1, 0, 0, 0, 0),
+(2, 'image2.png', 'Horana', 'Kaluthara', 'Mahameth Ma-Piya Sewana Elders Home', 'We need your help to look after our mothers and fathers in our elders home. So donate us to look after them.', 500000, 136000, 'Mahameth Ma-Piya Sewana Elders Home', NULL, NULL, NULL, NULL, 0, '0000-00-00', 3, 0, 0, 0, 0),
+(3, 'image3.png', 'Panadura', 'Colombo', 'Davit Jayasundara Elders Home', 'We need to buy some beds, cloth racks and cupboards to our Elders home. If you are interesting with this join with us by a small donation.', 400000, 152000, 'Davit Jayasundara Elders Home', NULL, NULL, NULL, NULL, 0, '0000-00-00', 4, 0, 0, 0, 0),
+(4, 'image4.png', 'Rathmalvita', 'Gampaha', 'Kosovita Suwa Sevana Elder Home', 'We should do some repairs in our buildings. So we need your help for that. So donate us as you can.', 350000, 45000, 'Kosovita Suwa Sevana Elder Home', NULL, NULL, NULL, NULL, 0, '0000-00-00', 8, 0, 0, 0, 0),
+(5, 'image5.png', 'Dehiwala', 'Colombo', 'Sahana Udaya Elders Retreat Home', 'We are the management panel of Sahana Udaya Elders Retreat Home. We hope to buy new clothes for the new year for our mothers and fathers. So donate us and join with us.', 300000, 45000, 'Sahana Udaya Elders Retreat Home new cloths\r\n', NULL, NULL, NULL, NULL, 0, '0000-00-00', 5, 0, 0, 0, 0),
+(6, 'image6.png', 'Horana', 'Kaluthara', 'Mahameth Ma-Piya Sewana Elders Home', 'We need your help to look after our mothers and fathers in our elders home. So donate us to look after them.', 500000, 136000, 'Mahameth Ma-Piya Sewana Elders Home', NULL, NULL, NULL, NULL, 0, '0000-00-00', 2, 0, 0, 0, 0),
+(7, 'image7.png', 'Panadura', 'Colombo', 'Davit Jayasundara Elders Home', 'We need to buy some beds, cloth racks and cupboards to our Elders home. If you are interesting with this join with us by a small donation.', 400000, 152000, 'Davit Jayasundara Elders Home', NULL, NULL, NULL, NULL, 0, '0000-00-00', 9, 0, 0, 0, 0),
+(8, 'image8.png', 'Rathmalvita', 'Gampaha', 'Kosovita Suwa Sevana Elder Home', 'We should do some repairs in our buildings. So we need your help for that. So donate us as you can.', 350000, 45000, 'Kosovita Suwa Sevana Elder Home', NULL, NULL, NULL, NULL, 0, '0000-00-00', 11, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -1014,22 +1025,23 @@ CREATE TABLE `seniorcarepost` (
   `member_ID3` int(5) NOT NULL,
   `visibility` text NOT NULL,
   `report_count` int(11) NOT NULL,
-  `create_date` date NOT NULL
+  `create_date` date NOT NULL,
+  `status` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `seniorcarepost`
 --
 
-INSERT INTO `seniorcarepost` (`ID`, `picture`, `town`, `district`, `item`, `content`, `post_type`, `keywords`, `user_ID`, `member_ID1`, `member_ID2`, `member_ID3`, `visibility`, `report_count`, `create_date`) VALUES
-(1, 'image1.png', 'Dehiwala', 'Colombo', 'new clothes', 'We are the management panel of Sahana Udaya Elders Retreat Home. We hope to buy new clothes for the new year for our mothers and fathers. So donate us and join with us.', 'Giftee', 'Sahana Udaya Elders Retreat Home', 5, 0, 0, 0, '', 0, '0000-00-00'),
-(2, 'image2.png', 'Horana', 'Kaluthara', 'beds, cloth racks and cupboards', 'We need to buy some beds, cloth racks and cupboards to our Elders home. If you are interesting with this join with us as you can.', 'Giftee', 'Mahameth Ma-Piya Sewana Elders Home', 3, 0, 0, 0, '', 0, '0000-00-00'),
-(3, 'image3.png', 'Kotagala', 'Nuwara-Eliya', 'beds', 'I would like donate 10 beds for elders home If anyone interesting with this contact me.', 'Donor', 'Beds Elders Home', 4, 0, 0, 0, '', 0, '0000-00-00'),
-(4, 'image4.png', 'Doluwa', 'Kandy', 'lunch', 'I am looking for a Elders home to give a lunch for the mothers and fathers on my birthday. So if there is no sponsor already for the 10 th October Lunch contact me.', 'Donor', 'Lunch Birthday Elders Home 10 th October', 6, 0, 0, 0, '', 0, '0000-00-00'),
-(5, 'image5.png', 'Dehiwala', 'Colombo', 'new clothes', 'We are the management panel of Sahana Udaya Elders Retreat Home. We hope to buy new clothes for the new year for our mothers and fathers. So donate us and join with us.', 'Giftee', 'Sahana Udaya Elders Retreat Home', 9, 0, 0, 0, '', 0, '0000-00-00'),
-(6, 'image6.png', 'Horana', 'Kaluthara', 'beds, cloth racks and cupboards', 'We need to buy some beds, cloth racks and cupboards to our Elders home. If you are interesting with this join with us as you can.', 'Giftee', 'Mahameth Ma-Piya Sewana Elders Home', 2, 0, 0, 0, '', 0, '0000-00-00'),
-(7, 'image7.png', 'Kotagala', 'Nuwara-Eliya', 'beds', 'I would like donate 10 beds for elders home If anyone interesting with this contact me.', 'Donor', 'Beds Elders Home', 8, 0, 0, 0, '', 0, '0000-00-00'),
-(8, 'image8.png', 'Doluwa', 'Kandy', 'lunch', 'I am looking for a Elders home to give a lunch for the mothers and fathers on my birthday. So if there is no sponsor already for the 10 th October Lunch contact me.', 'Donor', 'Lunch Birthday Elders Home 10 th October', 7, 0, 0, 0, '', 0, '0000-00-00');
+INSERT INTO `seniorcarepost` (`ID`, `picture`, `town`, `district`, `item`, `content`, `post_type`, `keywords`, `user_ID`, `member_ID1`, `member_ID2`, `member_ID3`, `visibility`, `report_count`, `create_date`, `status`) VALUES
+(1, 'image1.png', 'Dehiwala', 'Colombo', 'new clothes', 'We are the management panel of Sahana Udaya Elders Retreat Home. We hope to buy new clothes for the new year for our mothers and fathers. So donate us and join with us.', 'Giftee', 'Sahana Udaya Elders Retreat Home', 5, 0, 0, 0, '', 0, '0000-00-00', 1),
+(2, 'image2.png', 'Horana', 'Kaluthara', 'beds, cloth racks and cupboards', 'We need to buy some beds, cloth racks and cupboards to our Elders home. If you are interesting with this join with us as you can.', 'Giftee', 'Mahameth Ma-Piya Sewana Elders Home', 3, 0, 0, 0, '', 0, '0000-00-00', 1),
+(3, 'image3.png', 'Kotagala', 'Nuwara-Eliya', 'beds', 'I would like donate 10 beds for elders home If anyone interesting with this contact me.', 'Donor', 'Beds Elders Home', 4, 0, 0, 0, '', 0, '0000-00-00', 1),
+(4, 'image4.png', 'Doluwa', 'Kandy', 'lunch', 'I am looking for a Elders home to give a lunch for the mothers and fathers on my birthday. So if there is no sponsor already for the 10 th October Lunch contact me.', 'Donor', 'Lunch Birthday Elders Home 10 th October', 6, 0, 0, 0, '', 0, '0000-00-00', 1),
+(5, 'image5.png', 'Dehiwala', 'Colombo', 'new clothes', 'We are the management panel of Sahana Udaya Elders Retreat Home. We hope to buy new clothes for the new year for our mothers and fathers. So donate us and join with us.', 'Giftee', 'Sahana Udaya Elders Retreat Home', 9, 0, 0, 0, '', 0, '0000-00-00', 1),
+(6, 'image6.png', 'Horana', 'Kaluthara', 'beds, cloth racks and cupboards', 'We need to buy some beds, cloth racks and cupboards to our Elders home. If you are interesting with this join with us as you can.', 'Giftee', 'Mahameth Ma-Piya Sewana Elders Home', 2, 0, 0, 0, '', 0, '0000-00-00', 0),
+(7, 'image7.png', 'Kotagala', 'Nuwara-Eliya', 'beds', 'I would like donate 10 beds for elders home If anyone interesting with this contact me.', 'Donor', 'Beds Elders Home', 8, 0, 0, 0, '', 0, '0000-00-00', 0),
+(8, 'image8.png', 'Doluwa', 'Kandy', 'lunch', 'I am looking for a Elders home to give a lunch for the mothers and fathers on my birthday. So if there is no sponsor already for the 10 th October Lunch contact me.', 'Donor', 'Lunch Birthday Elders Home 10 th October', 7, 0, 0, 0, '', 0, '0000-00-00', 1);
 
 -- --------------------------------------------------------
 
@@ -1459,7 +1471,7 @@ ALTER TABLE `educationfund_report`
 -- AUTO_INCREMENT for table `educationpost`
 --
 ALTER TABLE `educationpost`
-  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `educationpost_report`
@@ -1477,7 +1489,7 @@ ALTER TABLE `events`
 -- AUTO_INCREMENT for table `medicalfund`
 --
 ALTER TABLE `medicalfund`
-  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `medicalfund_report`
@@ -1489,7 +1501,7 @@ ALTER TABLE `medicalfund_report`
 -- AUTO_INCREMENT for table `medicalpost`
 --
 ALTER TABLE `medicalpost`
-  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT for table `medicalpost_report`
