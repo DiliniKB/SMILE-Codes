@@ -243,12 +243,11 @@ progress::-webkit-progress-value {
 }
 
 #plus{
-	padding: 7px;
+	padding: 12px;
 	background-color: #76bda3;
-	color: white;
-	font-size: 58px;
+	/* color: #8e2626; */
 	border-radius: 100%;
-	/* width: 67px; */
+	width: 67px;
 	position: fixed;
 	top: 83%;
 	right: 3%;
