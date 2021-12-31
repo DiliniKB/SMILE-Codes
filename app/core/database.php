@@ -7,7 +7,6 @@
             try {
                 $string = DB_TYPE.":host=".DB_HOST.";dbname=".DB_NAME.";";
                 $db = new PDO($string,DB_USER,DB_PASS);
-                $db->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING );
                 return $db;
 
             } catch (PDOException $e) {
@@ -65,11 +64,6 @@
                 
                 return false;
             }
-        }
-
-        public function lastId(){
-            $DB = $this->db_connect();
-            return $DB->lastInsertId();
         }
     }
 ?>

@@ -1,7 +1,12 @@
 
 * {
     box-sizing: border-box;
+    /* overflow: hidden; */
     /* width: fit-content; */
+}
+
+html{
+	overflow-y: scroll;
 }
 
 a {
@@ -33,7 +38,7 @@ div {
     top: 19%;
     position: absolute;
     /* background: radial-gradient(77.13% 77.13% at 45% 25%, #FFD9D7 0%, #FFFFFF 100%); */
-    /* filter: blur(50px); */
+    /* filter: (50px); */
     background: hsla(217, 100%, 50%, 1);
 	background: linear-gradient(90deg, hsla(217, 100%, 50%, 1) 0%, hsla(186, 100%, 69%, 1) 100%);
 	background: -moz-linear-gradient(90deg, hsla(217, 100%, 50%, 1) 0%, hsla(186, 100%, 69%, 1) 100%);
@@ -60,9 +65,9 @@ div {
 .BlurRectOval {
 	position: absolute;
 	width: 20%;
-	left: 11%;
-	top: 30%;
-	width: 53vw;
+	left: 77.5%;
+	top: 36%;
+	width: 25vw;
 	/* background: linear-gradient(333deg, #70090975 4.13%, rgb(167 18 18 / 12%) 66.29%); */
 	/* mix-blend-mode: normal; */
 	/* border: 1px solid #FFFFFF; */
@@ -70,7 +75,7 @@ div {
 	/* backdrop-filter: blur(4px); */
     /* Note: backdrop-filter has minimal browser support */
 	/* align-items: center; */
-	border-radius: 97px;
+	border-radius: 10px;
 	/* background: #7a2424; */
 }
 
@@ -142,8 +147,10 @@ div {
 #menu1{position: absolute;top: 100%;/* left: 17%; *//* width: 122%; */}
 
 #menu2{
-	/* left: 15%; */
-	top: 100%;
+	
+/* left: 15%; */
+	
+top: 100%;
 }
 
 
@@ -153,4 +160,3 @@ input:focus-visible {
 textarea:focus-visible {
     outline: none;
 }
-

@@ -71,6 +71,8 @@
 
 #SmileMakers{
 	
+/* font-weight: bold; */
+	
 position: relative;
 	
 /* left: -1%; */
@@ -95,9 +97,11 @@ border-radius: 70px;
 	
 flex-direction: column;
 	
-align-items: center;
+/* font-weight: bold; */
 	
 justify-content: flex-start;
+	
+align-items: center;
 }
 
 #Event{
@@ -106,12 +110,15 @@ justify-content: flex-start;
 	/* left: 30%; */
 	width: 100%;
 	/* top: 2vh; */
-	align-items: center;
 	font-size: 17px;
 	flex-wrap: nowrap;
-	letter-spacing: 1px;
+	letter-spacing: 0.5px;
 	/* padding: 6px; */
 	/* height: 2%; */
+	justify-content: flex-start;
+	align-content: center;
+	flex-direction: row;
+	align-items: center;
 }
 #Donation{
 	position: relative;
@@ -120,17 +127,16 @@ justify-content: flex-start;
 	font-size: 17px;
 	/* width: 58%; */
 	/* top: 2vh; */
+	letter-spacing: 0.5px;
 	align-items: center;
-	letter-spacing: 1px;
 }
 .menuicon{
 	/* position: absolute; */
 	/* width: 24px; */
-	height: auto;
-	float: right;
+	/* height: auto; */
 	margin: 0px;
-	padding-left: 10px;
-	/* margin-right: -9px; */
+	padding-left: 2px;
+	margin-bottom: -0.5em;
 	/* right:1%; */
 }
 .profile{
@@ -138,7 +144,7 @@ justify-content: flex-start;
 	position: absolute;
 	left: 77%;
 	/* width: 4%; */
-	top: 4vh;
+	/* top: 4vh; */
 	font-size: 36px;
 	margin: 0px;
 }
@@ -146,19 +152,21 @@ justify-content: flex-start;
 #Account{
 	position: absolute;
 	left: 80%;
+	display: flex;
 	/* width: 0; */
 	/* right: 1%; */
 	top: 5vh;
 	font-size: 17px;
 	padding: 0px;
 	letter-spacing: 1px;
+	align-items: center;
 }
 /*dropdown menus*/
 .dropdowns{
     display: flex;
     flex-direction: row;
     left: 17vw;
-    top: 2vh;
+    top: 5vh;
     position: relative;
     align-items: center;
     width: 42%;
@@ -177,8 +185,10 @@ justify-content: flex-start;
 	z-index: 1;
 	text-align: left;
 	font-size: 16px;
-	width: 14ch;
+	width: 15ch;
 	margin-top: 5%;
+	padding-bottom: 5%;
+	/* height: 86%; */
 	visibility: hidden;
 	z-index: 1;
 	opacity: 0;
@@ -271,8 +281,14 @@ letter-spacing: 1px;
     right: -1px
 }
 .user{
-	/* position: absolute; */
-	/* top: 0vh; */
-	/* left: 70%; */
-	/* width: 20%; */
+	
+/* position: absolute; */
+	
+/* top: 0vh; */
+	
+/* left: 70%; */
+	
+/* width: 20%; */
 }
+
+
