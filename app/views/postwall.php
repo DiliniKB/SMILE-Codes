@@ -70,9 +70,10 @@
 
     <!--add new -->
     <a href="<?=ROOT?>/createposts/<?=$data['category']?>">
-        <img id="plus" src="<?=ASSETS?>/Images/mainPages/Plus.png">
+        <ion-icon id="plus" name="add-outline"></ion-icon>
     </a>
 
     
 </body>
+
 </html>
