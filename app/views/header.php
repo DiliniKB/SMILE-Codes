@@ -27,10 +27,10 @@
         </a>
         
         <div class=dropdowns>
-            <div class="txt" id="SmileMakers">
+            <!-- <div class="txt" id="SmileMakers">
                 <i class="gg-crown"></i>
                 <a class="smileys" href="Pages/smilemakers.php">Smileys</a>
-            </div>
+            </div> -->
             <div class=dropdown>
                 <div class="txt" id="Event">Sharing Materials
                     <p class="menuicon"><ion-icon name="chevron-down-outline" ></ion-icon></p>
@@ -101,4 +101,3 @@
     </div>
 
         <?php $this->view("footers/footerfiles");?>
-    </div> 
