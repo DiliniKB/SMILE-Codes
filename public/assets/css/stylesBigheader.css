@@ -120,6 +120,8 @@ align-items: center;
 	flex-direction: row;
 	align-items: center;
 }
+
+#Event:hover {font-weight: bold;}
 #Donation{
 	position: relative;
 	display: flex;
@@ -131,7 +133,9 @@ align-items: center;
 	align-items: center;
 }
 
-#Donation:hover {}
+#Donation:hover {
+    font-weight: bold;
+}
 .menuicon{
 	/* position: absolute; */
 	/* width: 24px; */
@@ -163,6 +167,8 @@ align-items: center;
 	letter-spacing: 1px;
 	/* align-items: stretch; */
 }
+
+#Account:hover {font-weight: bold;}
 /*dropdown menus*/
 .dropdowns{
     display: flex;
@@ -194,6 +200,7 @@ align-items: center;
 	visibility: hidden;
 	z-index: 1;
 	opacity: 0;
+	font-weight: normal;
 	-webkit-transition: all .25s ease;
 	-moz-transition: all .25s ease;
 	-ms-transition: all .25s ease;
@@ -247,6 +254,8 @@ letter-spacing: 1px;
     /* padding: 3px; */
 }
 
+.dropdown {}
+
 .gg-crown {
     box-sizing: border-box;
     position: relative;
@@ -290,5 +299,7 @@ letter-spacing: 1px;
 	/* left: 97%; */
 	/* width: 20%; */
 }
+
+.user {}
 
 
