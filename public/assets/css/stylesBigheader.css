@@ -130,19 +130,21 @@ align-items: center;
 	letter-spacing: 0.5px;
 	align-items: center;
 }
+
+#Donation:hover {}
 .menuicon{
 	/* position: absolute; */
 	/* width: 24px; */
 	/* height: auto; */
 	margin: 0px;
 	padding-left: 2px;
-	margin-bottom: -0.5em;
+	/* margin-bottom: -0.5em; */
 	/* right:1%; */
 }
 .profile{
 	/* FONT-WEIGHT: 200; */
 	position: absolute;
-	left: 77%;
+	left: 82%;
 	/* width: 4%; */
 	/* top: 4vh; */
 	font-size: 36px;
@@ -151,7 +153,7 @@ align-items: center;
 
 #Account{
 	position: absolute;
-	left: 80%;
+	left: 85%;
 	display: flex;
 	/* width: 0; */
 	/* right: 1%; */
@@ -159,19 +161,19 @@ align-items: center;
 	font-size: 17px;
 	padding: 0px;
 	letter-spacing: 1px;
-	align-items: center;
+	/* align-items: stretch; */
 }
 /*dropdown menus*/
 .dropdowns{
     display: flex;
     flex-direction: row;
-    left: 17vw;
+    left: 21vw;
     top: 5vh;
     position: relative;
     align-items: center;
     width: 42%;
     /* row-gap: 58px; */
-    column-gap: 35px;
+    /* column-gap: 2px; */
     /* column-width: 142px; */
     /* font-size: 10px; */
     /* height: fit-content; */
@@ -214,7 +216,9 @@ align-items: center;
 	opacity: 1;
 }
 #menu3{
-	/* right: 1%; */
+	/* right: 50%; */
+	position: absolute;
+	top: 100%;
 }
 #logout{
     font-family: 'Sora';
@@ -281,14 +285,10 @@ letter-spacing: 1px;
     right: -1px
 }
 .user{
-	
-/* position: absolute; */
-	
-/* top: 0vh; */
-	
-/* left: 70%; */
-	
-/* width: 20%; */
+	/* position: absolute; */
+	/* top: 0vh; */
+	/* left: 97%; */
+	/* width: 20%; */
 }
 
 
