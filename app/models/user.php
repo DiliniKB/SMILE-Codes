@@ -435,6 +435,45 @@ Class input_checks{
 
         }
 
+        function get_last_month_donations($id){
+            $DB = new Database();
+
+            $tables = array('medicalfund_donate','animalcarefund_donate','seniorcarefund_donate','childrenfund_donate','educationfund_donate','otherfund_donate');
+            $total  = 0;
+            foreach($tables as $table):
+                $query = "SELECT * FROM $table WHERE user_ID = $id AND YEAR(date) = YEAR(DATE_SUB(CURDATE(), INTERVAL 1 MONTH)) AND MONTH(date) = MONTH(DATE_SUB(CURDATE(), INTERVAL 1 MONTH))";
+                $result = $DB->read($query);
+                // show($result);
+                if ($result):
+                    foreach ($result as $row):
+                        $total = $total + $row->amount;
+                    endforeach;
+                endif;
+            endforeach;    
+    
+            return $total;
+        }
+
+        function get_total_donated($id){
+            $DB = new Database();
+
+            $tables = array('medicalfund_donate','animalcarefund_donate','seniorcarefund_donate','childrenfund_donate','educationfund_donate','otherfund_donate');
+            $total['count']  = 0;
+            $total['amount'] = 0;
+            foreach($tables as $table):
+                $query = "SELECT * FROM $table WHERE user_ID = $id";
+                $result = $DB->read($query);
+                if ($result):
+                    foreach ($result as $row):
+                        $total['amount'] += $row->amount;
+                        $total['count']++;
+                    endforeach;
+                endif;
+            endforeach;    
+
+            return $total;
+        }
+
 
     }
 

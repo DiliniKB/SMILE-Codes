@@ -55,8 +55,8 @@
         <div class="r2">
             <div id="curve_chart" style="width: 900px; height: 500px"></div>
             <div class="c1">
-                <div id="f1"> Total in Last month </br><div style="color: #04aa6d;"> Rs.5100.00</div></div>
-                <div id="f1"> So far you've donated <div  style="color: #04aa6d;">  Rs.14100.00</div> and made <div style="color: #ff625a;">109</div> Smiles..</div> 
+                <div id="f1"> Total in Last month </br><div style="color: #04aa6d;">  Rs.<?=$data['lastMonthDonated']?></div></div>
+                <div id="f1"> So far you've donated <div  style="color: #04aa6d;">  Rs.<?=$data['totalDonated']?></div> and made <div style="color: #ff625a;"><?=$data['Donatedcount']?></div> Smiles..</div> 
             </div>
         </div>
         <div class="r3">

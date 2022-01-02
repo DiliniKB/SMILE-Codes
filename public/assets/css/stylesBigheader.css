@@ -63,6 +63,7 @@
 	font-family: 'Sora', sans-serif;
 	/* top:5%; */
 	float:left;
+	font-weight: 100;
 	width: fit-content;
 	height: fit-content;
 	position: fixed;
@@ -121,7 +122,7 @@ align-items: center;
 	align-items: center;
 }
 
-#Event:hover {font-weight: bold;}
+#Event:hover {font-weight: bold;/* border: solid; */}
 #Donation{
 	position: relative;
 	display: flex;
@@ -150,7 +151,7 @@ align-items: center;
 	position: absolute;
 	left: 82%;
 	/* width: 4%; */
-	/* top: 4vh; */
+	top: 4vh;
 	font-size: 36px;
 	margin: 0px;
 }

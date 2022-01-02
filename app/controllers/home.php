@@ -133,7 +133,13 @@
 
             $posts = $user->get_posts($_SESSION["user_id"]);
             $data['posts'] = $posts;
-            
+        
+            $totalDonated = $user->get_total_donated($_SESSION["user_id"]);
+            $data['totalDonated'] = $totalDonated['amount'];
+            $data['Donatedcount'] = $totalDonated['count'];
+
+            $lmDonated = $user->get_last_month_donations($_SESSION["user_id"]);
+            $data['lastMonthDonated'] = $lmDonated;
             // show($data);
 
             $this->view("dashboard",$data);
