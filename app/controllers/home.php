@@ -59,21 +59,6 @@
             $data['tpnum'] = "";
 
             $user->signup($_POST, $data);
-            $this->view("signup",$data);$data['page_title'] = "SignUp ";
-            $user = $this->loadModel("user");
-
-            $data['sys_error'] = 0;
-            $data['sys_error_type'] = 'error';
-            $data['sys_error_msg'] = 'None';
-
-            $data['fname'] = "";
-            $data['lname'] = "";
-            $data['nic'] = "";
-            $data['dob'] = "";
-            $data['email'] = "";
-            $data['tpnum'] = "";
-
-            $user->signup($_POST, $data);
             $this->view("signup",$data);
         }
 
