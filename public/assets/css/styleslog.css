@@ -11,7 +11,8 @@
  }
  .FormTopic{
    font-family: 'Sora', sans-serif;
-   padding-left: 4%;
+   /* padding-left: 4%; */
+   padding-right: 4%;
    font-size: xx-large;
    margin-bottom: 3%;
  }
@@ -62,8 +63,11 @@
 #form{
     /* font-family: Ac; */
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-start;
+    width: 35%;
+    /* font-family: 'Work Sans'; */
+    left: 12%;
 }
 
 #fname{

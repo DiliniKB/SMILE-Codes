@@ -11,23 +11,23 @@
     <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
-
+      arr = <?php echo json_encode($data['monthlyDonations'], JSON_FORCE_OBJECT); ?>;
       
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Month', 'Total Contribution'],
-          ['Jan', 0],
-          ['Feb', 0],
-          ['March',0],
-          ['April', 0],
-          ['Jun', 2000],
-          ['Jul',1800],
-          ['Aug',1700],
-          ['Sep',3000],
-          ['Oct',500],
-          ['Nov',0],
-          ['Dec',5100]
-
+          ['Jan',arr[1]],
+          ['Feb',arr[2]],
+          ['March',arr[3]],
+          ['April',arr[4]],
+          ['May',arr[5]],
+          ['Jun', arr[6]],
+          ['Jul',arr[7]],
+          ['Aug',arr[8]],
+          ['Sep',arr[9]],
+          ['Oct',arr[10]],
+          ['Nov',arr[11]],
+          ['Dec',arr[12]]
         ]);
 
         var options = {
@@ -53,7 +53,7 @@
             <div id="f2" >400.00</div>
         </div>
         <div class="r2">
-            <div id="curve_chart" style="width: 900px; height: 500px"></div>
+            <div id="curve_chart" style="width: 55%; height: 140%"></div>
             <div class="c1">
                 <div id="f1"> Total in Last month </br><div style="color: #04aa6d;">  Rs.<?=$data['lastMonthDonated']?></div></div>
                 <div id="f1"> So far you've donated <div  style="color: #04aa6d;">  Rs.<?=$data['totalDonated']?></div> and made <div style="color: #ff625a;"><?=$data['Donatedcount']?></div> Smiles..</div> 

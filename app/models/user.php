@@ -474,6 +474,27 @@ Class input_checks{
             return $total;
         }
 
+        function get_monthly_donations($id){
+            $DB = new Database();
+            $tables = array('medicalfund_donate','animalcarefund_donate','seniorcarefund_donate','childrenfund_donate','educationfund_donate','otherfund_donate');
+            $total = array_fill(1,12,0);
+
+            foreach($tables as $table):
+                for ($i=1; $i < 13; $i++) { 
+                    $query = "SELECT * FROM $table WHERE user_ID = $id AND YEAR(date) = YEAR(CURDATE()) AND MONTH(date) = $i";
+                    $result = $DB->read($query);
+                    if ($result):
+                        foreach ($result as $row):
+                            $total[$i] += $row->amount;
+                        endforeach;
+                    endif; 
+                }
+            endforeach;
+            return $total;
+        }
+
+        
+
 
     }
 

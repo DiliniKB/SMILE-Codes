@@ -127,6 +127,10 @@
             $data['lastMonthDonated'] = $lmDonated;
             // show($data);
 
+            $monthlyDonations = $user->get_monthly_donations($_SESSION["user_id"]);
+            $data['monthlyDonations'] = $monthlyDonations;
+            // show($data);
+
             $this->view("dashboard",$data);
 
         }
