@@ -123,9 +123,9 @@
                 <div class="comments">Comments</div>
                 <form id="commentForm" method="post">
                     <input id="newComment" type="text" name="comment" placeholder="Leave your comment here" required>
-                    <button id="entercomment" type="submit" name="entercomment">Enter</button>
+                    <button id="entercomment" type="submit" >Enter</button>
                 </form>
-                <div>
+                <!-- <div>
                     <p class="owner">Ganguli De Silva</p>
                     <p class="comment">- This should be viral</p>
                 </div>
@@ -140,7 +140,7 @@
                     <div>
                         <p class="owner">Ganguli De Silva</p>
                         <p class="comment">- God bless you.</p>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

@@ -258,6 +258,44 @@ Class fund{
             }
             return false;
     }
+
+    function enter_comment($table,$fundId,$comment,$user){
+        $DB = new Database();
+        $_SESSION['error']=""; 
+        $table = $table."_comment";
+        $arr['date'] = date("Y-m-d");
+        $arr['time'] = date("H:i:s");
+        $arr['comment'] = $comment;
+        $arr['user'] = $user;
+        $arr['fundId'] = $fundId;
+        $query = "INSERT INTO $table (fund_ID,user_ID,date,time,comment) VALUES (:fundId,:user,:date,:time,:comment)";
+
+        $result = $DB->write($query,$arr);
+        
+        if($result){
+            return true;
+        }
+        else {
+            return false;
+        }
+
+    }
+
+    function load_comments($table, $fundId){
+        $DB = new Database();
+        $_SESSION['error']=""; 
+        $table = $table."_comment";
+        $query = "SELECT * FROM $table WHERE fund_ID = $fundId ORDER BY date AND time LIMIT 20";
+        $result = $DB->read($query);
+
+        if($result){
+            return $result;
+        }
+        else {
+            return false;
+        }
+
+    }
 }
 
 ?>

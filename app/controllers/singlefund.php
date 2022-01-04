@@ -10,8 +10,8 @@ Class singlefund extends Controller
         $data['page_title'] = "View ".$data['category']." ".$data['type'];
         $data['id'] = $id;
 
-        $funds = $this->loadModel("fund");
-        $results = $funds->view_fund($data);
+        $fund = $this->loadModel("fund");
+        $results = $fund->view_fund($data);
         $data['fund'] = $results;
 
         $creaters = $this->loadModel("user");
@@ -43,7 +43,18 @@ Class singlefund extends Controller
             $data['dategap'] = $data['dategap']." ago";
         }
 
-        // show($_SESSION);
+        $comments = $fund->load_comments($data['table'],$data['id']);
+        $data['comments'] = $comments;
+
+        if ($_POST) {
+            show($_POST);
+            $result = $fund->enter_comment($data['table'],$data['id'],$_POST['comment'],$_SESSION['user_id']);
+            unset($_POST); 
+            if ($result){
+                header("Refresh:0"); 
+            }
+        }
+
         show($data); 
 
         $this->view("viewfund",$data);

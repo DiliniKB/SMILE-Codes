@@ -12,6 +12,7 @@
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
       arr = <?php echo json_encode($data['monthlyDonations'], JSON_FORCE_OBJECT); ?>;
+      year = new Date().getFullYear();
       
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
@@ -31,9 +32,12 @@
         ]);
 
         var options = {
-          title: 'Total Contribution-2021',
+          title: 'Monthly Contribution - '+year,
           curveType: 'function',
-          vAxis: {viewWindowMode: "explicit", viewWindow:{ min: 0 }}
+          vAxis: {
+              viewWindowMode: "explicit", viewWindow:{ min: 0 }, baseline: 0
+            },
+        //   hAxis: {viewWindow:{ min: 10 }}
         };
 
         var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
@@ -50,7 +54,7 @@
     <div class="container">
         <div class="r1">
             <div id="f2" >Account balance</div>
-            <div id="f2" >400.00</div>
+            <div id="f2" ><?=$data['account_balance']?></div>
         </div>
         <div class="r2">
             <div id="curve_chart" style="width: 55%; height: 140%"></div>

@@ -106,28 +106,27 @@
         function dashboard()
         {
             $data['page_title'] = "Dashboard";
-            $data['account_balance'] = 400;
-            $data['last_month_total'] = 5100;
-            $data['total_donated_amount'] = 14100;
-            $data['donation_count'] = 14100;
-            
-            $user = $this->loadModel("user");
+            $id = $_SESSION['user_id'];
 
-            $funds = $user->get_funds($_SESSION["user_id"]);
+            $user = $this->loadModel("user");
+            $userdetails = $user->search_user_by_id($id);
+            $data['account_balance'] = $userdetails->balance;
+
+            $funds = $user->get_funds($id);
             $data['funds'] = $funds;
 
-            $posts = $user->get_posts($_SESSION["user_id"]);
+            $posts = $user->get_posts($id);
             $data['posts'] = $posts;
         
-            $totalDonated = $user->get_total_donated($_SESSION["user_id"]);
+            $totalDonated = $user->get_total_donated($id);
             $data['totalDonated'] = $totalDonated['amount'];
             $data['Donatedcount'] = $totalDonated['count'];
 
-            $lmDonated = $user->get_last_month_donations($_SESSION["user_id"]);
+            $lmDonated = $user->get_last_month_donations($id);
             $data['lastMonthDonated'] = $lmDonated;
             // show($data);
 
-            $monthlyDonations = $user->get_monthly_donations($_SESSION["user_id"]);
+            $monthlyDonations = $user->get_monthly_donations($id);
             $data['monthlyDonations'] = $monthlyDonations;
             // show($data);
 
