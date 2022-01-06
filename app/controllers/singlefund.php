@@ -48,7 +48,13 @@ Class singlefund extends Controller
 
         if ($_POST) {
             show($_POST);
-            $result = $fund->enter_comment($data['table'],$data['id'],$_POST['comment'],$_SESSION['user_id']);
+            if(empty($_SESSION['user_id'])){
+                $result = $fund->enter_comment($data['table'],$data['id'],$_POST['comment'],0);
+            }
+            else{
+                $result = $fund->enter_comment($data['table'],$data['id'],$_POST['comment'],$_SESSION['user_id']);
+            }
+            
             unset($_POST); 
             if ($result){
                 header("Refresh:0"); 

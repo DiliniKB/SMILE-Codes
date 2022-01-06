@@ -123,25 +123,26 @@
                 <div class="comments">Comments</div>
                 <form id="commentForm" method="post">
                     <input id="newComment" type="text" name="comment" placeholder="Leave your comment here" required>
-                    <button id="entercomment" type="submit" >Enter</button>
+                    <button id="entercomment" type="submit">Enter</button>
                 </form>
-                <!-- <div>
-                    <p class="owner">Ganguli De Silva</p>
-                    <p class="comment">- This should be viral</p>
-                </div>
-                <div>
-                    <p class="owner">Ganguli De Silva</p>
-                    <p class="comment">- What a little age to have something like that.</p>
-                </div>
-                
-                <p class="seeMore" id="Seemore" >See more<span>&#9660;</span></p>
-                <!-- <p class="seeMore" id="Seemore" onclick="hide()">See more<span>&#9660;</span></p> -->
-                <div id="More">
+
+                <?php for ($i = 0; $i < 2; $i++):?>
                     <div>
-                        <p class="owner">Ganguli De Silva</p>
-                        <p class="comment">- God bless you.</p>
-                    </div> -->
-                </div>
+                        <p class="owner"><?=$data['comments'][$i]->first_name." ".$data['comments'][$i]->last_name?></p>
+                        <p class="comment"><?=" - ".$data['comments'][$i]->comment?></p>
+                    </div>
+                <?php endfor; ?>
+                <?php if(count($data['comments'])>2):?>
+                    <div id="More">
+                    <?php for ($i = 2; $i < count($data['comments']); $i++):?>
+                        <div>
+                        <p class="owner"><?=$data['comments'][$i]->first_name." ".$data['comments'][$i]->last_name?></p>
+                        <p class="comment"><?=" - ".$data['comments'][$i]->comment?></p>
+                        </div>
+                    <?php endfor; ?> 
+                    </div>
+                    <p class="seeMore" id="Seemore" onclick="hide()">See More</p>
+                <?php endif;?>
             </div>
         </div>
     </div>

@@ -1,10 +1,12 @@
 function hide() {
     var x = document.getElementById("More");
-    var y = document.getElementById("")
+    var y = document.getElementById("Seemore")
     if (x.style.display === "none") {
         x.style.display = "block";
+        y.innerHTML = "See Less";
     } else {
         x.style.display = "none";
+        y.innerHTML = "See More";
     }
 }
 
@@ -22,13 +24,6 @@ function addNewComment(event){
         commentForm.reset();
     };
     xhr.send(JSON.stringify(newcomment));
-}
-
-function view_user_account(x){
-    console.log(x);
-    if (x){
-        window.location.href = ROOT + "account/" + x;
-    } 
 }
 
 function showProgress(filled,amount){

@@ -285,7 +285,7 @@ Class fund{
         $DB = new Database();
         $_SESSION['error']=""; 
         $table = $table."_comment";
-        $query = "SELECT * FROM $table WHERE fund_ID = $fundId ORDER BY date AND time LIMIT 20";
+        $query = "SELECT * FROM $table INNER JOIN registered_user ON $table.user_ID = registered_user.user_ID WHERE fund_ID = $fundId ORDER BY date AND time LIMIT 20";
         $result = $DB->read($query);
 
         if($result){
