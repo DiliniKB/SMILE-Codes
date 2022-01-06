@@ -132,7 +132,7 @@ body{
     width: 100px;
 }
 .c2{
-    width: 51%;
+    width: 50%;
     padding-top: 2%;
     display: flex;
     flex-direction: row;
@@ -142,6 +142,7 @@ body{
     align-content: flex-start;
     row-gap: 20px;
     height: fit-content;
+    justify-content: center;
 }
   
 progress{
@@ -214,7 +215,7 @@ progress{
 .r7{
     padding: 20px;
     /* margin-left: 7%; */
-    width: 90%;
+    width: 80%;
 }
 .c3{
     display: flex;

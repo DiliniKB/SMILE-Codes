@@ -127,15 +127,17 @@
                 </form>
                 
                 <?php if(!empty($data['comments'])):?>
-                    <?php for ($i = 0; $i < 2; $i++):?>
+                    <?php for ($i = 0; $i < 5; $i++):?>
+                        <?php if(!empty($data['comments'][$i])):?>
                         <div>
                             <p class="owner"><?=$data['comments'][$i]->first_name." ".$data['comments'][$i]->last_name?></p>
                             <p class="comment"><?=" - ".$data['comments'][$i]->comment?></p>
                         </div>
+                        <?php endif;?>
                     <?php endfor; ?>
-                    <?php if(count($data['comments'])>2):?>
+                    <?php if(count($data['comments'])>5):?>
                         <div id="More">
-                        <?php for ($i = 2; $i < count($data['comments']); $i++):?>
+                        <?php for ($i = 5; $i < count($data['comments']); $i++):?>
                             <div>
                             <p class="owner"><?=$data['comments'][$i]->first_name." ".$data['comments'][$i]->last_name?></p>
                             <p class="comment"><?=" - ".$data['comments'][$i]->comment?></p>

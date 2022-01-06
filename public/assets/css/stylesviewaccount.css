@@ -202,6 +202,8 @@ tr:nth-child(even) {
     display: none;
     padding-top: 2%;
     /* display: none; */
+    flex-direction: column;
     justify-content: space-evenly;
+    /* column-gap: 23px; */
 }
 .nofunds{font-family: 'Work Sans';margin: 0px;}

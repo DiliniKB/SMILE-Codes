@@ -44,13 +44,14 @@
                                             </div>
                                             <div class="report" onclick=viewreportlist(this)>
                                                 <p class="reportIcon"><ion-icon name="alert-circle-outline"></ion-icon></p>
-                                                <p><?=$row->report_count?> reports</p>
+                                                <p><?=count($row->reports)?> reports</p>
                                             </div>    
                                         </div>
                                     </div>
                                     <div class="reportbox" id="reportbox">
                                         <?php if(property_exists($row, 'reports')):?>
                                             <?php foreach($row->reports as $report):?>
+                                                <div>
                                                 <tr>
                                                     <td>
                                                         <?=$report->date?>
@@ -62,6 +63,7 @@
                                                         <button>Detailed Report</button>                                            
                                                     </td>
                                                 </tr>
+                                            </div>
                                             <?php endforeach;?>
                                         <?php endif; ?>
                                     </div>
@@ -97,7 +99,7 @@
                                             </div>
                                             <div class="report" onclick=viewreportlist(this)>
                                                 <p class="reportIcon"><ion-icon name="alert-circle-outline"></ion-icon></p>
-                                                <p><?=$row->report_count?> reports</p>
+                                                <p><?=count($row->reports)?> reports</p>
                                             </div>    
                                         </div>
                                     </div>
@@ -150,7 +152,7 @@
                                             </div>
                                             <div class="report" onclick=viewreportlist(this)>
                                                 <p class="reportIcon"><ion-icon name="alert-circle-outline"></ion-icon></p>
-                                                <p><?=$row->report_count?> reports</p>
+                                                <p><?=count($row->reports)?> reports</p>
                                             </div>    
                                         </div>
                                     </div>
@@ -210,7 +212,7 @@
                                             </div>
                                             <div class="report" onclick=viewreportlist(this)>
                                                 <p class="reportIcon"><ion-icon name="alert-circle-outline"></ion-icon></p>
-                                                <p><?=$row->report_count?> reports</p>
+                                                <p><?=count($row->reports)?> reports</p>
                                             </div>    
                                         </div>
                                     </div> 
@@ -228,6 +230,7 @@
                                                         <button>Detailed Report</button>                                            
                                                     </td>
                                                 </tr>
+                                                </>
                                             <?php endforeach;?>
                                         <?php endif; ?>
                                     </div>
@@ -262,7 +265,7 @@
                                             </div>
                                             <div class="report" onclick=viewreportlist(this)>
                                                 <p class="reportIcon"><ion-icon name="alert-circle-outline"></ion-icon></p>
-                                                <p><?=$row->report_count?> reports</p>
+                                                <p><?=count($row->reports)?> reports</p>
                                             </div>    
                                         </div>
                                     </div> 
@@ -306,7 +309,7 @@
                     <td><?=$data['info']->NIC?></td>
                 </tr>
                 <tr>
-                    <td>Address</td>
+                    <td>ddress</td>
                     <td><?=$data['info']->address?></td>
                 </tr>
                 <tr>
