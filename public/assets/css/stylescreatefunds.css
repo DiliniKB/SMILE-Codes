@@ -233,6 +233,41 @@ width: 100%;
 }
 #menu4{
 	margin-left: 13%;
+	/* margin-left: 13%; */
+}
+.terms{	
+font-family: 'work sans';	
+position: absolute;	
+display: flex;	
+top: 75%;	
+left: 95%;	
+width: 90%;	
+align-items: center;
+}
+.termsandC{
+    text-decoration: underline;
+    cursor: pointer;
+}
+.termsbox{
+	display:none;
+    background: white;
+    width: 48%;
+    position: fixed;
+    top: 25%;
+    left: 30%;
+    padding: 2%;
+    font-family: 'Work Sans';
+    border: solid;
+    /* border: thin; */
+    border-width: thin;
+    text-align: justify;
+    /* margin: 50px auto; */
+    height: 50%;
+    overflow-y: scroll;
+    box-shadow: 0px 8px 6px 6px rgb(0 0 0 / 15%);
+}
+.sub-topic{
+font-weight: bold;
 }
 
 
