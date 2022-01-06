@@ -43,7 +43,7 @@ body{
     flex-direction: column;
     /* font-family: 'Work sans'; */
     /* padding-top: 2%; */
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     width: 100%;
     /* row-gap: 33%; */
     /* text-align: center; */
@@ -92,12 +92,12 @@ body{
 .keywords{
     font-size: 16px;
     padding-right: 2%;
-    max-height: 4em;
+    /* max-height: 4em; */
     width: 45%;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    white-space: pre-line;
+    /* justify-content: flex-end; */
+    /* white-space: pre-line; */
     /* width: 0; */
     /* overflow: visible; */
 }
@@ -405,12 +405,15 @@ button2:hover {
     padding: 1px;
     font-style: italic;
     margin: 4px 0;
+    overflow-wrap: break-word;
+    /* width: 100%; */
     font-size: 15px;
     /* font-weight: bold; */
 }
 #More{
     display: none;
     cursor: pointer;
+    overflow: visible;
 }
 #Seemore{
     cursor: pointer;
