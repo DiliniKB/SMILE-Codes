@@ -10,13 +10,22 @@ Class Account extends Controller
         $info = $user->search_user_by_id($id);
         $data['info'] = $info;
 
-        $funds = $user->get_funds($id);
-        $data['funds'] = $funds;
+        $funds = $user->get_active_funds($id);
+        $data['activefunds'] = $funds;
 
-        $posts = $user->get_posts($id);
-        $data['posts'] = $posts;
+        $funds = $user->get_filled_funds($id);
+        $data['filledfunds'] = $funds;
 
-        //show($data);
+        $funds = $user->get_settled_funds($id);
+        $data['settledfunds'] = $funds;
+
+        $posts = $user->get_active_posts($id);
+        $data['activeposts'] = $posts;
+
+        $posts = $user->get_settled_posts($id);
+        $data['settledposts'] = $posts;
+
+        // show($data);
 
         // $this->view("blank",$data);
         $this->view("viewaccount",$data);
@@ -25,7 +34,7 @@ Class Account extends Controller
     function search(){
         $data['page_title'] = 'Search';
         // show($_POST);
-        $user = $this->loadModel("user");
+        $user = $this-> loadModel("user");
         $data['users'] = $user->get_all_users();
         // show($data);
         $this->view("searchaccount",$data);

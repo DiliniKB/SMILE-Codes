@@ -54,6 +54,9 @@
 .s1{}
 .topic2{
     font-size: larger;
+    font-family: 'Sora';
+    background: #ebebeb;
+    padding: 1px;
 }
 .details{display: flex;line-height: 33px;font-size: 16px;padding-bottom: 30px;}
 .fpost{
@@ -130,13 +133,13 @@ table {
   }
   
 td, th {
-    border: 1px solid #dddddd;
+    border: 1px solid #8d8d8d;
     text-align: left;
     padding: 8px;
   }
   
 tr:nth-child(even) {
-    background-color: #dddddd;
+    /* background-color: #dddddd; */
   }
 
 .done {
@@ -188,11 +191,12 @@ tr:nth-child(even) {
 }
 
 .icons2{
-    width: 23%;
+    /* width: 23%; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-content: space-around;
+    margin: 0 1%;
 }
 .reportbox{
     display: none;
@@ -200,3 +204,4 @@ tr:nth-child(even) {
     /* display: none; */
     justify-content: space-evenly;
 }
+.nofunds{font-family: 'Work Sans';margin: 0px;}
