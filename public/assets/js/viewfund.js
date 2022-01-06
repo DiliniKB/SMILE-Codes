@@ -1,5 +1,3 @@
-
-
 function hide() {
     var x = document.getElementById("More");
     var y = document.getElementById("")
@@ -27,6 +25,7 @@ function addNewComment(event){
 }
 
 function view_user_account(x){
+    console.log(x);
     if (x){
         window.location.href = ROOT + "account/" + x;
     } 
@@ -35,7 +34,6 @@ function view_user_account(x){
 function showProgress(filled,amount){
     var width = (filled/amount)*100;
     root = document.documentElement;
-    console.log(width);
     root.style.setProperty('--end-width', width + "%"); 
 }
 

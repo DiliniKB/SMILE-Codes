@@ -97,6 +97,9 @@ body{
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    white-space: pre-line;
+    /* width: 0; */
+    /* overflow: visible; */
 }
 .description{
     max-height: 5em;
@@ -113,6 +116,7 @@ body{
     column-gap: 5%;
     margin: 2%;
     width: fit-content;
+    /* cursor: pointer; */
 }
 .userImg{
     width: 42px;
@@ -210,7 +214,7 @@ progress{
 .r7{
     padding: 20px;
     /* margin-left: 7%; */
-    width: 100%;
+    width: 90%;
 }
 .c3{
     display: flex;
@@ -300,15 +304,23 @@ input.middle:focus {
     padding: 6px;
     height: fit-content;
     margin: 10px auto;
+    margin-bottom: 7%;
     font-family: 'Roboto';
     border: solid;
-    border-color: #9B2B2D;
+    border-color: #000000;
+    border-width: thin;
     cursor: pointer;
-    /* background: black; */
+    background: #ebebeb;
     /* border-radius: 30px; */
-    box-shadow: 0px 0px 2px 4px rgb(0 0 0 / 28%);
+    /* box-shadow: 0px 0px 2px 4px rgb(0 0 0 / 28%); */
     /* position: relative; */
     /* text-decoration: underline; */
+}
+
+
+
+.report:Hover {
+    background: #d8d8d8;
 }
 #SForm{
     position: fixed;
@@ -409,13 +421,13 @@ button2:hover {
     display: inline;
 }
 #entercomment{
-    float: right;
-    font-size: 12px;
+    /* float: right; */
+    font-size: 14px;
     padding: 2px 6px;
     /* margin: 0 auto; */
     margin: 3px 10px;
     /* display: inline; */
-    text-shadow: none;
+    /* text-shadow: none; */
     border: solid;
     border-width: thin;
 }
@@ -423,7 +435,7 @@ button2:hover {
 #entercomment:hover{
  margin: 0 10px;
  background: rgb(193 193 193);
- font-size: 12px;
+ font-size: 14px;
  padding: 2px 6px;
  margin: 0 auto;
  margin: 3px 10px;
