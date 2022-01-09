@@ -203,7 +203,29 @@ tr:nth-child(even) {
     padding-top: 2%;
     /* display: none; */
     flex-direction: column;
+    row-gap: 10px;
     justify-content: space-evenly;
     /* column-gap: 23px; */
 }
 .nofunds{font-family: 'Work Sans';margin: 0px;}
+.report_photos{
+    display: flex;
+    align-items: center;
+    /* column-gap: 144px; */
+    justify-content: space-evenly;
+}
+.report_photo{
+    width: 13%;
+}
+.display-report{
+    display: none;
+    flex-direction: column;
+}
+.short_report {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+.report_details{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}

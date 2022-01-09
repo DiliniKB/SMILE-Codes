@@ -49,23 +49,39 @@
                                         </div>
                                     </div>
                                     <div class="reportbox" id="reportbox">
-                                        <?php if(property_exists($row, 'reports')):?>
-                                            <?php foreach($row->reports as $report):?>
+                                    <?php if(property_exists($row, 'reports')):?>
+                                    <?php foreach($row->reports as $report):?>
+                                        <div class = single_report>
+                                            <div class="short_report">
                                                 <div>
-                                                <tr>
-                                                    <td>
-                                                        <?=$report->date?>
-                                                    </td>
-                                                    <td>
-                                                        <?=$report->feedback?>
-                                                    </td>
-                                                    <td>
-                                                        <button>Detailed Report</button>                                            
-                                                    </td>
-                                                </tr>
+                                                    <?=$report->feedback?>
+                                                </div>
+                                                <div>
+                                                    <button onclick="display_report(this);">Detailed Report</button>                                            
+                                                </div>
                                             </div>
-                                            <?php endforeach;?>
-                                        <?php endif; ?>
+                                            <div class="display-report">
+                                                <div class = "report_details">
+                                                    <div>
+                                                        <?=$report->date?>
+                                                    </div>
+                                                    <div>
+                                                        <?=$report->feedback?>
+                                                    </div>
+                                                    <div>
+                                                        <?=$report->time?>
+                                                    </div>
+                                                </div>
+                                                <div class="report_photos">  
+                                                <?php 
+                                                    for($i=2; $i<count($report->images); $i++) :?>
+                                                        <img class="report_photo" src="<?=ASSETS?>uploads/reports/<?=$row->table?>_report/<?=$report->fund_ID?>/<?=$report->user_ID?>/<?=$report->images[$i]?>">
+                                                    <?php endfor; ?>
+                                                </div>  
+                                            </div> 
+                                        </div> 
+                                    <?php endforeach;?>
+                                    <?php endif; ?>
                                     </div>
                                 </div>
                                 <?php endforeach; ?>  

@@ -344,6 +344,10 @@ Class input_checks{
                         $report_table = $table."_report";
                         $query2 = "SELECT * FROM $report_table WHERE fund_ID = $row->ID ORDER BY date DESC";
                         $row->reports = $DB->read($query2);
+                        foreach ($row->reports as $report):
+                            $dir = "assets/uploads/reports/".$report_table."/".$row->ID."/".$report->user_ID."/";
+                            $report->images = scandir($dir);
+                        endforeach;
                     endforeach;
                 }
             endforeach;    

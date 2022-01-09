@@ -146,10 +146,10 @@ Class fund{
                 }
                 if (!file_exists($folder3)) {
                     mkdir($folder3, 0777, true);
-                    $desination = $folder3."/".$data['photos']['photo']['name'][$i];
+                    $desination = $folder3."/".$i;
                 }
                 else{ 
-                    $desination = $folder3."/".$data['photos']['photo']['name'][$i];
+                    $desination = $folder3."/".$i;
                 }
                 echo $desination;
                 move_uploaded_file($data['photos']['photo']['tmp_name'][$i],$desination);

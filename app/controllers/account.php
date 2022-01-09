@@ -24,7 +24,6 @@ Class Account extends Controller
 
         $posts = $user->get_settled_posts($id);
         $data['settledposts'] = $posts;
-
         // show($data);
 
         // $this->view("blank",$data);

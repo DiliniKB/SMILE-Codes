@@ -78,7 +78,7 @@ Class singlefund extends Controller
             $data['photos'] = $_FILES;
             $fund = $this->loadModel("fund");
             $fund->report($data);
-            // show($data);
+            show($data);
         }
         $this->view("report",$data);
 
