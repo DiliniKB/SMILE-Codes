@@ -342,7 +342,7 @@ Class input_checks{
                     foreach ($result[$table] as $row):
                         $row->table = $table;
                         $report_table = $table."_report";
-                        $query2 = "SELECT * FROM $report_table WHERE fund_ID = $row->ID ORDER BY date DESC";
+                        $query2 = "SELECT registered_user.first_name, registered_user.last_name, $report_table.* FROM $report_table LEFT JOIN registered_user on $report_table.user_ID = registered_user.user_ID WHERE fund_ID = $row->ID ORDER BY date DESC";
                         $row->reports = $DB->read($query2);
                         foreach ($row->reports as $report):
                             $dir = "assets/uploads/reports/".$report_table."/".$row->ID."/".$report->user_ID."/";

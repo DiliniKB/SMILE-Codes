@@ -66,12 +66,14 @@
                                                         <?=$report->date?>
                                                     </div>
                                                     <div>
-                                                        <?=$report->feedback?>
-                                                    </div>
-                                                    <div>
                                                         <?=$report->time?>
                                                     </div>
+                                                    <a href="<?=ROOT?>account/<?=$report->user_ID?>">
+                                                        <?=$report->first_name." ".$report->last_name?>  
+                                                        <ion-icon class="arrow"name="arrow-forward-outline"></ion-icon>
+                                                    </a>
                                                 </div>
+                                                <div class="report-text"><?=$report->feedback?></div>
                                                 <div class="report_photos">  
                                                 <?php 
                                                     for($i=2; $i<count($report->images); $i++) :?>
