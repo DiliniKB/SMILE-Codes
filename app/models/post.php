@@ -9,6 +9,7 @@ Class Post{
         $table = $data['table'];
         $valid = 0;
 
+        $allowed[] = "image/jpeg";
         // $valid = (isset($_POST['amount'])&& isset($_POST['keywords'])&& isset($_POST['town'])&& isset($_POST['District'])&&isset($_POST['Title'])&& isset($_POST['description'])&& isset($_POST['accNo'])&& isset($_POST['bankName'])&&isset($_POST['brachName'])&& isset($_POST['accountHolder'])&& isset($_POST['usertype'])&& isset($_FILES['file']));
 
         // echo $valid;
@@ -44,11 +45,12 @@ Class Post{
                 $arr['image'] = $photoname;
                 $arr['date'] = date("Y-m-d");
                 $arr['user'] = $_SESSION['user_id'];
+                $arr['status'] = 1;
 
                 $query = "INSERT INTO $table  
-                (picture ,town, district, item, content, post_type, keywords, user_ID,member_ID1,member_ID2,member_ID3,visibility,create_date) 
+                (picture ,town, district, item, content, post_type, keywords, user_ID,member_ID1,member_ID2,member_ID3,visibility,create_date,status) 
                 VALUES 
-                (:image,:town,:district, :item, :description, :posttype,:keywords,:user,:member_ID1,:member_ID2,:member_ID3,:anonymous,:date)";
+                (:image,:town,:district, :item, :description, :posttype,:keywords,:user,:member_ID1,:member_ID2,:member_ID3,:anonymous,:date,:status)";
             
                 echo $query;    
 
@@ -72,7 +74,7 @@ Class Post{
         $limit = 12;
         $offset = ($page_number - 1) * $limit;
         $tablename = strtolower($cat."post");
-        $query = "SELECT * FROM $tablename ORDER BY ID DESC LIMIT $limit OFFSET $offset";
+        $query = "SELECT * FROM $tablename where status = 1 ORDER BY ID DESC LIMIT $limit OFFSET $offset";
         // echo $query;
 
         $DB = new Database();
@@ -165,18 +167,66 @@ Class Post{
         
         $k = $data['keyword'];
         $l = $data['location'];
+        $s = $data['sort'];
         $sign = "%";
         $keywords = $sign.$k.$sign;
         $location = $sign.$l.$sign;
         
-        $query = "SELECT * FROM $table WHERE (town LIKE '$location' OR district LIKE '$location') AND keywords LIKE '$keywords'";
-        $data = $DB->read($query);
-        //  
+        switch ($s){
+            case 1:
+                $order = 'create_date DESC';
+                break;
+            case 2:
+                $order = 'create_date ASC';
+                break;
+            default:
+                $order = 'id ASC';   
+        }
+
+        $query = "SELECT * FROM $table WHERE (town LIKE '$location' OR district LIKE '$location') AND keywords LIKE '$keywords' AND status = 1 ";
+        $data = $DB->read($query); 
         
         if ($data){
             return $data;
         }
         return false;
+    }
+
+    function enter_comment($table,$postId,$comment,$user){
+        $DB = new Database();
+        $_SESSION['error']=""; 
+        $table = $table."_comment";
+        $arr['date'] = date("Y-m-d");
+        $arr['time'] = date("H:i:s");
+        $arr['comment'] = $comment;
+        $arr['user'] = $user;
+        $arr['postId'] = $postId;
+        $query = "INSERT INTO $table (post_ID,user_ID,date,time,comment) VALUES (:postId,:user,:date,:time,:comment)";
+
+        $result = $DB->write($query,$arr);
+        
+        if($result){
+            return true;
+        }
+        else {
+            return false;
+        }
+
+    }
+    function load_comments($table, $postId){
+        $DB = new Database();
+        $_SESSION['error']=""; 
+        $table = $table."_comment";
+        $query = "SELECT * FROM $table INNER JOIN registered_user ON $table.user_ID = registered_user.user_ID WHERE post_ID = $postId ORDER BY date AND time LIMIT 20";
+        $result = $DB->read($query);
+
+        if($result){
+            return $result;
+        }
+        else {
+            return false;
+        }
+
     }
 
     function delete_post($table, $id)
