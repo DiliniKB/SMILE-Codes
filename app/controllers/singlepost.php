@@ -23,6 +23,43 @@ Class singlepost extends Controller
                 $data['creaters'][$i] = $creaters->search_user_by_id($data['post']->$member);
             }
         }
+        $today = date_create(date('Y-m-d'));
+        $create = date_create($data['post']->create_date);
+        $dategap = date_diff($create,$today);
+        $data['dategap'] = '';
+        if($dategap->y){
+            $data['dategap'] =+ $dategap->y." Years ";
+        }
+        if($dategap->m){
+            $data['dategap'] =+ $dategap->m." Months ";
+        }
+        if($dategap->d){
+            $data['dategap'] =+ $dategap->d." Days";
+        }
+        if($today == $create){
+            $data['dategap'] = 'Today';
+        }else{
+            $data['dategap'] = $data['dategap']." ago";
+        }
+
+        $comments = $posts->load_comments($data['table'],$data['id']);
+        $data['comments'] = $comments;
+
+        if ($_POST) {
+            show($_POST);
+            if(empty($_SESSION['user_id'])){
+                $result = $posts->enter_comment($data['table'],$data['id'],$_POST['comment'],0);
+            }
+            else{
+                $result = $posts->enter_comment($data['table'],$data['id'],$_POST['comment'],$_SESSION['user_id']);
+            }
+            
+            unset($_POST); 
+            if ($result){
+                header("Refresh:0"); 
+            }
+        }
+
 
         //show($_SESSION);
         //show($data); 
