@@ -10,19 +10,19 @@ Class Account extends Controller
         $info = $user->search_user_by_id($id);
         $data['info'] = $info;
 
-        $funds = $user->get_active_funds($id);
+        $funds = $user->get_funds($id,"active");
         $data['activefunds'] = $funds;
 
-        $funds = $user->get_filled_funds($id);
+        $funds = $user->get_funds($id,"filled");
         $data['filledfunds'] = $funds;
 
-        $funds = $user->get_settled_funds($id);
+        $funds = $user->get_funds($id,"settled");
         $data['settledfunds'] = $funds;
 
-        $posts = $user->get_active_posts($id);
+        $posts = $user->get_posts($id,"active");
         $data['activeposts'] = $posts;
 
-        $posts = $user->get_settled_posts($id);
+        $posts = $user->get_posts($id,"complete");
         $data['settledposts'] = $posts;
         // show($data);
 

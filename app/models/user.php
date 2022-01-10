@@ -329,13 +329,27 @@ Class input_checks{
             return true;
         }
 
-        function get_active_funds($id){// set
+        function get_funds($id,$case=""){// set
 
             $DB = new Database();
 
+            switch ($case){
+                case "active":
+                    $condition = "amount>filled";
+                    break;
+                case "filled":
+                    $condition = "amount < filled OR amount==filled";
+                    break;
+                case "settled":
+                    $condition = "status == 1";
+                    break;
+                default:
+                    $condition = "true";
+            }
+
             $tables = array('medicalfund','animalcarefund','seniorcarefund','childrenfund','educationfund','otherfund');
             foreach($tables as $table):
-                $query = "SELECT * FROM $table WHERE user_ID = $id AND amount>filled ";
+                $query = "SELECT * FROM $table WHERE user_ID = $id AND $condition ";
                 $row = $DB->read($query);
                 if(is_array($row)){
                     $result[$table] = $row;
@@ -359,72 +373,38 @@ Class input_checks{
             return false;
         }
 
-        function get_filled_funds($id){
-            $DB = new Database();
-
-            $tables = array('medicalfund','animalcarefund','seniorcarefund','childrenfund','educationfund','otherfund');
-            foreach($tables as $table):
-                $query = "SELECT * FROM $table WHERE user_ID = $id AND (amount<filled OR amount==filled)";
-                $row = $DB->read($query);
-                if(is_array($row)){
-                    $result[$table] = $row;
-                    foreach ($result[$table] as $row):
-                        $row->table = $table;
-                        $report_table = $table."_report";
-                        $query2 = "SELECT * FROM $report_table WHERE fund_ID = $row->ID";
-                        $row->reports = $DB->read($query2);
-                    endforeach;
-                }
-            endforeach;    
-
-            if(isset($result))
-            {
-                return $result;
-            }
-            return false;
-        }
-
-        function get_settled_funds($id){
-            $DB = new Database();
-
-            $tables = array('medicalfund','animalcarefund','seniorcarefund','childrenfund','educationfund','otherfund');
-            foreach($tables as $table):
-                $query = "SELECT * FROM $table WHERE user_ID = $id AND status==1 ";
-                $row = $DB->read($query);
-                if(is_array($row)){
-                    $result[$table] = $row;
-                    foreach ($result[$table] as $row):
-                        $row->table = $table;
-
-                        $report_table = $table."_report";
-                        $query2 = "SELECT * FROM $report_table WHERE fund_ID = $row->ID";
-                        $row->reports = $DB->read($query2);
-
-                    endforeach;
-                }
-            endforeach;    
-
-            if(isset($result))
-            {
-                return $result;
-            }
-            return false;
-        }
     
-        function get_active_posts($id){
+        function get_posts($id,$case=""){
+
             $DB = new Database();
+
+            switch($case){
+                case "active":
+                    $condition = "status=1";
+                    break;
+                case "complete":
+                    $condition = "status=0";
+                    break;
+                default:
+                    $condition = "true";
+                    break;
+            }
 
             $tables = array('medicalpost','animalcarepost','seniorcarepost','childrenpost','educationpost','otherpost');
             foreach($tables as $table):
-                $query = "SELECT * FROM $table WHERE user_ID = $id AND status=1";
+                $query = "SELECT * FROM $table WHERE user_ID = $id AND $condition";
                 $row = $DB->read($query);
-                if(is_array($row)){
+                if(($row)){  
                     $result[$table] = $row;
                     foreach ($result[$table] as $row):
                         $row->table = $table;
                         $report_table = $table."_report";
-                        $query2 = "SELECT * FROM $report_table WHERE post_ID = $row->ID";
+                        $query2 = "SELECT registered_user.first_name, registered_user.last_name, $report_table.* FROM $report_table LEFT JOIN registered_user on $report_table.user_ID = registered_user.user_ID WHERE post_ID = $row->ID ORDER BY date DESC";
                         $row->reports = $DB->read($query2);
+                        foreach ($row->reports as $report):
+                            $dir = "assets/uploads/reports/".$report_table."/".$row->ID."/".$report->user_ID."/";
+                            $report->images = scandir($dir);
+                        endforeach;
                     endforeach;
                 }
             endforeach;    
@@ -432,32 +412,6 @@ Class input_checks{
             if(isset($result))
             {
                 
-                return $result;
-            }
-            return false;
-        }
-    
-
-        function get_settled_posts($id){
-            $DB = new Database();
-
-            $tables = array('medicalpost','animalcarepost','seniorcarepost','childrenpost','educationpost','otherpost');
-            foreach($tables as $table):
-                $query = "SELECT * FROM $table WHERE user_ID = $id AND status=0";
-                $row = $DB->read($query);
-                if(is_array($row)){
-                    $result[$table] = $row;
-                    foreach ($result[$table] as $row):
-                        $row->table = $table;
-                        $report_table = $table."_report";
-                        $query2 = "SELECT * FROM $report_table WHERE post_ID = $row->ID";
-                        $row->reports = $DB->read($query2);
-                    endforeach;
-                }
-            endforeach;    
-
-            if(isset($result))
-            {
                 return $result;
             }
             return false;

@@ -70,7 +70,7 @@
                                                     </div>
                                                     <a href="<?=ROOT?>account/<?=$report->user_ID?>">
                                                         <?=$report->first_name." ".$report->last_name?>  
-                                                        <ion-icon class="arrow"name="arrow-forward-outline"></ion-icon>
+                                                        <ion-icon class="a"name="arrow-forward-outline"></ion-icon>
                                                     </a>
                                                 </div>
                                                 <div class="report-text"><?=$report->feedback?></div>
@@ -121,22 +121,42 @@
                                             </div>    
                                         </div>
                                     </div>
-                                    <div class="reportbox" id="reportbox">
-                                        <?php if(property_exists($row, 'reports')):?>
-                                            <?php foreach($row->reports as $report):?>
-                                                <tr>
-                                                    <td>
+                                   <div class="reportbox" id="reportbox">
+                                    <?php if(property_exists($row, 'reports')):?>
+                                    <?php foreach($row->reports as $report):?>
+                                        <div class = single_report>
+                                            <div class="short_report">
+                                                <div>
+                                                    <?=$report->feedback?>
+                                                </div>
+                                                <div>
+                                                    <button onclick="display_report(this);">Detailed Report</button>                                            
+                                                </div>
+                                            </div>
+                                            <div class="display-report">
+                                                <div class = "report_details">
+                                                    <div>
                                                         <?=$report->date?>
-                                                    </td>
-                                                    <td>
-                                                        <?=$report->feedback?>
-                                                    </td>
-                                                    <td>
-                                                        <button>Detailed Report</button>                                            
-                                                    </td>
-                                                </tr>
-                                            <?php endforeach;?>
-                                        <?php endif; ?>
+                                                    </div>
+                                                    <div>
+                                                        <?=$report->time?>
+                                                    </div>
+                                                    <a href="<?=ROOT?>account/<?=$report->user_ID?>">
+                                                        <?=$report->first_name." ".$report->last_name?>  
+                                                        <ion-icon class="a"name="arrow-forward-outline"></ion-icon>
+                                                    </a>
+                                                </div>
+                                                <div class="report-text"><?=$report->feedback?></div>
+                                                <div class="report_photos">  
+                                                <?php 
+                                                    for($i=2; $i<count($report->images); $i++) :?>
+                                                        <img class="report_photo" src="<?=ASSETS?>uploads/reports/<?=$row->table?>_report/<?=$report->fund_ID?>/<?=$report->user_ID?>/<?=$report->images[$i]?>">
+                                                    <?php endfor; ?>
+                                                </div>  
+                                            </div> 
+                                        </div> 
+                                    <?php endforeach;?>
+                                    <?php endif; ?>
                                     </div>
                                 </div>
                                 <?php endforeach; ?>  
@@ -175,21 +195,41 @@
                                         </div>
                                     </div>
                                     <div class="reportbox" id="reportbox">
-                                        <?php if(property_exists($row, 'reports')):?>
-                                            <?php foreach($row->reports as $report):?>
-                                                <tr>
-                                                    <td>
+                                    <?php if(property_exists($row, 'reports')):?>
+                                    <?php foreach($row->reports as $report):?>
+                                        <div class = single_report>
+                                            <div class="short_report">
+                                                <div>
+                                                    <?=$report->feedback?>
+                                                </div>
+                                                <div>
+                                                    <button onclick="display_report(this);">Detailed Report</button>                                            
+                                                </div>
+                                            </div>
+                                            <div class="display-report">
+                                                <div class = "report_details">
+                                                    <div>
                                                         <?=$report->date?>
-                                                    </td>
-                                                    <td>
-                                                        <?=$report->feedback?>
-                                                    </td>
-                                                    <td>
-                                                        <button>Detailed Report</button>                                            
-                                                    </td>
-                                                </tr>
-                                            <?php endforeach;?>
-                                        <?php endif; ?>
+                                                    </div>
+                                                    <div>
+                                                        <?=$report->time?>
+                                                    </div>
+                                                    <a href="<?=ROOT?>account/<?=$report->user_ID?>">
+                                                        <?=$report->first_name." ".$report->last_name?>  
+                                                        <ion-icon class="a"name="arrow-forward-outline"></ion-icon>
+                                                    </a>
+                                                </div>
+                                                <div class="report-text"><?=$report->feedback?></div>
+                                                <div class="report_photos">  
+                                                <?php 
+                                                    for($i=2; $i<count($report->images); $i++) :?>
+                                                        <img class="report_photo" src="<?=ASSETS?>uploads/reports/<?=$row->table?>_report/<?=$report->fund_ID?>/<?=$report->user_ID?>/<?=$report->images[$i]?>">
+                                                    <?php endfor; ?>
+                                                </div>  
+                                            </div> 
+                                        </div> 
+                                    <?php endforeach;?>
+                                    <?php endif; ?>
                                     </div>
                                 </div>
                                 <?php endforeach; ?>  
@@ -235,22 +275,41 @@
                                         </div>
                                     </div> 
                                     <div class="reportbox" id="reportbox">
-                                        <?php if(property_exists($row, 'reports')):?>
-                                            <?php foreach($row->reports as $report):?>
-                                                <tr>
-                                                    <td>
+                                    <?php if(property_exists($row, 'reports')):?>
+                                    <?php foreach($row->reports as $report):?>
+                                        <div class = single_report>
+                                            <div class="short_report">
+                                                <div>
+                                                    <?=$report->feedback?>
+                                                </div>
+                                                <div>
+                                                    <button onclick="display_report(this);">Detailed Report</button>                                            
+                                                </div>
+                                            </div>
+                                            <div class="display-report">
+                                                <div class = "report_details">
+                                                    <div>
                                                         <?=$report->date?>
-                                                    </td>
-                                                    <td>
-                                                        <?=$report->feedback?>
-                                                    </td>
-                                                    <td>
-                                                        <button>Detailed Report</button>                                            
-                                                    </td>
-                                                </tr>
-                                                </>
-                                            <?php endforeach;?>
-                                        <?php endif; ?>
+                                                    </div>
+                                                    <div>
+                                                        <?=$report->time?>
+                                                    </div>
+                                                    <a href="<?=ROOT?>account/<?=$report->user_ID?>">
+                                                        <?=$report->first_name." ".$report->last_name?>  
+                                                        <ion-icon class="a"name="arrow-forward-outline"></ion-icon>
+                                                    </a>
+                                                </div>
+                                                <div class="report-text"><?=$report->feedback?></div>
+                                                <div class="report_photos">  
+                                                <?php 
+                                                    for($i=2; $i<count($report->images); $i++) :?>
+                                                        <img class="report_photo" src="<?=ASSETS?>uploads/reports/<?=$row->table?>_report/<?=$report->fund_ID?>/<?=$report->user_ID?>/<?=$report->images[$i]?>">
+                                                    <?php endfor; ?>
+                                                </div>  
+                                            </div> 
+                                        </div> 
+                                    <?php endforeach;?>
+                                    <?php endif; ?>
                                     </div>
                                 </div> 
                                 <?php endforeach; ?>  
@@ -288,21 +347,41 @@
                                         </div>
                                     </div> 
                                     <div class="reportbox" id="reportbox">
-                                        <?php if(property_exists($row, 'reports')):?>
-                                            <?php foreach($row->reports as $report):?>
-                                                <tr>
-                                                    <td>
+                                    <?php if(property_exists($row, 'reports')):?>
+                                    <?php foreach($row->reports as $report):?>
+                                        <div class = single_report>
+                                            <div class="short_report">
+                                                <div>
+                                                    <?=$report->feedback?>
+                                                </div>
+                                                <div>
+                                                    <button onclick="display_report(this);">Detailed Report</button>                                            
+                                                </div>
+                                            </div>
+                                            <div class="display-report">
+                                                <div class = "report_details">
+                                                    <div>
                                                         <?=$report->date?>
-                                                    </td>
-                                                    <td>
-                                                        <?=$report->feedback?>
-                                                    </td>
-                                                    <td>
-                                                        <button>Detailed Report</button>                                            
-                                                    </td>
-                                                </tr>
-                                            <?php endforeach;?>
-                                        <?php endif; ?>
+                                                    </div>
+                                                    <div>
+                                                        <?=$report->time?>
+                                                    </div>
+                                                    <a href="<?=ROOT?>account/<?=$report->user_ID?>">
+                                                        <?=$report->first_name." ".$report->last_name?>  
+                                                        <ion-icon class="a"name="arrow-forward-outline"></ion-icon>
+                                                    </a>
+                                                </div>
+                                                <div class="report-text"><?=$report->feedback?></div>
+                                                <div class="report_photos">  
+                                                <?php 
+                                                    for($i=2; $i<count($report->images); $i++) :?>
+                                                        <img class="report_photo" src="<?=ASSETS?>uploads/reports/<?=$row->table?>_report/<?=$report->fund_ID?>/<?=$report->user_ID?>/<?=$report->images[$i]?>">
+                                                    <?php endfor; ?>
+                                                </div>  
+                                            </div> 
+                                        </div> 
+                                    <?php endforeach;?>
+                                    <?php endif; ?>
                                     </div>
                                 </div> 
                                 <?php endforeach; ?>  

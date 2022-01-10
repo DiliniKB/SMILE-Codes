@@ -222,13 +222,14 @@ tr:nth-child(even) {
 }
 .report_photo{
     width: 13%;
-    transition: transform 50ms ease;
+    transition: transform 0.5s ease 50ms;
+    /* position: sticky; */
 }
 .report_photo:hover {
     -ms-transform: scale(1.5); /* IE 9 */
     -webkit-transform: scale(1.5); /* Safari 3-8 */
-    transform: scale(5.5); 
-    position: absolute;
+    transform: scale(6);
+    /* position: static; */
   }
 .display-report{
     display: none;
