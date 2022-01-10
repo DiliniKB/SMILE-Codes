@@ -11,7 +11,7 @@
 </head>
 
 <body onload="showProgress(<?=$data['fund']->filled?>,<?=$data['fund']->amount?>);">
-<div class="container">
+    <div class="container">
         <div class="c1">
             <img src="<?=ASSETS?>Images/mainPages/<?=$data['table']?>/<?=$data['fund']->picture?>" class="photo">
             <div class="detail">
