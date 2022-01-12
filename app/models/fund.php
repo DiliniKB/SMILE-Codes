@@ -134,7 +134,7 @@ Class fund{
         for ($i=0; $i < count($data['photos']['photo']['name']); $i++) { 
             if($data['photos']['photo']['name'][$i]!="" && $data['photos']['photo']['error'][$i]== 0 && in_array($data['photos']['photo']['type'][$i],$allowed))
             {
-                $folder1 = "uploads/reports/".$tablename;
+                $folder1 = "assets/uploads/reports/".$tablename;
                 $folder2 = $folder1."/".$arr['fund'];
                 $folder3 = $folder2."/".$arr['user'];
 

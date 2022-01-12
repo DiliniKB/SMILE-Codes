@@ -62,7 +62,7 @@ Class singlefund extends Controller
         }
 
         // show($data);
-        // show($_SESSION); 
+        show($_SESSION); 
 
         $this->view("viewfund",$data);
     }

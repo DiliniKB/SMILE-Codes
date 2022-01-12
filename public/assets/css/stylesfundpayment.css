@@ -215,9 +215,11 @@
 }
 .anon{
     font-family: 'Roboto';
-    /* position: relative; */
+    position: relative;
     left: 49%;
-    top: 47%;
+    font-size: large;
+    top: -7%;
+    cursor: pointer;
 }
 #move{
   visibility: hidden;
@@ -283,7 +285,7 @@ input[type="text"]::placeholder,input[type="number"]::placeholder,input[type="da
 	border-bottom: 1px solid #04aa6d ;
 }
 .topic{
-  font-family: 'Work Sans';
+  font-family: "";
   font-size: 24px;
   align-self: center;
   margin-bottom: 0px;
@@ -308,4 +310,19 @@ input[type="text"]::placeholder,input[type="number"]::placeholder,input[type="da
   box-shadow: 3px 4px 4px 0px rgb(74 85 188 / 42%);
   /* outline: none; */
   margin: none;
+}
+.user-tip{
+  display: none;
+  background: rgb(98 98 98);
+  color: white;
+  font-family: 'Roboto';
+  width: 27%;
+  position: absolute;
+  font-size: 14px;
+  padding: 10px;
+  margin-top: 7px;
+}
+
+.anon:hover .user-tip {
+  display: block;
 }

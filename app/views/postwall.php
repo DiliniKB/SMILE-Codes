@@ -1,15 +1,24 @@
- <?php $this->view("header",$data);?>
+<?php $this->view("header",$data);?>
 <head>
 
     <link rel="stylesheet" href="<?=ASSETS?>css/styles.css">
     <link rel="stylesheet" href="<?=ASSETS?>css/stylesBigheader.css">
     <link rel="stylesheet" href="<?=ASSETS?>css/stylesMaterialWall.css">      
-
-    <script type="text/javascript" src="<?=ASSETS?>js/postwall.js"></script>
-
+        
 </head>
 
-<body>    
+<body>
+        
+    <script>
+        function openForm() {
+            document.getElementById("SForm").style.display = "block";
+        }
+        
+        function closeForm() {
+            document.getElementById("SForm").style.display = "none";
+        }
+    </script>
+    
     <!-- <div class="bg2" onclick="closeForm();closeChat()"></div> -->
                       
 
@@ -19,14 +28,15 @@
     <a id="ButtonM" href="." >Material Sharing</a>  -->
 
     <!--filter -->
-    <img id="filterButton" src="<?=ASSETS?>/Images/mainPages/Sliders.png" onclick='displayFilter()'>
+    <img id="filterButton" src="<?=ASSETS?>/Images/mainPages/Sliders.png" onclick="openForm()">
 
     <div class="form-popup" id="SForm">
-        <form method="POST" class="form-container">
+        <form action="/action_page.php" class="form-container">
             <label for="sortBy">Sort By</label>
-            <select class="Sort" data-filter-group="SortingOptions" name="sort" >
-                <option value="1">Recent</li>
-                <option value="2">Oldest</li>    
+            <select class="Sort" data-filter-group="SortingOptions">
+                <option value=".trending" selected="selected">Trending</option>
+                <option value=".recent">Recent</li>
+                <option value=".oldest">Oldest</li>       
             </select><br><br>
 
             <label for="location">Location</label>
@@ -55,8 +65,6 @@
                     <div class="title"><?=$row->content?></div>
                 </a>       
             <?php endforeach; ?>  
-        <?php else: ?>
-            <p class=noResult>No results available.</p>  
         <?php endif; ?>  
     </div>
 

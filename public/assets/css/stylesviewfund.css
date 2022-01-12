@@ -384,7 +384,7 @@ progress[value]::-webkit-progress-value {
     padding: 2% 2%;
 }
 
-.button2:hover {
+button2:hover {
     background: transparent;
     box-shadow: 0px 0px 0px transparent;
     border: 0px solid transparent;
