@@ -11,15 +11,10 @@
             $data['page_title'] = $data['category']." ".$data['type'];
 
             $posts = $this->loadModel("post");
-            if ($_POST) {
-                show($_POST);
-                // show($data);
-                $results = $posts->get_search_and_sort($_POST,$data['table']);
-
-            }else{
-                $results = $posts->view_all_posts($data['category']);
-            }
+            $results = $posts->view_all_posts($data['category']);
             $data['posts'] = $results;
+
+            //show($data);
 
             $this->view($data['type']."wall",$data);
         }

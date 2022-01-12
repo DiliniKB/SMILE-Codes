@@ -24,6 +24,9 @@
         </div>
         <div class="anon" >
             <input type="checkbox" name="Anonymous" > Anonymous
+            <div class="user-tip">
+                <div> Your donation may mention publicly in some places, to avoid mentioning your name in your donation you can make it anonymous here.</div>
+            </div>
         </div>
         <div class="tipbox">
             <div class="text2">
@@ -38,7 +41,7 @@
                 <span id="tip-preview" class="range-slider__value"></span>
             </div>
             <div class="text3">
-                Our website is totaly free for anyone to use. Your contribution is much important as we have to cover our expenditures to continue our services. 
+                 *** Our website is totaly free for anyone to use. Your contribution is much important as we have to cover our expenditures to continue our services. 
             </div>
         </div>
     </div>
@@ -83,7 +86,7 @@
         </div>
         <input type="date" placeholder="Expire at" name="exp_date" id="exp_date" class="in">
         <input type="number" placeholder="CVV" name="CVV" id="CVV" class="in">
-        <button class="card" type="submit">Next</>
+        <button class="card" type="submit">Next</button>
     </form>
     
 </body>

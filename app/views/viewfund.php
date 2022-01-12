@@ -11,7 +11,7 @@
 </head>
 
 <body onload="showProgress(<?=$data['fund']->filled?>,<?=$data['fund']->amount?>);">
-    <div class="container">
+<div class="container">
         <div class="c1">
             <img src="<?=ASSETS?>Images/mainPages/<?=$data['table']?>/<?=$data['fund']->picture?>" class="photo">
             <div class="detail">
@@ -32,24 +32,24 @@
                     </div>
                 </div>
                 <div class="r3">
-                    <div class="user" <?php if($_SESSION['user_status']){?> style="cursor:pointer;" onclick="location.href='<?=ROOT?>account/<?=$data['creaters'][0]->user_ID ?>'"<?php } ?>>
+                    <div class="user" <?php if(array_key_exists('user_status',$_SESSION) AND $_SESSION['user_status'] ){?> style="cursor:pointer;" onclick="location.href='<?=ROOT?>account/<?=$data['creaters'][0]->user_ID ?>'"<?php } ?>>
                             <img src="<?=ASSETS?>/images/mainPages/User.png" class="userImg">
                             <div class="userName" style=" font-weight: 500;"><?=($data['creaters'][0])?($data['creaters'][0]->first_name." ".$data['creaters'][0]->last_name):'Invalid User'?></div>
                     </div>
                 <?php if($data['fund']->member_ID1){ ?> 
-                    <div class="user" <?php if($_SESSION['user_status']){?> style="cursor:pointer;" onclick="location.href='<?=ROOT?>account/<?=$data['creaters'][1]->user_ID ?>'"<?php } ?>>
+                    <div class="user" <?php if(array_key_exists('user_status',$_SESSION) AND $_SESSION['user_status']){?> style="cursor:pointer;" onclick="location.href='<?=ROOT?>account/<?=$data['creaters'][1]->user_ID ?>'"<?php } ?>>
                         <img src="<?=ASSETS?>/images/mainPages/User.png" class="userImg">
                         <div class="userName"><?=$data['creaters'][1]->first_name." ".$data['creaters'][1]->last_name?></div>
                     </div>
                 <?php } ?>
                 <?php if($data['fund']->member_ID2){ ?>
-                    <div class="user" <?php if($_SESSION['user_status']){?> style="cursor:pointer;" onclick="location.href='<?=ROOT?>account/<?=$data['creaters'][2]->user_ID ?>'"<?php } ?>>
+                    <div class="user" <?php if(array_key_exists('user_status',$_SESSION) AND $_SESSION['user_status']){?> style="cursor:pointer;" onclick="location.href='<?=ROOT?>account/<?=$data['creaters'][2]->user_ID ?>'"<?php } ?>>
                         <img src="<?=ASSETS?>/images/mainPages/User.png" class="userImg">
                         <div class="userName"><?=$data['creaters'][2]->first_name." ".$data['creaters'][2]->last_name?></div>
                     </div>
                 <?php } ?>
                 <?php if($data['fund']->member_ID3){ ?>
-                    <div class="user" <?php if($_SESSION['user_status']){?> style="cursor:pointer;" onclick="location.href='<?=ROOT?>account/<?=$data['creaters'][3]->user_ID ?>'"<?php } ?>>
+                    <div class="user" <?php if(array_key_exists('user_status',$_SESSION) AND $_SESSION['user_status']){?> style="cursor:pointer;" onclick="location.href='<?=ROOT?>account/<?=$data['creaters'][3]->user_ID ?>'"<?php } ?>>
                         <img src="<?=ASSETS?>/images/mainPages/User.png" class="userImg">
                         <div class="userName"><?=$data['creaters'][3]->first_name." ".$data['creaters'][3]->last_name?></div>
                     </div>

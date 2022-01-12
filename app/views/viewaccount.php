@@ -351,7 +351,7 @@
                                     <?php foreach($row->reports as $report):?>
                                         <div class = single_report>
                                             <div class="short_report">
-                                                <div>
+                                                <div style="overflow: hidden;">
                                                     <?=$report->feedback?>
                                                 </div>
                                                 <div>
