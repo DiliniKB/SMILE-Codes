@@ -20,7 +20,7 @@
 .container{
 	/* left: 5%; */
 	top: 20%;
-	/* width: fit-content; */
+	width: 100%;
 	height: fit-content;
 	display: flex;
 	flex-direction: row;
@@ -33,47 +33,29 @@
     height: 311px;
     display: grid;
     margin: 30px;
-    border-radius: 5%;
     font-family: 'Merriweather', serif;
     font-size: 14px;
-    background: #FFFFFF;
-    box-shadow: 0px 0px 50px 15px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
+    background:#ffffff;
+    box-shadow: 0px 0px 7px 4px rgba(0, 0, 0, 10%);
+    text-decoration: none;
+    transition: transform .2s;
 }
 .fpost:hover{
-	transition-delay: 250ms;
-	box-shadow: 9px 7px 50px 19px rgb(0 0 0 / 10%);
-	/* width: 260px; */
-	height: 316px;
-	transition-timing-function: ease;
+	/* transition-delay: 250ms; */
+	/* box-shadow: 9px 7px 50px 19px rgb(0 0 0 / 10%); */
+	/* width: 300px; */
+	/* height: 260px; */
+	/* border: none; */
 }
 .fpost:hover>.photo{
-	transition-timing-function: ease;
-	max-width: 260px;
-	height: 160px;
-	transition-delay: 260ms;
+	/* width: 300px; */
+	/* height: 145px; */
+	/* transition-delay: 250ms; */
 }
 .photo{
-	max-width: 250px;
-	height: 150px;
+	max-width: 248px;
+	height: 135px;
 	justify-self: center;
-	border-radius: 5%;
-}
-.chaticon{
-	padding: 12px;
-	background-color: #868a92;
-	border-radius: 100%;
-	position: relative;
-	left: 86%;
-	bottom: 448%;
-	z-index: 0;
-	/* box-shadow: 9px 13px 50px 15px rgb(0 0 0 / 7%); */
-}
-.fpost:hover>.chaticon{
-	transition-timing-function: ease;
-	bottom: 490%;
-	left: 89%;
-	transition-delay: 250ms;
 }
 .town{
 	text-align:left;
@@ -177,32 +159,25 @@ progress::-webkit-progress-value {
 #filterButton{
 	position: absolute;
 	top: 14.5%;
-	left: 38%;
+	left: 62%;
 }
 .form-popup {
-	display: none;
-	left: 46.5%;
-	top: 42%;
-	/* margin-top: -95%; */
-	/* margin-left: 14%; */
-	/* position: absolute; */
-	/* left: 29%; */
-	font-family: 'Work Sans';
-	border: 3px solid rgb(0 0 0 / 77%);
+	/* display: none; */
+	top: 12%;
+	position: absolute;
+	left: 66%;
+	border: 3px solid #f1f1f1;
 	z-index: 9;
-	background-color: #ffffff;
-	padding: 17px;
-	position: fixed;
-	/* width: fit-content; */
-	/* display: flex; */
-	/* flex-direction: row; */
+	background-color: whitesmoke;
+	box-shadow: 3px 4px 4px 0px rgb(74 85 188 / 42%);
 }
 .form-container{
 	/* width: 85%; */
 	font-family: 'Sora';
 	padding: 5%;
-	
+	/* display: flex; */
 	padding-right: -16%;
+	flex-direction: column;
 }
   
 .Sort{
@@ -226,6 +201,7 @@ progress::-webkit-progress-value {
 	padding: 2px;
 	padding-left: 8px;
 	font-size: 15px;
+	margin-left: 10px;
 }
 
 .inputF>:focus-visible{
@@ -240,28 +216,21 @@ progress::-webkit-progress-value {
 	font-size: 14px;
 	padding: 6px 10px;
 	text-align: center;
+	/* margin: 0px auto; */
+	/* align-self: center; */
 }
 
 #plus{
 	padding: 7px;
 	background-color: #76bda3;
-	color: white;
 	font-size: 58px;
+	color: white;
 	border-radius: 100%;
 	/* width: 67px; */
 	position: fixed;
 	top: 83%;
 	right: 3%;
 	box-shadow: 2px 2px 14px 4px #999999c2;
-}
-.form-popup2 {
-	display: none;
-	top: 12%;
-	position: fixed;
-	left: 20.5%;
-	border: 3px solid #f1f1f1;
-	z-index: 9;
-	background-color: whitesmoke;
 }
 .popuptext{
     display: flex;
@@ -297,51 +266,12 @@ textarea:focus-visible {
 	left: 27%;
 	font-size: 13px;
 }
-/* Popup container */
-
-  
-  /* The actual popup (appears on top) 
- .popuptext {
-	visibility: hidden;
-	width: 160px;
-	background-color: #555;
-	color: #fff;
-	text-align: center;
-	border-radius: 6px;
-	padding: 8px 0;
+.noResult{
+	font-family: 'Work sans';
+	font-size: 23px;
 	position: absolute;
-	z-index: 1;
-	bottom: 125%;
-	left: 50%;
-	margin-left: -80px;
-  }
-  
-  /* Popup arrow 
- .popuptext::after {
-	content: "";
-	position: absolute;
-	top: 100%;
-	left: 50%;
-	margin-left: -5px;
-	border-width: 5px;
-	border-style: solid;
-	border-color: #555 transparent transparent transparent;
-  }
-  
-  /* Toggle this class when clicking on the popup container (hide and show the popup) 
- .show {
-	visibility: visible;
-	-webkit-animation: fadeIn 1s;
-	animation: fadeIn 1s
-  }
-  
-  /* Add animation (fade in the popup) 
-  @-webkit-keyframes fadeIn {
-	from {opacity: 0;}
-	to {opacity: 1;}
-  }
-  
-  @keyframes fadeIn {
-	from {opacity: 0;}
-	to {opacity:1 ;}
-  }*
+	left: 45%;
+	/* justify-self: center; */
+	/* top: 117%; */
+	/* margin: 100px auto; */
+}
