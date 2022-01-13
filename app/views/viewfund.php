@@ -11,6 +11,8 @@
 </head>
 
 <body onload="showProgress(<?=$data['fund']->filled?>,<?=$data['fund']->amount?>);">
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v12.0" nonce="mWGss2Ry"></script>
 <div class="container">
         <div class="c1">
             <img src="<?=ASSETS?>Images/mainPages/<?=$data['table']?>/<?=$data['fund']->picture?>" class="photo">
@@ -84,7 +86,17 @@
                 </div>
                 <div class="c4">
                     <div class="count">41<br>Shares </div>
-                    <div class="button1">Share</div> 
+                    <div class="button1" onclick="view_share()">Share</div>
+                    <div class="smbuttons" id="smbuttons">
+                        <div class="fb-share-button" data-href="http://localhost//SMILE/SMILE-git/SMILE-Codes/public/singlefund/<?=$data['category']?>/<?=$data['id']?>" data-layout="button_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%2FSMILE%2FSMILE-git%2FSMILE-Codes%2Fpublic%2Fsinglefund%2FMedical%2F8&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+                        <!-- <a href="whatsapp://send?text=This is WhatsApp sharing example using link" data-action="share/whatsapp/share"  target="_blank"><ion-icon name="logo-whatsapp"></ion-icon> </a>   -->
+                        <!-- <p id="sharelink" style="display:none;">http://localhost//SMILE/SMILE-git/SMILE-Codes/public/singlefund/<?=$data['category']?>/<?=$data['id']?></p> -->
+                        <!-- <a class="twitter-share-button" href="https://twitter.com/share?url=http://localhost//SMILE/SMILE-git/SMILE-Codes/public/singlefund/<?=$data['category']?>/<?=$data['id']?>">Tweet</a> -->
+                        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="<?=$data['fund']->title?>" data-url="http://localhost//SMILE/SMILE-git/SMILE-Codes/public/singlefund/<?=$data['category']?>/<?=$data['id']?>" data-hashtags="SMILE_SRI_LANKA" data-show-count="false" data-size="large" style="border-radius:5px;">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                        <script async src="https://telegram.org/js/telegram-widget.js?15" data-size="large" data-telegram-share-url="http://localhost//SMILE/SMILE-git/SMILE-Codes/public/singlefund/<?=$data['category']?>/<?=$data['id']?>"></script>
+                        <!-- <a href="whatsapp://send" data-text="Take a look at this awesome website:" data-href="" class="wa_btn wa_btn_s" style="display:none">Share</a> -->
+                        <button onclick="copylink()"><ion-icon name="copy-outline"></ion-icon> Copy URL</button>
+                    </div>
                 </div>
             </div>
             <div class="r6">

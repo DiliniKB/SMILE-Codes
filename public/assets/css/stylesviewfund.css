@@ -237,7 +237,7 @@ progress{
     height:10px;
     background:#000000;
 }
-.button1{background: linear-gradient(135deg, #79F1A4 0%, #0E5CAD 100%);width: 113px;height: 44px;text-align: center;display: flex;align-items: center;justify-content: center;color: white;font-weight: 400;padding: 25px;letter-spacing: 2px;}
+.button1{background: linear-gradient(135deg, #79F1A4 0%, #0E5CAD 100%);width: 113px;height: 44px;text-align: center;display: flex;align-items: center;justify-content: center;color: white;font-weight: 400;padding: 25px;letter-spacing: 2px;cursor: pointer;}
 .count{
     text-align: center;
     color: #1566ac;
@@ -454,6 +454,17 @@ button2:hover {
     width: 45%;
     display: flex;
     align-items: center;
+}
+.smbuttons{
+    /* opacity: 0; */
+    display: none;
+    position: absolute;
+    flex-direction: column;
+    left: 97%;
+    row-gap: 12px;
+    width: 10%;
+    align-items: flex-start;
+    /* visibility: hidden; */
 }
 
 .cicon {font-size: 25px;padding: 4%;/* margin-bottom: 0%; */}

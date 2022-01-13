@@ -32,7 +32,22 @@ function showProgress(filled,amount){
     root.style.setProperty('--end-width', width + "%"); 
 }
 
+function copylink() {
+    var copyText = document.getElementById("sharelink");  
+    navigator.clipboard.writeText(copyText.innerHTML);
+    alert("Copied the link: " + copyText.innerHTML);
+}
 
+function view_share(){
+    var z = document.getElementById("smbuttons");
+    if (z.style.display === "none") {
+        z.style.display = "flex";
+    } else {
+        z.style.display = "none";
+    }
+
+}
+  
 // document.addEventListener("DOMContentLoaded", function(event) {
 //     //$('#commentForm').on('submit', function(event){
 //     document.getElementById("commentForm").addEventListener("submit",function(){
