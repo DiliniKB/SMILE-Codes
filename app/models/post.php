@@ -178,6 +178,42 @@ Class Post{
         }
         return false;
     }
+    function enter_comment($table,$postId,$comment,$user){
+        $DB = new Database();
+        $_SESSION['error']=""; 
+        $table = $table."_comment";
+        $arr['date'] = date("Y-m-d");
+        $arr['time'] = date("H:i:s");
+        $arr['comment'] = $comment;
+        $arr['user'] = $user;
+        $arr['postId'] = $postId;
+        $query = "INSERT INTO $table (post_ID,user_ID,date,time,comment) VALUES (:postId,:user,:date,:time,:comment)";
+
+        $result = $DB->write($query,$arr);
+        
+        if($result){
+            return true;
+        }
+        else {
+            return false;
+        }
+
+    }
+    function load_comments($table, $postId){
+        $DB = new Database();
+        $_SESSION['error']=""; 
+        $table = $table."_comment";
+        $query = "SELECT * FROM $table INNER JOIN registered_user ON $table.user_ID = registered_user.user_ID WHERE post_ID = $postId ORDER BY date AND time LIMIT 20";
+        $result = $DB->read($query);
+
+        if($result){
+            return $result;
+        }
+        else {
+            return false;
+        }
+
+    }
 
     function delete_post($table, $id)
     {
