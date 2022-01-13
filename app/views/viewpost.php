@@ -4,7 +4,9 @@
     <link rel="stylesheet" href="<?=ASSETS?>css/styles.css">
     <link rel="stylesheet" href="<?=ASSETS?>css/stylesBigheader.css">
     <link rel="stylesheet" href="<?=ASSETS?>css/stylesviewpost.css">  
-    <link rel="stylesheet" href="<?=ASSETS?>css/stylesfooter.css">          
+    <link rel="stylesheet" href="<?=ASSETS?>css/stylesfooter.css">      
+    
+    <script src="<?=ASSETS?>/js/viewfund.js"></script>  
 </head>
 
 <body>
@@ -14,14 +16,16 @@
             <div class="detail">
                 <div class="r1">
                     <div class="duration">
-                        <?php echo "5days"?>
+                        <ion-icon class="cicon" name="calendar-outline"></ion-icon><?=$data['dategap']?>
                     </div>
                     <div class="keywords">
-                        <?=$data['post']->keywords?>
+                        <ion-icon class="cicon" name="pricetags-outline"></ion-icon><?=$data['post']->keywords?>
                     </div>
                 </div>
                 <div class="r2">
                     <div class="h">
+                        <?php if($data['post']->post_type=="Giftee") echo "Need help :"?>
+                        <?php if($data['post']->post_type=="Donor") echo "Donating :" ?>
                         <?=$data['post']->item?>
                     </div>
                     <div class="description">
@@ -31,24 +35,36 @@
                 <div class="r3">
                     <div class="user" <?php if($_SESSION['user_status']){?>onclick="location.href='<?=ROOT?>account/<?=$data['creaters'][0]->user_ID ?>'"<?php } ?>>
                             <img src="<?=ASSETS?>/images/mainPages/User.png" class="userImg">
-                            <div class="userName" style=" font-weight: 500;"><?=$data['creaters'][0]->first_name." ".$data['creaters'][0]->last_name?></div>
+                            <div class="userName" style=" font-weight: 500;">
+                                <?php if($data['post']->visibility=="off" || $_SESSION['user_status'] == "1") echo $data['creaters'][0]->first_name." ".$data['creaters'][0]->last_name?>
+                                <?php if($data['post']->visibility=="on" && $_SESSION['user_status'] == "0") echo "Anonymous Creator"?>
+                            </div>
                     </div>
                 <?php if($data['post']->member_ID1){ ?> 
                     <div class="user" <?php if($_SESSION['user_status']){?>onclick="location.href='<?=ROOT?>account/<?=$data['creaters'][1]->user_ID ?>'"<?php } ?>>
                         <img src="<?=ASSETS?>/images/mainPages/User.png" class="userImg">
-                        <div class="userName"><?=$data['creaters'][1]->first_name." ".$data['creaters'][1]->last_name?></div>
+                        <div class="userName">
+                            <?php if($data['post']->visibility=="off") echo $data['creaters'][1]->first_name." ".$data['creaters'][1]->last_name?>
+                            <?php if($data['post']->visibility=="on") echo "Anonymous Member"?>
+                        </div>
                     </div>
                 <?php } ?>
                 <?php if($data['post']->member_ID2){ ?>
                     <div class="user" <?php if($_SESSION['user_status']){?>onclick="location.href='<?=ROOT?>account/<?=$data['creaters'][2]->user_ID ?>'"<?php } ?>>
                         <img src="<?=ASSETS?>/images/mainPages/User.png" class="userImg">
-                        <div class="userName"><?=$data['creaters'][2]->first_name." ".$data['creaters'][2]->last_name?></div>
+                        <div class="userName">
+                            <?php if($data['post']->visibility=="off") echo $data['creaters'][2]->first_name." ".$data['creaters'][2]->last_name?>
+                            <?php if($data['post']->visibility=="on") echo "Anonymous Member"?>
+                        </div>
                     </div>
                 <?php } ?>
                 <?php if($data['post']->member_ID3){ ?>
                     <div class="user" <?php if($_SESSION['user_status']){?>onclick="location.href='<?=ROOT?>account/<?=$data['creaters'][3]->user_ID ?>'"<?php } ?>>
                         <img src="<?=ASSETS?>/images/mainPages/User.png" class="userImg">
-                        <div class="userName"><?=$data['creaters'][3]->first_name." ".$data['creaters'][3]->last_name?></div>
+                        <div class="userName">
+                            <?php if($data['post']->visibility=="off") echo $data['creaters'][3]->first_name." ".$data['creaters'][3]->last_name?>
+                            <?php if($data['post']->visibility=="on") echo "Anonymous Member"?>
+                        </div>
                     </div>
                 <?php } ?>
                 </div>
@@ -74,12 +90,12 @@
 
                 <!--chat-->
                 <div class="chat">For More Info</div>
-                <form action= "mailto: <?php echo $to ?> ?cc= <?php if($memberID1) echo $to1.";" ?> <?php if($memberID2) echo $to2. ";" ?> <?php if($memberID3) echo $to3.";" ?>&subject= <?php echo $subject?>" method="POST" enctype="multipart/form-data">
+                    <form action= "mailto: <?php echo $to ?> ?cc= <?php if($memberID1) echo $to1.";" ?> <?php if($memberID2) echo $to2. ";" ?> <?php if($memberID3) echo $to3.";" ?>&subject= <?php echo $subject?>" method="POST" enctype="multipart/form-data">
                     <!--<input id="message" type="text"  name="message" placeholder="Type your message here" maxlength="150" ></input>-->
 
-                    <div>
-                        <p class="note">Contact with the creator of this post by sending an email to get the further Information.</p>
-                    </div>
+                        <div>
+                            <p class="note">Contact with the creator of this post by sending an email to get the further Information.</p>
+                        </div>
 
                     <button id="send" type="submit" >Send</button>
                 </form>
@@ -88,24 +104,30 @@
                 <div class="comments">Comments</div>
                 <form id="commentForm" method="post">
                     <input id="newComment" type="text" name="comment" placeholder="Leave your comment here" required>
-                    <button id="entercomment" type="submit" name="entercomment">Enter</button>
+                    <button id="entercomment" type="submit">Enter</button>
                 </form>
-                <div>
-                    <p class="owner">Ganguli De Silva</p>
-                    <p class="comment">- This should be viral</p>
-                </div>
-                <div>
-                    <p class="owner">Ganguli De Silva</p>
-                    <p class="comment">- What a little age to have something like that.</p>
-                </div>
                 
-                <p class="seeMore" id="Seemore" onclick="hide()">See more<span>&#9660;</span></p>
-                <div id="More">
-                    <div>
-                        <p class="owner">Ganguli De Silva</p>
-                        <p class="comment">- God bless you.</p>
-                    </div>
-                </div>
+                <?php if(!empty($data['comments'])):?>
+                    <?php for ($i = 0; $i < 3; $i++):?>
+                        <?php if(!empty($data['comments'][$i])):?>
+                        <div>
+                            <p class="owner"><?=$data['comments'][$i]->first_name." ".$data['comments'][$i]->last_name?></p>
+                            <p class="comment"><?=" - ".$data['comments'][$i]->comment?></p>
+                        </div>
+                        <?php endif;?>
+                    <?php endfor; ?>
+                    <?php if(count($data['comments'])>5):?>
+                        <div id="More">
+                        <?php for ($i = 3; $i < count($data['comments']); $i++):?>
+                            <div>
+                            <p class="owner"><?=$data['comments'][$i]->first_name." ".$data['comments'][$i]->last_name?></p>
+                            <p class="comment"><?=" - ".$data['comments'][$i]->comment?></p>
+                            </div>
+                        <?php endfor; ?> 
+                        </div>
+                        <p class="seeMore" id="Seemore" onclick="hide()">See More</p>
+                    <?php endif;?>
+                <?php endif;?>
 
             </div>
         </div>
