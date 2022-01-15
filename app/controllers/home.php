@@ -136,6 +136,22 @@
 
         function settings(){
             $data['page_title'] = "Settings";
+            $user = $this->loadModel("user");
+
+            $data['sys_error'] = 0;
+            $data['sys_error_type'] = 'error';
+            $data['sys_error_msg'] = 'None';
+
+            $user->settings($data);
+            $info = $user->setting_data();
+
+            $data['email'] = $info[0]->email;
+            $data['profpic'] = $info[0]->picture;
+            $data['mobile'] = $info[0]->contact_no;
+            $data['bank_name'] = $info[0]->bank_name;
+            $data['bank_branch'] = $info[0]->branch_name;
+            $data['bank_account'] = $info[0]->account_number;
+            
             $this->view("settings",$data);
         }
     }

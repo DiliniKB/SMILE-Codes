@@ -170,6 +170,7 @@ Class input_checks{
                     $_SESSION['user_lname'] = $data[0]->last_name;
                     $_SESSION['user_email'] = $data[0]->email;
                     $_SESSION['user_status'] = ($this->check_admin($data[0]->user_ID))?1:0;
+                    header('location: dashboard');
                 }else{
                     $_SESSION['error']="wrong username or password";                    
                 }
@@ -178,7 +179,7 @@ Class input_checks{
             }
         }
 
-        function signup($POST)//not set
+        function signup($POST, &$data)//not set
         {
             $DB = new Database();
             $_SESSION['error']="";
@@ -206,7 +207,7 @@ Class input_checks{
                         $number = rand(10000,1000000);
 
                         $query = "INSERT INTO registered_user (first_name, last_name, password, email, DOB, NIC, fundCount, postCount, donateCount, removed_count, donateAmount, balance, account_number, branch_name, bank_name, picture, address, contact_no, ID_image, selfie) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-                        $values = [$_POST['fname'], $_POST['lname'], $_POST["password"], $_POST['email'], $_POST['dob'], $_POST['NIC'], 0, 0, 0, 0, 0,0, "", "", "", 0, "", $_POST['tpnum'], $token,$number];
+                        $values = [$_POST['fname'], $_POST['lname'], $_POST["password"], $_POST['email'], $_POST['dob'], $_POST['NIC'], 0, 0, 0, 0, 0,0, "", "", "", "default.png", "", $_POST['tpnum'], $token,$number];
 
                         $info = $DB->write($query,$values);
 
@@ -294,6 +295,113 @@ Class input_checks{
                     $query = "UPDATE registered_user SET ID_Image=?, selfie=? WHERE email=?";
                     $DB->read($query,[$nic, $selfie, $_SESSION['user_email']]);
                     header('location: completed');
+                }
+            }
+        }
+
+        function setting_data(){
+            $DB = new Database();
+            $arr['userid'] = $_SESSION['user_id'];
+            $query = "SELECT * FROM registered_user WHERE user_ID=:userid";
+            $info = $DB->read($query,$arr);
+
+            return $info;
+        }
+
+        function settings(&$data){
+            $DB = new Database();
+            $inputs = new input_checks();
+
+            if(isset($_POST['submit_email'])){
+                if(isset($_POST['email']) && isset($_POST['password']) && !empty($_POST['email']) && !empty($_POST['password'])){
+                    
+                    $query = "SELECT * FROM registered_user WHERE email=:emailad";
+                    $values['emailad'] = $_SESSION['user_email'];
+            
+                    $rows = $DB->read($query,$values);
+            
+                    $r = $rows[0];
+            
+                    if($_POST['password'] == $r->password){
+                        $query = "UPDATE registered_user SET email=:emailnew WHERE email=:emailold";
+                        $values = ["emailnew" => $_POST['email'], "emailold"=>$_SESSION['user_email']];
+            
+                        $DB->write($query,$values);
+            
+                        $_SESSION['user_email'] = $_POST['email'];
+            
+                        $inputs->merror($data, 1, 'success', 'Email is changed');
+                    }else{
+                        $inputs->merror($data, 1, 'error', 'Incorrect password');
+                    }
+                }
+            }
+
+            if(isset($_POST['submit_picture'])){
+                if(!empty($_FILES['profile_pic']['name'])){
+                    $root_path = getcwd().DIRECTORY_SEPARATOR."assets".DIRECTORY_SEPARATOR."images".DIRECTORY_SEPARATOR;
+
+                    $filename = $_FILES['profile_pic']['name'];
+                    $ext = pathinfo($filename, PATHINFO_EXTENSION);
+                    $random_name = time().rand(1000,100000).".".$ext;
+                    $location = $root_path.'profile'.DIRECTORY_SEPARATOR.$random_name;
+                    move_uploaded_file($_FILES['profile_pic']['tmp_name'], $location);
+
+                    $DB = new Database();
+
+                    $query = "UPDATE registered_user SET picture=? WHERE email=?";
+                    $DB->write($query,[$random_name, $_SESSION['user_email']]);
+                    $inputs->merror($data, 1, 'success', 'Profile picture is changed');
+                }
+            }
+
+            
+            if(isset($_POST['submit_mobile'])){
+                if($inputs->phone_check($data)){
+                    $query = "UPDATE registered_user SET contact_no=? WHERE email=?";
+                    $DB->write($query,[$_POST['tpnum'], $_SESSION['user_email']]);
+                    $inputs->merror($data, 1, 'success', 'Contact number is changed');
+                }
+            }
+
+            if(isset($_POST['submit_password'])){
+                echo $_POST['password'].'->'.$_POST['password_confirm'];
+                if(isset($_POST['password']) && isset($_POST['password_confirm']) && $inputs->password_check($data)){
+                    
+                    $query = "UPDATE registered_user SET password=? WHERE email=?";
+                    $values = [$_POST['password'], $_SESSION['user_email']];
+
+                    $DB->write($query,$values);
+            
+                    $inputs->merror($data, 1, 'success', 'Password is changed');
+                }
+            }
+
+            if(isset($_POST['submit_bank_remove'])){
+                $query = "UPDATE registered_user SET bank_name=?, branch_name=?, account_number=? WHERE email=?";
+                $values = ["","","", $_SESSION['user_email']];
+            
+                $DB->write($query,$values);
+            
+                $inputs->merror($data, 1, 'success', 'Bank account is removed');
+            }
+            
+            if(isset($_POST['submit_bank'])){
+                if(isset($_POST['bank_name']) && isset($_POST['branch']) && isset($_POST['acc_number'])){
+                    $bank_name = $_POST['bank_name'];
+                    $bank_branch = $_POST['branch'];
+                    $bank_account = $_POST['acc_number'];
+            
+                    if(!empty($bank_name) && !empty($bank_branch) && !empty($bank_account)){
+                        $query = "UPDATE registered_user SET bank_name=?, branch_name=?, account_number=? WHERE email=?";
+                        $values = [$_POST['bank_name'],$_POST['branch'],$_POST['acc_number'], $_SESSION['user_email']];
+            
+                        $DB->write($query,$values);
+            
+                        $inputs->merror($data, 1, 'success', 'Bank account is changed');
+                    }else{
+                        $inputs->merror($data, 1, 'error', 'Please fill all the fields');
+                    }
                 }
             }
         }

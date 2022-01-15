@@ -33,7 +33,7 @@
 
     <!-- Visible only if logged in -->
     <?php if(!empty($_SESSION['user_id'])){
-        header("Location:".ROOT."");
+        //header("Location:".ROOT."");
     }?>
 </body>
 </html>
