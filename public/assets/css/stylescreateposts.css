@@ -123,6 +123,7 @@
 	position: absolute;
 	align-content: center;
 	flex-direction: column;
+	
 }
 
 #form{
@@ -356,6 +357,54 @@ margin-top: -8px;
 }
 .sub-topic{
 font-weight: bold;
+}
+@media screen and (max-width: 767px){
+	.Cat{
+		left: 40%;
+		top: 10%;
+		font-size: 20px;
+	}
+	#ButtonF{
+		left: 10%;
+		top: 15%;
+		font-size: 16px;
+	}
+	#ButtonM{
+		left: 53%;
+		top: 15%;
+		font-size: 16px;
+	}
+	#form{
+		left: 10%;
+		position: absolute;
+		top: 28%;
+	}
+	.uploadBox{
+		left: 25%;
+	}
+	.column{
+		top: 105%;
+	}
+	.terms{
+		top: 207%;
+		left: 12%;
+	}
+	#enter{
+		position: inherit;
+		top: 220%;
+	}
+	.custom-file-input {
+		left: 55%;
+	}
+		
+    
+}
+@media screen and (min-width: 767px) and (max-width:1080px){
+    
+}
+@media screen and (min-width: 1080px){
+    
+
 }
 	
 

@@ -302,28 +302,46 @@ letter-spacing: 1px;
 }
 
 .user {}
+@media screen and (max-width: 767px){
 
-#message-box{
-	font-family: sans-serif;
-	position: fixed;
-	bottom: 0px;
-	left: 0px;
-	z-index: 100;
-	color:#ffffff;
-	padding: 5px;
-	font-size: 20px;
-	width: 100%;
-  }
-  
-  #message-box a{
-	float: right;
-	cursor: pointer;
-  }
-  
-  .success{
-	background-color: #00b16a;
-  }
-  
-  .error{
-	background-color: #f03434;
-  }	
+	#login{
+		left: 68%;
+		top: 5vh;
+	}
+	#signup{
+		left:82%;
+		top: 5vh;
+	}
+	.btn {
+		font-size: 12px;
+	}
+	.btn:hover {
+		font-size: 14px;
+	}
+	#Donation{
+		left: 40%;
+		font-size: 12px;
+	}
+	#Event{
+		font-size: 12px;
+	}
+	.txt{
+		font-size: 12px;
+	}
+	.profile{
+		top: 3vh;
+		font-size: 20px;
+	}
+	#Account{
+		left: 65%;
+		top: 6.5vh;
+		font-size: 12px;
+	}
+
+}
+@media screen and (min-width: 768px) and (max-width:1080px){
+
+}
+@media screen and (min-width: 1080px){
+
+}

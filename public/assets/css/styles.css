@@ -161,3 +161,38 @@ input:focus-visible {
 textarea:focus-visible {
     outline: none;
 }
+@media screen and (max-width: 767px){
+	.BlurRectOval {
+		width: 324px;
+		left: 10%;
+		top: 16%;		
+	}
+	#image{
+		display: none;
+	}
+	#randomLines{
+		display: none;
+	}
+	
+
+}
+@media screen and (min-width: 768px) and (max-width:1080px){
+	#image{
+		display: none;
+	}
+	.BlurRectOval {
+		position: absolute;
+		width: 20%;
+		left: 71.5%;
+		top: 36%;
+		width: 25vw;
+		
+	}
+	#randomLines{
+		display: none;
+	}
+
+}
+@media screen and (min-width: 1080px){
+
+}
