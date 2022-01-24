@@ -21,6 +21,7 @@
     </div>
 
     <div class=header>
+        
         <a href="<?=ROOT?>/home">
             <img src="<?=ASSETS?>images/header/logo2.png" alt="logo" id="Logo">
         </a>
