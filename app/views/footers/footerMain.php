@@ -1,6 +1,10 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<body>
 <div class="footer">
     <div class="footer-text">
-        <a href="Pages/about.php" class="about">AboutUs</a>
+        <a  class="about" href="<?=ROOT?>home/about">AboutUs</a>
         <div class="contact">
             <div class="contactuson">Contact us on</div>
             <div class="contactemail">&#64; smlie123@gmail.com</div>
@@ -21,3 +25,4 @@
         </svg>
     </div>
 </div>
+</body>
