@@ -1,7 +1,8 @@
 var box1,box2,slider,userInput,amountout,tipin,tipout1,tipout2,total,next,button;
 window.onload = function () {
     tipin=0;
-    slider = document.getElementById('tip');
+    userInput=0;
+    slider = document.getElementById('tipamount');
     tipout1 = document.getElementById('tip-preview');
     tipout2 = document.getElementById('tip-preview2');
     total = document.getElementById('total');
@@ -14,6 +15,7 @@ window.onload = function () {
 
 function amount(){
     userInput = document.getElementById('amount-input').value;
+    console.log(userInput);
     document.getElementById('amount-preview').innerHTML = userInput;
     slider.setAttribute("max", userInput/2); 
 }
@@ -27,6 +29,7 @@ function tip(x){
 function calculate(){
     var t = parseInt(userInput)+parseInt(tipin);
     total.innerHTML = t;
+    return t;
 }
 
 function confirmation(){
@@ -38,14 +41,26 @@ function confirmation(){
     }
     
     if (proceed) {
+        // document.getElementById("box1").onsubmit(function(e) {e.preventDefault();}); 
+        // document.getElementById("box1").submit();    
         var c = box1.children;
         var i;
         for (i = 0; i < c.length; i++) {
             c[i].style.visibility = "hidden";
         }
         box2.style.visibility = "visible";
-        button.style.visibility = "hidden"
+        button.style.visibility = "hidden"; 
+        
+         
     }
+}
+
+function Submit1(){
+    box1.submit();
+}
+
+function Submit2(){
+    box2.submit();
 }
 
 // function linking(){

@@ -10,17 +10,16 @@
 </head>
 
 <body> 
-    <div id="box1" class="container">
+    <form id="box1" class="container" method="POST">
         <img src="<?=ASSETS?>Images/mainPages/<?=$data['table']?>/<?=$data['fund']->picture?>" class="photo"> 
         <div class="support">
             You are supporting for the fund <?=$data['fund']->title?>
         </div>
         <div class="amount">
-
             <div class="text">
                 Donation Amount
             </div>
-            <input type="number" min="100" max="10000000" class="box" id="amount-input" name="amount" onkeyup="amount();calculate();">
+            <input type="number" min="100" max="10000000" class="box" id="amount-input" name="donatedamount" onkeyup="amount();calculate();"></input>
         </div>
         <div class="anon" >
             <input type="checkbox" name="Anonymous" > Anonymous
@@ -37,14 +36,14 @@
                 <p id="tip-preview"></p>
             </div> -->
             <div class="range-slider">
-                <input id="tip" class="range-slider__range" type="range" value="0" min="0" max="100" step="10" oninput="tip(this.value);calculate();">
+                <input id="tipamount" name="tipamount" class="range-slider__range" type="range" value="0" min="0" max="100" step="10" oninput="tip(this.value);calculate();">
                 <span id="tip-preview" class="range-slider__value"></span>
             </div>
             <div class="text3">
                  *** Our website is totaly free for anyone to use. Your contribution is much important as we have to cover our expenditures to continue our services. 
             </div>
         </div>
-    </div>
+    </form>
     <div class="calculate">
         <div class="r1">
             YOUR DONATION
@@ -63,6 +62,7 @@
             </div>
             <div id="tip-preview2">
                
+            
             </div>
         </div>
         <div class="r4">
@@ -70,11 +70,9 @@
                 Total Due
             </div>
             <div id="total">
-                
             </div>
         </div>
-        <p id="continue" onclick="confirmation()" class="continue">continue</p>
-        <!-- <a id="move" href="<?=ROOT?>singlefund/payment/<?=$data['category']?>/<?=$data['id']?>" ></a> -->
+        <button id="continue" onclick="confirmation()" class="continue">continue</button>
     </div>
 
     <form id="box2" class="payment" method="post">
@@ -86,7 +84,8 @@
         </div>
         <input type="date" placeholder="Expire at" name="exp_date" id="exp_date" class="in">
         <input type="number" placeholder="CVV" name="CVV" id="CVV" class="in">
-        <button class="card" type="submit">Next</button>
+        <input type="number" hidden></input>
+        <button class="card" onclick="Submit1();">Next</button>
     </form>
     
 </body>

@@ -204,14 +204,17 @@
     margin-top: 10px;
     text-decoration: none;
     background: #000000a1;
-    padding: 4px 8px;
-    padding-right: 24px;
+    padding: 8px 16px;
+    /* padding-right: 24px; */
     color: white;
     /* position: absolute; */
-    margin-left: 62%;
+    margin-left: 70%;
     text-transform: uppercase;
     width: fit-content;
     cursor: pointer;
+    box-shadow: none;
+    border: none;
+    /* justify-content: center; */
 }
 .anon{
     font-family: 'Roboto';
@@ -285,7 +288,8 @@ input[type="text"]::placeholder,input[type="number"]::placeholder,input[type="da
 	border-bottom: 1px solid #04aa6d ;
 }
 .topic{
-  font-family: "";
+  font-family: "Roboto";
+  font-weight: 500;
   font-size: 24px;
   align-self: center;
   margin-bottom: 0px;
