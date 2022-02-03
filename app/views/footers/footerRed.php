@@ -1,3 +1,7 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<body>
 <div class="footer">
     <div class="footer-svg">
         <svg class="svg" id="svg" viewBox="0 200 1200 201" width="100vw" height="110%">
@@ -11,3 +15,4 @@
         </svg>
     </div>
 </div>
+</body>

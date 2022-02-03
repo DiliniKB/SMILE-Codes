@@ -44,8 +44,8 @@
                     <div class="user" <?php if($_SESSION['user_status']){?>onclick="location.href='<?=ROOT?>account/<?=$data['creaters'][1]->user_ID ?>'"<?php } ?>>
                         <img src="<?=ASSETS?>/images/mainPages/User.png" class="userImg">
                         <div class="userName">
-                            <?php if($data['post']->visibility=="off") echo $data['creaters'][1]->first_name." ".$data['creaters'][1]->last_name?>
-                            <?php if($data['post']->visibility=="on") echo "Anonymous Member"?>
+                            <?php if($data['post']->visibility=="off" || $_SESSION['user_status'] == "1") echo $data['creaters'][1]->first_name." ".$data['creaters'][1]->last_name?>
+                            <?php if($data['post']->visibility=="on" && $_SESSION['user_status'] == "0") echo "Anonymous Member"?>
                         </div>
                     </div>
                 <?php } ?>
@@ -53,8 +53,8 @@
                     <div class="user" <?php if($_SESSION['user_status']){?>onclick="location.href='<?=ROOT?>account/<?=$data['creaters'][2]->user_ID ?>'"<?php } ?>>
                         <img src="<?=ASSETS?>/images/mainPages/User.png" class="userImg">
                         <div class="userName">
-                            <?php if($data['post']->visibility=="off") echo $data['creaters'][2]->first_name." ".$data['creaters'][2]->last_name?>
-                            <?php if($data['post']->visibility=="on") echo "Anonymous Member"?>
+                            <?php if($data['post']->visibility=="off" || $_SESSION['user_status'] == "1") echo $data['creaters'][2]->first_name." ".$data['creaters'][2]->last_name?>
+                            <?php if($data['post']->visibility=="on" && $_SESSION['user_status'] == "0") echo "Anonymous Member"?>
                         </div>
                     </div>
                 <?php } ?>
@@ -62,8 +62,8 @@
                     <div class="user" <?php if($_SESSION['user_status']){?>onclick="location.href='<?=ROOT?>account/<?=$data['creaters'][3]->user_ID ?>'"<?php } ?>>
                         <img src="<?=ASSETS?>/images/mainPages/User.png" class="userImg">
                         <div class="userName">
-                            <?php if($data['post']->visibility=="off") echo $data['creaters'][3]->first_name." ".$data['creaters'][3]->last_name?>
-                            <?php if($data['post']->visibility=="on") echo "Anonymous Member"?>
+                            <?php if($data['post']->visibility=="off" || $_SESSION['user_status'] == "1") echo $data['creaters'][3]->first_name." ".$data['creaters'][3]->last_name?>
+                            <?php if($data['post']->visibility=="on" && $_SESSION['user_status'] == "0") echo "Anonymous Member"?>
                         </div>
                     </div>
                 <?php } ?>
@@ -90,7 +90,7 @@
 
                 <!--chat-->
                 <div class="chat">For More Info</div>
-                    <form action= "mailto: <?php echo $to ?> ?cc= <?php if($memberID1) echo $to1.";" ?> <?php if($memberID2) echo $to2. ";" ?> <?php if($memberID3) echo $to3.";" ?>&subject= <?php echo $subject?>" method="POST" enctype="multipart/form-data">
+                    <form action= "mailto: <?php echo $data['creaters'][0]->email ?> ?cc= <?php if($data['post']->member_ID1) echo $data['creaters'][1]->email.";" ?> <?php if($data['post']->member_ID2) echo $data['creaters'][2]->email. ";" ?> <?php if($data['post']->member_ID3) echo $data['creaters'][3]->email.";" ?>&subject= <?php echo "To get more informations about the post on ".$data['post']->item?>" method="POST" enctype="multipart/form-data">
                     <!--<input id="message" type="text"  name="message" placeholder="Type your message here" maxlength="150" ></input>-->
 
                         <div>
