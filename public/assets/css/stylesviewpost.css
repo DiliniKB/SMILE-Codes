@@ -21,6 +21,7 @@ body{
     padding-bottom: 2%;
     /* bottom: 244px; */
     width: 66%;
+    z-index: -1;
     /* height: 100%; */
     background: white;
     box-shadow: 0px 70px 40px rgb(74 85 188 / 42%);

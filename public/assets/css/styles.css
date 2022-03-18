@@ -7,7 +7,8 @@
 }
 
 html{
-	overflow-y: scroll;
+	/* overflow-y: scroll; */
+	overflow-x: clip;
 }
 
 a {
@@ -145,13 +146,11 @@ div {
 	position:absolute;
 }
 
-#menu1{position: absolute;top: 100%;/* left: 17%; *//* width: 122%; */}
+#menu1{/* position: absolute; *//* top: 100%; */left: -6%;/* width: 134%; */}
 
 #menu2{
-	
-/* left: 15%; */
-	
-top: 100%;
+	/* left: 15%; */
+	/* top: 100%; */
 }
 
 

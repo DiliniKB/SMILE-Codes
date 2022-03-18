@@ -60,7 +60,7 @@
             </div>
         </div>
 
-        <div class="user">
+        <div class="userA">
         <?php 
         if(!empty($_SESSION['user_id'])){
             if($_SESSION['user_status']){?>        
@@ -79,7 +79,7 @@
             <?php }
             else{?>
                 <div class=dropdown>
-                    <p class="profile"><ion-icon name="person-outline"></ion-icon></p>
+                    <!-- <p class="profile"><ion-icon name="person-outline"></ion-icon></p> -->
                     <div class="txt" id="Account">Hello, <?= $_SESSION['user_fname']; ?>
                         <p class="menuicon"><ion-icon name="chevron-down-outline"></ion-icon></p>
                         <div class="dropdown-content" id="menu3">

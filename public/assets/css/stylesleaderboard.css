@@ -10,10 +10,11 @@
 	flex-direction: row;
 	position: absolute;
 	flex-wrap: wrap;
+	z-index: -1;
 	justify-content: center;
 }
 .leaderboard2{
-	left: 30%; 
+	left: 30%;
 	top: 27%;
 	height: 300px;
 	width: 240px;
@@ -24,6 +25,7 @@
 	flex-direction: row;
 	position: absolute;
 	flex-wrap: wrap;
+	z-index: -1;
 	justify-content: center;
 }
 /* Slideshow container */
