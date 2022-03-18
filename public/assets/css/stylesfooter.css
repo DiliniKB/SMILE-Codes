@@ -52,13 +52,14 @@
     
 }
 .dropdown{
-    display: flex;
+    /* display: flex; */
     /* width: 32%; */
     /* padding: 3px; */
     /* box-shadow: 0px 0px 7px 1px rgb(0 0 0 / 20%); */
     /* flex-direction: row; */
     /* flex-wrap: nowrap; */
     align-items: center;
+    /* position: relative; */
     justify-content: flex-start;
 }
 @media screen and (max-width: 767px){

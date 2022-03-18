@@ -57,10 +57,10 @@
                     </div>
                 <?php } ?>
                 </div>
-            </div>
             <a class="report" href='<?=ROOT?><?="single".$data['type']?>/report/<?=$data['table']?>/<?=$data['id']?>'>
                 Report this fund
             </a>
+            </div>
 
         </div>
         <div class="c2">

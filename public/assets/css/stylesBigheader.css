@@ -159,7 +159,7 @@ align-items: center;
 
 #Account{
 	/* position: absolute; */
-	/* left: 85%; */
+	left: 86%;
 	display: flex;
 	/* width: 0; */
 	/* right: 1%; */
@@ -188,11 +188,11 @@ align-items: center;
 /*dropdown menus*/
 .dropdowns{
     display: flex;
-    left: 21vw;
+    /* left: 21vw; */
     /* top: 5ch; */
-    position: fixed;
+    position: relative;
     /* align-self: center; */
-    margin: 0 auto;
+    margin: 0 20%;
     width: fit-content;
     /* padding: 0px; */
     /* left: 50%; */
@@ -203,7 +203,7 @@ align-items: center;
     /* font-size: 10px; */
     /* height: fit-content; */
     /* padding: 3ch; */
-    /* z-index: 1000; */
+    z-index: 5;
     background: #fbfbfb;
     border-radius: 0 0 19px 19px;
     box-shadow: 0px 6px 9px 0px #8e8e8e;
@@ -253,9 +253,9 @@ align-items: center;
 #menu3{
 	/* right: 50%; */
 	/* position: relative; */
-	top: 98%;
+	top: 102%;
 	left: 0%;
-	width: 96%;
+	width: 91%;
 	text-align: right;
 	background: #f9f9f9;
 	box-shadow: 6px 11px 20px 0px #fff;
@@ -294,16 +294,28 @@ letter-spacing: 1px;
     flex-direction: row;
     padding: 1.5ch;
     padding-bottom: 1.5ch;
+    /* position: relative; */
     justify-content: center;
+    /* position: relative; */
+    /* z-index: auto; */
 }
 
-.dropdown:hover {
+.dropdowns > .dropdown:hover {
     background: #65656533;
 }
 
 .dropdown:hover .container {
-    background-color: #48a8fd;
+    z-index: -1;
 }
+
+/* .dropdown:not(:hover) .container{
+    z-index: 0;
+
+} */
+
+/* .dropdown:hover .container {
+    background-color: #48a8fd;
+} */
 
 .gg-crown {
     box-sizing: border-box;
@@ -348,13 +360,13 @@ letter-spacing: 1px;
 	top: 3vh;
 	/* box-shadow: 0px 6px 9px 0px #8e8e8e; */
 	/* left: 77%; */
-	width: 30%;
+	width: 29%;
 	/* background: aliceblue; */
 }
 
 .userA > .dropdown{
 	width: fit-content;
-	margin-left: 86%;
+	margin-left: 83%;
 	margin-top: 2%;
 	padding: 1%;
 	justify-content: flex-end;
