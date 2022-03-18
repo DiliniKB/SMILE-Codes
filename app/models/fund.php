@@ -131,6 +131,7 @@ Class fund{
         $arr['date'] = date("Y-m-d H:i:s");
         $allowed = array("image/jpeg","image/png");
 
+        //entering report photos to the filesystem and database
         for ($i=0; $i < count($data['photos']['photo']['name']); $i++) { 
             if($data['photos']['photo']['name'][$i]!="" && $data['photos']['photo']['error'][$i]== 0 && in_array($data['photos']['photo']['type'][$i],$allowed))
             {
