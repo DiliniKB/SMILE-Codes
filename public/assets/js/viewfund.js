@@ -20,7 +20,7 @@ function addNewComment(event){
         if (xhr.readyState != 4 || xhr.status != 200) return;
 
         // On Success of creating a new Comment
-        console.log("Success: " + xhr.responseText);
+        console.log("Success: " + xhr.responseText);  
         commentForm.reset();
     };
     xhr.send(JSON.stringify(newcomment));
@@ -47,7 +47,8 @@ function view_share(){
     }
 
 }
-  
+
+
 // document.addEventListener("DOMContentLoaded", function(event) {
 //     //$('#commentForm').on('submit', function(event){
 //     document.getElementById("commentForm").addEventListener("submit",function(){
