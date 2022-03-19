@@ -519,3 +519,7 @@ button2:hover {
 .smbuttons > button {
     margin-top:10px;
 }
+
+.smbuttons > button > a {
+    visibility: hidden;
+}
