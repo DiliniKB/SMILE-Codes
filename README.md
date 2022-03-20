@@ -4,7 +4,7 @@
 
 ### Todo
 
-- [ ] User verification by photo
+- [ ] User verification by photo and id
 - [ ] payment gateway
 - [ ] Notifications
 - [ ] Contribution stats in single fund
