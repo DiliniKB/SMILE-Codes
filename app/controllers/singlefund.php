@@ -43,6 +43,12 @@ Class singlefund extends Controller
             $data['dategap'] = $data['dategap']." ago";
         }
 
+        $NDonations = $fund->NumberofDonations($data['table'],$data['id']);
+        $data['numberofdonationsToday'] = $NDonations[0];
+        $data['numberofdonations'] = $NDonations[1];
+        // $topDonation = $fund->topDonation();
+        // $recentDonation = $fund->recentDonation();
+
         $comments = $fund->load_comments($data['table'],$data['id']);
         $data['comments'] = $comments;
 
@@ -61,7 +67,7 @@ Class singlefund extends Controller
             }
         }
 
-        // show($data);
+        show($data);
         // show($_SESSION); 
 
         $this->view("viewfund",$data);

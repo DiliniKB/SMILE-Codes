@@ -115,6 +115,25 @@ Class fund{
 
     }
 
+    function NumberofDonations($table,$id){
+
+        $table = strtolower($table)."_donate";
+        $DB = new Database();
+        $_SESSION['error'] = '';
+        $date = date("Y-m-d");
+
+        $query = "SELECT COUNT(ID) as donation FROM $table WHERE date=$date AND id=$id";
+        $count1 = $DB->read($query);
+        $arr[0] = $count1[0]->donation;
+
+        $query2 = "SELECT COUNT(ID) as donation FROM $table WHERE id=$id";
+        $count2 = $DB->read($query2);
+        $arr[1] = $count2[0]->donation;
+
+        return $arr;
+
+    }
+
     function payment_verification(){
         
     }

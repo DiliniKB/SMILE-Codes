@@ -186,15 +186,16 @@ progress::-webkit-progress-value {
 .form-popup {
 	/* display: none; */
 	transition-timing-function: linear;
-	top: 12%;
+	top: 5%;
 	width: 15%;
 	position: absolute;
 	float: left;
 	left: 66%;
 	border: 3px solid #f1f1f1;
 	z-index: 9;
-	background-color: whitesmoke;
+	background-color: #fbfbfb;
 	box-shadow: 3px 4px 4px 0px rgb(74 85 188 / 42%);
+	border-radius: 20px;
 }
 .form-container{
 	/* width: 85%; */

@@ -84,7 +84,7 @@
             <div class="r5">
                 <div class="c3">
                     <div class="count">
-                        350<br>
+                        <?=$data['numberofdonations']?><br>
                         Donations 
                     </div>
                     <a class="button1" href="<?=ROOT?>singlefund/donate/<?=$data['category']?>/<?=$data['id']?>">
@@ -112,7 +112,7 @@
                 <div class="today">
                     <ion-icon class="ticon" name="trending-up-outline"></ion-icon>
                     <div class="tdonation">
-                        92 people donated today
+                        <?=$data['numberofdonationsToday']?> people donated today
                     </div>
                 </div>
                 <div class="top">
