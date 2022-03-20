@@ -4,7 +4,9 @@
     <link rel="stylesheet" href="<?=ASSETS?>css/styles.css">
     <link rel="stylesheet" href="<?=ASSETS?>css/stylesBigheader.css">
     <link rel="stylesheet" href="<?=ASSETS?>css/stylesviewpost.css">  
-    <link rel="stylesheet" href="<?=ASSETS?>css/stylesfooter.css">      
+    <link rel="stylesheet" href="<?=ASSETS?>css/stylesfooter.css">  
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
     
     <script src="<?=ASSETS?>/js/viewfund.js"></script>  
 </head>
@@ -33,37 +35,37 @@
                     </div>
                 </div>
                 <div class="r3">
-                    <div class="user" <?php if($_SESSION['user_status']){?>onclick="location.href='<?=ROOT?>account/<?=$data['creaters'][0]->user_ID ?>'"<?php } ?>>
+                    <div class="user" <?php if(array_key_exists('user_status',$_SESSION) AND $_SESSION['user_status'] ){?> style="cursor:pointer;" onclick="location.href='<?=ROOT?>account/<?=$data['creaters'][0]->user_ID ?>'"<?php } ?>>
                             <img src="<?=ASSETS?>/images/mainPages/User.png" class="userImg">
                             <div class="userName" style=" font-weight: 500;">
-                                <?php if($data['post']->visibility=="off" || $_SESSION['user_status'] == "1") echo $data['creaters'][0]->first_name." ".$data['creaters'][0]->last_name?>
-                                <?php if($data['post']->visibility=="on" && $_SESSION['user_status'] == "0") echo "Anonymous Creator"?>
+                                <?php if($data['post']->visibility=="off" || (array_key_exists('user_status',$_SESSION) AND $_SESSION['user_status'] == "1")) echo $data['creaters'][0]->first_name." ".$data['creaters'][0]->last_name?>
+                                <?php if($data['post']->visibility=="on" ) echo "Anonymous Creator"?>
                             </div>
                     </div>
                 <?php if($data['post']->member_ID1){ ?> 
-                    <div class="user" <?php if($_SESSION['user_status']){?>onclick="location.href='<?=ROOT?>account/<?=$data['creaters'][1]->user_ID ?>'"<?php } ?>>
+                    <div class="user" <?php if(array_key_exists('user_status',$_SESSION) AND $_SESSION['user_status']){?> style="cursor:pointer;" onclick="location.href='<?=ROOT?>account/<?=$data['creaters'][1]->user_ID ?>'"<?php } ?>>
                         <img src="<?=ASSETS?>/images/mainPages/User.png" class="userImg">
                         <div class="userName">
-                            <?php if($data['post']->visibility=="off" || $_SESSION['user_status'] == "1") echo $data['creaters'][1]->first_name." ".$data['creaters'][1]->last_name?>
-                            <?php if($data['post']->visibility=="on" && $_SESSION['user_status'] == "0") echo "Anonymous Member"?>
+                            <?php if($data['post']->visibility=="off" || (array_key_exists('user_status',$_SESSION) AND $_SESSION['user_status'] == "1")) echo $data['creaters'][1]->first_name." ".$data['creaters'][1]->last_name?>
+                            <?php if($data['post']->visibility=="on" ) echo "Anonymous Member"?>
                         </div>
                     </div>
                 <?php } ?>
                 <?php if($data['post']->member_ID2){ ?>
-                    <div class="user" <?php if($_SESSION['user_status']){?>onclick="location.href='<?=ROOT?>account/<?=$data['creaters'][2]->user_ID ?>'"<?php } ?>>
+                    <div class="user" <?php if(array_key_exists('user_status',$_SESSION) AND $_SESSION['user_status']){?> style="cursor:pointer;" onclick="location.href='<?=ROOT?>account/<?=$data['creaters'][2]->user_ID ?>'"<?php } ?>>
                         <img src="<?=ASSETS?>/images/mainPages/User.png" class="userImg">
                         <div class="userName">
-                            <?php if($data['post']->visibility=="off" || $_SESSION['user_status'] == "1") echo $data['creaters'][2]->first_name." ".$data['creaters'][2]->last_name?>
-                            <?php if($data['post']->visibility=="on" && $_SESSION['user_status'] == "0") echo "Anonymous Member"?>
+                            <?php if($data['post']->visibility=="off" || (array_key_exists('user_status',$_SESSION) AND $_SESSION['user_status'] == "1")) echo $data['creaters'][2]->first_name." ".$data['creaters'][2]->last_name?>
+                            <?php if($data['post']->visibility=="on" ) echo "Anonymous Member"?>
                         </div>
                     </div>
                 <?php } ?>
                 <?php if($data['post']->member_ID3){ ?>
-                    <div class="user" <?php if($_SESSION['user_status']){?>onclick="location.href='<?=ROOT?>account/<?=$data['creaters'][3]->user_ID ?>'"<?php } ?>>
+                    <div class="user" <?php if(array_key_exists('user_status',$_SESSION) AND $_SESSION['user_status']){?> style="cursor:pointer;" onclick="location.href='<?=ROOT?>account/<?=$data['creaters'][3]->user_ID ?>'"<?php } ?>>
                         <img src="<?=ASSETS?>/images/mainPages/User.png" class="userImg">
                         <div class="userName">
-                            <?php if($data['post']->visibility=="off" || $_SESSION['user_status'] == "1") echo $data['creaters'][3]->first_name." ".$data['creaters'][3]->last_name?>
-                            <?php if($data['post']->visibility=="on" && $_SESSION['user_status'] == "0") echo "Anonymous Member"?>
+                            <?php if($data['post']->visibility=="off" || (array_key_exists('user_status',$_SESSION) AND $_SESSION['user_status'] == "1")) echo $data['creaters'][3]->first_name." ".$data['creaters'][3]->last_name?>
+                            <?php if($data['post']->visibility=="on") echo "Anonymous Member"?>
                         </div>
                     </div>
                 <?php } ?>
@@ -78,9 +80,25 @@
         
         <div class="c2">
             <div class="r5">
-                <div class="c3">
+                 <!-- <div class="c3">
                     <div class="share">41<br>Shares </div>
                     <div class="button1">Share</div>
+                </div>-->
+
+                <div class="c4">
+                    <div class="count">41<br>Shares </div>
+                    <div class="button1" onclick="view_share()">Share</div>
+                    <!-- <div class="button1">Share</div> -->
+                    <div class="smbuttons" id="smbuttons">
+                        <!-- <div class="fb-share-button" data-href="http://localhost//SMILE/SMILE-git/SMILE-Codes/public/singlefund/<?=$data['category']?>/<?=$data['id']?>" data-layout="button_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%2FSMILE%2FSMILE-git%2FSMILE-Codes%2Fpublic%2Fsinglefund%2FMedical%2F8&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div> -->
+                        <!-- <a href="whatsapp://send?text=This is WhatsApp sharing example using link" data-action="share/whatsapp/share"  target="_blank"><ion-icon name="logo-whatsapp"></ion-icon> </a>   -->
+                        <!-- <p id="sharelink" style="display:none;">http://localhost//SMILE/SMILE-git/SMILE-Codes/public/singlefund/<?=$data['category']?>/<?=$data['id']?></p> -->
+                        <a href="https://twitter.com/intent/tweet?text=<?=$data['post']->title?>&url=http://localhost//SMILE/SMILE-git/SMILE-Codes/public/singlefund/<?=$data['category']?>/<?=$data['id']?>" class="fa fa-twitter"></a>
+                        <a href="https://t.me/share/url?url=http://localhost//SMILE/SMILE-git/SMILE-Codes/public/singlefund/<?=$data['category']?>/<?=$data['id']?>&<?=$data['post']->title?>" class="fa fa-telegram" aria-hidden="true"></a>
+                        <!-- <a href="whatsapp://send" data-text="Take a look at this awesome website:" data-href="" class="wa_btn wa_btn_s" style="display:none">Share</a> -->
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost//SMILE/SMILE-git/SMILE-Codes/public/singlefund/<?=$data['category']?>/<?=$data['id']?>" class="fa fa-facebook" ></a>
+                        <button onclick="copylink()" class="fa fa-clone"></button>
+                    </div>
                 </div>
                 
             </div>

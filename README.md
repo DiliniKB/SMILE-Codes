@@ -4,8 +4,10 @@
 
 ### Todo
 
-- [ ] Privilages (visitor, reg user, admin)
+- [ ] User verification by photo and id
 - [ ] payment gateway
+- [ ] Notifications
+- [ ] Contribution stats in single fund
 
 ### Done ✓
 
