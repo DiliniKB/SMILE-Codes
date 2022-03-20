@@ -75,17 +75,9 @@
         <button id="continue" onclick="confirmation()" class="continue">continue</button>
     </div>
 
-    <form id="box2" class="payment" method="post">
-        <p class="topic">Card Details</p>
-        <input type="number" placeholder="Card Number" name="card" id="card" class="in">
-        <div class="name">
-            <input type="text" placeholder="First Name" name="first_name" id="first_name" class="in">
-            <input type="text" placeholder="Last Name" name="last_name" id="last_name" class="in">
-        </div>
-        <input type="date" placeholder="Expire at" name="exp_date" id="exp_date" class="in">
-        <input type="number" placeholder="CVV" name="CVV" id="CVV" class="in">
-        <input type="number" hidden></input>
-        <button class="card" onclick="Submit1();">Next</button>
+    <form id="donationAmount" method="post" action = "<?=ROOT?>singlefund/confirmedDonation/<?=$data['category']?>/<?=$data['id']?>" >
+        <input type="hidden" name="donation">
+        <input type="hidden" name="tip">
     </form>
     
 </body>

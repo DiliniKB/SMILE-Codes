@@ -179,6 +179,21 @@
     row-gap: 5px;
     justify-content: center;
 }
+.calculate2{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  font-size: 17px;
+  left: 70%;
+  top: 20%;
+  background: #dddddd;
+  font-family: 'Roboto';
+  padding: 2%;
+  width: 30%;
+  height: fit-content;
+  row-gap: 5px;
+  justify-content: center;
+}
 .r1{
     display: flex;
     flex-direction: row;
@@ -216,6 +231,13 @@
     border: none;
     /* justify-content: center; */
 }
+
+.calculate2 > .continue {
+  /* left: -16%; */
+  /* position: relative; */
+  display: none;
+}
+
 .anon{
     font-family: 'Roboto';
     position: relative;
@@ -228,7 +250,17 @@
   visibility: hidden;
 }
 #box2{
-  visibility: hidden;
+  /* visibility: hidden; */
+  padding: 4%;
+  display: flex;
+  row-gap: 23px;
+  /* position: relative; */
+  width: 72%;
+  /* height: max-content; */
+  flex-direction: column;
+  height: 100%;
+  align-items: stretch;
+  justify-content: space-between;
 }
 .payment{
   position: absolute;
@@ -244,9 +276,10 @@
 
 .name{
     display: flex;
-    flex-direction: row;
     column-gap: 5%;
     height: 10%;
+    width: 92%;
+    justify-content: flex-start;
 }
 #first_name{
   
@@ -278,6 +311,7 @@ input[type="text"]::placeholder,input[type="number"]::placeholder,input[type="da
 	font-size: 17px;
 	outline: none;
 	box-shadow: 3px 4px 4px 0px rgb(74 85 188 / 42%);
+	width: 40%;
 	/* margin: 5px auto; */
 	/* padding-top: 1px;
 	padding-left: 5px; */

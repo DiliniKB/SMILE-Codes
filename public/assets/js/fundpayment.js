@@ -41,17 +41,14 @@ function confirmation(){
     }
     
     if (proceed) {
-        // document.getElementById("box1").onsubmit(function(e) {e.preventDefault();}); 
-        // document.getElementById("box1").submit();    
-        var c = box1.children;
-        var i;
-        for (i = 0; i < c.length; i++) {
-            c[i].style.visibility = "hidden";
+        form = document.getElementById('donationAmount');
+        if (!form) {
+            console.log("No form");
         }
-        box2.style.visibility = "visible";
-        button.style.visibility = "hidden"; 
-        
-         
+        console.log(userInput + tipin)
+        form.elements[0].value = userInput;
+        form.elements[1].value = tipin;    
+        form.submit();
     }
 }
 
