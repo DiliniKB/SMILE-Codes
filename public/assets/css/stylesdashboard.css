@@ -202,7 +202,8 @@ margin: 0px 5px;
         font-size: 14px;
     }
     .c1{
-        top: 20%;	
+        top: 20%;
+        left: 2px;
     }
     #curve_chart{
         left: 2%;

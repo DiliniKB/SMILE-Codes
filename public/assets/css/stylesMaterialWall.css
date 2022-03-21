@@ -26,6 +26,7 @@
 	flex-direction: row;
 	position: absolute;
 	flex-wrap: wrap;
+	z-index: -3;
 	justify-content: center;
 }
 .fpost {
@@ -126,6 +127,7 @@ progress::-webkit-progress-value {
 	left: 47.2%;
 	font-family: 'Sora';
 	top: 11%;
+	z-index: -1;
 	background-color: #d0d0d0;
 	font-size: 22px;
 	padding: 3px 7px;
@@ -160,14 +162,16 @@ progress::-webkit-progress-value {
 	position: absolute;
 	top: 14.5%;
 	left: 62%;
+	z-index: -5;
 }
 .form-popup {
 	/* display: none; */
+	transition-timing-function: linear;
 	top: 12%;
 	position: absolute;
 	left: 66%;
 	border: 3px solid #f1f1f1;
-	z-index: 3;
+	z-index: -2;
 	background-color: whitesmoke;
 	box-shadow: 3px 4px 4px 0px rgb(74 85 188 / 42%);
 }
@@ -177,6 +181,7 @@ progress::-webkit-progress-value {
 	padding: 5%;
 	/* display: flex; */
 	padding-right: -16%;
+	z-index: -2;
 	flex-direction: column;
 }
   
