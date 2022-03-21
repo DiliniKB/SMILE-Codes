@@ -119,10 +119,10 @@
                     <div class="circle"></div>
                     <div>
                         <div style=" text-align: center;">
-                            Anoj De Silva
+                            <?=$data['topDonor']?>
                         </div>
                         <div class="amount">
-                            <div> Rs.10000</div>
+                            <div> Rs.<?=$data['topDonation']?></div>
                             <div>Top Donation</div>
                         </div> 
                     </div>
@@ -131,10 +131,10 @@
                     <div class="circle"></div>
                     <div>
                         <div style=" text-align: center;">
-                            Anonymous
+                            <?=$data['recentDonor']?>
                         </div>
                         <div class="amount">
-                            <div> Rs.10000</div>
+                            <div> Rs.<?=$data['recentDonation']?></div>
                             <div>Recent Donation</div>
                         </div> 
                     </div>

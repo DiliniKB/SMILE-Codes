@@ -20,10 +20,11 @@
         <input type="hidden" name="return_url" value="http://localhost//SMILE/SMILE-git/SMILE-Codes/public/singlefund/<?=$data['category']?>/<?=$data['id']?>">
         
         <!-- URL to redirect users when cancelled -->
-        <input type="hidden" name="cancel_url" value="http://sample.com/cancel">
+        <input type="hidden" name="cancel_url" value="http://localhost//SMILE/SMILE-git/SMILE-Codes/public/singlefund/donate/<?=$data['category']?>/<?=$data['id']?>">
 
         <!-- URL to callback the status of the payment (Needs to be a URL accessible on a public IP/domain) -->
-        <input type="hidden" name="notify_url" value="http://sample.com/notify">  
+        <input type="hidden" name="notify_url" value="http://localhost//SMILE/SMILE-git/SMILE-Codes/public/singlefund/donationSuccess/<?=$data['category']?>/<?=$data['id']?>"> 
+             
         <p class="topic">Card Details</p>
         <input type="number" placeholder="Card Number" name="card" id="card" class="in">
         <div class="name">

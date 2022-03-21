@@ -231,6 +231,7 @@ progress{
     padding: 20px;
     /* margin-left: 7%; */
     width: 80%;
+    cursor: default;
 }
 .c3{
     display: flex;

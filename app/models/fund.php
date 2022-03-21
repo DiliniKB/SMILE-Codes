@@ -115,7 +115,7 @@ Class fund{
 
     }
 
-    function NumberofDonations($table,$id){
+    function DonationStat($table,$id){
 
         $table = strtolower($table)."_donate";
         $DB = new Database();
@@ -130,7 +130,50 @@ Class fund{
         $count2 = $DB->read($query2);
         $arr[1] = $count2[0]->donation;
 
+        $query3 = "SELECT first_name,last_name,visibility,amount FROM registered_user INNER JOIN $table ON registered_user.user_id = $table.user_id ORDER BY date DESC LIMIT 1";
+        // echo $query3;
+        $count3 = $DB->read($query3);
+        if ($count3){
+            $visibility = $count3[0]->visibility;
+            if(!$visibility){
+                $name = "Anonymous";
+            }
+            else {
+                $name = $count3[0]->first_name." ".$count3[0]->last_name;
+            }
+            $arr[2][0] = $name;
+            $arr[2][1] = $count3[0]->amount;
+        } else {
+            $arr[2][0] = "No donations yet";
+            $arr[2][1] = 0;
+        }
+        
+        // show($count3);
+
+        $query4 = "SELECT first_name,last_name,visibility,amount FROM registered_USER INNER JOIN $table ON registered_user.user_id = $table.user_id ORDER BY amount DESC";
+        // echo $query4;
+        $count4 = $DB->read($query4);
+        if($count4){
+            $visibility = $count4[0]->visibility;
+            if(!$visibility){
+                $name = "Anonymous";
+            }
+            else {
+                $name = $count4[0]->first_name." ".$count4[0]->last_name;
+            }
+            $arr[3][0] = $name;
+            $arr[3][1] = $count4[0]->amount;
+        }else{
+            $arr[3][0] = "No donations yet";
+            $arr[3][1] = 0;
+        }
+        
+        // show($count4);
+
+
+        show($arr);
         return $arr;
+        
 
     }
 
@@ -318,4 +361,4 @@ Class fund{
     }
 }
 
-?>
+?>             

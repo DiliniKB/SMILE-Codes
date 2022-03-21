@@ -43,11 +43,13 @@ Class singlefund extends Controller
             $data['dategap'] = $data['dategap']." ago";
         }
 
-        $NDonations = $fund->NumberofDonations($data['table'],$data['id']);
+        $NDonations = $fund->DonationStat($data['table'],$data['id']);
         $data['numberofdonationsToday'] = $NDonations[0];
         $data['numberofdonations'] = $NDonations[1];
-        // $topDonation = $fund->topDonation();
-        // $recentDonation = $fund->recentDonation();
+        $data['recentDonor'] = $NDonations[2][0];
+        $data['recentDonation'] = $NDonations[2][1];
+        $data['topDonor'] = $NDonations[3][0];
+        $data['topDonation'] = $NDonations[3][1];
 
         $comments = $fund->load_comments($data['table'],$data['id']);
         $data['comments'] = $comments;
@@ -145,6 +147,10 @@ Class singlefund extends Controller
         $this->view("fundpaymentcard",$data);
 
     }
+
+    // function donationSuccess($category,$id){
+
+    // }
 
     
 }

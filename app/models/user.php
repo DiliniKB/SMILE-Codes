@@ -446,10 +446,10 @@ Class input_checks{
                     $condition = "amount>filled";
                     break;
                 case "filled":
-                    $condition = "amount < filled OR amount==filled";
+                    $condition = "amount < filled OR amount=filled";
                     break;
                 case "settled":
-                    $condition = "status == 1";
+                    $condition = "status = 1";
                     break;
                 default:
                     $condition = "true";
