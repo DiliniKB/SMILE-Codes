@@ -26,7 +26,7 @@
 	flex-direction: row;
 	position: absolute;
 	flex-wrap: wrap;
-	z-index: -1;
+	z-index: -3;
 	justify-content: center;
 	/* align-self: center; */
 	/* background: brown; */
@@ -151,6 +151,7 @@ progress::-webkit-progress-value {
 	background-color: #d0d0d0;
 	font-size: 22px;
 	padding: 3px 7px;
+	z-index: -1;
 }
 #ButtonF{
 	position: absolute;
@@ -182,27 +183,28 @@ progress::-webkit-progress-value {
 	position: absolute;
 	top: 14.5%;
 	left: 62%;
+	z-index: -5;
 }
 .form-popup {
 	/* display: none; */
 	transition-timing-function: linear;
-	top: 5%;
-	width: 15%;
+	top: 12%;
+	/*width: 15%;*/
 	position: absolute;
-	float: left;
+	/*float: left;**/
 	left: 66%;
 	border: 3px solid #f1f1f1;
-	z-index: 9;
-	background-color: #fbfbfb;
+	z-index: -2;
+	background-color: whitesmoke;
 	box-shadow: 3px 4px 4px 0px rgb(74 85 188 / 42%);
-	border-radius: 20px;
 }
 .form-container{
 	/* width: 85%; */
 	font-family: 'Sora';
 	padding: 5%;
 	padding-right: -16%;
-	/* flex-direction: column; */
+	flex-direction: column;
+	z-index: -2; 
 }
 .Sort{
 	font-family: 'Sora';
