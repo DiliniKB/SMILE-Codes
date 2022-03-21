@@ -167,7 +167,7 @@ progress::-webkit-progress-value {
 	position: absolute;
 	left: 66%;
 	border: 3px solid #f1f1f1;
-	z-index: 9;
+	z-index: 3;
 	background-color: whitesmoke;
 	box-shadow: 3px 4px 4px 0px rgb(74 85 188 / 42%);
 }
