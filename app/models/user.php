@@ -119,6 +119,18 @@ Class input_checks{
         return str_replace('{link}',$link, $template);
     }
 
+    public function password_reset_temp($password){
+        $template = "
+            <h1>Your new password </h1>
+            Please use the following password to log in to you account <br />
+            <h3>{password}</h3>
+            <br /><br /><br /><br />
+            - Smile team
+        ";
+
+        return str_replace('{password}',$password, $template);
+    }
+
     public function send_mail($data){
         $curl = curl_init();
 
@@ -152,7 +164,7 @@ Class input_checks{
 
     Class User
     {
-        function login($POST)//not set
+        function login($POST)
         {
             $DB = new Database();
             $_SESSION['error']="";
@@ -176,6 +188,37 @@ Class input_checks{
                 }
             }else{
                 $_SESSION['error']="Please enter a valid username and password";
+            }
+        }
+
+        function password_reset()
+        {
+            $DB = new Database();
+            $inputs = new input_checks();
+            
+            if (isset($_POST['reset_submit'])) 
+            {
+                $arr['email'] = $_POST['email'];
+                $query = "SELECT * FROM registered_user WHERE email=:email";
+                $data = $DB->read($query,$arr);
+            
+                if (!empty($data)) {
+                    $random_pass = substr(base64_encode(openssl_random_pseudo_bytes(30)),1,10);
+                    
+                    $query = "UPDATE registered_user SET password=? WHERE email=?";
+                    $DB->read($query,[$random_pass,$arr['email']]);
+
+                    $email_body = $inputs->password_reset_temp($random_pass);
+
+                    $json_email['from']['name'] = "Smile";
+                    $json_email['to']['name'] = "Guest";
+                    $json_email['to']['address'] = $arr['email'];
+                    $json_email['subject'] = "Account password is reset";
+                    $json_email['message'] = $email_body;
+
+                    $inputs->send_mail($json_email);
+                }
+                header('location: password_reset_done');
             }
         }
 
@@ -365,7 +408,6 @@ Class input_checks{
             }
 
             if(isset($_POST['submit_password'])){
-                echo $_POST['password'].'->'.$_POST['password_confirm'];
                 if(isset($_POST['password']) && isset($_POST['password_confirm']) && $inputs->password_check($data)){
                     
                     $query = "UPDATE registered_user SET password=? WHERE email=?";

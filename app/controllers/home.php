@@ -34,6 +34,22 @@
             $this->view("login",$data);
         }
 
+        function password_reset()
+        {
+            $data['page_title'] = "Reset password";
+            $user = $this->loadModel("user");
+            $user->password_reset();
+
+            $this->view("password_reset",$data);
+        }
+
+        function password_reset_done()
+        {
+            $data['page_title'] = "Reset password";
+
+            $this->view("password_reset_done",$data);
+        }
+
         function logout()
         {
             session_destroy();
