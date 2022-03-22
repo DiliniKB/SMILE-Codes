@@ -256,19 +256,22 @@ input.middle:focus {
     /* text-shadow: 0 0 black; */
     /* margin-top: 5%; */
     /* margin-bottom: 15%; */
-    color: #770000;
+    color: #9b2b2b;
     font-size: 16px;
     text-align: center;
     padding: 6px;
     height: fit-content;
     margin: 10px auto;
+    margin-bottom: 7%;
     font-family: 'Roboto';
     border: solid;
+    border-color: #000000;
+    border-width: thin;
     cursor: pointer;
-    /* background: #770000; */
+    background: #ebebeb;
     /* border-radius: 30px; */
-    box-shadow: 0px 0px 6px 1px rgb(0 0 0 / 28%);
-    /* position: relative; */
+    /* box-shadow: 0px 0px 2px 4px rgb(0 0 0 / 28%); */
+    /* position: absolute; */
     /* text-decoration: underline; */
 }
 #SForm{
@@ -524,3 +527,30 @@ input.middle:focus {
 .smbuttons > button > a {
     visibility: hidden;
 }
+
+@media screen and (max-width: 767px){	
+    .container{
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        left: 5%;
+        top: 10%;
+    }
+    .c1{
+        width: 100%;
+    }
+    .c2{
+        width: 100%;
+    }
+    .description{
+        max-height: 10em;
+    }
+}
+@media screen and (min-width: 767px) and (max-width:1080px){
+    
+}
+@media screen and (min-width: 1080px){
+    
+
+}
+

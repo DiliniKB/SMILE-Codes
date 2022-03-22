@@ -19,7 +19,7 @@
                 <label id="rememberMe">
                     <input type="checkbox" checked="checked" name="remember"> Remember me
                 </label>
-                <a id="passwordReset" href ="#">Forgot Password</a>
+                <a id="passwordReset" href ="password_reset">Forgot Password</a>
                 
                 <button id="enter" type="submit" name="login">ENTER</button>
               

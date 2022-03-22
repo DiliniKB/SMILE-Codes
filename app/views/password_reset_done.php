@@ -8,13 +8,14 @@
     <script type="text/javascript" src="<?=ASSETS?>js/index.js"></script>
 </head>
 <body>
+
     <div class="BlurRectOval" id="form">
-        <p class="FormTopic">Your account is created successfully.</p>
+        <p class="FormTopic">Password reset</p>
         <form method="post" style="margin: 0;" enctype="multipart/form-data">
-            Please check your email inbox, spam folder <br />and follow the instructions.
+            Password of the account associated with the email (if there is any) is reset. Please check your email for the new password.
             <br />
             <br />
-            <a href="resendemail">Resend</a>
+            <a href="login">Login</a>
         </form>         
     </div> 
                    
