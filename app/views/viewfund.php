@@ -93,7 +93,7 @@
                     </a>
                 </div>
                 <div class="c4">
-                    <div class="count">41<br>Shares </div>
+                    <!-- <div class="count">41<br>Shares </div> -->
                     <div class="button1" onclick="view_share()">Share</div>
                     <!-- <div class="button1">Share</div> -->
                     <div class="smbuttons" id="smbuttons">
