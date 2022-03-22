@@ -11,31 +11,27 @@
 
 <body> 
 
-<div class="container" method="post">
-    <form id="box2" method="post" action="https://sandbox.payhere.lk/pay/checkout">
-    
-        <input type="hidden" name="merchant_id" value="1219964"> <!-- Replace your Merchant ID -->
-
-        <!-- URL to redirect users when success -->
-        <input type="hidden" name="return_url" value="http://127.0.0.1//SMILE/SMILE-git/SMILE-Codes/public/singlefund/<?=$data['category']?>/<?=$data['id']?>">
-        
-        <!-- URL to redirect users when cancelled -->
-        <input type="hidden" name="cancel_url" value="http://127.0.0.1//SMILE/SMILE-git/SMILE-Codes/public/singlefund/donate/<?=$data['category']?>/<?=$data['id']?>">
-
-        <!-- URL to callback the status of the payment (Needs to be a URL accessible on a public IP/domain) -->
-        <input type="hidden" name="notify_url" value="http://127.0.0.1//SMILE/SMILE-git/SMILE-Codes/public/singlefund/donationSuccess/<?=$data['category']?>/<?=$data['id']?>/<?=$data['amount']?>/<?=$data['tip']?>"> 
-             
-        <p class="topic">Card Details</p>
-        <input type="number" placeholder="Card Number" name="card" id="card" class="in">
-        <div class="name">
-            <input type="text" placeholder="First Name" name="first_name" id="first_name" class="in">
-            <input type="text" placeholder="Last Name" name="last_name" id="last_name" class="in">
-        </div>
-        <input type="text" onfocus="(this.type='date')" placeholder="Expire at" name="exp_date" id="exp_date" class="in">
-        <input type="number" placeholder="CVV" name="CVV" id="CVV" class="in">
-        <input type="number" hidden></input>
-        <button class="card" onclick="Submit1();">Next</button>
-    </form>
+<div class="container" method="post">singlefund
+<form method="post" action="https://sandbox.payhere.lk/pay/checkout">   
+    <input type="hidden" name="merchant_id" value="1219964">    <!-- Replace your Merchant ID -->
+    <input type="hidden" name="return_url" value="http://localhost//SMILE/SMILE-git/SMILE-Codes/public/singlefund/donate/Medical/8">
+    <input type="hidden" name="cancel_url" value="http://localhost//SMILE/SMILE-git/SMILE-Codes/public/singlefund/donate/Medical/8">
+    <input type="hidden" name="notify_url" value="http://sample.com/notify">  
+    <br><br>Item Details<br>
+    <input type="text" name="order_id" value="ItemNo12345">
+    <input type="text" name="items" value="Door bell wireless"><br>
+    <input type="text" name="currency" value="LKR">
+    <input type="text" name="amount" value="1000">  
+    <br><br>Customer Details<br>
+    <input type="text" name="first_name" value="Saman">
+    <input type="text" name="last_name" value="Perera"><br>
+    <input type="text" name="email" value="samanp@gmail.com">
+    <input type="text" name="phone" value="0771234567"><br>
+    <input type="text" name="address" value="No.1, Galle Road">
+    <input type="text" name="city" value="Colombo">
+    <input type="hidden" name="country" value="Sri Lanka"><br><br> 
+    <input type="submit" value="Buy Now">   
+</form> 
 
     <div class="calculate2">
         <div class="r1">

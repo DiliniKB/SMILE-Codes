@@ -66,7 +66,7 @@ Class fund{
                 $result = $DB->write($query,$arr);
 
                 if ($result) {
-                    header("Location:".ROOT."home");
+                    header("Location:".ROOT."funds/".$data['category']);
                     die;
                 }else{
                     $_SESSION['error']="wrong username or password";                    
@@ -325,16 +325,18 @@ Class fund{
     function enter_comment($table,$fundId,$comment,$user){
         $DB = new Database();
         $_SESSION['error']=""; 
-        $table = $table."_comment";
+        $table = strtolower($table."_comment");
         $arr['date'] = date("Y-m-d");
         $arr['time'] = date("H:i:s");
         $arr['comment'] = $comment;
         $arr['user'] = $user;
         $arr['fundId'] = $fundId;
         $query = "INSERT INTO $table (fund_ID,user_ID,date,time,comment) VALUES (:fundId,:user,:date,:time,:comment)";
-
-        $result = $DB->write($query,$arr);
+        show($arr);
+        echo ($query);
         
+        $result = $DB->write($query,$arr);
+
         if($result){
             return true;
         }
@@ -361,4 +363,4 @@ Class fund{
     }
 }
 
-?>             
+?>

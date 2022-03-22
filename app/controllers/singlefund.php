@@ -105,27 +105,9 @@ Class singlefund extends Controller
         $data['fund'] = $results;
         show($data);
         $this->view("fundpayment",$data);
-    
-        // if ($_POST) {
-        //     show($_POST);
-        // //    $validity = $funds->check_validity($_POST);
-        // //    if ($validity){
-               
-        // //    }
-        //     $data['fund']->curruntD = $_POST;
-        //     // $this->confirmedDonation($category,$id);
-        //     // $this->view("fundpaymentcard",$data);
-        // }
-
-        
-
-        // show($data);
-        // $_POST['amount'] = 
-        // show($_POST);
         
     }
 
-    // function confirmedDonation($category,$id,$amount,$tip){
     function confirmedDonation($category,$id){
         $data['page_title'] = "Donate";
         $data['category'] = $category;
@@ -153,21 +135,20 @@ Class singlefund extends Controller
         //         //TODO: Update your database as payment success
         // }
 
-        $this->view("fundpaymentcard",$data);
-
     }
 
-    function donationSuccess($category,$id,$amount,$tip){
+    function donationSuccess($string){
         $data['page_title'] = "Donate";
-        $data['category'] = $category;
-        $data['type'] = "fund";
-        $data['table'] = $category."fund";
-        $data['page_title'] = "View ".$data['category']." ".$data['type'];
-        $data['id'] = $id;
-        $data['amount'] = $amount;
-        $data['tip'] = $tip;
+        // $data['category'] = $category;
+        // $data['type'] = "fund";
+        // $data['table'] = $category."fund";
+        // $data['page_title'] = "View ".$data['category']." ".$data['type'];
+        // $data['id'] = $id;
+        // $data['amount'] = $amount;
+        // $data['tip'] = $tip;
 
-        show($data);
+        // show($data);
+        echo $string;
         show($_POST);
 
         $this->view("blank",$data);

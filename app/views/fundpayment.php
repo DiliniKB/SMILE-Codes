@@ -5,8 +5,12 @@
     <link rel="stylesheet" href="<?=ASSETS?>css/styles.css">
     <link rel="stylesheet" href="<?=ASSETS?>css/stylesBigheader.css">
     <link rel="stylesheet" href="<?=ASSETS?>css/stylesfundpayment.css">  
-    <link rel="stylesheet" href="<?=ASSETS?>css/stylesfooter.css">             
+    <link rel="stylesheet" href="<?=ASSETS?>css/stylesfooter.css">  
+ 
+    <script type="text/javascript" src="https://www.payhere.lk/lib/payhere.js"></script>
     <script src="<?=ASSETS?>js/fundpayment.js"></script>  
+
+
 </head>
 
 <body> 
