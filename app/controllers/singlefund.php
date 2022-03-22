@@ -138,19 +138,40 @@ Class singlefund extends Controller
         show($data);
         show($_POST);
 
-        // $funds = $this->loadModel("fund");
-        // $results = $funds->view_fund($data);
-        // $data['fund'] = $results;
-        // $data['fund']->curruntD['amount'] = $amount;
-        // $data['fund']->curruntD['tip'] = $tip;
+        // $data['merchant_id']= $_POST['merchant_id'];
+        // $data['order_id'] = $_POST['order_id'];
+        // $data['payhere_amount']= $_POST['payhere_amount'];
+        // $data['payhere_currency']= $_POST['payhere_currency'];
+        // $data['status_code'] = $_POST['status_code'];
+        // $data['md5sig'] = $_POST['md5sig'];
+
+        // $merchant_secret = 'XXXXXXXXXXXXX'; // Replace with your Merchant Secret (Can be found on your PayHere account's Settings page)
+
+        // $local_md5sig = strtoupper (md5 ( $data['merchant_id'] . $data['order_id'] . $data['payhere_amount'] . $data['payhere_currency'] . $data['status_code'] . strtoupper(md5($merchant_secret) ) );
+
+        // if (($local_md5sig === $data['md5sig']) AND ($data['status_code'] == 2) ){
+        //         //TODO: Update your database as payment success
+        // }
 
         $this->view("fundpaymentcard",$data);
 
     }
 
-    // function donationSuccess($category,$id){
+    function donationSuccess($category,$id,$amount,$tip){
+        $data['page_title'] = "Donate";
+        $data['category'] = $category;
+        $data['type'] = "fund";
+        $data['table'] = $category."fund";
+        $data['page_title'] = "View ".$data['category']." ".$data['type'];
+        $data['id'] = $id;
+        $data['amount'] = $amount;
+        $data['tip'] = $tip;
 
-    // }
+        show($data);
+        show($_POST);
+
+        $this->view("blank",$data);
+    }
 
     
 }

@@ -3,6 +3,7 @@ window.onload = function () {
     tipin=0;
     userInput=0;
     slider = document.getElementById('tipamount');
+   
     tipout1 = document.getElementById('tip-preview');
     tipout2 = document.getElementById('tip-preview2');
     total = document.getElementById('total');
@@ -10,7 +11,7 @@ window.onload = function () {
     box1 = document.getElementById('box1');
     box2 = document.getElementById('box2');
     box3 = document.getElementById('box3');
-    button = document.getElementById('continue')
+    button = document.getElementById('continue');
 };
 
 function amount(){
@@ -18,6 +19,18 @@ function amount(){
     console.log(userInput);
     document.getElementById('amount-preview').innerHTML = userInput;
     slider.setAttribute("max", userInput/2); 
+}
+
+function checkAnonymous(){
+    anonymous = document.getElementById('anonymous').value;
+    if (anonymous) {
+        anon = 1;
+    }
+    else{
+        anon = 0;
+    }
+    console.log("changed");
+    console.log(anonymous);
 }
 
 function tip(x){
@@ -45,9 +58,10 @@ function confirmation(){
         if (!form) {
             console.log("No form");
         }
-        console.log(userInput + tipin)
+        // console.log(userInput + tipin)
         form.elements[0].value = userInput;
-        form.elements[1].value = tipin;    
+        form.elements[1].value = tipin;   
+        form.elements[2].value = anon; 
         form.submit();
     }
 }

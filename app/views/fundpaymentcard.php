@@ -12,18 +12,18 @@
 <body> 
 
 <div class="container" method="post">
-    <form id="box2" method="post">
+    <form id="box2" method="post" action="https://sandbox.payhere.lk/pay/checkout">
     
-        <input type="hidden" name="merchant_id" value="1219964">    <!-- Replace your Merchant ID -->
+        <input type="hidden" name="merchant_id" value="1219964"> <!-- Replace your Merchant ID -->
 
         <!-- URL to redirect users when success -->
-        <input type="hidden" name="return_url" value="http://localhost//SMILE/SMILE-git/SMILE-Codes/public/singlefund/<?=$data['category']?>/<?=$data['id']?>">
+        <input type="hidden" name="return_url" value="http://127.0.0.1//SMILE/SMILE-git/SMILE-Codes/public/singlefund/<?=$data['category']?>/<?=$data['id']?>">
         
         <!-- URL to redirect users when cancelled -->
-        <input type="hidden" name="cancel_url" value="http://localhost//SMILE/SMILE-git/SMILE-Codes/public/singlefund/donate/<?=$data['category']?>/<?=$data['id']?>">
+        <input type="hidden" name="cancel_url" value="http://127.0.0.1//SMILE/SMILE-git/SMILE-Codes/public/singlefund/donate/<?=$data['category']?>/<?=$data['id']?>">
 
         <!-- URL to callback the status of the payment (Needs to be a URL accessible on a public IP/domain) -->
-        <input type="hidden" name="notify_url" value="http://localhost//SMILE/SMILE-git/SMILE-Codes/public/singlefund/donationSuccess/<?=$data['category']?>/<?=$data['id']?>"> 
+        <input type="hidden" name="notify_url" value="http://127.0.0.1//SMILE/SMILE-git/SMILE-Codes/public/singlefund/donationSuccess/<?=$data['category']?>/<?=$data['id']?>/<?=$data['amount']?>/<?=$data['tip']?>"> 
              
         <p class="topic">Card Details</p>
         <input type="number" placeholder="Card Number" name="card" id="card" class="in">

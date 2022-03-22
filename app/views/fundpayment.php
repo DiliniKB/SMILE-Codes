@@ -22,7 +22,7 @@
             <input type="number" min="100" max="10000000" class="box" id="amount-input" name="donatedamount" onkeyup="amount();calculate();"></input>
         </div>
         <div class="anon" >
-            <input type="checkbox" name="Anonymous" > Anonymous
+            <input type="checkbox" id="anonymous" name="Anonymous" onchange="checkAnonymous()"> Anonymous
             <div class="user-tip">
                 <div> Your donation may mention publicly in some places, to avoid mentioning your name in your donation you can make it anonymous here.</div>
             </div>
@@ -78,6 +78,7 @@
     <form id="donationAmount" method="post" action = "<?=ROOT?>singlefund/confirmedDonation/<?=$data['category']?>/<?=$data['id']?>" >
         <input type="hidden" name="donation">
         <input type="hidden" name="tip">
+        <input type="hidden" name="anonymous">
     </form>
     
 </body>
