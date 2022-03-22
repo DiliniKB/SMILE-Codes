@@ -276,54 +276,101 @@ tr:nth-child(even) {
 
 @media screen and (max-width: 767px){
     .c2{
-        border: solid;
         left: 2px;
-        display: none;
+        top: 10px;
+        width: 100%;
         /*display: flex;
         flex-direction: column;
         width: 30%;*/
     }
     .c1{
-        top: 1000px;	
+        width: 100%;	
        /* display: flex;
         flex-direction: column;
         width: 60%;*/
     }
-
-
-
-    .r1{   
-        width: 90%;    
-    }
-    #f2{
-        font-size: 20px;
-    }    
-    #f1{
-        font-size: 14px;
-    }
-    
-    #curve_chart{
-        left: 2%;
-    }
-    #h1{
-        font-size: 18px;
+    .topic2{
+        padding: 10px;
     }
     .fpost{
+        display: flex;
         width: 95%;
         font-size: 12px;
+        padding: 2px;
+        height: 40px;
+        left: 1px;
+        float: left;
+        justify-content: flex-start;
+    
+        /* padding-right: 24px; 
+        flex-direction: row;
+        column-gap: 10px;
+        column-width: -4px;
+        font-family: 'Work Sans';
+        border: solid;
+        border-width: thin;
+        align-items: center;
+        border-color: #c1c1c1;
+        /* border-radius: 0%; 
+        /* row-gap: 20px; 
+        */
     }
+    .topic{
+        font-size: 20px;
+        padding-top: 4%;
+        padding-right: 22px;
+        margin-bottom: 2%;
+        border-bottom: solid;
+        border-width: thin;
+        /* padding-bottom: 2%; */
+        /* width: 100%; */
+        /* float: right; */
+        font-weight: 300;
+        /* text-align: center; */
+        /* color: #bd2222; */
+    }
+    .container{
+        display: flex;
+        position: absolute;
+        left: 5%;
+        flex-direction: column-reverse;
+    }
+    .icons2{
+        width: 10%;
+        column-gap: 1px;
+        
+    }
+    .dmicon{
+        display: flex;
+        align-items: flex-end;
+        align-content: center;
+        column-gap: 25px;
+        margin-top: 6%;
+
+    }
+    .progress{
+        width: 10px;
+    }
+  
+
+
+
+
+
+
+    
     .title, .item, .description, .RaisedOf, .bar{
         display: none;
     }
     .location{
-        width: 40%;
+        width: 20%;
+        margin-left: -23px;
     }
     .photo{
-        width: 10%;
-        height: 90%;
+        width: 12%;
+        height: 97%;
         border-radius: 10%;
-        margin: 4px;
-        margin-right: 15px;
+        padding-left: 2px;
     }
     
 	

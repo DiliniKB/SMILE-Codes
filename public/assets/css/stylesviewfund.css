@@ -123,7 +123,6 @@ body{
 }
 .user{
     display: flex;
-    position: absolute;
     flex-direction: row;
     /* flex-wrap: wrap; */
     align-items: center;
@@ -231,7 +230,6 @@ progress{
     padding: 20px;
     /* margin-left: 7%; */
     width: 80%;
-    cursor: default;
 }
 .c3{
     display: flex;
@@ -523,4 +521,36 @@ button2:hover {
 
 .smbuttons > button > a {
     visibility: hidden;
+}
+@media screen and (max-width: 767px){	
+    .container{
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        left: 5%;
+        top: 10%;
+    }
+    .c1{
+        width: 100%;
+    }
+    .c2{
+        width: 100%;
+    }
+    .description{
+        max-height: 10em;
+    }
+    .report{
+        margin: 60px auto;
+    }
+    .meter{
+        width: 40px;
+        height: 2px;
+    }
+}
+@media screen and (min-width: 767px) and (max-width:1080px){
+    
+}
+@media screen and (min-width: 1080px){
+    
+
 }
