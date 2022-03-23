@@ -397,7 +397,7 @@
         <div class="c2">
             <div class="name"><?=$data['info']->first_name?> <br> <?=$data['info']->last_name?></div>
             <div class="pp">
-                <img src= "<?=UPLOADS?>users/<?=$data['info']->picture?>" class="photo">
+                <img src= "<?=ASSETS?>Images/profile/<?=$data['info']->picture?>" class="photo">
             </div>
             <div class="removeacc">Remove account</div>
             <table>
