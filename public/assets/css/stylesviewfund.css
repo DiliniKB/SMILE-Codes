@@ -543,8 +543,8 @@ button2:hover {
         margin: 60px auto;
     }
     .meter{
-        width: 40px;
-        height: 2px;
+        width: 300px;
+        height: 30px;
     }
 }
 @media screen and (min-width: 767px) and (max-width:1080px){

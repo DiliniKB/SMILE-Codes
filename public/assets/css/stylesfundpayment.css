@@ -233,9 +233,12 @@
 }
 
 .calculate2 > .continue {
-  /* left: -16%; */
-  /* position: relative; */
-  display: none;
+  
+/* left: -16%; */
+  
+/* position: relative; */
+  
+display: none;
 }
 
 .anon{
@@ -363,4 +366,20 @@ input[type="text"]::placeholder,input[type="number"]::placeholder,input[type="da
 
 .anon:hover .user-tip {
   display: block;
+}
+@media screen and (max-width: 767px){	
+  .container{
+      width: 80%;
+      left: 10%;
+      
+     
+  }
+ 
+}
+@media screen and (min-width: 767px) and (max-width:1080px){
+  
+}
+@media screen and (min-width: 1080px){
+  
+
 }
