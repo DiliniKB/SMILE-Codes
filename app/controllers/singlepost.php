@@ -48,7 +48,7 @@ Class singlepost extends Controller
         if ($_POST) {
             show($_POST);
             if(empty($_SESSION['user_id'])){
-                $result = $posts->enter_comment($data['table'],$data['id'],$_POST['comment'],0);
+                header("Location:".ROOT."home/login");
             }
             else{
                 $result = $posts->enter_comment($data['table'],$data['id'],$_POST['comment'],$_SESSION['user_id']);
