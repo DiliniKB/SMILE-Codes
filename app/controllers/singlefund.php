@@ -100,10 +100,29 @@ Class singlefund extends Controller
         $data['page_title'] = "View ".$data['category']." ".$data['type'];
         $data['id'] = $id;
 
-        $funds = $this->loadModel("fund");
-        $results = $funds->view_fund($data);
+        $fund = $this->loadModel("fund");
+        $results = $fund->view_fund($data);
         $data['fund'] = $results;
+
+        if($_SESSION['user_id']){
+            $data['user_id'] = $_SESSION['user_id'];
+        }else{
+            $data['user_id'] = 0;
+        }
+
         show($data);
+
+        if ($_POST) {
+            show($_POST);
+            $data['amount'] = $_POST['donation'];
+            $data['tip'] = $_POST['tip'];
+            $data['visibility'] = $_POST['anonymous'];
+            $fund->donate($data);
+            unset($_POST,$data);
+            header("Location:".ROOT."funds/".$category);
+            die;
+        }
+
         $this->view("fundpayment",$data);
         
     }
@@ -120,39 +139,25 @@ Class singlefund extends Controller
         show($data);
         show($_POST);
 
-        // $data['merchant_id']= $_POST['merchant_id'];
-        // $data['order_id'] = $_POST['order_id'];
-        // $data['payhere_amount']= $_POST['payhere_amount'];
-        // $data['payhere_currency']= $_POST['payhere_currency'];
-        // $data['status_code'] = $_POST['status_code'];
-        // $data['md5sig'] = $_POST['md5sig'];
-
-        // $merchant_secret = 'XXXXXXXXXXXXX'; // Replace with your Merchant Secret (Can be found on your PayHere account's Settings page)
-
-        // $local_md5sig = strtoupper (md5 ( $data['merchant_id'] . $data['order_id'] . $data['payhere_amount'] . $data['payhere_currency'] . $data['status_code'] . strtoupper(md5($merchant_secret) ) );
-
-        // if (($local_md5sig === $data['md5sig']) AND ($data['status_code'] == 2) ){
-        //         //TODO: Update your database as payment success
+        // if ($_POST) {
+        //     $this->view("blank",$data);
         // }
-
     }
 
-    function donationSuccess($string){
-        $data['page_title'] = "Donate";
-        // $data['category'] = $category;
-        // $data['type'] = "fund";
-        // $data['table'] = $category."fund";
-        // $data['page_title'] = "View ".$data['category']." ".$data['type'];
-        // $data['id'] = $id;
-        // $data['amount'] = $amount;
-        // $data['tip'] = $tip;
+    // function donationSuccess($category,$id,$amount,$tip){
+    //     $data['category'] = $category;
+    //     $data['type'] = "fund";
+    //     $data['table'] = $category."fund";
+    //     $data['page_title'] = "View ".$data['category']." ".$data['type'];
+    //     $data['id'] = $id;
+    //     $data['amount'] = $amount;
+    //     $data['tip'] = $tip;
 
-        // show($data);
-        echo $string;
-        show($_POST);
+    //     // show($data);
+    //     show($data);
 
-        $this->view("blank",$data);
-    }
+    //     $this->view("blank",$data);
+    // }
 
     
 }

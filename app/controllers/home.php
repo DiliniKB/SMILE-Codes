@@ -144,7 +144,7 @@
 
             $monthlyDonations = $user->get_monthly_donations($id);
             $data['monthlyDonations'] = $monthlyDonations;
-            // show($data);
+            show($data);
 
             $this->view("dashboard",$data);
 

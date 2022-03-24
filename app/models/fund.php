@@ -10,14 +10,10 @@ Class fund{
         $valid = 0;
 
         $allowed[] = "image/jpeg";
-        // $valid = (isset($_POST['amount'])&& isset($_POST['keywords'])&& isset($_POST['town'])&& isset($_POST['District'])&&isset($_POST['Title'])&& isset($_POST['description'])&& isset($_POST['accNo'])&& isset($_POST['bankName'])&&isset($_POST['brachName'])&& isset($_POST['accountHolder'])&& isset($_POST['usertype'])&& isset($_FILES['file']));
-
-        // && in_array($FILES['file']['type'],$allowed)
-        // echo $valid;
 
         if($_POST)
         {
-            if($FILES['file']['name']!="" && $FILES['file']['error']== 0 )
+            if($FILES['file']['name']!="" && $FILES['file']['error']== 0)
             {
                 $folder = $data['table']."/";
                 $photoname = clean(date("Y-m-d H:i:s"));
@@ -84,8 +80,6 @@ Class fund{
         $offset = ($page_number - 1) * $limit;
         $tablename = strtolower($cat."fund");
         $query = "SELECT * FROM $tablename WHERE amount!=filled ORDER BY id DESC LIMIT $limit OFFSET $offset";
-        // echo $query;
-
         $DB = new Database();
         $result = $DB->read($query);
         if(is_array($result))
@@ -96,8 +90,6 @@ Class fund{
     }
 
     function view_fund($data){
-
-        // show($data);
          
         $tablename = strtolower($data['table']);
         $id = $data['id'];
@@ -112,7 +104,25 @@ Class fund{
             return $result[0];
         }
         return false;
+    }
 
+    function donate($data){
+
+        $arr['date']= date("Y-m-d");
+        $arr['visibility'] = $data['visibility'];
+        $arr['tip'] = $data['tip'];
+        $arr['fund'] = $data['id'];
+        $arr['user'] = $data['user_id'];
+        $arr['time'] = date("H:i:s");
+        $arr['amount'] = $data['amount'];
+
+        $table = $data['table']."_donate";
+
+        $query = "INSERT INTO $table (date,visibility,tip,fund_ID,user_ID,time,amount) VALUES (:date,:visibility,:tip,:fund,:user,:time,:amount)";
+
+        $DB = new Database();
+        $DB->write($query, $arr);
+    
     }
 
     function DonationStat($table,$id){
@@ -122,16 +132,18 @@ Class fund{
         $_SESSION['error'] = '';
         $date = date("Y-m-d");
 
+        //donation count today
         $query = "SELECT COUNT(ID) as donation FROM $table WHERE date=$date AND id=$id";
         $count1 = $DB->read($query);
         $arr[0] = $count1[0]->donation;
 
+        //total donation count
         $query2 = "SELECT COUNT(ID) as donation FROM $table WHERE id=$id";
         $count2 = $DB->read($query2);
         $arr[1] = $count2[0]->donation;
 
+        //recent donor
         $query3 = "SELECT first_name,last_name,visibility,amount FROM registered_user INNER JOIN $table ON registered_user.user_id = $table.user_id ORDER BY date DESC LIMIT 1";
-        // echo $query3;
         $count3 = $DB->read($query3);
         if ($count3){
             $visibility = $count3[0]->visibility;
@@ -147,11 +159,8 @@ Class fund{
             $arr[2][0] = "No donations yet";
             $arr[2][1] = 0;
         }
-        
-        // show($count3);
 
         $query4 = "SELECT first_name,last_name,visibility,amount FROM registered_USER INNER JOIN $table ON registered_user.user_id = $table.user_id ORDER BY amount DESC";
-        // echo $query4;
         $count4 = $DB->read($query4);
         if($count4){
             $visibility = $count4[0]->visibility;
@@ -167,18 +176,7 @@ Class fund{
             $arr[3][0] = "No donations yet";
             $arr[3][1] = 0;
         }
-        
-        // show($count4);
-
-
-        show($arr);
         return $arr;
-        
-
-    }
-
-    function payment_verification(){
-        
     }
 
     function report($data){
@@ -274,12 +272,41 @@ Class fund{
         return false;
     }
 
-    function delete_fund($table, $id)
+    function delete_fund_user($table, $id)
     {
         $DB = new Database();
         $_SESSION['error']="";
-        $query = "DELETE FROM $table WHERE ID=$id";
+        $query = "UPDATE FROM $table SET status=1 WHERE ID=$id";
         $DB->write($query); 
+    }
+
+    function delete_fund_admin($table, $id)
+    {
+        $DB = new Database();
+        $_SESSION['error']="";
+        $donateTable = $table."_donate";
+
+        $query0 = "SELECT * FROM $donateTable WHERE fund_ID=$id";
+        // echo $query0;
+        $donations=$DB->read($query0);
+
+        for ($i=0;$i<count($donations);$i++){
+            $user=$donations[$i]->user_ID;
+            $amount=$donations[$i]->amount;
+            $query = "UPDATE registered_user SET donateCount = donateCount -1,donateAmount = donateAmount - $amount,balance = balance + $amount WHERE user_ID=$user";
+            $DB->write($query);
+        }
+
+        $query1 = "DELETE FROM $donateTable WHERE fund_ID=$id";
+        echo $query1;
+        $DB->write($query1);
+
+        $query2 = "DELETE FROM $table WHERE ID=$id";
+        echo $query2;
+        $DB->write($query2);
+
+        show($donations);
+
     }
 
     function get_leaderboard(){

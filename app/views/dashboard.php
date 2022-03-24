@@ -82,7 +82,7 @@
                                         <div class="title"><?=$row->title?></div>
                                         <progress value="<?=$row->filled?>" max="<?=$row->amount?>"></progress>
                                         <div class="RaisedOf">Rs <?=$row->filled?> raised of Rs<?=$row->amount?></div>
-                                        <a class="delete" href="<?=ROOT?>funds/delete_fund/<?=$row->table?>/<?=$row->ID?>"><ion-icon name="trash-bin" onclick="confirmation_delete()"></ion-icon></a>
+                                        <a class="delete" href="<?=ROOT?>funds/delete_fund_user/<?=$row->table?>/<?=$row->ID?>"><ion-icon name="trash-bin" onclick="confirmation_delete()"></ion-icon></a>
                                         <!-- <p class="done">&#x2714;</p> -->
                                         <a class="move" href="<?=ROOT?>singlefund/<?=str_replace("funds","",$row->table); ?>/<?=$row->ID?>"><ion-icon name="arrow-forward-circle"></ion-icon></a> 
                                     </div>

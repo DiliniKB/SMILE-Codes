@@ -28,10 +28,10 @@
             $this->view($data['type']."wall",$data);
         }
 
-        function delete_fund($table,$id)
+        function delete_fund_user($table,$id)
         {
             $fund = $this->loadModel('fund'); 
-            $fund->delete_fund($table,$id);
+            $fund->delete_fund_user($table,$id);
             // $this->view("blank");
             if (isset($_SERVER["HTTP_REFERER"])) {
                 header("Location: " . $_SERVER["HTTP_REFERER"]);
@@ -39,6 +39,18 @@
         
         }
 
+        function delete_fund_admin($table,$id)
+        {
+            $fund = $this->loadModel('fund'); 
+            $fund->delete_fund_admin($table,$id);
+
+            $this->view("blank");
+            // if (isset($_SERVER["HTTP_REFERER"])) {
+            //     header("Location: " . $_SERVER["HTTP_REFERER"]);
+            // }
+        
+        }
+        
 
     }
 

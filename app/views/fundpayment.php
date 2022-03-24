@@ -79,7 +79,7 @@
         <button id="continue" onclick="confirmation()" class="continue">continue</button>
     </div>
 
-    <form id="donationAmount" method="post" action = "<?=ROOT?>singlefund/confirmedDonation/<?=$data['category']?>/<?=$data['id']?>" >
+    <form id="donationAmount" method="post">
         <input type="hidden" name="donation">
         <input type="hidden" name="tip">
         <input type="hidden" name="anonymous">

@@ -38,7 +38,7 @@
                                         <div class="RaisedOf">Rs <?=$row->filled?> raised of Rs<?=$row->amount?></div>
                                         <div class="icons">
                                             <div class="dmicon">
-                                                <a class="delete" href="<?=ROOT?>funds/delete_fund/<?=$row->table?>/<?=$row->ID?>" onclick="confirmation_delete()"><ion-icon name="trash-bin"></ion-icon></a>
+                                                <a class="delete" href="<?=ROOT?>funds/delete_fund_admin/<?=$row->table?>/<?=$row->ID?>" onclick="confirmation_delete()"><ion-icon name="trash-bin"></ion-icon></a>
                                                 <!-- <p class="done">&#x2714;</p> -->
                                                 <a class="move" href="<?=ROOT?>singlefund/<?=str_replace("fund","",$row->table); ?>/<?=$row->ID?>"><ion-icon name="arrow-forward-circle"></ion-icon></a>
                                             </div>
@@ -111,7 +111,7 @@
                                         <div class="RaisedOf">Rs <?=$row->filled?> raised of Rs<?=$row->amount?></div>
                                         <div class="icons2">
                                             <div class="dmicon">
-                                                <a class="delete" href="<?=ROOT?>funds/delete_fund/<?=$row->table?>/<?=$row->ID?>" onclick="confirmation_delete()"><ion-icon name="trash-bin"></ion-icon></a>
+                                                <a class="delete" href="<?=ROOT?>funds/delete_fund_admin/<?=$row->table?>/<?=$row->ID?>" onclick="confirmation_delete()"><ion-icon name="trash-bin"></ion-icon></a>
                                                 <p class="done"><ion-icon name="checkmark-done-circle"></ion-icon></p>
                                                 <a class="move" href="<?=ROOT?>singlefund/<?=str_replace("fund","",$row->table); ?>/<?=$row->ID?>"><ion-icon name="arrow-forward-circle"></ion-icon></a>
                                             </div>
@@ -184,7 +184,7 @@
                                         <div class="RaisedOf">Rs <?=$row->filled?> raised of Rs<?=$row->amount?></div>
                                         <div class="icons2">
                                             <div class="dmicon">
-                                                <a class="delete" href="<?=ROOT?>funds/delete_fund/<?=$row->table?>/<?=$row->ID?>" onclick="confirmation_delete()"><ion-icon name="trash-bin"></ion-icon></a>
+                                                <a class="delete" href="<?=ROOT?>funds/delete_fund_admin/<?=$row->table?>/<?=$row->ID?>" onclick="confirmation_delete()"><ion-icon name="trash-bin"></ion-icon></a>
                                                 <p class="done"><ion-icon name="checkmark-done-circle"></ion-icon></p>
                                                 <a class="move" href="<?=ROOT?>singlefund/<?=str_replace("fund","",$row->table); ?>/<?=$row->ID?>"><ion-icon name="arrow-forward-circle"></ion-icon></a>
                                             </div>

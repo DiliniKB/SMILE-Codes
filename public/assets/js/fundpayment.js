@@ -2,6 +2,7 @@ var box1,box2,slider,userInput,amountout,tipin,tipout1,tipout2,total,next,button
 window.onload = function () {
     tipin=0;
     userInput=0;
+    anon=0;
     slider = document.getElementById('tipamount');
    
     tipout1 = document.getElementById('tip-preview');
@@ -23,7 +24,8 @@ function amount(){
 
 // Called when user completed the payment. It can be a successful payment or failure
 payhere.onCompleted = function onCompleted(orderId) {
-    console.log("Payment completed. OrderID:" + orderId);
+    console.log("Payment completed OrderID:" + orderId);
+    form.submit();
     //Note: validate the payment and show success or failure page to the customer
 };
 
@@ -66,6 +68,14 @@ function calculate(){
 function confirmation(){
     if (userInput) {
         var proceed = confirm("Are you sure you want to proceed?");
+        form = document.getElementById('donationAmount');
+        if (!form) {
+            console.log("No form");
+        }
+        // console.log(userInput + tipin)
+        form.elements[0].value = userInput;
+        form.elements[1].value = tipin;   
+        form.elements[2].value = anon; 
     }
     else{
         var proceed = alert("Enter a valid amount");
@@ -75,9 +85,9 @@ function confirmation(){
         var payment = {
             "sandbox": true,
                 "merchant_id": "1219964",    // Replace your Merchant ID
-                "return_url": "http://127.0.0.1//SMILE/SMILE-git/SMILE-Codes/public/singlefund/donationSuccess/return",     // Important
-                "cancel_url": "http://127.0.0.1//SMILE/SMILE-git/SMILE-Codes/public/singlefund/donationSuccess/cancen",     // Important
-                "notify_url": "http://127.0.0.1//SMILE/SMILE-git/SMILE-Codes/public/singlefund/donationSuccess/notify",
+                "return_url": "http://google.com",     // Important
+                "cancel_url": "http://127.0.0.1//SMILE/SMILE-git/SMILE-Codes/public",     // Important
+                "notify_url": "",
                 "order_id": "ItemNo12345",
                 "items": "",
                 "amount": parseInt(userInput)+parseInt(tipin),
@@ -97,15 +107,7 @@ function confirmation(){
         };
         console.log(payment);
         payhere.startPayment(payment);
-        // form = document.getElementById('donationAmount');
-        // if (!form) {
-        //     console.log("No form");
-        // }
-        // // console.log(userInput + tipin)
-        // form.elements[0].value = userInput;
-        // form.elements[1].value = tipin;   
-        // form.elements[2].value = anon; 
-        // form.submit();
+        
     }
 }
 
