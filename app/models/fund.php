@@ -331,8 +331,8 @@ Class fund{
     function get_monthlyleaderboard(){
         $DB = new Database();
         $_SESSION['error']="";  
-        $query = "SELECT * FROM animalcarefund_donate UNION SELECT * FROM childrenfund_donate UNION SELECT * FROM educationfund_donate UNION SELECT * FROM medicalfund_donate UNION SELECT * FROM otherfund_donate UNION SELECT * FROM seniorcarefund_donate where user_ID != 0 ORDER BY amount DESC LIMIT 3 ";
-        echo $query;
+        $query = "SELECT * FROM animalcarefund_donate where user_ID != 0 UNION SELECT * FROM childrenfund_donate where user_ID != 0 UNION SELECT * FROM educationfund_donate where user_ID != 0 UNION SELECT * FROM medicalfund_donate where user_ID != 0 UNION SELECT * FROM otherfund_donate where user_ID != 0 UNION SELECT * FROM seniorcarefund_donate where user_ID != 0 ORDER BY amount DESC LIMIT 3 ";
+        
         $data = $DB->read($query); 
         if(isset($data))
         {
