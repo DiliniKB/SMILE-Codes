@@ -122,6 +122,8 @@ Class fund{
 
         $DB = new Database();
         $DB->write($query, $arr);
+
+        show($arr);
     
     }
 
@@ -130,20 +132,22 @@ Class fund{
         $table = strtolower($table)."_donate";
         $DB = new Database();
         $_SESSION['error'] = '';
-        $date = date("Y-m-d");
+        $date = '\''.date("Y-m-d").'\'';
+        // echo $date;
 
         //donation count today
-        $query = "SELECT COUNT(ID) as donation FROM $table WHERE date=$date AND id=$id";
+        $query = "SELECT COUNT(ID) as donation FROM $table WHERE date=$date AND fund_ID =$id";
         $count1 = $DB->read($query);
         $arr[0] = $count1[0]->donation;
 
         //total donation count
-        $query2 = "SELECT COUNT(ID) as donation FROM $table WHERE id=$id";
+        $query2 = "SELECT COUNT(ID) as donation FROM $table WHERE fund_ID =$id";
         $count2 = $DB->read($query2);
         $arr[1] = $count2[0]->donation;
 
         //recent donation
-        $query3 = "SELECT first_name,last_name,visibility,amount FROM registered_user INNER JOIN $table ON registered_user.user_id = $table.user_id WHERE $table.user_id>0 ORDER BY date DESC LIMIT 1";
+        $query3 = "SELECT first_name,last_name,visibility,amount FROM registered_user INNER JOIN $table ON registered_user.user_id = $table.user_id WHERE $table.user_id>0 ORDER BY $table.date DESC, $table.time DESC";
+        echo $query3;
         $count3 = $DB->read($query3);
         if ($count3){
             $visibility = $count3[0]->visibility;
@@ -161,7 +165,7 @@ Class fund{
         }
 
         //top donation
-        $query4 = "SELECT first_name,last_name,visibility,amount FROM registered_USER INNER JOIN $table ON registered_user.user_id = $table.user_id WHERE $table.user_id>0 ORDER BY amount DESC";
+        $query4 = "SELECT first_name,last_name,visibility,amount FROM registered_USER INNER JOIN $table ON registered_user.user_id = $table.user_id WHERE $table.user_id>0 ORDER BY amount DESC LIMIT 1";
         $count4 = $DB->read($query4);
         if($count4){
             $visibility = $count4[0]->visibility;
@@ -177,6 +181,7 @@ Class fund{
             $arr[3][0] = "No donations yet";
             $arr[3][1] = 0;
         }
+        show($arr);
         return $arr;
     }
 

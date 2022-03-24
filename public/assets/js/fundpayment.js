@@ -2,7 +2,7 @@ var box1,box2,slider,userInput,amountout,tipin,tipout1,tipout2,total,next,button
 window.onload = function () {
     tipin=0;
     userInput=0;
-    anon=0;
+    anon=1;
     slider = document.getElementById('tipamount');
    
     tipout1 = document.getElementById('tip-preview');

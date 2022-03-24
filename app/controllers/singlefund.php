@@ -69,7 +69,7 @@ Class singlefund extends Controller
             }
         }
 
-        show($data);
+        // show($data);
         // show($_SESSION); 
 
         $this->view("viewfund",$data);
@@ -122,7 +122,7 @@ Class singlefund extends Controller
             $data['visibility'] = $_POST['anonymous'];
             $fund->donate($data);
             unset($_POST,$data);
-            header("Location:".ROOT."funds/".$category);
+            header("Location:".ROOT."singlefund/".$category."/".$id);
             die;
         }
 
