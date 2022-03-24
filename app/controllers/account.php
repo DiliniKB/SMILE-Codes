@@ -24,7 +24,7 @@ Class Account extends Controller
 
         $posts = $user->get_posts($id,"complete");
         $data['settledposts'] = $posts;
-        // show($data);
+        show($data);
 
         // $this->view("blank",$data);
         $this->view("viewaccount",$data);
@@ -52,6 +52,24 @@ Class Account extends Controller
         // show($data);
         $this->view("searchaccount",$data);
     }
+
+    function block($id){
+        $user = $this->loadModel("user");
+        $user->block($id);
+        if (isset($_SERVER["HTTP_REFERER"])) {
+            header("Location: " . $_SERVER["HTTP_REFERER"]);
+        }
+    }
+
+    function unblock($id){
+        $user = $this->loadModel("user");
+        $user->unblock($id);
+        if (isset($_SERVER["HTTP_REFERER"])) {
+            header("Location: " . $_SERVER["HTTP_REFERER"]);
+        }
+    }
+
+
 
 }
 ?>

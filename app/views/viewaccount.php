@@ -399,14 +399,18 @@
             <div class="pp">
                 <img src= "<?=ASSETS?>Images/profile/<?=$data['info']->picture?>" class="photo">
             </div>
-            <div class="removeacc">Block Account</div>
+            <?php if($data['info']->status == 0){?>
+                <a class="removeacc" href="<?=ROOT?>account/block/<?=$data['info']->user_ID?>">Block Account</a>
+            <?php }else{ ?>
+                <a class="removeacc" href="<?=ROOT?>account/unblock/<?=$data['info']->user_ID?>">Unblock Account</a>
+            <?php } ?>
             <table>
                 <tr>
                     <td>NIC</td>
                     <td><?=$data['info']->NIC?></td>
                 </tr>
                 <tr>
-                    <td>ddress</td>
+                    <td>Address</td>
                     <td><?=$data['info']->address?></td>
                 </tr>
                 <tr>

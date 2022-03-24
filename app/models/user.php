@@ -182,6 +182,7 @@ Class input_checks{
                     $_SESSION['user_lname'] = $data[0]->last_name;
                     $_SESSION['user_email'] = $data[0]->email;
                     $_SESSION['user_status'] = ($this->check_admin($data[0]->user_ID))?1:0;
+                    $_SESSION['status'] = $data[0]->status;
                     header('location: dashboard');
                 }else{
                     $_SESSION['error']="wrong username or password";                    
@@ -685,7 +686,17 @@ Class input_checks{
             return $total;
         }
 
-        
+        function block($id){
+            $DB = new Database();
+            $query = "UPDATE registered_user SET status=1 WHERE user_ID=$id";
+            $DB->write($query);
+        }
+
+        function unblock($id){
+            $DB = new Database();
+            $query = "UPDATE registered_user SET status=0 WHERE user_ID=$id";
+            $DB->write($query);
+        }
 
 
     }
