@@ -162,3 +162,31 @@ border-width: thin;
     margin-bottom: 1%;
     COLOR: #8d2222;
 }
+@media screen and (max-width: 767px){	
+    .container{
+        flex-direction: row-reverse;
+        height: 80%;
+        top: 10%;
+        width: 80%;
+        left: 10%;
+       
+    }
+    .column{
+        width: 80%; 
+        height: 45%;
+    }
+    #feedback{
+        height: 50vw;
+        width: 95%;
+        padding-top: 0px;
+        padding-bottom: 1px;
+        
+    }
+}
+@media screen and (min-width: 767px) and (max-width:1080px){
+    
+}
+@media screen and (min-width: 1080px){
+    
+
+}

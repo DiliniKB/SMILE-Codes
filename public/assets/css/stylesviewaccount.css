@@ -314,6 +314,10 @@ tr:nth-child(even) {
         /* border-radius: 0%; 
         /* row-gap: 20px; 
         */
+        
+    }
+    .delete, .move, .report{
+    transform: scale(0.5);   
     }
     .topic{
         font-size: 20px;

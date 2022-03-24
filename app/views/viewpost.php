@@ -39,7 +39,7 @@
                             <img src="<?=ASSETS?>/images/mainPages/User.png" class="userImg">
                             <div class="userName" style=" font-weight: 500;">
                                 <?php if($data['post']->visibility=="off" || (array_key_exists('user_status',$_SESSION) AND $_SESSION['user_status'] == "1")) echo $data['creaters'][0]->first_name." ".$data['creaters'][0]->last_name?>
-                                <?php if($data['post']->visibility=="on" ) echo "Anonymous Creator"?>
+                                <?php if($data['post']->visibility=="on" && (array_key_exists('user_status',$_SESSION) AND $_SESSION['user_status'] != "1") ) echo "Anonymous Creator"?>
                             </div>
                     </div>
                 <?php if($data['post']->member_ID1){ ?> 
@@ -47,7 +47,7 @@
                         <img src="<?=ASSETS?>/images/mainPages/User.png" class="userImg">
                         <div class="userName">
                             <?php if($data['post']->visibility=="off" || (array_key_exists('user_status',$_SESSION) AND $_SESSION['user_status'] == "1")) echo $data['creaters'][1]->first_name." ".$data['creaters'][1]->last_name?>
-                            <?php if($data['post']->visibility=="on" ) echo "Anonymous Member"?>
+                            <?php if($data['post']->visibility=="on" && (array_key_exists('user_status',$_SESSION) AND $_SESSION['user_status'] != "1")) echo "Anonymous Member"?>
                         </div>
                     </div>
                 <?php } ?>
@@ -56,7 +56,7 @@
                         <img src="<?=ASSETS?>/images/mainPages/User.png" class="userImg">
                         <div class="userName">
                             <?php if($data['post']->visibility=="off" || (array_key_exists('user_status',$_SESSION) AND $_SESSION['user_status'] == "1")) echo $data['creaters'][2]->first_name." ".$data['creaters'][2]->last_name?>
-                            <?php if($data['post']->visibility=="on" ) echo "Anonymous Member"?>
+                            <?php if($data['post']->visibility=="on" && (array_key_exists('user_status',$_SESSION) AND $_SESSION['user_status'] != "1")) echo "Anonymous Member"?>
                         </div>
                     </div>
                 <?php } ?>
@@ -65,7 +65,7 @@
                         <img src="<?=ASSETS?>/images/mainPages/User.png" class="userImg">
                         <div class="userName">
                             <?php if($data['post']->visibility=="off" || (array_key_exists('user_status',$_SESSION) AND $_SESSION['user_status'] == "1")) echo $data['creaters'][3]->first_name." ".$data['creaters'][3]->last_name?>
-                            <?php if($data['post']->visibility=="on") echo "Anonymous Member"?>
+                            <?php if($data['post']->visibility=="on" && (array_key_exists('user_status',$_SESSION) AND $_SESSION['user_status'] != "1")) echo "Anonymous Member"?>
                         </div>
                     </div>
                 <?php } ?>

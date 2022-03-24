@@ -26,27 +26,27 @@
     <div class="mySlides fade" id="id1">
         <div class="numbertext">1</div>
         <div class= "photo">
-            <img id="pic" src="<?=ASSETS?>Images/mainPages/img1.png ">
+            <img id="pic" src="<?=ASSETS?>Images/profile/<?=$array0[0]->picture?>">
         </div>  
-        <div class="name"><?= $array0[0]->first_name?><?= $array0[0]->last_name?></div>
+        <div class="name"><?= $array0[0]->first_name?> <?= $array0[0]->last_name?> </div>
         <div class="amount"><?= $arr1[0]->amount?></div>
     </div>
 
     <div class="mySlides fade" id="id2">
         <div class="numbertext">2</div>
         <div class= "photo">
-            <img id="pic" src="<?=ASSETS?>Images/mainPages/img2.png ">
+            <img id="pic" src="<?=ASSETS?>Images/profile/<?=$array1[0]->picture?> ">
         </div>  
-        <div class="name"><?= $array1[0]->first_name?><?= $array1[0]->last_name?></div>
+        <div class="name"><?= $array1[0]->first_name?> <?= $array1[0]->last_name?></div>
         <div class="amount"><?= $arr1[1]->amount?></div>
     </div>
 
     <div class="mySlides fade" id="id3">
         <div class="numbertext">3</div>
         <div class= "photo">
-            <img id="pic" src="<?=ASSETS?>Images/mainPages/img3.png ">
+            <img id="pic" src="<?=ASSETS?>Images/profile/<?=$array2[0]->picture?> ">
         </div>  
-        <div class="name"><?= $array2[0]->first_name?><?= $array2[0]->last_name?></div>
+        <div class="name"><?= $array2[0]->first_name?> <?= $array2[0]->last_name?></div>
         <div class="amount"><?= $arr1[2]->amount?></div>
     </div>
 
@@ -64,45 +64,45 @@
     <div class="mySlides2 fade2">
         <div class="numbertext">1</div>
         <div class= "photo">
-            <img id="pic" src="<?=ASSETS?>Images/mainPages/img4.png ">
+            <img id="pic" src="<?=ASSETS?>Images/profile/<?=$arr[0]->picture?> ">
         </div>  
-        <div class="name"><?= $arr[0]->first_name?><?= $arr[0]->last_name?></div>
+        <div class="name"><?= $arr[0]->first_name?> <?= $arr[0]->last_name?></div>
         <div class="amount"><?= $arr[0]->donateAmount?></div>
     </div>
 
     <div class="mySlides2 fade2" id="id5">
         <div class="numbertext">2</div>
         <div class= "photo">
-            <img id="pic" src="<?=ASSETS?>Images/mainPages/img5.png ">
+            <img id="pic" src="<?=ASSETS?>Images/profile/<?=$arr[1]->picture?>">
         </div>  
-        <div class="name"><?= $arr[1]->first_name?><?= $arr[1]->last_name?></div>
+        <div class="name"><?= $arr[1]->first_name?> <?= $arr[1]->last_name?></div>
         <div class="amount"><?= $arr[1]->donateAmount?></div>
     </div>
 
     <div class="mySlides2 fade2" id="id6">
         <div class="numbertext">3</div>
         <div class= "photo">
-            <img id="pic" src="<?=ASSETS?>Images/mainPages/img6.png ">
+            <img id="pic" src="<?=ASSETS?>Images/profile/<?=$arr[2]->picture?> ">
         </div>  
-        <div class="name"><?= $arr[2]->first_name?><?= $arr[2]->last_name?></div>
+        <div class="name"><?= $arr[2]->first_name?> <?= $arr[2]->last_name?></div>
         <div class="amount"><?= $arr[2]->donateAmount?></div>
     </div>
 
     <div class="mySlides2 fade2" id="id7">
         <div class="numbertext">4</div>
         <div class= "photo">
-            <img id="pic" src="<?=ASSETS?>Images/mainPages/img7.png ">
+            <img id="pic" src="<?=ASSETS?>Images/profile/<?=$arr[3]->picture?> ">
         </div>  
-        <div class="name"><?= $arr[3]->first_name?><?= $arr[3]->last_name?></div>
+        <div class="name"><?= $arr[3]->first_name?> <?= $arr[3]->last_name?></div>
         <div class="amount"><?= $arr[3]->donateAmount?></div>
     </div>
 
     <div class="mySlides2 fade2" id="id8">
         <div class="numbertext">5</div>
         <div class= "photo">
-            <img id="pic" src="<?=ASSETS?>Images/mainPages/img8.png ">
+            <img id="pic" src="<?=ASSETS?>Images/profile/<?=$arr[4]->picture?> ">
         </div>  
-        <div class="name"><?= $arr[4]->first_name?><?= $arr[4]->last_name?></div>
+        <div class="name"><?= $arr[4]->first_name?> <?= $arr[4]->last_name?></div>
         <div class="amount"><?= $arr[4]->donateAmount?></div>
     </div>
 
