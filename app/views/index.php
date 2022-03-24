@@ -13,7 +13,7 @@
 
 <div class="leaderboard" > 
     
-    <div class="heading">Best of the Month</div>
+    <div class="heading">Best Donation</div>
 
     <?php $arr1 = $data['MonthlyLeaderboard']?> 
     <?php $rank0 = $arr1[0]->user_ID?> 
@@ -57,7 +57,7 @@
 
 <div class="leaderboard2" id="id4">
     
-    <div class="heading">Best of the Contributors</div>
+    <div class="heading">Best Contributors</div>
 
     <?php $arr = $data['Leaderboard']?> 
 
