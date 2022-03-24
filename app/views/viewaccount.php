@@ -399,7 +399,7 @@
             <div class="pp">
                 <img src= "<?=ASSETS?>Images/profile/<?=$data['info']->picture?>" class="photo">
             </div>
-            <div class="removeacc">Remove account</div>
+            <div class="removeacc">Block Account</div>
             <table>
                 <tr>
                     <td>NIC</td>
