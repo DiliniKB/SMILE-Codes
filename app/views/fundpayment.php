@@ -26,7 +26,11 @@
             <input type="number" min="100" max="10000000" class="box" id="amount-input" name="donatedamount" onkeyup="amount();calculate();"></input>
         </div>
         <div class="anon" >
-            <input type="checkbox" id="anonymous" name="Anonymous" onchange="checkAnonymous()"> Anonymous
+            <?php if(isset($_SESSION['user_id'])){?>
+                <input type="checkbox" id="anonymous" name="Anonymous" onchange="checkAnonymous()"> Anonymous
+            <?php } else{ ?>
+                <input type="hidden" id="anonymous" name="Anonymous" value="0" onchange="checkAnonymous()">
+            <?php } ?>
             <div class="user-tip">
                 <div> Your donation may mention publicly in some places, to avoid mentioning your name in your donation you can make it anonymous here.</div>
             </div>

@@ -142,8 +142,8 @@ Class fund{
         $count2 = $DB->read($query2);
         $arr[1] = $count2[0]->donation;
 
-        //recent donor
-        $query3 = "SELECT first_name,last_name,visibility,amount FROM registered_user INNER JOIN $table ON registered_user.user_id = $table.user_id ORDER BY date DESC LIMIT 1";
+        //recent donation
+        $query3 = "SELECT first_name,last_name,visibility,amount FROM registered_user INNER JOIN $table ON registered_user.user_id = $table.user_id WHERE $table.user_id>0 ORDER BY date DESC LIMIT 1";
         $count3 = $DB->read($query3);
         if ($count3){
             $visibility = $count3[0]->visibility;
@@ -160,7 +160,8 @@ Class fund{
             $arr[2][1] = 0;
         }
 
-        $query4 = "SELECT first_name,last_name,visibility,amount FROM registered_USER INNER JOIN $table ON registered_user.user_id = $table.user_id ORDER BY amount DESC";
+        //top donation
+        $query4 = "SELECT first_name,last_name,visibility,amount FROM registered_USER INNER JOIN $table ON registered_user.user_id = $table.user_id WHERE $table.user_id>0 ORDER BY amount DESC";
         $count4 = $DB->read($query4);
         if($count4){
             $visibility = $count4[0]->visibility;
@@ -325,15 +326,14 @@ Class fund{
     function get_monthlyleaderboard(){
         $DB = new Database();
         $_SESSION['error']="";  
-        $query = "SELECT * FROM animalcarefund_donate UNION SELECT * FROM childrenfund_donate UNION SELECT * FROM educationfund_donate UNION SELECT * FROM medicalfund_donate UNION SELECT * FROM otherfund_donate UNION SELECT * FROM seniorcarefund_donate where date BETWEEN 2021-11-28 AND 2021-12-28 ORDER BY amount DESC LIMIT 3; ";
+        $query = "SELECT * FROM animalcarefund_donate UNION SELECT * FROM childrenfund_donate UNION SELECT * FROM educationfund_donate UNION SELECT * FROM medicalfund_donate UNION SELECT * FROM otherfund_donate UNION SELECT * FROM seniorcarefund_donate where user_ID != 0 ORDER BY amount DESC LIMIT 3 ";
+        echo $query;
         $data = $DB->read($query); 
-        
-
-            if(isset($data))
-            {
-                return $data;
-            }
-            return false;
+        if(isset($data))
+        {
+            return $data;
+        }
+        return false;
 
     }
     function get_rankers($arr){
@@ -358,6 +358,11 @@ Class fund{
         $arr['comment'] = $comment;
         $arr['user'] = $user;
         $arr['fundId'] = $fundId;
+
+        if(!$user){
+            return false;
+        }
+
         $query = "INSERT INTO $table (fund_ID,user_ID,date,time,comment) VALUES (:fundId,:user,:date,:time,:comment)";
         show($arr);
         echo ($query);

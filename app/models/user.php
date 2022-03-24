@@ -499,20 +499,24 @@ Class input_checks{
 
             $tables = array('medicalfund','animalcarefund','seniorcarefund','childrenfund','educationfund','otherfund');
             foreach($tables as $table):
-                $query = "SELECT * FROM $table WHERE user_ID = $id AND $condition ";
+                $query = "SELECT * FROM $table WHERE user_ID = $id AND $condition";
                 $row = $DB->read($query);
-                if(is_array($row)){
-                    $result[$table] = $row;
-                    foreach ($result[$table] as $row):
-                        $row->table = $table;
-                        $report_table = $table."_report";
-                        $query2 = "SELECT registered_user.first_name, registered_user.last_name, $report_table.* FROM $report_table LEFT JOIN registered_user on $report_table.user_ID = registered_user.user_ID WHERE fund_ID = $row->ID ORDER BY date DESC";
-                        $row->reports = $DB->read($query2);
-                        foreach ($row->reports as $report):
-                            $dir = "assets/uploads/reports/".$report_table."/".$row->ID."/".$report->user_ID."/";
-                            $report->images = scandir($dir);
+                $result[$table] = $row;
+                   
+                    if(is_array($row)){
+                        foreach ($result[$table] as $row):
+                            $row->table = $table;
+                            if($_SESSION['user_status']){
+                                $report_table = $table."_report";
+                                $query2 = "SELECT registered_user.first_name, registered_user.last_name, $report_table.* FROM $report_table LEFT JOIN registered_user on $report_table.user_ID = registered_user.user_ID WHERE fund_ID = $row->ID ORDER BY date DESC";
+                                $row->reports = $DB->read($query2);
+                                foreach ($row->reports as $report):
+                                    $dir = "assets/uploads/reports/".$report_table."/".$row->ID."/".$report->user_ID."/";
+                                    $report->images = scandir($dir);
+                                endforeach;
+                            }   
                         endforeach;
-                    endforeach;
+                    
                 }
             endforeach;    
 
@@ -546,16 +550,20 @@ Class input_checks{
                 $row = $DB->read($query);
                 if(($row)){  
                     $result[$table] = $row;
+                    // if($_SESSION['user_status']){
                     foreach ($result[$table] as $row):
                         $row->table = $table;
-                        $report_table = $table."_report";
-                        $query2 = "SELECT registered_user.first_name, registered_user.last_name, $report_table.* FROM $report_table LEFT JOIN registered_user on $report_table.user_ID = registered_user.user_ID WHERE post_ID = $row->ID ORDER BY date DESC";
-                        $row->reports = $DB->read($query2);
-                        foreach ($row->reports as $report):
-                            $dir = "assets/uploads/reports/".$report_table."/".$row->ID."/".$report->user_ID."/";
-                            $report->images = scandir($dir);
-                        endforeach;
+                        if($_SESSION['user_status']){
+                            $report_table = $table."_report";
+                            $query2 = "SELECT registered_user.first_name, registered_user.last_name, $report_table.* FROM $report_table LEFT JOIN registered_user on $report_table.user_ID = registered_user.user_ID WHERE post_ID = $row->ID ORDER BY date DESC";
+                            $row->reports = $DB->read($query2);
+                            foreach ($row->reports as $report):
+                                $dir = "assets/uploads/reports/".$report_table."/".$row->ID."/".$report->user_ID."/";
+                                $report->images = scandir($dir);
+                            endforeach;
+                        }
                     endforeach;
+                    // }
                 }
             endforeach;    
 

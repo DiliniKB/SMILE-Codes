@@ -57,7 +57,7 @@ Class singlefund extends Controller
         if ($_POST) {
             show($_POST);
             if(empty($_SESSION['user_id'])){
-                $result = $fund->enter_comment($data['table'],$data['id'],$_POST['comment'],0);
+                header("Location:".ROOT."home/login");
             }
             else{
                 $result = $fund->enter_comment($data['table'],$data['id'],$_POST['comment'],$_SESSION['user_id']);
@@ -79,6 +79,9 @@ Class singlefund extends Controller
         $data['table'] = $table."_report";
         $data['fund_id'] = $id;
         $data['page_title'] = "Report fund";
+        if(empty($_SESSION['user_id'])){
+            header("Location:".ROOT."home/login");
+        }
         $data['user_id'] = $_SESSION['user_id'];
         
         if ($_POST) {
@@ -104,7 +107,7 @@ Class singlefund extends Controller
         $results = $fund->view_fund($data);
         $data['fund'] = $results;
 
-        if($_SESSION['user_id']){
+        if(isset($_SESSION['user_id'])){
             $data['user_id'] = $_SESSION['user_id'];
         }else{
             $data['user_id'] = 0;
