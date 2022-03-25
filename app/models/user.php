@@ -470,15 +470,6 @@ Class input_checks{
             }
         }
 
-        function userauth(){//not set
-            //email verificaiton
-
-        }
-
-        function verified_user(){//not set
-            //returns true if he is a verified user 
-            return true;
-        }
 
         function get_funds($id,$case=""){// set
 
@@ -486,7 +477,7 @@ Class input_checks{
 
             switch ($case){
                 case "active":
-                    $condition = "amount>filled and status=0";
+                    $condition = "amount > filled AND status=0";
                     break;
                 case "filled":
                     $condition = "amount < filled OR amount=filled OR status=1";
@@ -536,10 +527,10 @@ Class input_checks{
 
             switch($case){
                 case "active":
-                    $condition = "status=1";
+                    $condition = "status=0";
                     break;
                 case "complete":
-                    $condition = "status=0";
+                    $condition = "status=1";
                     break;
                 default:
                     $condition = "true";
@@ -552,7 +543,6 @@ Class input_checks{
                 $row = $DB->read($query);
                 if(($row)){  
                     $result[$table] = $row;
-                    // if($_SESSION['user_status']){
                     foreach ($result[$table] as $row):
                         $row->table = $table;
                         if($_SESSION['user_status']){
@@ -565,14 +555,15 @@ Class input_checks{
                             endforeach;
                         }
                     endforeach;
-                    // }
                 }
-            endforeach;    
+            endforeach;   
+            
+            // show($result);
 
             if(isset($result))
             {
-                
                 return $result;
+                
             }
             return false;
         }
@@ -692,12 +683,17 @@ Class input_checks{
             $query = "UPDATE registered_user SET status=1 WHERE user_ID=$id";
             $DB->write($query);
 
-            $tables = array('medicalfund','animalcarefund','seniorcarefund','childrenfund','educationfund','otherfund','medicalpost','animalcarepost','seniorcarepost','childrenpost','educationpost','otherpost');
+            $tables = array('medicalfund','animalcarefund','seniorcarefund','childrenfund','educationfund','otherfund');
             foreach($tables as $table):
                 $query2 = "UPDATE $table SET status=2 WHERE user_ID=$id";
                 $DB->write($query2);
             endforeach;
-            
+
+            $table = array('medicalpost','animalcarepost','seniorcarepost','childrenpost','educationpost','otherpost');
+            foreach($tables as $table):
+                $query2 = "UPDATE $table SET status=1 WHERE user_ID=$id";
+                $DB->write($query2);
+            endforeach;
         }
 
         function unblock($id){

@@ -10,7 +10,7 @@
             }else{
                 header("Location:".ROOT."home/login");
             }
-		    die;
+		    // die;
         }
         
         function create($category)

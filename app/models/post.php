@@ -236,6 +236,14 @@ Class Post{
         $query = "DELETE FROM $table WHERE ID=$id";
         $DB->write($query); 
     }
+
+    function close_post_user($table, $id)
+    {
+        $DB = new Database();
+        $_SESSION['error']="";
+        $query = "UPDATE $table SET status=1 WHERE ID=$id";
+        $DB->write($query); 
+    }
 }
 
 

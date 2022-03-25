@@ -69,8 +69,9 @@
                     My funds
                 </div>
                 <div class="funds">
-                    <?php if(is_array($data['funds'])): ?>
-                        <?php foreach($data['funds'] as $table): ?>
+                    <div class="t2">Active Funds</div>
+                    <?php if(is_array($data['activefunds'])): ?>
+                        <?php foreach($data['activefunds'] as $table): ?>
                             <?php if(is_array($table)):?>
                                 <?php foreach($table as $row): ?>
                                     <div class="fpost">
@@ -88,7 +89,57 @@
                                     </div>
                                 <?php endforeach; ?>  
                             <?php endif; ?>
-                        <?php endforeach; ?>  
+                        <?php endforeach; ?> 
+                    <?php else:?>
+                    <p class="nofunds"> No active funds for this user </p>   
+                    <?php endif; ?>
+
+                    <div class="t2">Closed Funds</div>
+                    <?php if(is_array($data['filledfunds'])): ?>
+                        <?php foreach($data['filledfunds'] as $table): ?>
+                            <?php if(is_array($table)):?>
+                                <?php foreach($table as $row): ?>
+                                    <div class="fpost">
+                                        <img src= "<?=ASSETS?>Images/mainPages/<?=$row->table;?>/<?=$row->picture?>" class="photo">
+                                        <div class="location">
+                                            <div class="town"><?=$row->town?></div>
+                                            <div class="district"><?=$row->district?></div>
+                                        </div>
+                                        <div class="title"><?=$row->title?></div>
+                                        <progress value="<?=$row->filled?>" max="<?=$row->amount?>"></progress>
+                                        <div class="RaisedOf">Rs <?=$row->filled?> raised of Rs<?=$row->amount?></div>
+                                        <!-- <p class="done">&#x2714;</p> -->
+                                        <a class="move" href="<?=ROOT?>singlefund/<?=str_replace("funds","",$row->table); ?>/<?=$row->ID?>"><ion-icon name="arrow-forward-circle"></ion-icon></a> 
+                                    </div>
+                                <?php endforeach; ?>  
+                            <?php endif; ?>
+                        <?php endforeach; ?> 
+                    <?php else:?>
+                        <p class="nofunds"> No closed funds for this user </p>   
+                    <?php endif; ?>
+
+                    <div class="t2">Settled Funds</div>
+                    <?php if(is_array($data['settledfunds'])): ?>
+                        <?php foreach($data['settledfunds'] as $table): ?>
+                            <?php if(is_array($table)):?>
+                                <?php foreach($table as $row): ?>
+                                    <div class="fpost">
+                                        <img src= "<?=ASSETS?>Images/mainPages/<?=$row->table;?>/<?=$row->picture?>" class="photo">
+                                        <div class="location">
+                                            <div class="town"><?=$row->town?></div>
+                                            <div class="district"><?=$row->district?></div>
+                                        </div>
+                                        <div class="title"><?=$row->title?></div>
+                                        <progress value="<?=$row->filled?>" max="<?=$row->amount?>"></progress>
+                                        <div class="RaisedOf">Rs <?=$row->filled?> raised of Rs<?=$row->amount?></div>
+                                        <!-- <p class="done">&#x2714;</p> -->
+                                        <a class="move" href="<?=ROOT?>singlefund/<?=str_replace("funds","",$row->table); ?>/<?=$row->ID?>"><ion-icon name="arrow-forward-circle"></ion-icon></a> 
+                                    </div>
+                                <?php endforeach; ?>  
+                            <?php endif; ?>
+                        <?php endforeach; ?> 
+                    <?php else:?>
+                        <p class="nofunds"> No settled funds for this user </p>   
                     <?php endif; ?>
                 </div>
             </div>
@@ -97,8 +148,9 @@
                     My posts
                 </div>
                 <div class="posts">
-                <?php if(is_array($data['posts'])): ?>
-                        <?php foreach($data['posts'] as $table): ?>
+                    <div class="t2">Active Posts</div>
+                    <?php if($data['activeposts']): ?>
+                        <?php foreach($data['activeposts'] as $table): ?>
                             <?php if(is_array($table)):?>
                                 <?php foreach($table as $row): ?>
                                     <div class="fpost">
@@ -109,14 +161,38 @@
                                         </div>
                                         <div class="description"><?=$row->content?></div>
                                         <div class="item"><?=$row->item?></div>
-                                        <a class="delete" href="<?=ROOT?>posts/delete_post/<?=$row->table?>/<?=$row->ID?>"><ion-icon name="trash-bin" onclick="confirmation_delete()"><ion-icon name="trash-bin"></ion-icon></a>
-                                        <p class="done"><ion-icon name="checkmark-done-circle"></ion-icon></p>
+                                        <a class="done" href="<?=ROOT?>posts/close_post_user/<?=$row->table?>/<?=$row->ID?>"><ion-icon name="checkmark-done-circle"></ion-icon></a>
+                                        <a class="move" href="<?=ROOT?>singlepost/<?=str_replace("posts","",$row->table); ?>/<?=$row->ID?>"> <ion-icon name="arrow-forward-circle"></ion-icon></a> 
+                                    </div> 
+                                <?php endforeach; ?>  
+                            <?php endif; ?>
+                        <?php endforeach; ?> 
+                    <?php else:?>
+                        <p class="nofunds"> No active posts for this user </p>
+                    <?php endif; ?>
+            
+
+                    <div class="t2">Settled Posts</div>
+                    <?php if($data['settledposts']): ?>
+                        <?php foreach($data['settledposts'] as $table): ?>
+                            <?php if(is_array($table)):?>
+                                <?php foreach($table as $row): ?>
+                                    <div class="fpost">
+                                        <img src= "<?=ASSETS?>Images/mainPages/<?=$row->table;?>/<?=$row->picture?>" class="photo">
+                                        <div class="location">
+                                            <div class="town"><?=$row->town?></div>
+                                            <div class="district"><?=$row->district?></div>
+                                        </div>
+                                        <div class="description"><?=$row->content?></div>
+                                        <div class="item"><?=$row->item?></div>
                                         <a class="move" href="<?=ROOT?>singlepost/<?=str_replace("posts","",$row->table); ?>/<?=$row->ID?>"> <ion-icon name="arrow-forward-circle"></ion-icon></a> 
                                     </div> 
                                 <?php endforeach; ?>  
                             <?php endif; ?>
                         <?php endforeach; ?>  
-                    <?php endif; ?>
+                    <?php else:?>
+                        <p class="nofunds"> No settled posts for this user </p>
+                    <?php endif; ?>                
                 </div>
             </div>
         </div>

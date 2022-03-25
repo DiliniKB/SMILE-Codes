@@ -44,7 +44,7 @@
             $fund = $this->loadModel('fund'); 
             $fund->delete_fund_admin($table,$id);
 
-            $this->view("blank");
+            // $this->view("blank");
             if (isset($_SERVER["HTTP_REFERER"])) {
                 header("Location: " . $_SERVER["HTTP_REFERER"]);
             }

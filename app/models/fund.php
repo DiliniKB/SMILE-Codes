@@ -12,7 +12,7 @@ Class fund{
         $DB = new Database();
         $_SESSION['error'] = '';
         $table = $data['table'];
-        $valid = 0;
+        // $valid = 0;
 
         $allowed[] = "image/jpeg";
 
@@ -285,9 +285,11 @@ Class fund{
 
     function delete_fund_user($table, $id)
     {
+        // echo "dead here"; 
         $DB = new Database();
         $_SESSION['error']="";
-        $query = "UPDATE FROM $table SET status=1 WHERE ID=$id";
+        $query = "UPDATE $table SET status=1 WHERE ID=$id";
+        echo $query;
         $DB->write($query); 
     }
 

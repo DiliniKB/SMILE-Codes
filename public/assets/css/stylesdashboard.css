@@ -78,9 +78,9 @@
 }
 #s1{
     display: flex;
-    flex-direction: column;
     row-gap: 18px;
     margin-bottom: 40px;
+    flex-direction: column;
 }
 #h1{
     font-family: 'Sora';
@@ -97,7 +97,7 @@
 }
 .posts{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     padding-left: 8%;
     row-gap: 10px;
@@ -169,6 +169,7 @@ overflow: hidden;
     padding: 0px;
     font-size: 25px;
     margin: 0px 5px;
+    /* cursor: sw-resize; */
     /* margin: 0; */
     /* background: black; */
     /* text-decoration: underline; */
@@ -229,7 +230,14 @@ margin: 0px 5px;
         margin-right: 15px;
     }
     
-	
+}
+
+.t2{font-family: 'Sora';margin-top: 10px;text-decoration: underline;/* font-weight: bold; */}
+.nofunds{
+    font-family: 'Sora';
+    /* font-style: italic; */
+    margin: 0px;
+    font-size: 15px;
 }
 @media screen and (min-width: 767px) and (max-width:1080px){
     

@@ -49,6 +49,17 @@
             }
         
         }
+
+        function close_post_user($table,$id)
+        {
+            $post = $this->loadModel('post'); 
+            $post->close_post_user($table,$id);
+            // $this->view("blank");
+            if (isset($_SERVER["HTTP_REFERER"])) {
+                header("Location: " . $_SERVER["HTTP_REFERER"]);
+            }
+        
+        }
     }
 
 ?>

@@ -128,11 +128,20 @@
             $userdetails = $user->search_user_by_id($id);
             $data['account_balance'] = $userdetails->balance;
 
-            $funds = $user->get_funds($id);
-            $data['funds'] = $funds;
+            $funds = $user->get_funds($id,"active");
+            $data['activefunds'] = $funds;
 
-            $posts = $user->get_posts($id);
-            $data['posts'] = $posts;
+            $funds = $user->get_funds($id,"filled");
+            $data['filledfunds'] = $funds;
+
+            $funds = $user->get_funds($id,"settled");
+            $data['settledfunds'] = $funds;
+
+            $posts = $user->get_posts($id,"active");
+            $data['activeposts'] = $posts;
+
+            $posts = $user->get_posts($id,"complete");
+            $data['settledposts'] = $posts;
         
             $totalDonated = $user->get_total_donated($id);
             $data['totalDonated'] = $totalDonated['amount'];
