@@ -486,13 +486,13 @@ Class input_checks{
 
             switch ($case){
                 case "active":
-                    $condition = "amount>filled";
+                    $condition = "amount>filled and status=0";
                     break;
                 case "filled":
-                    $condition = "amount < filled OR amount=filled";
+                    $condition = "amount < filled OR amount=filled OR status=1";
                     break;
                 case "settled":
-                    $condition = "status = 1";
+                    $condition = "status = 2";
                     break;
                 default:
                     $condition = "true";
@@ -502,23 +502,24 @@ Class input_checks{
             foreach($tables as $table):
                 $query = "SELECT * FROM $table WHERE user_ID = $id AND $condition";
                 $row = $DB->read($query);
-                $result[$table] = $row;
-                   
-                    if(is_array($row)){
-                        foreach ($result[$table] as $row):
-                            $row->table = $table;
-                            if($_SESSION['user_status']){
-                                $report_table = $table."_report";
-                                $query2 = "SELECT registered_user.first_name, registered_user.last_name, $report_table.* FROM $report_table LEFT JOIN registered_user on $report_table.user_ID = registered_user.user_ID WHERE fund_ID = $row->ID ORDER BY date DESC";
-                                $row->reports = $DB->read($query2);
-                                foreach ($row->reports as $report):
-                                    $dir = "assets/uploads/reports/".$report_table."/".$row->ID."/".$report->user_ID."/";
-                                    $report->images = scandir($dir);
-                                endforeach;
-                            }   
-                        endforeach;
-                    
+         
+                if($row){
+                    $result[$table] = $row;
+                    foreach ($result[$table] as $row):
+                        $row->table = $table;
+                        if($_SESSION['user_status']){
+                            $report_table = $table."_report";
+                            $query2 = "SELECT registered_user.first_name, registered_user.last_name, $report_table.* FROM $report_table LEFT JOIN registered_user on $report_table.user_ID = registered_user.user_ID WHERE fund_ID = $row->ID ORDER BY date DESC";
+                            $row->reports = $DB->read($query2);
+                            foreach ($row->reports as $report):
+                                $dir = "assets/uploads/reports/".$report_table."/".$row->ID."/".$report->user_ID."/";
+                                $report->images = scandir($dir);
+                            endforeach;
+                        }   
+                    endforeach;
                 }
+                    
+                
             endforeach;    
 
             if(isset($result))
@@ -690,6 +691,13 @@ Class input_checks{
             $DB = new Database();
             $query = "UPDATE registered_user SET status=1 WHERE user_ID=$id";
             $DB->write($query);
+
+            $tables = array('medicalfund','animalcarefund','seniorcarefund','childrenfund','educationfund','otherfund','medicalpost','animalcarepost','seniorcarepost','childrenpost','educationpost','otherpost');
+            foreach($tables as $table):
+                $query2 = "UPDATE $table SET status=2 WHERE user_ID=$id";
+                $DB->write($query2);
+            endforeach;
+            
         }
 
         function unblock($id){

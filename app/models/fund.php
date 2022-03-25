@@ -2,6 +2,11 @@
 
 Class fund{
 
+    //status 
+    // active fund = 0
+    // closed fund = 1
+    // settled fund = 2
+
     function create_fund($POST,$FILES,$data){
 
         $DB = new Database();
@@ -79,7 +84,7 @@ Class fund{
         $limit = 12;
         $offset = ($page_number - 1) * $limit;
         $tablename = strtolower($cat."fund");
-        $query = "SELECT * FROM $tablename WHERE amount!=filled ORDER BY id DESC LIMIT $limit OFFSET $offset";
+        $query = "SELECT * FROM $tablename WHERE amount!=filled and status=0 ORDER BY id DESC LIMIT $limit OFFSET $offset";
         $DB = new Database();
         $result = $DB->read($query);
         if(is_array($result))
@@ -269,7 +274,7 @@ Class fund{
                 $order = 'id ASC';   
         }
 
-        $query = "SELECT * FROM $table WHERE (town LIKE '$location' OR district LIKE '$location') AND keywords LIKE '$keywords' AND amount!= filled ORDER BY $order";
+        $query = "SELECT * FROM $table WHERE (town LIKE '$location' OR district LIKE '$location') AND keywords LIKE '$keywords' AND amount!= filled WHERE  ORDER BY $order";
         $data = $DB->read($query); 
         
         if ($data){
@@ -299,8 +304,10 @@ Class fund{
         for ($i=0;$i<count($donations);$i++){
             $user=$donations[$i]->user_ID;
             $amount=$donations[$i]->amount;
-            $query = "UPDATE registered_user SET donateCount = donateCount -1,donateAmount = donateAmount - $amount,balance = balance + $amount WHERE user_ID=$user";
-            $DB->write($query);
+            if($user>0){
+                $query = "UPDATE registered_user SET donateCount = donateCount -1,donateAmount = donateAmount - $amount,balance = balance + $amount WHERE user_ID=$user";
+                $DB->write($query);
+            }
         }
 
         $query1 = "DELETE FROM $donateTable WHERE fund_ID=$id";
@@ -313,6 +320,13 @@ Class fund{
 
         show($donations);
 
+    }
+
+    function settle_fund($table,$id){
+        $DB = new Database();
+        $_SESSION['error']="";
+        $query = "UPDATE FROM $table SET status=2 WHERE ID=$id";
+        $DB->write($query); 
     }
 
     function get_leaderboard(){

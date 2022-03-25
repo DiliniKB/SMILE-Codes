@@ -54,7 +54,7 @@
     /* border-color: #3566ad61; */
     font-size: 14px;
     background: #ffffff;
-    box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 10%);
+    box-shadow: 0px 0px 11px 8px rgb(0 0 0 / 10%);
     /* border-radius: 10px; */
     text-decoration: none;
     transition: transform .2s;
@@ -194,6 +194,7 @@ progress::-webkit-progress-value {
 	/*float: left;**/
 	left: 66%;
 	border: 3px solid #f1f1f1;
+	border-radius: 19px;
 	z-index: -2;
 	background-color: whitesmoke;
 	box-shadow: 3px 4px 4px 0px rgb(74 85 188 / 42%);

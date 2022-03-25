@@ -39,7 +39,7 @@
                                         <div class="icons">
                                             <div class="dmicon">
                                                 <a class="delete" href="<?=ROOT?>funds/delete_fund_admin/<?=$row->table?>/<?=$row->ID?>" onclick="confirmation_delete()"><ion-icon name="trash-bin"></ion-icon></a>
-                                                <!-- <p class="done">&#x2714;</p> -->
+                                                
                                                 <a class="move" href="<?=ROOT?>singlefund/<?=str_replace("fund","",$row->table); ?>/<?=$row->ID?>"><ion-icon name="arrow-forward-circle"></ion-icon></a>
                                             </div>
                                             <div class="report" onclick=viewreportlist(this)>
@@ -93,7 +93,7 @@
                         <p class="nofunds"> No active funds for this user </p>  
                     <?php endif; ?>
                     <div class="t2">
-                        <div class="topic2">Filled</div>
+                        <div class="topic2">Filled or Closed</div>
                     </div>
                     <?php if(is_array($data['filledfunds'])): ?>
                         <?php foreach($data['filledfunds'] as $table): ?>
@@ -112,7 +112,7 @@
                                         <div class="icons2">
                                             <div class="dmicon">
                                                 <a class="delete" href="<?=ROOT?>funds/delete_fund_admin/<?=$row->table?>/<?=$row->ID?>" onclick="confirmation_delete()"><ion-icon name="trash-bin"></ion-icon></a>
-                                                <p class="done"><ion-icon name="checkmark-done-circle"></ion-icon></p>
+                                                <a class="done" href="<?=ROOT?>funds/settle_fund/<?=$row->table?>/<?=$row->ID?>"><ion-icon name="checkmark-done-circle"></ion-icon></a>
                                                 <a class="move" href="<?=ROOT?>singlefund/<?=str_replace("fund","",$row->table); ?>/<?=$row->ID?>"><ion-icon name="arrow-forward-circle"></ion-icon></a>
                                             </div>
                                             <div class="report" onclick=viewreportlist(this)>
@@ -185,7 +185,6 @@
                                         <div class="icons2">
                                             <div class="dmicon">
                                                 <a class="delete" href="<?=ROOT?>funds/delete_fund_admin/<?=$row->table?>/<?=$row->ID?>" onclick="confirmation_delete()"><ion-icon name="trash-bin"></ion-icon></a>
-                                                <p class="done"><ion-icon name="checkmark-done-circle"></ion-icon></p>
                                                 <a class="move" href="<?=ROOT?>singlefund/<?=str_replace("fund","",$row->table); ?>/<?=$row->ID?>"><ion-icon name="arrow-forward-circle"></ion-icon></a>
                                             </div>
                                             <div class="report" onclick=viewreportlist(this)>

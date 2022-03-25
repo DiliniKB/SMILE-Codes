@@ -38,9 +38,9 @@
                 $uploader = $this->loadModel("post");
                 $uploader->create_post($_POST,$_FILES,$data);
 
-                show($data);
-                show($_POST);
-                show($_FILES);
+                // show($data);
+                // show($_POST);
+                // show($_FILES);
             }
 
             $this->view("create".$data['type'],$data);
