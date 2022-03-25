@@ -274,7 +274,7 @@ Class fund{
                 $order = 'id ASC';   
         }
 
-        $query = "SELECT * FROM $table WHERE (town LIKE '$location' OR district LIKE '$location') AND keywords LIKE '$keywords' AND amount!= filled WHERE  ORDER BY $order";
+        $query = "SELECT * FROM $table WHERE (town LIKE '$location' OR district LIKE '$location') AND keywords LIKE '$keywords' AND amount!= filled AND status = 0 ORDER BY $order";
         $data = $DB->read($query); 
         
         if ($data){

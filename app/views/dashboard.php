@@ -85,7 +85,7 @@
                                         <div class="RaisedOf">Rs <?=$row->filled?> raised of Rs<?=$row->amount?></div>
                                         <a class="delete" href="<?=ROOT?>funds/delete_fund_user/<?=$row->table?>/<?=$row->ID?>"><ion-icon name="trash-bin" onclick="confirmation_delete()"></ion-icon></a>
                                         <!-- <p class="done">&#x2714;</p> -->
-                                        <a class="move" href="<?=ROOT?>singlefund/<?=str_replace("funds","",$row->table); ?>/<?=$row->ID?>"><ion-icon name="arrow-forward-circle"></ion-icon></a> 
+                                        <a class="move" href="<?=ROOT?>singlefund/<?= str_replace("fund","",$row->table); ?>/<?=$row->ID?>"><ion-icon name="arrow-forward-circle"></ion-icon></a> 
                                     </div>
                                 <?php endforeach; ?>  
                             <?php endif; ?>
@@ -109,7 +109,7 @@
                                         <progress value="<?=$row->filled?>" max="<?=$row->amount?>"></progress>
                                         <div class="RaisedOf">Rs <?=$row->filled?> raised of Rs<?=$row->amount?></div>
                                         <!-- <p class="done">&#x2714;</p> -->
-                                        <a class="move" href="<?=ROOT?>singlefund/<?=str_replace("funds","",$row->table); ?>/<?=$row->ID?>"><ion-icon name="arrow-forward-circle"></ion-icon></a> 
+                                        <a class="move" href="<?=ROOT?>singlefund/<?=str_replace("fund","",$row->table); ?>/<?=$row->ID?>"><ion-icon name="arrow-forward-circle"></ion-icon></a> 
                                     </div>
                                 <?php endforeach; ?>  
                             <?php endif; ?>
@@ -133,7 +133,7 @@
                                         <progress value="<?=$row->filled?>" max="<?=$row->amount?>"></progress>
                                         <div class="RaisedOf">Rs <?=$row->filled?> raised of Rs<?=$row->amount?></div>
                                         <!-- <p class="done">&#x2714;</p> -->
-                                        <a class="move" href="<?=ROOT?>singlefund/<?=str_replace("funds","",$row->table); ?>/<?=$row->ID?>"><ion-icon name="arrow-forward-circle"></ion-icon></a> 
+                                        <a class="move" href="<?=ROOT?>singlefund/<?=str_replace("fund","",$row->table); ?>/<?=$row->ID?>"><ion-icon name="arrow-forward-circle"></ion-icon></a> 
                                     </div>
                                 <?php endforeach; ?>  
                             <?php endif; ?>
@@ -162,7 +162,7 @@
                                         <div class="description"><?=$row->content?></div>
                                         <div class="item"><?=$row->item?></div>
                                         <a class="done" href="<?=ROOT?>posts/close_post_user/<?=$row->table?>/<?=$row->ID?>"><ion-icon name="checkmark-done-circle"></ion-icon></a>
-                                        <a class="move" href="<?=ROOT?>singlepost/<?=str_replace("posts","",$row->table); ?>/<?=$row->ID?>"> <ion-icon name="arrow-forward-circle"></ion-icon></a> 
+                                        <a class="move" href="<?=ROOT?>singlepost/<?=str_replace("post","",$row->table); ?>/<?=$row->ID?>"> <ion-icon name="arrow-forward-circle"></ion-icon></a> 
                                     </div> 
                                 <?php endforeach; ?>  
                             <?php endif; ?>
@@ -185,7 +185,7 @@
                                         </div>
                                         <div class="description"><?=$row->content?></div>
                                         <div class="item"><?=$row->item?></div>
-                                        <a class="move" href="<?=ROOT?>singlepost/<?=str_replace("posts","",$row->table); ?>/<?=$row->ID?>"> <ion-icon name="arrow-forward-circle"></ion-icon></a> 
+                                        <a class="move" href="<?=ROOT?>singlepost/<?=str_replace("post","",$row->table); ?>/<?=$row->ID?>"> <ion-icon name="arrow-forward-circle"></ion-icon></a> 
                                     </div> 
                                 <?php endforeach; ?>  
                             <?php endif; ?>

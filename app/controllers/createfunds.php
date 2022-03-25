@@ -6,7 +6,19 @@
             $data['category'] = $category;
             show($data);
             if($_SESSION['user_id']){
-                header("Location:".ROOT."createfunds/create/".$category."");
+                if(!$_SESSION['status']){
+                    header("Location:".ROOT."createfunds/create/".$category."");
+                }
+                else{
+                    function blocked($str){
+                        echo "<script type='text/javascript'>alert('$str');</script>";                        
+                    }
+
+                    blocked("This user is blocked");
+                    $this->view("home");
+                    
+                }
+                
             }else{
                 header("Location:".ROOT."home/login");
             }
