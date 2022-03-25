@@ -45,7 +45,7 @@ Class Post{
                 $arr['image'] = $photoname;
                 $arr['date'] = date("Y-m-d");
                 $arr['user'] = $_SESSION['user_id'];
-                $arr['status'] = 1;
+                $arr['status'] = 0;
 
                 $query = "INSERT INTO $table  
                 (picture ,town, district, item, content, post_type, keywords, user_ID,member_ID1,member_ID2,member_ID3,visibility,create_date,status) 
@@ -74,7 +74,7 @@ Class Post{
         $limit = 12;
         $offset = ($page_number - 1) * $limit;
         $tablename = strtolower($cat."post");
-        $query = "SELECT * FROM $tablename where status = 1 ORDER BY ID DESC LIMIT $limit OFFSET $offset";
+        $query = "SELECT * FROM $tablename where status = 0 ORDER BY ID DESC LIMIT $limit OFFSET $offset";
         // echo $query;
 
         $DB = new Database();
@@ -183,7 +183,7 @@ Class Post{
                 $order = 'id ASC';   
         }
 
-        $query = "SELECT * FROM $table WHERE (town LIKE '$location' OR district LIKE '$location') AND keywords LIKE '$keywords' AND status = 1 ";
+        $query = "SELECT * FROM $table WHERE (town LIKE '$location' OR district LIKE '$location') AND keywords LIKE '$keywords' AND status = 0 ";
         $data = $DB->read($query); 
         
         if ($data){
