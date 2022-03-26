@@ -51,13 +51,11 @@ Class Post{
                 (picture ,town, district, item, content, post_type, keywords, user_ID,member_ID1,member_ID2,member_ID3,visibility,create_date,status) 
                 VALUES 
                 (:image,:town,:district, :item, :description, :posttype,:keywords,:user,:member_ID1,:member_ID2,:member_ID3,:anonymous,:date,:status)";
-            
-                echo $query;    
 
                 $result = $DB->write($query,$arr);
 
                 if ($result) {
-                    header("Location:".ROOT."home");
+                    header("Location:".ROOT."posts/".$data['category']);
                     die;
                 }else{
                     $_SESSION['error']="wrong username or password";                    
@@ -154,7 +152,7 @@ Class Post{
             $result = $DB->write($query,$arr);
 
             if ($result) {
-                header("Location:".ROOT."funds/Medical");
+                header("Location:".ROOT."posts/Medical");
                 die;
             }
         }
