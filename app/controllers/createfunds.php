@@ -15,7 +15,7 @@
                     }
 
                     blocked("This user is blocked");
-                    $this->view("home");
+                    $this->view("");
                     
                 }
                 

@@ -4,7 +4,7 @@
     {
         function index($category){
             $data['category'] = $category;
-            show($data);
+            // show($data);
             if($_SESSION['user_id']){
                 header("Location:".ROOT."createposts/create/".$category."");
             }else{

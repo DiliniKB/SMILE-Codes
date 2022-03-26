@@ -55,7 +55,7 @@ Class singlefund extends Controller
         $data['comments'] = $comments;
 
         if ($_POST) {
-            show($_POST);
+            // show($_POST);
             if(empty($_SESSION['user_id'])){
                 header("Location:".ROOT."home/login");
             }
@@ -89,7 +89,7 @@ Class singlefund extends Controller
             $data['photos'] = $_FILES;
             $fund = $this->loadModel("fund");
             $fund->report($data);
-            show($data);
+            // show($data);
         }
         $this->view("report",$data);
 
@@ -113,10 +113,10 @@ Class singlefund extends Controller
             $data['user_id'] = 0;
         }
 
-        show($data);
+        // show($data);
 
         if ($_POST) {
-            show($_POST);
+            // show($_POST);
             $data['amount'] = $_POST['donation'];
             $data['tip'] = $_POST['tip'];
             $data['visibility'] = $_POST['anonymous'];
@@ -139,8 +139,8 @@ Class singlefund extends Controller
         $data['id'] = $id;
         $data['amount'] = $_POST['donation'];
         $data['tip'] = $_POST['tip'];
-        show($data);
-        show($_POST);
+        // show($data);
+        // show($_POST);
 
         // if ($_POST) {
         //     $this->view("blank",$data);

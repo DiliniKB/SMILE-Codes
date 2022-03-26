@@ -120,13 +120,18 @@ Class fund{
         $arr['user'] = $data['user_id'];
         $arr['time'] = date("H:i:s");
         $arr['amount'] = $data['amount'];
+        $amount = $arr['amount'];
 
         $table = $data['table']."_donate";
+        $table2 = $data['table'];
 
         $query = "INSERT INTO $table (date,visibility,tip,fund_ID,user_ID,time,amount) VALUES (:date,:visibility,:tip,:fund,:user,:time,:amount)";
+        $query2 = "UPDATE $table2 set filled = filled + $amount WHERE ID = :fund";
+        echo $query2;
 
         $DB = new Database();
         $DB->write($query, $arr);
+        $DB->write($query2, $arr);
 
         show($arr);
     
@@ -151,7 +156,7 @@ Class fund{
         $arr[1] = $count2[0]->donation;
 
         //recent donation
-        $query3 = "SELECT first_name,last_name,visibility,amount FROM registered_user INNER JOIN $table ON registered_user.user_id = $table.user_id WHERE $table.user_id>0 ORDER BY $table.date DESC, $table.time DESC";
+        $query3 = "SELECT first_name,last_name,visibility,amount FROM registered_user INNER JOIN $table ON registered_user.user_id = $table.user_id WHERE $table.fund_ID=$id AND $table.user_id>0 ORDER BY $table.date DESC, $table.time DESC";
         echo $query3;
         $count3 = $DB->read($query3);
         if ($count3){
@@ -170,7 +175,7 @@ Class fund{
         }
 
         //top donation
-        $query4 = "SELECT first_name,last_name,visibility,amount FROM registered_USER INNER JOIN $table ON registered_user.user_id = $table.user_id WHERE $table.user_id>0 ORDER BY amount DESC LIMIT 1";
+        $query4 = "SELECT first_name,last_name,visibility,amount FROM registered_USER INNER JOIN $table ON registered_user.user_id = $table.user_id WHERE $table.fund_ID=$id AND $table.user_id>0 ORDER BY amount DESC LIMIT 1";
         $count4 = $DB->read($query4);
         if($count4){
             $visibility = $count4[0]->visibility;
@@ -223,7 +228,7 @@ Class fund{
                 else{ 
                     $desination = $folder3."/".$i;
                 }
-                echo $desination;
+                // echo $desination;
                 move_uploaded_file($data['photos']['photo']['tmp_name'][$i],$desination);
             }else{
                 $_SESSION['error'] = "This file could not be uploaded";
@@ -289,7 +294,7 @@ Class fund{
         $DB = new Database();
         $_SESSION['error']="";
         $query = "UPDATE $table SET status=1 WHERE ID=$id";
-        echo $query;
+        // echo $query;
         $DB->write($query); 
     }
 
@@ -385,8 +390,8 @@ Class fund{
         }
 
         $query = "INSERT INTO $table (fund_ID,user_ID,date,time,comment) VALUES (:fundId,:user,:date,:time,:comment)";
-        show($arr);
-        echo ($query);
+        // show($arr);
+        // echo ($query);
         
         $result = $DB->write($query,$arr);
 

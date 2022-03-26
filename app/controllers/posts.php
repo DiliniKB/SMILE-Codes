@@ -12,7 +12,7 @@
 
             $posts = $this->loadModel("post");
             if ($_POST) {
-                show($_POST);
+                // show($_POST);
                 // show($data);
                 $results = $posts->get_search_and_sort($_POST,$data['table']);
 
