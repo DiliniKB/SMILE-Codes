@@ -332,7 +332,7 @@ Class fund{
     function settle_fund($table,$id){
         $DB = new Database();
         $_SESSION['error']="";
-        $query = "UPDATE FROM $table SET status=2 WHERE ID=$id";
+        $query = "UPDATE $table SET status=2 WHERE ID=$id";
         $DB->write($query); 
     }
 

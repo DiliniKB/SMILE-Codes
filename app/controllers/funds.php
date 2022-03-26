@@ -35,6 +35,7 @@
             // $this->view("blank");
             if (isset($_SERVER["HTTP_REFERER"])) {
                 header("Location: " . $_SERVER["HTTP_REFERER"]);
+                echo '<script>notification();</script>';
             }
         
         }
@@ -55,7 +56,7 @@
             $fund = $this->loadModel('fund'); 
             $fund->settle_fund($table,$id);
 
-            $this->view("blank");
+            // $this->view("blank");
             if (isset($_SERVER["HTTP_REFERER"])) {
                 header("Location: " . $_SERVER["HTTP_REFERER"]);
             }
