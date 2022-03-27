@@ -221,11 +221,12 @@
     background: #000000a1;
     padding: 8px 16px;
     /* padding-right: 24px; */
+    /* width: 41%; */
     color: white;
     /* position: absolute; */
-    margin-left: 70%;
+    margin-left: 40%;
     text-transform: uppercase;
-    width: fit-content;
+    width: 67%;
     cursor: pointer;
     box-shadow: none;
     border: none;
@@ -367,6 +368,35 @@ input[type="text"]::placeholder,input[type="number"]::placeholder,input[type="da
 .anon:hover .user-tip {
   display: block;
 }
+
+.balancebox{
+  position: absolute;
+  z-index: 10;
+  font-size: large;
+  top: 40%;
+  display: none;
+  box-shadow: #8e8e8e4f 0px 0px 20px 690px;
+  width: 25%;
+  text-align: center;
+  font-family: 'Roboto';
+  left: 40%;
+  background: blanchedalmond;
+  padding: 20px;
+}
+
+.balancebox > .continue{
+
+width: 30%;
+
+margin: 17px auto 0 auto;
+
+/* box-shadow: black 2px 3px; */
+}
+
+button.continue:hover {
+    background: #353535;
+}
+
 @media screen and (max-width: 767px){	
   .container{
     width: 80%;

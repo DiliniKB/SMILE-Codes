@@ -127,7 +127,6 @@ Class fund{
 
         $query = "INSERT INTO $table (date,visibility,tip,fund_ID,user_ID,time,amount) VALUES (:date,:visibility,:tip,:fund,:user,:time,:amount)";
         $query2 = "UPDATE $table2 set filled = filled + $amount WHERE ID = :fund";
-        echo $query2;
 
         $DB = new Database();
         $DB->write($query, $arr);

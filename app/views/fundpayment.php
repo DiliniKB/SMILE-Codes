@@ -80,8 +80,18 @@
             <div id="total">
             </div>
         </div>
-        <button id="continue" onclick="confirmation()" class="continue">continue</button>
+        <button id="continue" onclick="confirmation()" class="continue">continue with card payment</button>
+        <?php if ( isset($_SESSION['user_id']) and $_SESSION['user_id']>0){?>
+            <button class="continue" onclick="balance_box()">continue with account balance</button>
+        <?php } ?>
     </div>
+
+    <div id="balancebox" class="balancebox">
+        Your account balance is <?=$data['balance']?>
+        <button class="continue" onclick="checkbalance(<?=$data['balance']?>)">Donate</button>
+        <button class="continue" onclick="balance_box()">Cancel</button>
+    </div>
+
 
     <form id="donationAmount" method="post">
         <input type="hidden" name="donation">

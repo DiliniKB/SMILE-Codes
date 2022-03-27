@@ -119,6 +119,39 @@ function Submit2(){
     box2.submit();
 }
 
+function balance_box(){
+    var balancebox = document.getElementById('balancebox');
+    if(balancebox.style.display == 'none'){
+        balancebox.style.display = 'block';
+    }else{
+        balancebox.style.display = 'none';
+    }
+
+}
+
+function checkbalance(x){
+    if (userInput) {
+        if (x< parseInt(userInput)+parseInt(tipin)){
+            alert('Your account balance is not sufficient');
+        }
+        else{
+            var proceed = confirm("Are you sure you want to proceed?");
+            form = document.getElementById('donationAmount');
+            if (!form) {
+                console.log("No form");
+            }
+            // console.log(userInput + tipin)
+            form.elements[0].value = userInput;
+            form.elements[1].value = tipin;   
+            form.elements[2].value = anon; 
+            form.submit();
+        }
+    }
+    else{
+        alert("Enter a valid amount");
+    }
+}
+
 // function linking(){
 //     next.href = next.href + "/" + parseInt(userInput) + "/" + parseInt(tipin);
 //     console.log(next.href);
