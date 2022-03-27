@@ -14,7 +14,7 @@ Class fund{
         $table = $data['table'];
         // $valid = 0;
 
-        $allowed[] = "image/jpeg";
+        // $allowed[] = "image/jpeg";
 
         if($_POST)
         {
@@ -45,7 +45,7 @@ Class fund{
                 $arr['accountHolder'] = $POST['accountHolder'];
                 $arr['image'] = $photoname;
                 $arr['date'] = date("Y-m-d");
-                $arr['user'] = $_SESSION['user_id'];
+                $user = $arr['user'] = $_SESSION['user_id'];
 
                 if(array_key_exists('member1',$data)){
                     $arr['member_ID1'] = $data['member1'];
@@ -67,6 +67,8 @@ Class fund{
                 $result = $DB->write($query,$arr);
 
                 if ($result) {
+                    $query2 = "UPDATE registered_user SET fundCount = fundCount + 1 WHERE user_ID = $user";
+                    $DB->write($query2);
                     header("Location:".ROOT."funds/".$data['category']);
                     die;
                 }else{
@@ -127,12 +129,14 @@ Class fund{
 
         $query = "INSERT INTO $table (date,visibility,tip,fund_ID,user_ID,time,amount) VALUES (:date,:visibility,:tip,:fund,:user,:time,:amount)";
         $query2 = "UPDATE $table2 set filled = filled + $amount WHERE ID = :fund";
+        $query3 = "UPDATE registered_user SET donateCount = donateCount + 1 WHERE user_ID = :user";
 
         $DB = new Database();
         $DB->write($query, $arr);
         $DB->write($query2, $arr);
+        $DB->write($query3, $arr);
 
-        show($arr);
+        // show($arr);
     
     }
 
@@ -156,7 +160,7 @@ Class fund{
 
         //recent donation
         $query3 = "SELECT first_name,last_name,visibility,amount FROM registered_user INNER JOIN $table ON registered_user.user_id = $table.user_id WHERE $table.fund_ID=$id AND $table.user_id>0 ORDER BY $table.date DESC, $table.time DESC";
-        echo $query3;
+        // echo $query3;
         $count3 = $DB->read($query3);
         if ($count3){
             $visibility = $count3[0]->visibility;
@@ -190,7 +194,7 @@ Class fund{
             $arr[3][0] = "No donations yet";
             $arr[3][1] = 0;
         }
-        show($arr);
+        // show($arr);
         return $arr;
     }
 
@@ -317,14 +321,21 @@ Class fund{
         }
 
         $query1 = "DELETE FROM $donateTable WHERE fund_ID=$id";
-        echo $query1;
+        // echo $query1;
         $DB->write($query1);
 
+        $query3 = "SELECT * FROM $table WHERE ID=$id";
+        echo $query3;
+        $fund=$DB->read($query3);
+        $user = $fund[0]->user_ID;
+
+        $query4 = "UPDATE registered_user SET removed_count = removed_count + 1 WHERE user_ID = $user";
+        $DB->write($query4);
+    
         $query2 = "DELETE FROM $table WHERE ID=$id";
-        echo $query2;
+        // echo $query2;
         $DB->write($query2);
 
-        show($donations);
 
     }
 

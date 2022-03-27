@@ -133,22 +133,22 @@ Class singlefund extends Controller
         
     }
 
-    function confirmedDonation($category,$id){
-        $data['page_title'] = "Donate";
-        $data['category'] = $category;
-        $data['type'] = "fund";
-        $data['table'] = $category."fund";
-        $data['page_title'] = "View ".$data['category']." ".$data['type'];
-        $data['id'] = $id;
-        $data['amount'] = $_POST['donation'];
-        $data['tip'] = $_POST['tip'];
-        // show($data);
-        // show($_POST);
+    // function confirmedDonation($category,$id){
+    //     $data['page_title'] = "Donate";
+    //     $data['category'] = $category;
+    //     $data['type'] = "fund";
+    //     $data['table'] = $category."fund";
+    //     $data['page_title'] = "View ".$data['category']." ".$data['type'];
+    //     $data['id'] = $id;
+    //     $data['amount'] = $_POST['donation'];
+    //     $data['tip'] = $_POST['tip'];
+    //     // show($data);
+    //     // show($_POST);
 
-        // if ($_POST) {
-        //     $this->view("blank",$data);
-        // }
-    }
+    //     // if ($_POST) {
+    //     //     $this->view("blank",$data);
+    //     // }
+    // }
 
     // function donationSuccess($category,$id,$amount,$tip){
     //     $data['category'] = $category;
