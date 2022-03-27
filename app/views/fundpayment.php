@@ -97,6 +97,7 @@
         <input type="hidden" name="donation">
         <input type="hidden" name="tip">
         <input type="hidden" name="anonymous">
+        <input type="hidden" name="balance" value="0">
     </form>
     
 </body>

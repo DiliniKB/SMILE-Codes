@@ -144,6 +144,7 @@ function checkbalance(x){
             form.elements[0].value = userInput;
             form.elements[1].value = tipin;   
             form.elements[2].value = anon; 
+            form.elements[3].value = 1;
             form.submit();
         }
     }

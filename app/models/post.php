@@ -44,7 +44,7 @@ Class Post{
                 }
                 $arr['image'] = $photoname;
                 $arr['date'] = date("Y-m-d");
-                $arr['user'] = $_SESSION['user_id'];
+                $user = $arr['user'] = $_SESSION['user_id'];
                 $arr['status'] = 0;
 
                 $query = "INSERT INTO $table  
@@ -55,6 +55,8 @@ Class Post{
                 $result = $DB->write($query,$arr);
 
                 if ($result) {
+                    $query2 = "UPDATE registered_user SET postCount = postCount + 1 WHERE user_ID = $user";
+                    $DB->write($query2);
                     header("Location:".ROOT."posts/".$data['category']);
                     die;
                 }else{
@@ -231,6 +233,15 @@ Class Post{
     {
         $DB = new Database();
         $_SESSION['error']="";
+
+        $query3 = "SELECT * FROM $table WHERE ID=$id";
+        echo $query3;
+        $post=$DB->read($query3);
+        $user = $post[0]->user_ID;
+
+        $query4 = "UPDATE registered_user SET removed_count = removed_count + 1 WHERE user_ID = $user";
+        $DB->write($query4);
+
         $query = "DELETE FROM $table WHERE ID=$id";
         $DB->write($query); 
     }

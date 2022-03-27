@@ -123,6 +123,7 @@ Class singlefund extends Controller
             $data['amount'] = $_POST['donation'];
             $data['tip'] = $_POST['tip'];
             $data['visibility'] = $_POST['anonymous'];
+            $data['balance'] = $_POST['balance'];
             $fund->donate($data);
             unset($_POST,$data);
             header("Location:".ROOT."singlefund/".$category."/".$id);

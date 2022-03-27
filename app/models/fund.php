@@ -118,24 +118,30 @@ Class fund{
         $arr['date']= date("Y-m-d");
         $arr['visibility'] = $data['visibility'];
         $arr['tip'] = $data['tip'];
-        $arr['fund'] = $data['id'];
-        $arr['user'] = $data['user_id'];
+        $fund=$arr['fund'] = $data['id'];
+        $user = $arr['user'] = $data['user_id'];
         $arr['time'] = date("H:i:s");
         $arr['amount'] = $data['amount'];
         $amount = $arr['amount'];
-
+        $total = $arr['amount']+$arr['tip'];
         $table = $data['table']."_donate";
         $table2 = $data['table'];
 
         $query = "INSERT INTO $table (date,visibility,tip,fund_ID,user_ID,time,amount) VALUES (:date,:visibility,:tip,:fund,:user,:time,:amount)";
-        $query2 = "UPDATE $table2 set filled = filled + $amount WHERE ID = :fund";
-        $query3 = "UPDATE registered_user SET donateCount = donateCount + 1 WHERE user_ID = :user";
+        $query2 = "UPDATE $table2 set filled = filled + $amount WHERE ID = $fund";
+        $query3 = "UPDATE registered_user SET donateCount = donateCount + 1 WHERE user_ID = $user";
 
         $DB = new Database();
         $DB->write($query, $arr);
-        $DB->write($query2, $arr);
-        $DB->write($query3, $arr);
+        $DB->write($query2);
+        $DB->write($query3);
 
+        if ($data['balance'] > 0) {
+            $query4 = "UPDATE registered_user SET balance=balance-$total WHERE user_ID = $user";
+            $DB->write($query4,$arr);
+            echo $query4;
+            
+        }
         // show($arr);
     
     }
