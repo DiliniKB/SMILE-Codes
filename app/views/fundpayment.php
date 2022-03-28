@@ -29,7 +29,7 @@
             <?php if(isset($_SESSION['user_id'])){?>
                 <input type="checkbox" id="anonymous" name="Anonymous" onchange="checkAnonymous()"> Anonymous
             <?php } else{ ?>
-                <input type="hidden" id="anonymous" name="Anonymous" value="0" onchange="checkAnonymous()">
+                <input type="hidden" id="anonymous" name="Anonymous" value="1" onchange="checkAnonymous()">
             <?php } ?>
             <div class="user-tip">
                 <div> Your donation may mention publicly in some places, to avoid mentioning your name in your donation you can make it anonymous here.</div>
@@ -87,7 +87,7 @@
     </div>
 
     <div id="balancebox" class="balancebox">
-        Your account balance is <?=$data['balance']?>
+        Your account balance is <?=$data['balance']?></br>
         <button class="continue" onclick="checkbalance(<?=$data['balance']?>)">Donate</button>
         <button class="continue" onclick="balance_box()">Cancel</button>
     </div>
@@ -97,7 +97,7 @@
         <input type="hidden" name="donation">
         <input type="hidden" name="tip">
         <input type="hidden" name="anonymous">
-        <input type="hidden" name="balance" value="0">
+        <input type="hidden" name="balance">
     </form>
     
 </body>

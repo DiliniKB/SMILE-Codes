@@ -130,20 +130,17 @@ Class fund{
         $query = "INSERT INTO $table (date,visibility,tip,fund_ID,user_ID,time,amount) VALUES (:date,:visibility,:tip,:fund,:user,:time,:amount)";
         $query2 = "UPDATE $table2 set filled = filled + $amount WHERE ID = $fund";
         $query3 = "UPDATE registered_user SET donateCount = donateCount + 1 WHERE user_ID = $user";
+        $query4 = "UPDATE registered_user SET donateAmount = donateAmount + $amount WHERE user_ID = $user";
 
         $DB = new Database();
         $DB->write($query, $arr);
         $DB->write($query2);
         $DB->write($query3);
 
-        if ($data['balance'] > 0) {
+        if ($data['balance'] ==1) {
             $query4 = "UPDATE registered_user SET balance=balance-$total WHERE user_ID = $user";
-            $DB->write($query4,$arr);
-            echo $query4;
-            
+            $DB->write($query4);
         }
-        // show($arr);
-    
     }
 
     function DonationStat($table,$id){
@@ -170,7 +167,7 @@ Class fund{
         $count3 = $DB->read($query3);
         if ($count3){
             $visibility = $count3[0]->visibility;
-            if(!$visibility){
+            if($visibility){
                 $name = "Anonymous";
             }
             else {
@@ -317,12 +314,19 @@ Class fund{
         // echo $query0;
         $donations=$DB->read($query0);
 
-        for ($i=0;$i<count($donations);$i++){
-            $user=$donations[$i]->user_ID;
-            $amount=$donations[$i]->amount;
-            if($user>0){
-                $query = "UPDATE registered_user SET donateCount = donateCount -1,donateAmount = donateAmount - $amount,balance = balance + $amount WHERE user_ID=$user";
-                $DB->write($query);
+        $query3 = "SELECT * FROM $table WHERE ID=$id";
+        echo $query3;
+        $fund=$DB->read($query3);
+        $user = $fund[0]->user_ID;
+
+        if($fund[0]->status<2){
+            for ($i=0;$i<count($donations);$i++){
+                $user=$donations[$i]->user_ID;
+                $amount=$donations[$i]->amount;
+                if($user>0){
+                    $query = "UPDATE registered_user SET donateCount = donateCount -1,donateAmount = donateAmount - $amount,balance = balance + $amount WHERE user_ID=$user";
+                    $DB->write($query);
+                }
             }
         }
 
@@ -330,10 +334,6 @@ Class fund{
         // echo $query1;
         $DB->write($query1);
 
-        $query3 = "SELECT * FROM $table WHERE ID=$id";
-        echo $query3;
-        $fund=$DB->read($query3);
-        $user = $fund[0]->user_ID;
 
         $query4 = "UPDATE registered_user SET removed_count = removed_count + 1 WHERE user_ID = $user";
         $DB->write($query4);

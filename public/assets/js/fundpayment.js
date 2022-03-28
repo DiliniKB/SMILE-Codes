@@ -2,7 +2,7 @@ var box1,box2,slider,userInput,amountout,tipin,tipout1,tipout2,total,next,button
 window.onload = function () {
     tipin=0;
     userInput=0;
-    anon=1;
+    anon=0;
     slider = document.getElementById('tipamount');
    
     tipout1 = document.getElementById('tip-preview');
@@ -76,6 +76,7 @@ function confirmation(){
         form.elements[0].value = userInput;
         form.elements[1].value = tipin;   
         form.elements[2].value = anon; 
+        form.elements[3].value = 0;
     }
     else{
         var proceed = alert("Enter a valid amount");

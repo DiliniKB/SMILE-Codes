@@ -110,7 +110,8 @@ Class singlefund extends Controller
         if(isset($_SESSION['user_id'])){
             $data['user_id'] = $_SESSION['user_id'];
             $users = $this->loadModel("user");
-            $user = $users->search_user_by_id($id);
+            $user = $users->search_user_by_id($data['user_id']);
+            // show($user);
             $data['balance'] = $user->balance;
         }else{
             $data['user_id'] = 0;
@@ -133,38 +134,6 @@ Class singlefund extends Controller
         $this->view("fundpayment",$data);
         
     }
-
-    // function confirmedDonation($category,$id){
-    //     $data['page_title'] = "Donate";
-    //     $data['category'] = $category;
-    //     $data['type'] = "fund";
-    //     $data['table'] = $category."fund";
-    //     $data['page_title'] = "View ".$data['category']." ".$data['type'];
-    //     $data['id'] = $id;
-    //     $data['amount'] = $_POST['donation'];
-    //     $data['tip'] = $_POST['tip'];
-    //     // show($data);
-    //     // show($_POST);
-
-    //     // if ($_POST) {
-    //     //     $this->view("blank",$data);
-    //     // }
-    // }
-
-    // function donationSuccess($category,$id,$amount,$tip){
-    //     $data['category'] = $category;
-    //     $data['type'] = "fund";
-    //     $data['table'] = $category."fund";
-    //     $data['page_title'] = "View ".$data['category']." ".$data['type'];
-    //     $data['id'] = $id;
-    //     $data['amount'] = $amount;
-    //     $data['tip'] = $tip;
-
-    //     // show($data);
-    //     show($data);
-
-    //     $this->view("blank",$data);
-    // }
 
     
 }
