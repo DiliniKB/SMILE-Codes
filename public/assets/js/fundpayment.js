@@ -26,7 +26,6 @@ function amount(){
 payhere.onCompleted = function onCompleted(orderId) {
     console.log("Payment completed OrderID:" + orderId);
     form.submit();
-    //Note: validate the payment and show success or failure page to the customer
 };
 
 // Called when user closes the payment without completing
@@ -154,15 +153,3 @@ function checkbalance(x){
     }
 }
 
-// function linking(){
-//     next.href = next.href + "/" + parseInt(userInput) + "/" + parseInt(tipin);
-//     console.log(next.href);
-// }
-
-
-
-// window.slider.oninput = function() {
-//     console.log(slider.value);
-//     output.innerHTML = this.value;
-
-// }
