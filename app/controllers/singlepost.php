@@ -60,8 +60,8 @@ Class singlepost extends Controller
             }
         }
 
-        show($data); 
-        show($_SESSION);
+        // show($data); 
+        // show($_SESSION);
         
         
         $this->view("viewpost",$data);

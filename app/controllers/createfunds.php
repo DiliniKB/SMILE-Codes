@@ -34,6 +34,8 @@
             $data['page_title'] = "Start a ".$data['type'];
 
             $user = $this->loadModel("user");
+            $user0 = $user->search_user_by_id($_SESSION["user_id"]);
+            // show($user0);
 
             if($_POST){
                 for ($i=1; $i <4 ; $i++) { 
@@ -49,11 +51,10 @@
 
                 $uploader = $this->loadModel("fund");
                 $uploader->create_fund($_POST,$_FILES,$data);
-
-                show($data);
-                show($_POST);
-                show($_FILES);
             }
+
+            $data['user'] = $user0;
+            // show($data);
 
             $this->view("create".$data['type'],$data);
         }

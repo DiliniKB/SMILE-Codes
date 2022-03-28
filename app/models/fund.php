@@ -70,7 +70,7 @@ Class fund{
                     $query2 = "UPDATE registered_user SET fundCount = fundCount + 1 WHERE user_ID = $user";
                     $DB->write($query2);
                     header("Location:".ROOT."funds/".$data['category']);
-                    die;
+                    // die;
                 }else{
                     $_SESSION['error']="wrong username or password";                    
                 }

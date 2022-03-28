@@ -75,10 +75,10 @@
                 </div>
                 <input class="input_form" type="text" placeholder="Title of the Fund" maxlength="30" name="Title" required>
                 <input class="input_form" type="text" placeholder="Description" name="description" maxlength="150" required>
-                <input class="input_form" type="text" placeholder="Account Number" name="accNo" maxlength="20" <?php if(!empty($_SESSION['account_number'])){echo "value=". $_SESSION['account_number']."";}?> required>
-                <input class="input_form" type="text" placeholder="Name of the Bank" name="bankName" maxlength="15" <?php if(!empty($_SESSION['bank_name'])){echo "value=". $_SESSION['bank_name']."";}?> required>
-                <input class="input_form" type="text" placeholder="Name of the Branch" name="branchName" maxlength="15" <?php if(!empty($_SESSION['branch_name'])){echo "value=". $_SESSION['branch_name']."";}?> required>
-                <input class="input_form" type="text" placeholder="Account Holder" name="accountHolder" maxlength="15" <?php if(!empty($_SESSION['fname'])){echo "value=". $_SESSION['fname']."";}?> required>
+                <input class="input_form" type="text" placeholder="Account Number" name="accNo" maxlength="20" <?php if(!empty($data['user']->account_number)){echo "value=". $data['user']->account_number."";}?> required>
+                <input class="input_form" type="text" placeholder="Name of the Bank" name="bankName" maxlength="15" <?php if(!empty($data['user']->bank_name)){echo "value=". $data['user']->bank_name."";}?> required>
+                <input class="input_form" type="text" placeholder="Name of the Branch" name="branchName" maxlength="15" <?php if(!empty($data['user']->branch_name)){echo "value=". $data['user']->branch_name."";}?> required>
+                <input class="input_form" type="text" placeholder="Account Holder" name="accountHolder" maxlength="15" <?php if(!empty($data['user'])){echo "value=". $data['user']->first_name." ".$data['user']->last_name."";}?> required>
         
                 <div style="display: inline;">
                     <input class="input_radio" type="radio" name="usertype">
