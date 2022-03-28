@@ -315,7 +315,7 @@
                             <?php endif; ?>
                         <?php endforeach; ?>
                         <?php else:?>
-                        <p class="nofunds"> No settled funds for this user </p>  
+                        <p class="nofunds"> No active posts for this user </p>  
                     <?php endif; ?>
                     <div class="t2">
                         <div class="topic2">Done</div>
