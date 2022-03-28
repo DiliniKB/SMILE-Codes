@@ -1,5 +1,6 @@
 <?php $this->view("header",$data);?>
-
+<!DOCTYPE html>
+<head>
     <link rel="stylesheet" href="<?=ASSETS?>css/styles.css">
     <link rel="stylesheet" href="<?=ASSETS?>css/stylesBigheader.css">
     <link rel="stylesheet" href="<?=ASSETS?>css/stylesdashboard.css">

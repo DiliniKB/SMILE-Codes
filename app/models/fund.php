@@ -177,8 +177,17 @@ Class fund{
             $arr[2][0] = $name;
             $arr[2][1] = $count3[0]->amount;
         } else {
-            $arr[2][0] = "No donations yet";
-            $arr[2][1] = 0;
+            $queryq = "SELECT user_id,amount FROM  $table WHERE fund_ID=$id ORDER BY date DESC, time DESC";
+            $resultq = $DB->read($queryq);
+            if($resultq[0]->user_id == 0){
+                $arr[2][0] = "Unregistered user";
+                $arr[2][1] = $resultq[0]->amount;
+            }else{
+                $arr[2][0] = "No donations yet";
+                $arr[2][1] = 0;
+            }
+
+           
         }
 
         //top donation
@@ -186,7 +195,7 @@ Class fund{
         $count4 = $DB->read($query4);
         if($count4){
             $visibility = $count4[0]->visibility;
-            if(!$visibility){
+            if($visibility){
                 $name = "Anonymous";
             }
             else {
@@ -195,8 +204,15 @@ Class fund{
             $arr[3][0] = $name;
             $arr[3][1] = $count4[0]->amount;
         }else{
-            $arr[3][0] = "No donations yet";
-            $arr[3][1] = 0;
+            $queryq = "SELECT user_id,amount FROM  $table WHERE fund_ID=$id ORDER BY date DESC, time DESC";
+            $resultq = $DB->read($queryq);
+            if($resultq[0]->user_id == 0){
+                $arr[3][0] = "Unregistered user";
+                $arr[3][1] = $resultq[0]->amount;
+            }else{
+                $arr[3][0] = "No donations yet";
+                $arr[3][1] = 0;
+            }
         }
         // show($arr);
         return $arr;
