@@ -130,11 +130,13 @@ Class fund{
         $query = "INSERT INTO $table (date,visibility,tip,fund_ID,user_ID,time,amount) VALUES (:date,:visibility,:tip,:fund,:user,:time,:amount)";
         $query2 = "UPDATE $table2 set filled = filled + $amount WHERE ID = $fund";
         $query3 = "UPDATE registered_user SET donateCount = donateCount + 1 WHERE user_ID = $user";
+        $query4 = "UPDATE registered_user SET donateAmount = donateAmount + $amount WHERE user_ID = $user";
 
         $DB = new Database();
         $DB->write($query, $arr);
         $DB->write($query2);
         $DB->write($query3);
+        $DB->write($query4);
 
         if ($data['balance'] > 0) {
             $query4 = "UPDATE registered_user SET balance=balance-$total WHERE user_ID = $user";
