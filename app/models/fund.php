@@ -136,6 +136,7 @@ Class fund{
         $DB->write($query, $arr);
         $DB->write($query2);
         $DB->write($query3);
+        $DB->write($query4);
 
         if ($data['balance'] ==1) {
             $query4 = "UPDATE registered_user SET balance=balance-$total WHERE user_ID = $user";
