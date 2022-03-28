@@ -65,9 +65,11 @@
                     </div>
                 <?php } ?>
                 </div>
-            <a class="report" href='<?=ROOT?><?="single".$data['type']?>/report/<?=$data['table']?>/<?=$data['id']?>'>
-                Report this fund
-            </a>
+            <?php if(isset($_SESSION['user_id']) AND $data['creaters']['0']->user_ID != $_SESSION['user_id']){ ?>
+                <a class="report" href='<?=ROOT?><?="single".$data['type']?>/report/<?=$data['table']?>/<?=$data['id']?>'>
+                    Report this fund
+                </a>
+            <?php } ?>
             </div>
 
         </div>

@@ -12,9 +12,6 @@ Class fund{
         $DB = new Database();
         $_SESSION['error'] = '';
         $table = $data['table'];
-        // $valid = 0;
-
-        // $allowed[] = "image/jpeg";
 
         if($_POST)
         {
@@ -82,11 +79,11 @@ Class fund{
     }
 
     function view_all_funds($cat){
-        $page_number = isset($_GET['page']) ? (int)$_GET['page'] : 1;
-        $limit = 12;
-        $offset = ($page_number - 1) * $limit;
+        // $page_number = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+        // $limit = 12;
+        // $offset = ($page_number - 1) * $limit;
         $tablename = strtolower($cat."fund");
-        $query = "SELECT * FROM $tablename WHERE amount!=filled and status=0 ORDER BY id DESC LIMIT $limit OFFSET $offset";
+        $query = "SELECT * FROM $tablename WHERE amount!=filled and status=0 ORDER BY id DESC";
         $DB = new Database();
         $result = $DB->read($query);
         if(is_array($result))
@@ -164,7 +161,6 @@ Class fund{
 
         //recent donation
         $query3 = "SELECT first_name,last_name,visibility,amount FROM registered_user INNER JOIN $table ON registered_user.user_id = $table.user_id WHERE $table.fund_ID=$id AND $table.user_id>0 ORDER BY $table.date DESC, $table.time DESC";
-        // echo $query3;
         $count3 = $DB->read($query3);
         if ($count3){
             $visibility = $count3[0]->visibility;
@@ -179,15 +175,18 @@ Class fund{
         } else {
             $queryq = "SELECT user_id,amount FROM  $table WHERE fund_ID=$id ORDER BY date DESC, time DESC";
             $resultq = $DB->read($queryq);
-            if($resultq[0]->user_id == 0){
-                $arr[2][0] = "Unregistered user";
-                $arr[2][1] = $resultq[0]->amount;
+            if($resultq){
+                if($resultq[0]->user_id == 0){
+                    $arr[2][0] = "Unregistered user";
+                    $arr[2][1] = $resultq[0]->amount;
+                }else{
+                    $arr[2][0] = "No donations yet";
+                    $arr[2][1] = 0;
+                }
             }else{
                 $arr[2][0] = "No donations yet";
                 $arr[2][1] = 0;
             }
-
-           
         }
 
         //top donation
@@ -206,15 +205,19 @@ Class fund{
         }else{
             $queryq = "SELECT user_id,amount FROM  $table WHERE fund_ID=$id ORDER BY date DESC, time DESC";
             $resultq = $DB->read($queryq);
-            if($resultq[0]->user_id == 0){
-                $arr[3][0] = "Unregistered user";
-                $arr[3][1] = $resultq[0]->amount;
+            if($resultq){
+                if($resultq[0]->user_id == 0){
+                    $arr[3][0] = "Unregistered user";
+                    $arr[3][1] = $resultq[0]->amount;
+                }else{
+                    $arr[3][0] = "No donations yet";
+                    $arr[3][1] = 0;
+                }
             }else{
                 $arr[3][0] = "No donations yet";
                 $arr[3][1] = 0;
             }
         }
-        // show($arr);
         return $arr;
     }
 
@@ -251,7 +254,6 @@ Class fund{
                 else{ 
                     $desination = $folder3."/".$i;
                 }
-                // echo $desination;
                 move_uploaded_file($data['photos']['photo']['tmp_name'][$i],$desination);
             }else{
                 $_SESSION['error'] = "This file could not be uploaded";
@@ -313,11 +315,9 @@ Class fund{
 
     function delete_fund_user($table, $id)
     {
-        // echo "dead here"; 
         $DB = new Database();
         $_SESSION['error']="";
         $query = "UPDATE $table SET status=1 WHERE ID=$id";
-        // echo $query;
         $DB->write($query); 
     }
 
@@ -328,7 +328,6 @@ Class fund{
         $donateTable = $table."_donate";
 
         $query0 = "SELECT * FROM $donateTable WHERE fund_ID=$id";
-        // echo $query0;
         $donations=$DB->read($query0);
 
         $query3 = "SELECT * FROM $table WHERE ID=$id";
@@ -348,7 +347,6 @@ Class fund{
         }
 
         $query1 = "DELETE FROM $donateTable WHERE fund_ID=$id";
-        // echo $query1;
         $DB->write($query1);
 
 
@@ -356,7 +354,6 @@ Class fund{
         $DB->write($query4);
     
         $query2 = "DELETE FROM $table WHERE ID=$id";
-        // echo $query2;
         $DB->write($query2);
 
 
@@ -423,9 +420,6 @@ Class fund{
         }
 
         $query = "INSERT INTO $table (fund_ID,user_ID,date,time,comment) VALUES (:fundId,:user,:date,:time,:comment)";
-        // show($arr);
-        // echo ($query);
-        
         $result = $DB->write($query,$arr);
 
         if($result){
