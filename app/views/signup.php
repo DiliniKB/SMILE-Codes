@@ -34,7 +34,7 @@
     <img src="<?=ASSETS?>images/mainPages/random lines.png" id="randomLines">
     
     <?php if($data['sys_error'] == 1){?>
-    <div id="message-box" class="<?php echo $data['sys_error_type'];?>">
+    <div id="message-box" style="position:fixed;bottom:0;left:0;" class="<?php echo $data['sys_error_type'];?>">
         <span><?php echo $data['sys_error_msg'];?></span>
     </div>
     <?php } ?>

@@ -135,7 +135,7 @@ Class input_checks{
         $curl = curl_init();
 
         curl_setopt_array($curl, [
-            CURLOPT_URL => "https://easymail.p.rapidapi.com/send",
+            CURLOPT_URL => "https://dumindu-mail.herokuapp.com/Send.php",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_ENCODING => "",
@@ -146,9 +146,7 @@ Class input_checks{
             CURLOPT_CUSTOMREQUEST => "POST",
             CURLOPT_POSTFIELDS => json_encode($data),
             CURLOPT_HTTPHEADER => [
-                "content-type: application/json",
-                "x-rapidapi-host: easymail.p.rapidapi.com",
-                "x-rapidapi-key: fb3f121714mshdc80e69ec08cd17p18688cjsn13394dda0baf"
+                "content-type: application/json"
             ],
         ]);
 
